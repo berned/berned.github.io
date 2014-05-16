@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[B3RN3D]]></title>
+  <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2014-05-16T03:50:45+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
+  <author>
+    <name><![CDATA[b3rn3d]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Importance of Anonymous Email Addresses]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/email/"/>
+    <updated>2014-05-16T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/email</id>
+    <content type="html"><![CDATA[<p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/email.png" title="" ></p>
+
+<p>Notice that we are not talking about anonymous communication here, because we know that email is the worst possible option for that at this point. We are talking about anonymously registering for an email account, so that you can also potentially register for other services anonymously.</p>
+
+<p>Here&rsquo;s an example: Github. In order to create a github account, you need to give them an email address so that you can activate your account.</p>
+
+<h2>The Problem</h2>
+
+<p>The problem for anonymous privacy concerned peoples of the Internet, is that it&rsquo;s relatively difficult to get an email address while using something like Tor. Sites will block you in a variety of ways:</p>
+
+<ol>
+<li><strong>Blocking Registration</strong>: A site like Hotmail will block all access to register for a new address. You cannot use Tor to create an account.</li>
+<li><strong>Blocking Service</strong>: The site will let you register, and subsequently block access to webmail from any Tor exit node.</li>
+<li><strong>Requiring Extensive Validation</strong>: The site allows registration, and access, but will eventually require you to validate your identity through some kind of out-of-band system like an SMS.</li>
+<li><strong>The Tease</strong>: And then there are sites that seem to allow you to register, access the service, but a few months down the line, you suddenly find out that your account has been blocked or requires a special non-Tor validation mechanism.</li>
+</ol>
+
+
+<p><span class='pullquote-right' data-pullquote='the conclusion must be the same &#8211; these providers do not want anonymous users'>
+In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="http://www.b3rn3d.com/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But the conclusion must be the same &mdash; these providers do not want anonymous users. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. </span></p>
+
+<h2>The Solutions</h2>
+
+<p>So what options do anonymous users have? Remember, our goal is to eventually register for some other service that requires an email address, but we can&rsquo;t even register to get an email address in the first place.</p>
+
+<h3>Webmail Providers</h3>
+
+<p>Gmail, Yahoo, Microsoft, all offer webmail. In an ideal world, you could just register with them, get an email address, and be done with it. If your operation only requires that you hide behind a VPN, this may work for you but if you&rsquo;re using something like Tor, you are going to be blocked as described above.</p>
+
+<p>Google has an interesting blocking program right now. When a user goes to register, they create a fingerprinted definition of that user &mdash; what is the resolution of their computer, what plugins do they have installed, what fonts are supported, etc. Therefore changing IP addresses and clearing out your cookies, will not affect the registation process. Google sets a number for each user so that when you first register for an account, you do not have to activate via SMS or phone call. But your third or fourth will require it. There is a method to the madness but I&rsquo;ve yet to figure it out (or care enough).</p>
+
+<p>Yahoo is one of those situations where they allow anonymous registration, but after a month or two they will block access with an un-usable CAPTCHA. No mater how many times you attempt to complete it, when using Tor, the result will say that you have entered the CAPTCHA incorrectly.</p>
+
+<p>This is a semi-plausible option, but generally not a good solution for long term operations. Its safe to say that I would almost never recommend using something like Gmail.</p>
+
+<h3>Temporary Email Services</h3>
+
+<p>Sites like Mailinator provide a temporary email address. You create a random address, sign up for a service using that address and you can check that mailbox whenever you need. Email is cleared out after a certain period of time. It&rsquo;s great for spam and sites with unnecessary registrations.</p>
+
+<p>There are a couple of problems though. one is that many (most?) service providers block registration from Mailinator addresses. Another is that anyone that knows your mailinator email address, can access your email; the concern here being someone resetting your password.</p>
+
+<p>Want an example? Why not reset the passwords for any of these Skype accounts:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <strong>Name</strong>          </th>
+<th> <strong>Mailinator Address</strong> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> Merlin        </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=merlin">merlin@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td> anbu.mailinator   </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">anbu@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td> wert          </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">wert@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>The point is, Mailinator works, when it works, but most of the time it doesn&rsquo;t. For short operations, or something you need temporary access to, this is a good solution.</p>
+
+<p>Other alternatives to Mailinator:</p>
+
+<ul>
+<li><a href="http://www.spambog.com/">Spambog.com</a></li>
+<li><a href="http://maildrop.cc/">Maildrop.cc</a></li>
+<li><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></li>
+<li><a href="https://trashmail.com/">Trashmail</a></li>
+<li><a href="http://10minutemail.com/10MinuteMail/index.html">10 Minute Mail</a></li>
+</ul>
+
+
+<h3>Acquired Accounts</h3>
+
+<p>There are a variety of dark market sales that will give you pre-configured email addresses. These are either hacked accounts, or merely registered addresses to save you the hassle. You can buy them in packs of 100 or 1000 (and up) for a small fraction of Bitcoin. (It&rsquo;s not even worth linking to dark markets at this point but I&rsquo;m sure you&rsquo;ll find them.)</p>
+
+<p>Purchasing email accounts from a dark market is relatively legitimate compared to the alternatives of breaking into the accounts yourself. If you have the time and effort, you might be surprised at how easy this is especially when you look at the very simple password reset questions often used.</p>
+
+<h3>Self-Hosted Email</h3>
+
+<p>One of the most suggested solutions to the email problem is to host email yourself. You purchase a domain anonymously using bitcoin, gift cards, or whatever anonymous method you choose. You spoof or falsify the WHOIS lookup information so that nothing points back to your real identity. Then you purchase a hosting provider using the same anonymous methods. Finally, you run a mail service so you can give yourself an infinite number of email addresses.</p>
+
+<p>This is a viable solution for some operations. If you don&rsquo;t mind admin&#8217;ing a server and walking through the steps, this can be a good option.</p>
+
+<p>The reason I don&rsquo;t like this is that it increases your attack surface. You are now hosting a mail server that directly points to you. If this server is exploited, every email address you have ever created is now accessible.</p>
+
+<p>And for someone like me, that will compartmentalize identities, this solution doesn&rsquo;t scale. I would have to build out a new email server, new domain, new hosting provider for each identity. This is not a problem with the solution as much as it is a problem with OPSEC decisions.</p>
+
+<h3>Trusted Anonymous Email</h3>
+
+<p>The other option, is to find an email provider that you, yourself, trust. Trust is a difficult subject to cover so lets give it an operational definition of a service provider in which you believe won&rsquo;t sell your emails. (We&rsquo;ll ignore the possible nation state surveillance and potential legal jurisdiction issues.)</p>
+
+<p>Here are a few providers that are &ldquo;trusted&rdquo; in many privacy circles:</p>
+
+<ul>
+<li><a href="https://riseup.net/">Riseup.net</a>: This is a provider designed for activitists and community organizers. It is hosted in the U.S. In order to receive an email, you must know two people with an address, or try to request one from an admin on IRC.</li>
+<li><a href="www.autistici.org/">Autustici</a>: Offer a range of services with privacy and activism in mind. Webmail, web site hosting, blog host, newsgroups.</li>
+<li><a href="https://aktivix.org/">Aktivix</a>: Small site that offers free email addresses if you can convinve them you should have one&hellip;via email.</li>
+</ul>
+
+
+<p><span class='pullquote-right' data-pullquote='the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against'>
+These are a breath of fresh air compared to the other solutions where you&rsquo;ve had to trick and lie your way into getting an account. These services generally approve of anonymous users and make it a goal to provide privacy-centric services. I can&rsquo;t highlight enough, the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against.
+</span></p>
+
+<p>The problem is that these are often volunteer organized services, and community driven. That is to say, each of these providers have a hoop you need to jump through in order to obtain an address. This often means you have to befriend someone online, or give them a reason about how you are improving the world and need to maintain your anonymity.</p>
+
+<h2>The Future</h2>
+
+<p>The unfortunate truth is, email will be around for a long time. How long it will be around as an authentication system will hopefully be $longtime &ndash; n.</p>
+
+<p><span class='pullquote-right' data-pullquote='These federated services that were once used for social networking, are now becoming authentication endpoints'>
+What&rsquo;s replacing email registrations is just as scary though. We now see &ldquo;Sign in with Google+&rdquo; and &ldquo;Login with your Facebook account.&rdquo; These federated services that were once used for social networking, are now becoming authentication endpoints. The future of an always-authenticated, always-attributed Internet is very close.
+</span></p>
+
+<h2>Conclusions</h2>
+
+<p>This is the current state of email and anonymity from my point of view. Your operation dicates which solution is going to work the best, no single option will unilaterally work. For long operations greater than a year, it may be worth investing some time into a stable email address where self-hosting is the right answer. For operations that last for a month, temporary email address providers might be the right choice.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lessons Burned]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/10/back-and-reburned/"/>
+    <updated>2014-05-10T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/10/back-and-reburned</id>
+    <content type="html"><![CDATA[<p><img class="center" src="http://www.b3rn3d.com/images/trainhop.jpg" title="" ></p>
+
+<p>Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &mdash; that up until that point had reliably allowed me to maintain my anonymity &mdash; suddenly requested that I verify my identity (for some random definition of identity in this case). There were a couple of ways to do this, and to be honest, it was something very easy to bypass. The point was that the provider suddenly did not enjoy my company.</p>
+
+<p>What was interesting (see distressing) was this occurred synchronously with two of my email addresses being suddenly blocked requiring that I now log in through what they considered a &ldquo;trusted IP&rdquo;. These were two email accounts that had never, ever, touched eachother (never shared contacts, never same IP, randomized timezones). They were from the same provider which could possibly reflect a change in policy for everyone.</p>
+
+<h2>Burn and Move</h2>
+
+<p>Overly paranoid, long story, short, I wiped it all and moved on. In this case it was nice that they left my old site up for me to clone off. My assumption is that it will soon be taken down. And if they&rsquo;re reading this, they can feel free to do so. :)</p>
+
+<h2>New Perspectives</h2>
+
+<p>The set back was one of the first times that I honestly felt it was 100% necessary to burn and move on. Other times it wasn&rsquo;t mandatory but made sense at that point of the operation. Uncertainty is a decent motivator to review a few of my operational decisions. In the near future, I&rsquo;d like to share my current perspectives on:</p>
+
+<ul>
+<li>Email addresses</li>
+<li>Hosting providers</li>
+<li>Anonymous messaging</li>
+</ul>
+
+
+<p>These three are for many, the building blocks of all identities and extra care (which I thought I had given) should be taken. Until then, I&rsquo;ve imported my previous posts.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CIA Operative Teaches Spycraft and Psychology]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/03/09/cia-spycraft-psychology/"/>
+    <updated>2014-03-09T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/03/09/cia-spycraft-psychology</id>
+    <content type="html"><![CDATA[<p>In two articles from Pursuit Magazine, Lindsay Moran, an Ex-CIA operative is
+interviewed about being in the CIA, explains psychology around maintaing a
+separate life, and gives a few cute stories about tradecraft. You can start
+reading <a href="http://pursuitmag.com/lindsay-moran-former-cia-agent-talks-spycraft/">them</a> <a href="http://pursuitmag.com/lindsay-moran-former-cia-operative-why-became-spy/">here</a> if for nothing else, a fun read. I think there are some OPSEC
+take-aways here in regard to psychological problems of maintaining
+compartmentalized identities, using psychological motivators to exploit humans,
+and defending yourself from surveillance &mdash; human or technical.</p>
+
+<h2>Professional Liar</h2>
+
+<p>I&rsquo;m most interested in the psychological perspective that she gives and
+the issues that appear when one is compartmentalizing their identities. You
+can&rsquo;t discuss, disclose, or share what&rsquo;s going on between your
+various identities. In her case, she was maintaining just two identities; her
+personal life, and her professional one. Having a career where everything you
+do is regarded by the U.S. Government as Top-Secret and requiring a specific
+clearance to discuss, is taxing on humans.</p>
+
+<blockquote><p>…I found that a lot of my relationships outside the Agency suffered. It becomes a chore to get together with people and have to lie to them because you feel guilty, and the result is that you kind of shut down, which is just not my nature.</p></blockquote>
+
+
+<p>The natural tendency to &ldquo;shut down,&rdquo; as she says, is common in
+groups that need to keep secrets; hackers, activists, military families.
+You&rsquo;re maintaining an index of things you can share, and things you
+can&rsquo;t. It requires discipline to keep track of these and adhere to the
+lines. This is one of the problems with compartmentalizing multiple identities,
+or even just one.</p>
+
+<h2>Living in a Bubble</h2>
+
+<p>Moran went on to describe, what I would call, a lonely sentiment when you are
+working for the CIA.</p>
+
+<blockquote><p>You tend to forget when you&#8217;re inside the CIA that there&#8217;s a whole other world out there. It&#8217;s to fall back on a cliche, a bubble.</p></blockquote>
+
+
+<p>You&rsquo;ve lost track of reality &mdash; of your personal identity &mdash;
+and you&rsquo;re more focused on maintaining your secrets and lies than having
+personal relationships. I find this may hit close to some that have decided to
+go dark and stay in the caverns of the Internet. For those, they may lean
+towards the identity that gives them the most enjoyment, not the ones that
+require the most work. You, for example, as a gun smuggler, trading on the
+Internet, would much rather have a conversation with a fellow drug smuggler,
+than your coworker at the bank. If for no other reason, you can speak more
+freely about the topic without concern about accidentally leaking the fact that
+you&rsquo;re smuggling guns.</p>
+
+<h2>Exploiting Loneliness</h2>
+
+<p>It should be noted that your adversaries realize that your life as a nomad is
+lonely. It&rsquo;s a sad fact that many or most of the people caught doing
+something illegal on the Internet are identified by LEO&rsquo;s that play into
+how lonely your life is. Moran says:</p>
+
+<blockquote><p>On the most basic level you&#8217;re acting &#8211;almost&#8211; as a clinical<br/>psychologist for your assets.</p></blockquote>
+
+
+<p>She&rsquo;s referring to using the <a href="https://en.wikipedia.org/wiki/Motives_for_spying">classic CIA definition of motivators</a>, and
+exploiting these in people to get what she wants out of the asset. As a gun
+smuggler, you may be motivated by ego, but there&rsquo;s no way you can brag
+about how good you are at smuggling guns on the Internet. But when having a
+private conversation with someone that appears to be a gun smuggler, why not
+show off how cool you are.</p>
+
+<h2>Anti-Surveillance Tactics</h2>
+
+<p>One of the more benign, but subtly interesting comments that she gives was
+referring to ways of evading surveillance. She contrasts how in the movies,
+when someone it tailing you, you speed away as fast as you can. But in all
+actuality, you are trying to lull them to sleep by acting boring.
+There&rsquo;s a bit of HUMINT craft here, that can be applied to electronic
+OPSEC. If you were under electronic surveillance, you can take actions to
+protect yourself. The movie version, of speed away and run a red light would be
+to choose to encrypt your communications. In actuality as a spy, nomad,
+activist, or whatever, your first job is to not be directly targeted. Moran, in
+her tailing example, says:</p>
+
+<blockquote><p>You&#8217;re supposed to convince anyone following you that you&#8217;re not<br/>     a spy.</p></blockquote>
+
+
+<p>We shouldn&rsquo;t speed away, we should walk into the grocery store or go to
+the movies. This is where, in my opinion, our current common consensus with-
+regard-to answering the question of &ldquo;How to defend ourselves against
+electronic surveillance&rdquo; falls flat. Depending on your threat model, and
+what you are concerned about, merely encrypting your communications is not
+enough. By doing so, you have effectively confirmed, in the eyes of the
+adversary, that you have something to hide and are therefore worthy of further
+action. This tactic has been confirmed in an old Edward Snowden release that
+states that the use of encryption, is a determiner of whether or not you will
+be further targeted.</p>
+
+<h2>Take-Aways</h2>
+
+<p>This was a light, fluffy interview that I may be over-analyzing, but it does
+highlight some ways in which the Americans view OPSEC. The psychology of the
+subject has some direct take aways.</p>
+
+<ul>
+<li>When trying to compartmentalize, make
+sure your motivators of money, ideology, coercion, and ego, and fulfilled
+internally. Do not rely on an external resource for this.</li>
+<li>A confidentiality and anonymity (or un-attributability) win over merely confidentiality in the
+face of electronic surveillance.</li>
+<li>Identify the natural tendencies to shut down, or tunnel yourself into a single identity, and compensate by building personal, trusted relationships in your other identities.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tor Country Codes]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/03/05/tor-country-codes/"/>
+    <updated>2014-03-05T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/03/05/tor-country-codes</id>
+    <content type="html"><![CDATA[<p>Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
+&ndash; either by name, fingerprint, or country code. If you have a trusted
+list of nodes you&rsquo;d like to use as a whitelist, you can use that, or if
+you have a list of nodes on a blacklist, it supports that configuration. But
+for those of us that are attempting to be someone else, specifically someone
+from a different country, we can use Tor to not only hide our identity, but
+make it appear to be from a specific geographic location.</p>
+
+<p>Our example here may be an identity where you want to appear like a Ukrainian
+dissident &mdash; when in reality you&rsquo;re a soccer Mom from Chicago, IL.
+By setting up a dedicated machine, with a specific Tor configuration, you can
+make sure that all of your traffic is routed out of an Ukrainian Exit Node.</p>
+
+<h2>TORRC</h2>
+
+<p>The configuration is simple, modify your torrc file to add the follwoing line
+to ensure Tor will only use Ukraine based exit nodes:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  ExitNodes {ua}
+</span><span class='line'>  StrictNodes 1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Please note that in all of these examples, we must enable StrictNodes. This
+example will use either Ukraine, Uganda, South Korea, or Ireland as an exit:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExitNodes {ua},{ug},{kp},{ie}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Blacklisting</h2>
+
+<p>You can also use this as a defensive measure as well. If you&rsquo;ve believe
+there is some kind of geo-centric threat in Uganda, you can configure Tor to
+never use these exit nodes.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeExitNodes {ua}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can exclude all node types for a specific country as well &ndash; exits,
+relays, entry, and bridge nodes.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeNodes {us}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You have the ability to whitelist all node types which is to say you can make
+sure that your entire Tor circuit only uses a certain country. This is NOT
+recommended of course. An ideal circuit will cross countries and legal
+jurisdictions.</p>
+
+<h2>The ?? Country</h2>
+
+<p>Tor uses Maxmind&rsquo;s Geo-ip lookup system for this functionality. Some of
+the versions of their database contain a &ldquo;??&rdquo; country code. This is
+reserved for IPs they either don&rsquo;t know, or aren&rsquo;t willing to
+share. (Tor is making some changes to compensate for this in the future.)</p>
+
+<p>Knowing this can be useful in one of two ways. First, you may think that if you
+don&rsquo;t know what country you&rsquo;re going to be using as a node, then
+you don&rsquo;t want to use it. This is probably a legitimate thought without
+having more information on what causes an IP to have &ldquo;??&rdquo;. Second,
+and more interestingly, some (poorly configured) firewalls will automatically
+drop connections from certain countries. Admins will say &ldquo;Screw it, block
+China. Hacking problem solved!&rdquo; and ask for a raise. Maxmind is a very
+popular Geo-ip lookup database and you can imagine that all of the security
+services built into those fancy enterprise firewalls will most likely be using
+it if it&rsquo;s doing geographic lookups. While many of these admins will have
+policies for how to handle &ldquo;us&rdquo;, &ldquo;cn&rdquo;, and &ldquo;de&rdquo;, I&rsquo;ve found many have issues with a country code that is &ldquo;??&rdquo;. In one case, I&rsquo;ve found a system that blocks all exit
+nodes, except those coming from a &ldquo;??&rdquo; country. I have not
+identitied why this mis-configuration occurs, but hopefully someone can
+leverage this to their advantage.</p>
+
+<h2>List of country codes for Tor</h2>
+
+<pre><code>Country                               Abbrev
+ASCENSION ISLAND                      {ac}
+AFGHANISTAN                           {af}
+ALAND                                 {ax}
+ALBANIA                               {al}
+ALGERIA                               {dz}
+ANDORRA                               {ad}
+ANGOLA                                {ao}
+ANGUILLA                              {ai}
+ANTARCTICA                            {aq}
+ANTIGUA AND BARBUDA                   {ag}
+ARGENTINA REPUBLIC                    {ar}
+ARMENIA                               {am}
+ARUBA                                 {aw}
+AUSTRALIA                             {au}
+AUSTRIA                               {at}
+AZERBAIJAN                            {az}
+BAHAMAS                               {bs}
+BAHRAIN                               {bh}
+BANGLADESH                            {bd}
+BARBADOS                              {bb}
+BELARUS                               {by}
+BELGIUM                               {be}
+BELIZE                                {bz}
+BENIN                                 {bj}
+BERMUDA                               {bm}
+BHUTAN                                {bt}
+BOLIVIA                               {bo}
+BOSNIA AND HERZEGOVINA                {ba}
+BOTSWANA                              {bw}
+BOUVET ISLAND                         {bv}
+BRAZIL                                {br}
+BRITISH INDIAN OCEAN TERR             {io}
+BRITISH VIRGIN ISLANDS                {vg}
+BRUNEI DARUSSALAM                     {bn}
+BULGARIA                              {bg}
+BURKINA FASO                          {bf}
+BURUNDI                               {bi}
+CAMBODIA                              {kh}
+CAMEROON                              {cm}
+CANADA                                {ca}
+CAPE VERDE                            {cv}
+CAYMAN ISLANDS                        {ky}
+CENTRAL AFRICAN REPUBLIC              {cf}
+CHAD                                  {td}
+CHILE                                 {cl}
+PEOPLE'S REPUBLIC OF CHINA            {cn}
+CHRISTMAS ISLANDS                     {cx}
+COCOS ISLANDS                         {cc}
+COLOMBIA                              {co}
+COMORAS                               {km}
+CONGO                                 {cg}
+CONGO (DEMOCRATIC REPUBLIC)           {cd}
+COOK ISLANDS                          {ck}
+COSTA RICA                            {cr}
+COTE D IVOIRE                         {ci}
+CROATIA                               {hr}
+CUBA                                  {cu}
+CYPRUS                                {cy}
+CZECH REPUBLIC                        {cz}
+DENMARK                               {dk}
+DJIBOUTI                              {dj}
+DOMINICA                              {dm}
+DOMINICAN REPUBLIC                    {do}
+EAST TIMOR                            {tp}
+ECUADOR                               {ec}
+EGYPT                                 {eg}
+EL SALVADOR                           {sv}
+EQUATORIAL GUINEA                     {gq}
+ESTONIA                               {ee}
+ETHIOPIA                              {et}
+FALKLAND ISLANDS                      {fk}
+FAROE ISLANDS                         {fo}
+FIJI                                  {fj}
+FINLAND                               {fi}
+FRANCE                                {fr}
+FRANCE METROPOLITAN                   {fx}
+FRENCH GUIANA                         {gf}
+FRENCH POLYNESIA                      {pf}
+FRENCH SOUTHERN TERRITORIES           {tf}
+GABON                                 {ga}
+GAMBIA                                {gm}
+GEORGIA                               {ge}
+GERMANY                               {de}
+GHANA                                 {gh}
+GIBRALTER                             {gi}
+GREECE                                {gr}
+GREENLAND                             {gl}
+GRENADA                               {gd}
+GUADELOUPE                            {gp}
+GUAM                                  {gu}
+GUATEMALA                             {gt}
+GUINEA                                {gn}
+GUINEA-BISSAU                         {gw}
+GUYANA                                {gy}
+HAITI                                 {ht}
+HEARD &amp;amp; MCDONALD ISLAND           {hm}
+HONDURAS                              {hn}
+HONG KONG                             {hk}
+HUNGARY                               {hu}
+ICELAND                               {is}
+INDIA                                 {in}
+INDONESIA                             {id}
+IRAN, ISLAMIC REPUBLIC OF             {ir}
+IRAQ                                  {iq}
+IRELAND                               {ie}
+ISLE OF MAN                           {im}
+ISRAEL                                {il}
+ITALY                                 {it}
+JAMAICA                               {jm}
+JAPAN                                 {jp}
+JORDAN                                {jo}
+KAZAKHSTAN                            {kz}
+KENYA                                 {ke}
+KIRIBATI                              {ki}
+KOREA, DEM. PEOPLES REP OF            {kp}
+KOREA, REPUBLIC OF                    {kr}
+KUWAIT                                {kw}
+KYRGYZSTAN                            {kg}
+LAO PEOPLE'S DEM. REPUBLIC            {la}
+LATVIA                                {lv}
+LEBANON                               {lb}
+LESOTHO                               {ls}
+LIBERIA                               {lr}
+LIBYAN ARAB JAMAHIRIYA                {ly}
+LIECHTENSTEIN                         {li}
+LITHUANIA                             {lt}
+LUXEMBOURG                            {lu}
+MACAO                                 {mo}
+MACEDONIA                             {mk}
+MADAGASCAR                            {mg}
+MALAWI                                {mw}
+MALAYSIA                              {my}
+MALDIVES                              {mv}
+MALI                                  {ml}
+MALTA                                 {mt}
+MARSHALL ISLANDS                      {mh}
+MARTINIQUE                            {mq}
+MAURITANIA                            {mr}
+MAURITIUS                             {mu}
+MAYOTTE                               {yt}
+MEXICO                                {mx}
+MICRONESIA                            {fm}
+MOLDAVA REPUBLIC OF                   {md}
+MONACO                                {mc}
+MONGOLIA                              {mn}
+MONTENEGRO                            {me}
+MONTSERRAT                            {ms}
+MOROCCO                               {ma}
+MOZAMBIQUE                            {mz}
+MYANMAR                               {mm}
+NAMIBIA                               {na}
+NAURU                                 {nr}
+NEPAL                                 {np}
+NETHERLANDS ANTILLES                  {an}
+NETHERLANDS, THE                      {nl}
+NEW CALEDONIA                         {nc}
+NEW ZEALAND                           {nz}
+NICARAGUA                             {ni}
+NIGER                                 {ne}
+NIGERIA                               {ng}
+NIUE                                  {nu}
+NORFOLK ISLAND                        {nf}
+NORTHERN MARIANA ISLANDS              {mp}
+NORWAY                                {no}
+OMAN                                  {om}
+PAKISTAN                              {pk}
+PALAU                                 {pw}
+PALESTINE                             {ps}
+PANAMA                                {pa}
+PAPUA NEW GUINEA                      {pg}
+PARAGUAY                              {py}
+PERU                                  {pe}
+PHILIPPINES (REPUBLIC OF THE)         {ph}
+PITCAIRN                              {pn}
+POLAND                                {pl}
+PORTUGAL                              {pt}
+PUERTO RICO                           {pr}
+QATAR                                 {qa}
+REUNION                               {re}
+ROMANIA                               {ro}
+RUSSIAN FEDERATION                    {ru}
+RWANDA                                {rw}
+SAMOA                                 {ws}
+SAN MARINO                            {sm}
+SAO TOME/PRINCIPE                     {st}
+SAUDI ARABIA                          {sa}
+SCOTLAND                              {uk}
+SENEGAL                               {sn}
+SERBIA                                {rs}
+SEYCHELLES                            {sc}
+SIERRA LEONE                          {sl}
+SINGAPORE                             {sg}
+SLOVAKIA                              {sk}
+SLOVENIA                              {si}
+SOLOMON ISLANDS                       {sb}
+SOMALIA                               {so}
+SOMOA,GILBERT,ELLICE ISLANDS          {as}
+SOUTH AFRICA                          {za}
+SOUTH GEORGIA, SOUTH SANDWICH ISLANDS {gs}
+SOVIET UNION                          {su}
+SPAIN                                 {es}
+SRI LANKA                             {lk}
+ST. HELENA                            {sh}
+ST. KITTS AND NEVIS                   {kn}
+ST. LUCIA                             {lc}
+ST. PIERRE AND MIQUELON               {pm}
+ST. VINCENT &amp;amp; THE GRENADINES      {vc}
+SUDAN                                 {sd}
+SURINAME                              {sr}
+SVALBARD AND JAN MAYEN                {sj}
+SWAZILAND                             {sz}
+SWEDEN                                {se}
+SWITZERLAND                           {ch}
+SYRIAN ARAB REPUBLIC                  {sy}
+TAIWAN                                {tw}
+TAJIKISTAN                            {tj}
+TANZANIA, UNITED REPUBLIC OF          {tz}
+THAILAND                              {th}
+TOGO                                  {tg}
+TOKELAU                               {tk}
+TONGA                                 {to}
+TRINIDAD AND TOBAGO                   {tt}
+TUNISIA                               {tn}
+TURKEY                                {tr}
+TURKMENISTAN                          {tm}
+TURKS AND CALCOS ISLANDS              {tc}
+TUVALU                                {tv}
+UGANDA                                {ug}
+UKRAINE                               {ua}
+UNITED ARAB EMIRATES                  {ae}
+UNITED KINGDOM (no new registrations) {gb}
+UNITED KINGDOM                        {uk}
+UNITED STATES                         {us}
+UNITED STATES MINOR OUTL.IS.          {um}
+URUGUAY                               {uy}
+UZBEKISTAN                            {uz}
+VANUATU                               {vu}
+VATICAN CITY STATE                    {va}
+VENEZUELA                             {ve}
+VIET NAM                              {vn}
+VIRGIN ISLANDS (USA)                  {vi}
+WALLIS AND FUTUNA ISLANDS             {wf}
+WESTERN SAHARA                        {eh}
+YEMEN                                 {ye}
+ZAMBIA                                {zm}
+ZIMBABWE                              {zw}
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Perspectives of OPSEC Models]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/02/17/perspectives-of-opsec/"/>
+    <updated>2014-02-17T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/02/17/perspectives-of-opsec</id>
+    <content type="html"><![CDATA[<p><span class='pullquote-right' data-pullquote='operational security&#8217;s primary goal is to
+mitigate risk while maintaining operational capabilities'>
+As I&rsquo;ve discussed <a href="http://www.b3rn3d.com/blog/2014/01/10/ask-him-about-his-threat-model">before</a>, threat models or risk models help you to define the adversaries you should invest the most resources being concerned about. There are a variety of different risk perspectives you can use to design a
+threat model: adversary-centric, asset-centric, or software-centric. We can
+adopt these into very similar models for OPSEC plans. Each of these models have
+a single principal that operational security&rsquo;s primary goal is to
+mitigate risk while maintaining operational capabilities.
+</span></p>
+
+<h2>Adversary-Centric OPSEC</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/adversary.png" title="" ></p>
+
+<p>In these types of plans, we&rsquo;re focused on what an attacker or adversary
+can do to us; who is coming after you, what they can do, and how you can
+defend. An adversary-cetnric policy has the advantage of being much easier to
+create and document because many people already think this way. It&rsquo;s very
+simple to come up with a list of adversaries that have the potential to affect
+what&rsquo;s important to you. The down-side of this approach is that you need
+to know your adversaries. In the case of the NSA &ldquo;revelations&rdquo;,
+many were shocked to find out that a nation-state had the type of capabilities
+that were disclosed. Prior to this, not many were able to mitigate themselves
+from these types of threats because they simply didn&rsquo;t know or fully
+appreciate an adversary of this nature.</p>
+
+<h2>Asset-Centric OPSEC</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/asset.png" title="" ></p>
+
+<p>This approach focuses on designging mitigations around your assets &mdash; the
+things you value the most. If, for example, your asset is your ability to
+privately communicate on the Internet, you&rsquo;re going to do everything you
+can to ensure no-one can affect this. You&rsquo;re not focused on specific
+adversaries per se in this approach, but you are doing everything in your power
+to protect yourself. Maybe you&rsquo;re buying a VPN service or using a botnet
+or Tor for all communications. Maybe you&rsquo;ve decided that you&rsquo;re
+going to try out one of the new <a href="https://bitmessage.org/wiki/Main_Page">decentralized</a> <a href="http://dee.su/cables">messaging</a> <a href="https://crypto.cat/">systems</a> as a way of
+keeping yourself secure.</p>
+
+<p>One of the benefits of this method is that it&rsquo;s easy to explain why a
+measure needs to take place. If you&rsquo;re operating in a group, this may be
+an important factor. You can easily make the case that your asset needs to be
+secure, therefore we are taking these steps to mitigate the risk. Contrary to
+the adversary-centric approach, this is a less passive perspective &mdash; you
+are not taking the point of view of being fearful of something happening, you
+are merely performing the proactive, required procedures to keep your assets
+safe.</p>
+
+<h2>Operation-Centric OPSEC</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/boxes.png" title="" >
+This approach, my favorite, lends itself nicely to compartmentalization if
+you&rsquo;re managing multiple identities across multiple operations. An
+operation in this case could be an identitiy, a research project, an regular
+activitiy or whatever, that may require specific operational security measures.
+An operation-centreic OPSEC plan may sound recursive to you, but the gist is
+that your plans are focused on your specific operation, and that operation
+alone. The main difference between this and an asset-centric approach is that
+it is designed to have drastically different and compartmentalized procedures
+allowing for scalability without letting one operation interfere with another.</p>
+
+<p>If you&rsquo;ve ever taken a look at the security plans of a large, Fortune 500
+company compared to that of a startup, it&rsquo;s quite possible that the
+startup is able to implement simple, elegent, effective security plans while
+the Fortune 500 spends millions of dollars designing a unilateral security
+policy that severely inhibits the organizations operational capabilities. The
+reason that a small, agile startup can devise elegant OPSEC measures, is the
+same reason that compartmentalizing your OPSEC procedures in an operation-
+centric point-of-view is effective.</p>
+
+<p>The other reason that I like this is because it gives you a good balance of a
+variety of different OPSEC approaches. You are paying attention to your
+operation&rsquo;s assets while taking into account specific adversaries and
+their attacks. As you define an operation &mdash; we&rsquo;ll say buying
+illegal drugs on the internet &mdash; you will be scoped down to a specific
+task and controlled environment. It lets you define boundaries in which your
+OPSEC guidelines can define situations in which your measures/countermeasures
+no longer protect you. This keeps risks at a minimum because you are only
+defending against a subset of your activities &mdash; those associated with the
+operation. In the example of buying illegal drugs on a darknet market, your
+OPSEC guidelines can state that in the case of the darkmarket collapse (which
+seems to happen regularly <a href="http://www.deepdotweb.com/2014/02/13/silk-road-2-hacked-bitcoins-stolen-unknown-amount/">lately</a>), your operation should fold and the identity
+should be burned. You can take into accounts adversaries such as those that own
+the market, and assets you&rsquo;re concerned about such as keeping yourself
+out of jail.</p>
+
+<p>I will admit, none of those listed are perfect, nor do they make up an
+exhaustive list. They may however give you a starting point for building an
+OPSEC plan for yourself.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[For Aaron]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/02/10/for-aaron/"/>
+    <updated>2014-02-10T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/02/10/for-aaron</id>
+    <content type="html"><![CDATA[<p><img class="center" src="http://www.b3rn3d.com/images/aaronswartz.jpg" width="500"></p>
+
+<p>I never had the chance to meet <a href="https://en.wikipedia.org/wiki/Aaron_Swartz#Life_and_works">Aaron_Swartz</a>, but I have been lucky enough to
+meet the people of whom&rsquo;s life he affected. <a href="https://thedaywefightback.org/">The Day We Fight Back</a> is a bitter sweet project to me, that helps commemorate Aaron&rsquo;s time on this
+planet and the work that put towards improving the online society that we knew
+and loved, as well as show the groundswell of community support.</p>
+
+<p>I have no overwhelming feeling that TDWFB will have any direct affect on the
+real issues that we are concerned about, but I believe it&rsquo;s important to
+support this cause for many reasons. First of which is to show powers-that-be
+that there is already a massive, soon-to-be organized community of people who
+are willing to fight back for not just the way we interconnect between
+computing devices, but for the community that has been created on-top of the
+Internet. It&rsquo;s this community that we&rsquo;re hoping to rebuild either
+through noble means of change, or on-top of the ashes of the previous
+generation.</p>
+
+<p><span class='pullquote-right' data-pullquote='there are
+people that operate in dark corners, not because of some kind of nefarious
+activity they are performing online, but because this is the only legitimate
+location where they can feel free to operate'>
+I don&rsquo;t usually feel my personal opinions are appropriate for this blog,
+but I think that there are a lot of people that have, similar to me, decided to
+self-censor and remove their voice from the community. I believe there are
+people that operate in dark corners, not because of some kind of nefarious
+activity they are performing online, but because this is the only legitimate
+location where they can feel free to operate&mdash; a feeling the online
+community used to breed by default.
+</span></p>
+
+<p>Aaron believed strongly in the openness of information and sharing and
+creativity and innovation &mdash; all the tenets of the online community that
+we knew. He believed that these values should be upheld at all costs. In his
+<a href="https://archive.org/stream/GuerillaOpenAccessManifesto/Goamjuly2008_djvu.txt">Guerilla Open Access Manifesto</a>, there&rsquo;s a quote that is salient beyond
+just open access to information, but to privacy, surveillance, and anything
+that degrades the online community:</p>
+
+<blockquote><p>“I agree,” many say, “but what can we do? The companies hold the<br/>copyrights, they make enormous amounts of money by charging for<br/>access, and it’s perfectly legal&#8221; there’s nothing we can do to<br/>stop them.” But there is something we can, something that’s<br/>already being done: we can fight back.</p></blockquote>
+
+
+<p>This is for Aaron; the days he fought, the fights of today, and the fights that
+continue on his behalf.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Event Boundaries: Helping to Compartmentalize Your Operations]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/02/04/event-boundaries-helping-to-compartmentalize-your-operations/"/>
+    <updated>2014-02-04T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/02/04/event-boundaries-helping-to-compartmentalize-your-operations</id>
+    <content type="html"><![CDATA[<p>I <a href="http://www.b3rn3d.com/blog/2014/01/13/braintricks-opsec/">wrote_previously</a> wrote previously about using your brain to help
+compartmentalize you various identities. This is still a common thread of
+research I&rsquo;m working on and wanted to further expand on the idea. The
+short version of my previous post was that if you can create a completely
+different operating environment for each of your operations/activities,
+you&rsquo;ll be able to more easily maintain whatever OPSEC measures
+you&rsquo;ve employed.</p>
+
+<h2>Event Boundaries</h2>
+
+<p>Event Boundaries is a theory that has come to my <a href="http://www.memory-key.com/blog/event-boundaries-and-working-memory-capacity">attention</a> recently. The
+concept is simple &mdash; when you walk through a boundary such as a door,
+gate, or different space, your brain automatically switches from its previous
+mode of operation, to a new one. This is the reason that when you walk into a
+room, you sometimes completely forget why you&rsquo;re there. The point to
+focus on here is that the boundary defines a beginning and an end of an
+environment.</p>
+
+<p><span class='pullquote-right' data-pullquote='When your brain knows there is a beginning and an end, studies show that this
+helps to create a compartment for those memories.'>
+When your brain knows there is a beginning and an end, studies show that this
+helps to create a compartment for those memories. We can use this to our
+advantage. In a perfect world, we could make physical barriers for each of our
+identities so that when we switch to another operation, we switch operating
+environments. Some realistic examples could be that Identity A always operates
+in Starbucks coffee shops, while Identity B always operates in the local
+library.
+</span></p>
+
+<h2>Logical Event Boundaries</h2>
+
+<p>If you&rsquo;re confined to your own apartment, or have a static operating
+environment, you&rsquo;re going to be left to tricking your brain into creating
+logical event boundaries instead. One way to do this is to create an induction
+procedure for that operation. Before you being working in that operating
+environment, you must follow the same exact steps you&rsquo;ve done previously.
+This should take into account as many senses as you can.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/eventboundaries.png" title="" ></p>
+
+<p>For example, you can create a video that is a compilation of various images; a
+river, a mountain, an urban scene, and a zoo &mdash; it doesn&rsquo;t matter
+the scense, but they need to all be in the same &ldquo;mood&rdquo; if you will
+(ie. a gun fight is not the same mood as a running river). Specific sounds or
+music are set in the background of the video. Whenever it&rsquo;s time to
+assume that identity, you adjust the lights in the room to be very bright, you
+put on your headphones, fire up that identities computer, and watch that video.
+Following these steps, while you haven&rsquo;t physically entered a room, you
+have logically created an event boundary that helps your brain to process and
+recall that identity&rsquo;s operating environment.</p>
+
+<p>When exiting, you must do something similar, but it cannot be the same process
+as the way you entered. (Because you&rsquo;re creating the event of leaving the
+room which has a much different feeling than entering.) Create a new video
+consisting of a different mood and different music. I would suggest something
+drastically different than your operating environment. If you normally work
+quiet, create a loud video with lots of action. Finally, adjust the lights in
+the room so that are at their previous state.</p>
+
+<p>Even as I write this, I feel that this may seem over-the-top or ridiculous. I
+might not disagree with over-the-top for what you&rsquo;re doing, but the
+results are tangible. The point of all this is, if you work to maintain
+multiple operations or multiple identities with different operating
+requirements, this process can help (at least for me) to:</p>
+
+<ul>
+<li>compartmentalize each operation so that it does not interfere with your
+personal life</li>
+<li>maintain consistency for whatever OPSEC measures you employ</li>
+<li>recall how that identity is supposed to act online</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tools to Evade Stylometrics]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/"/>
+    <updated>2014-01-31T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics</id>
+    <content type="html"><![CDATA[<p>Stylometrics is the idea that your writing style can be quantified, even
+fingerprinted. The way you turn a phrase, the average word or sentence length,
+the vocabulary used, all contribute to a a scientific perspective of your
+writing style. In terms of OPSEC, stylometrics is an adversarial concern
+&mdash; one of which can be difficult to defend against.</p>
+
+<p>One of the operational security measures that Edward Snowden employed, was to
+write short bits of information; small paragraphs, a few sentences, but never
+long prose. This was, in part, because he had concerns that no matter what kind
+of anyonymity systems or security tactics taken, if an adversary with enough
+power was able to extract the plain text from one of his messages, it could be
+correlated back to himself based on previous documents he had written.</p>
+
+<blockquote><p>Snowden was not yet ready to tell me his name, but he said he was<br/>certain to be exposed &#8220;by his own hand or somebody else&#8217;s.&#8221;&#8221; Until<br/>then, he asked that I not quote him at length. He said semantic<br/>analysis, another of the NSA&#8217;s capabilities, would identify him by<br/>his patterns of language.</p></blockquote>
+
+
+<p>Barton Gellman <a href="http://www.washingtonpost.com/world/national-security/code-name-verax-snowden-in-exchanges-with-post-reporter-made-clear-he-knew-risks/2013/06/09/c9a25b54-d14c-11e2-9f1a-1a7cdee20287_story.html">Washington Post Snowden Communications</a></p>
+
+<p>Also to note, this is not merely an NSA capability, intelligence compaies like
+Palantir posses this capabibility and wrap it into the products that they
+offer.</p>
+
+<p>In 2007, researchers for the <a href="http://readwrite.com/2008/02/14/spidering_the_dark_web">Univesity of Arizona</a>, scraped the Deep Web blogs,
+forums, and anything else they could get their hands on, in an attempt to
+attribute people. They crawled forums run by neo-nazis and devised a way of
+taking all that information, and separating out who was who on the forums. They
+used stylometrics to collect enough information to group people up based on a
+variety of features.</p>
+
+<h2>Types of stylometrics</h2>
+
+<p>There are two ways in which stylometrics can be used against you. (Both of them
+have their names borrowed from an approach to Natural Language Processing.) One
+way, which is called &ldquo;Supervised,&rdquo; refers to taking a group of
+documents with known authors, and attributing them to an unknown author. For
+instance if we had a writing sample from Edward Snowden, we could attempt to
+attribute his authoriship of something he anonymously posted, by comparing his
+writing styles. This type is relatively easy for humans to do themselves.</p>
+
+<p>The second type, &ldquo;Unsupervised,&rdquo; leverages computational power to
+take a pile of anonymous blocks of text, and group them together based on the
+writing style. The example, the neo-nazi forum research didn&rsquo;t identify
+individuals posting to the forum, but they grouped which posts belonged to
+NaziA and which posts belonged to NaziB.</p>
+
+<h2>What makes up your style</h2>
+
+<p>There are dozens of models that deliver a perspective on your writing style.
+They&rsquo;ve been created by academics and all aim to be more accurate than
+the next. One called the &ldquo;9 Feature Model&rdquo; is merely taking nine
+properties like sentence length, unique words, a readability index, and some
+other simple to measure features of the text to come out with a classification.</p>
+
+<p>Other, more complex methods like the &ldquo;Writeprints&rdquo; method, use
+hundreds of features to make their conclusions. I&rsquo;m simplifying this to
+features classifiers, but these are actually extremely complicated models using
+neaural nets to generate their results.</p>
+
+<h2>Evasion tactics</h2>
+
+<p>If we see this as a threat, we need to mitigate. Researchers who <a href="http://events.ccc.de/congress/2011/Fahrplan/attachments/2019_28C3-authorship.pdf">presented at 28C3</a> define a few ways in which to evade being finterprinted:</p>
+
+<ol>
+<li> <strong>Obfuscation</strong>: Generally make the text appear unlike your normal writing
+ style.</li>
+<li> <strong>Imitation</strong>: Make your writing stile look like someone elses.</li>
+</ol>
+
+
+<p>(They also recommend what they call &ldquo;Translation&rdquo; which is merely
+taking a text, using an automatic translator service to convert it to a
+different language, and then change it back. I don&rsquo;t see any difference
+between this and &ldquo;Obfuscation&rdquo; and it presents a new anonymity
+issue.)</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/style1.png" title="" ></p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/style2.png" title="" ></p>
+
+<h2>Tool: Anonymouth</h2>
+
+<p>These researchers even gave us some data that shows how effective each type of
+mitigation is to defend against. They show us a break down of the stylometric
+model employed, and how effective each type of evasion tactic was. They also
+give us a tool to help us anonymize our own documents that works surprisingly
+well. Althought it&rsquo;s very complicated.</p>
+
+<p>There are a lot more details about how the tool works and when to use it, but
+for now, you can take a look at <a href="https://github.com/psal/anonymouth">Anonymouth</a>. This is a Java tool that takes the document you&rsquo;d like to anonymize, compares it to other documents
+you&rsquo;ve written, and then takes a variety of texts from other others to
+compare against. The results give you a breakdown of common words you use,
+attributing sentence structure, and even some suggestions about how to change
+the document to defend against attribution.</p>
+
+<p>As this is an Academic research tool, it&rsquo;s written in Java and awkward to
+use, but in general, it is pretty effective. They are now working to automate
+many of its features so that instead of manually anonymizing a document, you
+can tell the tool a directory of documents that you&rsquo;d like to anonymize.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Burner Phone Best Practices]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/01/22/burnerphone/"/>
+    <updated>2014-01-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/01/22/burnerphone</id>
+    <content type="html"><![CDATA[<p>There&rsquo;s a good mix of useful and mis-information in regard to burner
+phones out there. I thought I would compile some facts and review the proper
+use-case for a burner phone.</p>
+
+<h2>Tracking: Fingerprinting</h2>
+
+<p>Burner phones, for both CDMA (US Sprint, US Verizon Wireless) and GSM (Ever
+other carrier network in the world), are easy to trace. Carriers specifically
+segregate burner/prepaid traffic from normal subscriber traffic. Yes, this is
+primarily used to control which type of traffic should receive priority, but
+it&rsquo;s used by <a href="https://en.wikipedia.org/wiki/Law_enforcement_officer">LEOs</a> to easily identify network traffic used by targets.</p>
+
+<p>Bruce Schneier recently commented on what the NSA is actively doing in regards
+to burner phones. In a recent lawsuit between the NSA and the EFF, the court
+documents show that one of the ways the US keeps track of burner traffic, is by
+fingerprinting the number of unique contacts, and the times of the calls. With
+this information, it&rsquo;s much easier to keep track of whose phone is whose.</p>
+
+<p>For example, Joe talks to John, George, and Jimmi on a daily basis. He cycles
+through burner phones at least once a week. For each phone, Joe adds the
+contact information for John, George, and Jimmi and calls only them. Joe stops
+never re-uses a burner phone.</p>
+
+<p>From this information, we can easily track his first burner&rsquo;s contact
+(namely John, George, and Jimmi) because this information is <a href="http://www.forensicswiki.org/wiki/SIM_Cards">stored on the SIM</a>,
+and correlate it to the contacts used by the next burner phone. How hard would
+it be for law enforcment to trace this information? Turns out not very hard if
+you&rsquo;re a subject of interest.</p>
+
+<h2>Tracking: Location</h2>
+
+<p>There are two parts to the location of your burner you need to be aware of.
+First, carriers maintain logs of the signal strengh between your phone and a
+carrier tower/base station. With this information they can <a href="http://www.al911.org/wireless/triangulation_location.htm">triangulate your location</a>. On your smart phone this is
+considered your &ldquo;Course-Grain&rdquo; location as opposed to &ldquo;Fine-Grain&rdquo; that the GPS in your smartphone provides.</p>
+
+<p>The second location to think about here is the location used to register/
+activate the phone in the first place. For American burners, they are required
+to call into a toll-free number and setup their new phone using a name,
+address, and secret password. Of course this information is not verified and
+can be easily spoofed. But the phone number used to activate the account, is
+forever associated to that device.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/phone.jpg" title="" ></p>
+
+<h2>When not to use a burner</h2>
+
+<ul>
+<li><strong>hiding from a national adversary</strong>: If you think the government is after you,
+there&rsquo;s really not much a burner phone is going to help you with. They
+can pull up security camera bartage of when you purchased the phone, they can
+map all the locations in which you&rsquo;ve powered on the device, they can
+watch the calls being made by a variety of burners and correlate them all
+together.</li>
+<li><strong>near your home</strong>: Every time you power up, that information is logged. If you
+decide to constantly turn on your device in or around our apartment, it is
+very easy for even local law enforcement to find you</li>
+<li><strong>calling someone you know that does not use a burner</strong>: If all you&rsquo;re
+going to do is call Jimmy down the street, it&rsquo;s easy to correlate your
+activities across multiple burners because the destination address never
+change. It becomes a bit harder if Jimmy changes his phone number at the same
+time you change yours.</li>
+<li><strong>registering for a gmail address</strong>: you might think it&rsquo;s a good idea to
+setup a burner to make a new email address but while it can be, you also have
+to be careful with how you use that address, and where you registered your
+phone. If you buy a phone in London, and then pretend that you&rsquo;re in
+Brazil for all of your email correspondence, this will be a red flag for
+investigators. Make sure you remember what that phone will be for.</li>
+</ul>
+
+
+<h2>When is a burner useful</h2>
+
+<ul>
+<li><strong>hiding from non-law enforcement</strong>: If your goal is to just make sure that no
+one you know can find your name or home address, a burner is useful.</li>
+<li><strong>registering for inconsequential accounts</strong>: If you just need to register an
+account, but aren&rsquo;t concerned about being tracked back to its activity,
+you can use a burner as an alternative to registering with a pay phone or
+something else.</li>
+</ul>
+
+
+<h2>Pro tips</h2>
+
+<p>Based on everything we&rsquo;ve discussed so far, here are some operational
+suggestions. Feel free to suggest more that work for you:</p>
+
+<ol>
+<li> Get feature/dumb/flip-phones rather than smart phones. iOS, Android (or
+ whatever other OS you choose) is not interested in keeping track of your
+ privacy. Feature phones have the benefit of being generally too stupid to
+ leak information about you.</li>
+<li> Never turn your phone on in, or around your home. Take the battery out
+ when it&rsquo;s not being used.</li>
+<li> Leave your phone at a place you&rsquo;re going to use it to make sure it
+ never gets turned on at your home</li>
+<li> If possible, pay someone else to activate the phone for you. This is a way
+ of removing yourself from the activation process completely. There are
+ some burner trading sites on the deep web.</li>
+<li> Fill your phone with fake contacts. Each burner should look like it has a
+ different set of contacts in it.</li>
+<li> Never save your real contacts in the phone. Put them on paper, or on a
+ separate device, but never on the phone. This information is potentially
+ saved on the SIM and accessible to carriers.</li>
+<li> Pad operational calls with random calls. Dial numbers you don&rsquo;t
+ know, leave messages, call tech support, send an SMS. Make it difficult to
+ differentiate between your operations and random activities.</li>
+<li> Use a burner as little as possible before switching to the next one.</li>
+<li> If purchased from a retail store, wait at least 60 days to activate. This
+ is usually how far back mom and pop stores keep security bartage.</li>
+<li> Activate from a payphone as far away from home as possible, or at least in
+ the area where you will be using it most often</li>
+<li> Dispose of burner phones completely. Don&rsquo;t recycle them or throw
+ them away in your apartment garbage. They should be destroyed completely,
+ electronically wiped, and physically wipe down.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Braintricks for OPSEC]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/01/13/braintricks-opsec/"/>
+    <updated>2014-01-13T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/01/13/braintricks-opsec</id>
+    <content type="html"><![CDATA[<p>Creating different usernames is just the first step when we&rsquo;re developing an
+OPSEC plan for pseudonymity. One of the most plausible threats to your privacy/anonymity/pseudonymity is one where the adversary correlates a personality
+trait across all of your accounts.</p>
+
+<p>In 2011, researchers from University of Cambridge published details in how to
+correlate traffic patterns of a Tor user, to their real life identity. They did
+this by taking advantage of the fact that most people visit a certain set of
+websites on a regular basis. Reddit, Facebook, Twitter, or some specific site
+of interest. This is an example where an attacker is taking advantage of a
+personality quirk to attribute you to your identity.</p>
+
+<p><span class='pullquote-right' data-pullquote='SDM is when the
+human brain compartmentalizes certain memories based on the state-of-mind of
+that person'>
+Your writing style is also something attributable. You may know that certain
+adversaries have the ability to do correlation attacks on your writing style
+(or at least Edward Snowden thinks so). Taking something that you&rsquo;ve written
+anonymously and matching it to something you&rsquo;ve written in the clear.
+The idea of State-Dependant Memory (SDM) can help us here. SDM is when the
+human brain compartmentalizes certain memories based on the state-of-mind of
+that person. While in that state-of-mind or consciousness, memories are harder
+or easier to recall. Think of this like a lock box for your memories.  A common
+example of this is studying for a test at a University. Before your exam, you
+study in the room you&rsquo;ll be taking the test, at the time of day you&rsquo;ll be
+taking the test, at the same desk that you will be using. When you go to take
+your exam, your brain will flip into the state that you&rsquo;ve trained it for,
+making it easier to recall those memories.
+</span></p>
+
+<p>You can apply this as a management tactic for you pseudonymity. For each
+identity that is created, design a state of mind for that user. Your
+consciousness can be adjusted using a combination of one of your human inputs:</p>
+
+<ul>
+<li>Music/Audio: play certain music, certain songs, certain albums or look into a
+specific meditation album that can put you into a specific, reproducable
+state of mind. (See Robert Monroe&rsquo;s tapes)</li>
+<li>Environment: It might not be possible to switch keyboard, monitor, or desktop
+environment you normally work under but changing where you work has a huge
+impact. Find a public place that your identity always goes, or sit in a
+specific area of your apartment.</li>
+<li>Lighting/Colors: Studies have shown that lighting and the colors of that
+light have a drastic impact on the mood and state of being. This could be as
+simple as having a light on or off while working, changing the color scheme
+of the monitor, or closing the blinds for a window.</li>
+<li>Drugs/Chemicals: When trying to reach a state of mind, you&rsquo;d be hard
+pressed to find a faster, more consistent way to get into a reproducible
+state. Many stimulants like caffeine, Ridilin, and cocaine, have a common
+affect on people where taking something like LSD may not give you
+reproducible results.</li>
+<li>Smells: As we&rsquo;re going through all the senses, don&rsquo;t forget smell. Simply
+lighting a specific candle or type of incense can take you into the place
+that you need to be.</li>
+<li>Time: Being aware of the time of day and when the identity works, is not just
+helpful to bring you to a specific state of consciousness, it can also help
+deter adversaries from being able to tell what timezone you live in.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Did You Ask Him About His Threat Model]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/01/10/ask-him-about-his-threat-model/"/>
+    <updated>2014-01-10T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/01/10/ask-him-about-his-threat-model</id>
+    <content type="html"><![CDATA[<p>Have you ever seen one of those arguments on forums or IRL where a group of
+people argues which scenario is more secure compared to another? It goes
+something like this:</p>
+
+<blockquote><p>Hey, how secure is Cloud? Should I use that?&#8221;<br/> Alice: Cloud is fine. I just wouldn&#8217;t save your passwords in it.<br/> Bob: Actually, Cloud is really dangerous. If someone hacks into your<br/>account they&#8217;ll be able to get everything that you own in the<br/>Cloud.<br/> Carl. It&#8217;s worse than that! The cloud should never ever be used<br/>under any circumstance. It is inherently insecure.<br/> Doug: People that use the cloud should be removed from this earth.</p></blockquote>
+
+
+<p>These are usually escalating arguments that try to pretend that if you have
+some higher level of security measures in place, it&rsquo;s a sign of wisdom. The
+truth is, every answer is wrong because they don&rsquo;t have enough information to
+intelligently make a recommendation. What should have been asked is &ldquo;What
+is your threat model?&rdquo; Or put simply, what are you legitimately concerned
+about. A nation-state, hunting you down for disclosing its secret, or are you
+just kind of concerned about your privacy without doing activities with life
+ending repercussions?</p>
+
+<p>You&rsquo;ve heard that IT guy tell you the story about how &ldquo;The most secure
+computer is the one that&rsquo;s turned off, put in a locked room, and filled
+with cement&rdquo; usually followed up by another IT guy adding in some other
+obscene logistic. Yes this is secure, but it&rsquo;s not a real-world solution
+because most computers have operational requirements.</p>
+
+<p>Step away from technical examples &mdash; let&rsquo;s take the United States
+Secret Service for instance. Their job is to protect the United States
+President from a variety of adversaries. If your job was to protect the
+President, why not just put him in a locked room padded with cement and keep
+him there until the end of his term? Because he has operational requirements.
+This is the rub of all operational security measures.</p>
+
+<p>You can apply this to your lives. You shouldn&rsquo;t be asking how much you
+care about security, you should be asking what is the biggest threat to your
+well being. If you&rsquo;re just concerned about your privacy, but someone
+attributing you to your activities results in embarrassment (as opposed to jail
+time), then maybe your operational security measures can be more relaxed and
+comfortable. They might even fit in with your current lifestyle.
+If you&rsquo;re a nation state dissident and your activities being attributed
+to you results in your death, your operational security measures are going to
+be extremely high and would require a disciplined, rigid approach.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Managing Pseudonyms Better Than DPR]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/01/08/managing-pseudonyms/"/>
+    <updated>2014-01-08T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/01/08/managing-pseudonyms</id>
+    <content type="html"><![CDATA[<p>When Dread Pirate Roberts was caught, there was a lot of talk about all of his
+OPSEC failures. Specifically how he had used a pseudonym to reference another
+pseudonym&rsquo;s email address, letting investigators tie together the
+activities of both of those accounts.</p>
+
+<p>We&rsquo;ve heard it time and time again that we need to
+&ldquo;compartmentalize&rdquo; our lives and identities and never let them
+touch. For most, this is easier said that done but here are a few thoughts on
+making it easier.</p>
+
+<h2>Start From Scratch</h2>
+
+<p>When he started out, DPR probably didn&rsquo;t realize that his darkmarket
+forum would take off as well as it did, and he probably didn&rsquo;t know he
+was going to be such a juicy target for law enforcement. So he had made some
+pseudonyms and was doing some research without paying much attention.
+What we should learn is that, when it&rsquo;s time to go dark, there is no
+looking back; we have to start from scratch. It doesn&rsquo;t matter how
+popular you have become under one of your other nyms and how much community
+&ldquo;cred&rdquo; you&rsquo;ve earned thus far, you have to drop it all.</p>
+
+<p>Start from scratch and decide what you&rsquo;re doing. Make up new accounts,
+and document your adversaries that you need to plan for. If you think you might
+ever accidentally cross back over, burn those accounts. Generate new passwords
+and forget them. Don&rsquo;t let yourself ever log into them again.</p>
+
+<h2>Lose the Ego</h2>
+
+<p>Starting from scratch also means accepting that, in some ways, you&rsquo;ve
+completely wasted your time. The previous accounts you&rsquo;ve created can
+never be used for what you other accounts are doing. You can send a private
+message to your friends saying, &ldquo;Hey, this is actually
+Th3D@rkDru1d&rdquo; because no matter how much you trust them, they will have
+become a liability.</p>
+
+<p>You can see this issue again coming into play with DPR. He writes about how he
+is rich and powerful and feels limitless. It was his final power move of trying
+to kill someone that actually took him down the hardest.</p>
+
+<h2>Know Your Identity</h2>
+
+<p>If you&rsquo;re creating more than one identity, you need to be able to know
+that person inside and out. Names, addresses, background history, social
+network, common websites. Even things like writing style and personality type.
+All of these are tools that an adversary could use to correlate your accounts.</p>
+
+<h2>Real Life is its Own Identity</h2>
+
+<p>Your real life identity should be your most prized possession. It&rsquo;s the
+most difficult one to burn, you can&rsquo;t just start from scratch, and most
+do not want to cut ties with their personal relationships. So this is the one
+you should protect the most.</p>
+
+<p>One of the most common mistakes is tie your real life identity, to an online
+pseudonym. It&rsquo;s becoming popular for &ldquo;hackers&rdquo; and
+&ldquo;security researchers&rdquo; to share all their projects and information;
+some of which is illegal. Technically, port scanning an un-owned host is
+illegal but it&rsquo;s one of those accepted things like speeding. As
+&ldquo;hackers&rdquo; are becoming famous at things like Defcon, Blackhat, and
+any of the other thousands of security conferences, the reward for disclosing
+things to the public is higher. This makes them make riskier decisions to get
+that fame.</p>
+
+<h2>Know Your OPSEC</h2>
+
+<p>Decide on your OPSEC measures. Figure out what you&rsquo;re going to do to
+protect yourself and your identities. Each of your risky online activities will
+usually require its own separate OPSEC measures. Keep them divided, but keep
+them consistent.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Defining Levels of Opsec to Your Identities]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/01/05/levels-of-opsec/"/>
+    <updated>2014-01-05T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/01/05/levels-of-opsec</id>
+    <content type="html"><![CDATA[<p>If you are compartmentalizing accounts, making multiple identities, and keeping
+them separated, you run into a few problems. One of which is remembering the
+OPSEC measures you&rsquo;ve decided to employ for each account.</p>
+
+<ul>
+<li>Political Dissident
+
+<ul>
+<li>Goal: Leak information about a local dirty politician</li>
+<li>OPSEC: Work laptop but using a VPN service to access Twitter</li>
+<li>Risks: Politician will come after you and your familiy</li>
+</ul>
+</li>
+<li>Human Body Part Trafficer
+
+<ul>
+<li>Goal: Buy and sell kidneys, livers, and various body parts to the highest
+bidder on the black market</li>
+<li>OPSEC: Dedicated laptop running an anonymized OS. Do not access any other
+services besides the black market forum. Never gets on the Clearnet.</li>
+<li>Risks: Law enforcement may find you and throw you in jail for a long time</li>
+</ul>
+</li>
+</ul>
+
+
+<p>In each of these examples you have completely different activities and
+completely different risks. The political dissident has decided she only needs
+to minimally protect herself as the local politician she&rsquo;s messing with
+doesn&rsquo;t have the means to figure out who would be leaking the
+information. The body part trafficer though knows that he is a target and has
+chosen to protect himself.</p>
+
+<p>What happens when you scale even further: One identity runs a black market
+forum, one identity likes to chat with people on twitter, one identity hangs
+out in the Anon IRC channels. It&rsquo;s easy to lose track of which identities
+are used for what and what kind of OPSEC measures you&rsquo;ve chosen to use.</p>
+
+<p>ne solution to this is to categorize your identities into levels where each
+level has its own decided upon OPSEC measure. For instance:</p>
+
+<ul>
+<li>Level 0 &mdash; No protections. You don&rsquo;t care about privacy and are
+not concerned with other people attributing your online activities to
+yourself.</li>
+<li>Level 1 &mdash; Minimal: You are concerned about privacy, but choose simple,
+minimalist tactics to protect yourself. For example, you are using a VPN
+service for everyday browsing, but being caught is inconsequential.</li>
+<li>Level 2 &mdash; Medium: You are concerned with your privacy and take action
+to ensure that you are safe. It is likely that if someone finds out what you
+are doing, you&rsquo;ll have to pay a price, but it is not a life-and-death
+situation. For example, journalists working with a source use the TAILS
+LiveCD.</li>
+<li>Level 3 &mdash; High: Those users that are likely to be targeted, and likely
+to have heavy consequences if caught. They have done everything in their
+power to maintain their pseudonymity, but still try to lead some semblance of
+a personal life.</li>
+<li>Level 4 &mdash; Extreme: These are reserved for those people doing high risk
+activities where the result of an adversary outing you is a matter of life
+and death. You&rsquo;re prepared to forgo personal relationships, worldly
+goods, and just about anything to maintain your anonymity.</li>
+</ul>
+
+
+<p>Knowing your likely threats, and defining your level of pseudonymity will help
+keep management of your OPSEC measures consistent. Something that recent
+arrests seem to have failed at.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,98 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>B3RN3D</title>
-  <meta name="author" content="b3rn3d">
-
-  
-  <meta name="description" content="Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://www.b3rn3d.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
-  <!--<script src="/javascripts/modernizr-2.0.js"></script>-->
-  <!--<script src="/javascripts/jquery.min.js"></script>-->
-  <!--<script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>-->
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">B3RN3D</a></h1>
-  
-    <h2>Staying in the darkness</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:www.b3rn3d.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[Category: Anonymity | B3RN3D]]></title>
+  <link href="http://www.b3rn3d.com/blog/categories/anonymity/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2014-05-16T03:50:45+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
+  <author>
+    <name><![CDATA[b3rn3d]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/16/email/">The Importance of Anonymous Email Addresses</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2014-05-16T00:00:00+00:00" pubdate data-updated="true">May 16<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
+  <entry>
+    <title type="html"><![CDATA[The Importance of Anonymous Email Addresses]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/email/"/>
+    <updated>2014-05-16T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/email</id>
+    <content type="html"><![CDATA[<p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
 
 <p><img class="center" src="/images/email.png" title="" ></p>
 
@@ -112,8 +38,7 @@
 </ol>
 
 
-<p><span class='pullquote-right' data-pullquote='the conclusion must be the same &#8211; these providers do not want anonymous users'>
-In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But the conclusion must be the same &mdash; these providers do not want anonymous users. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. </span></p>
+<p>Surround your pullquote like this {" text to be quoted "}</p>
 
 <h2>The Solutions</h2>
 
@@ -193,7 +118,7 @@ In each of these cases, there are probably ways to evade these restrictions. For
 
 <p>One of the most suggested solutions to the email problem is to host email yourself. You purchase a domain anonymously using bitcoin, gift cards, or whatever anonymous method you choose. You spoof or falsify the WHOIS lookup information so that nothing points back to your real identity. Then you purchase a hosting provider using the same anonymous methods. Finally, you run a mail service so you can give yourself an infinite number of email addresses.</p>
 
-<p>This is a viable solution for some operations. If you don&rsquo;t mind admin&#8217;ing a server and walking through the steps, this can be a good option.</p>
+<p>This is a viable solution for some operations. If you don&rsquo;t mind admin'ing a server and walking through the steps, this can be a good option.</p>
 
 <p>The reason I don&rsquo;t like this is that it increases your attack surface. You are now hosting a mail server that directly points to you. If this server is exploited, every email address you have ever created is now accessible.</p>
 
@@ -212,9 +137,7 @@ In each of these cases, there are probably ways to evade these restrictions. For
 </ul>
 
 
-<p><span class='pullquote-right' data-pullquote='the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against'>
-These are a breath of fresh air compared to the other solutions where you&rsquo;ve had to trick and lie your way into getting an account. These services generally approve of anonymous users and make it a goal to provide privacy-centric services. I can&rsquo;t highlight enough, the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against.
-</span></p>
+<p>Surround your pullquote like this {" text to be quoted "}</p>
 
 <p>The problem is that these are often volunteer organized services, and community driven. That is to say, each of these providers have a hoop you need to jump through in order to obtain an address. This often means you have to befriend someone online, or give them a reason about how you are improving the world and need to maintain your anonymity.</p>
 
@@ -222,90 +145,12 @@ These are a breath of fresh air compared to the other solutions where you&rsquo;
 
 <p>The unfortunate truth is, email will be around for a long time. How long it will be around as an authentication system will hopefully be $longtime &ndash; n.</p>
 
-<p><span class='pullquote-right' data-pullquote='These federated services that were once used for social networking, are now becoming authentication endpoints'>
-What&rsquo;s replacing email registrations is just as scary though. We now see &ldquo;Sign in with Google+&rdquo; and &ldquo;Login with your Facebook account.&rdquo; These federated services that were once used for social networking, are now becoming authentication endpoints. The future of an always-authenticated, always-attributed Internet is very close.
-</span></p>
+<p>Surround your pullquote like this {" text to be quoted "}</p>
 
 <h2>Conclusions</h2>
 
 <p>This is the current state of email and anonymity from my point of view. Your operation dicates which solution is going to work the best, no single option will unilaterally work. For long operations greater than a year, it may be worth investing some time into a stable email address where self-hosting is the right answer. For operations that last for a month, temporary email address providers might be the right choice.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2014/05/16/email/">The Importance of Anonymous Email Addresses</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/10/back-and-reburned/">Lessons Burned</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/09/cia-spycraft-psychology/">CIA Operative Teaches Spycraft and Psychology</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/05/tor-country-codes/">Tor Country Codes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/17/perspectives-of-opsec/">Perspectives of OPSEC Models</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/10/for-aaron/">For Aaron</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/04/event-boundaries-helping-to-compartmentalize-your-operations/">Event Boundaries: Helping to Compartmentalize Your Operations</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/31/tools-styometrics/">Tools to Evade Stylometrics</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/22/burnerphone/">Burner Phone Best Practices</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/13/braintricks-opsec/">Braintricks for OPSEC</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - b3rn3d -
-</p>
-
-</footer>
-  
-
-
-</body>
-</html>
+</feed>
