@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Fingerprinting | B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/blog/categories/fingerprinting/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2014-05-26T15:40:09+00:00</updated>
+  <updated>2014-05-26T19:56:34+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -54,6 +54,8 @@
 <p>Demo: <a href="javascript:alert
 ('Your resolution is '+screen.width+'x'+screen.height);">
 Screen Resolution Detection Example</A></p>
+
+<p>EDIT: <a href="www.reddit.com/user/lugh">lugh</a> points out that this example is inconsistent and depends on your OS and browser.</p>
 
 <h2>Defense Measures</h2>
 
