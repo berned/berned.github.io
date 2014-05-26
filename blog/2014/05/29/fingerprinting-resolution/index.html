@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>B3RN3D</title>
+  <title>Fingerprinting Attacks on Screen Resolution - B3RN3D</title>
   <meta name="author" content="b3rn3d">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.b3rn3d.com">
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
@@ -61,15 +61,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/29/fingerprinting-resolution/">Fingerprinting Attacks on Screen Resolution</a></h1>
+      <h1 class="entry-title">Fingerprinting Attacks on Screen Resolution</h1>
     
     
       <p class="meta">
@@ -92,7 +89,7 @@
   </header>
 
 
-  <div class="entry-content"><p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
+<div class="entry-content"><p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
 
 <p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
 
@@ -159,20 +156,57 @@ Screen Resolution Detection Example</A></p>
 
 <p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2014-05-29T00:00:00+00:00" pubdate data-updated="true">May 29<span>th</span>, 2014</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/blog/categories/anonymity/'>anonymity</a>, <a class='category' href='/blog/categories/attacks/'>attacks</a>, <a class='category' href='/blog/categories/fingerprinting/'>fingerprinting</a>, <a class='category' href='/blog/categories/opsec/'>opsec</a>
+  
+</span>
+
+
+    </p>
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/16/greenwald/" title="Previous Post: Journalist OPSEC Gap: lessons from the Snowden stories">&laquo; Journalist OPSEC Gap: lessons from the Snowden stories</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -225,6 +259,7 @@ Screen Resolution Detection Example</A></p>
 
   
 </aside>
+
 
     </div>
   </div>
