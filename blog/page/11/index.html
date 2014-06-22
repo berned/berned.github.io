@@ -9,8 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="There&rsquo;s a good mix of useful and mis-information in regard to burner
-phones out there. I thought I would compile some facts and review the &hellip;">
+  <meta name="description" content="Stylometrics is the idea that your writing style can be quantified, even
+fingerprinted. The way you turn a phrase, the average word or sentence &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@ phones out there. I thought I would compile some facts and review the &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/01/22/burnerphone/">Burner Phone Best Practices</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/01/31/tools-styometrics/">Tools to Evade Stylometrics</a></h1>
     
     
       <p class="meta">
@@ -86,131 +86,111 @@ phones out there. I thought I would compile some facts and review the &hellip;">
   
 
 
-<time datetime="2014-01-22T00:00:00+00:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2014</time>
+<time datetime="2014-01-31T00:00:00+00:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>There&rsquo;s a good mix of useful and mis-information in regard to burner
-phones out there. I thought I would compile some facts and review the proper
-use-case for a burner phone.</p>
+  <div class="entry-content"><p>Stylometrics is the idea that your writing style can be quantified, even
+fingerprinted. The way you turn a phrase, the average word or sentence length,
+the vocabulary used, all contribute to a a scientific perspective of your
+writing style. In terms of OPSEC, stylometrics is an adversarial concern
+&mdash; one of which can be difficult to defend against.</p>
 
-<h2>Tracking: Fingerprinting</h2>
+<p>One of the operational security measures that Edward Snowden employed, was to
+write short bits of information; small paragraphs, a few sentences, but never
+long prose. This was, in part, because he had concerns that no matter what kind
+of anyonymity systems or security tactics taken, if an adversary with enough
+power was able to extract the plain text from one of his messages, it could be
+correlated back to himself based on previous documents he had written.</p>
 
-<p>Burner phones, for both CDMA (US Sprint, US Verizon Wireless) and GSM (Ever
-other carrier network in the world), are easy to trace. Carriers specifically
-segregate burner/prepaid traffic from normal subscriber traffic. Yes, this is
-primarily used to control which type of traffic should receive priority, but
-it&rsquo;s used by <a href="https://en.wikipedia.org/wiki/Law_enforcement_officer">LEOs</a> to easily identify network traffic used by targets.</p>
-
-<p>Bruce Schneier recently commented on what the NSA is actively doing in regards
-to burner phones. In a recent lawsuit between the NSA and the EFF, the court
-documents show that one of the ways the US keeps track of burner traffic, is by
-fingerprinting the number of unique contacts, and the times of the calls. With
-this information, it&rsquo;s much easier to keep track of whose phone is whose.</p>
-
-<p>For example, Joe talks to John, George, and Jimmi on a daily basis. He cycles
-through burner phones at least once a week. For each phone, Joe adds the
-contact information for John, George, and Jimmi and calls only them. Joe stops
-never re-uses a burner phone.</p>
-
-<p>From this information, we can easily track his first burner&rsquo;s contact
-(namely John, George, and Jimmi) because this information is <a href="http://www.forensicswiki.org/wiki/SIM_Cards">stored on the SIM</a>,
-and correlate it to the contacts used by the next burner phone. How hard would
-it be for law enforcment to trace this information? Turns out not very hard if
-you&rsquo;re a subject of interest.</p>
-
-<h2>Tracking: Location</h2>
-
-<p>There are two parts to the location of your burner you need to be aware of.
-First, carriers maintain logs of the signal strengh between your phone and a
-carrier tower/base station. With this information they can <a href="http://www.al911.org/wireless/triangulation_location.htm">triangulate your location</a>. On your smart phone this is
-considered your &ldquo;Course-Grain&rdquo; location as opposed to &ldquo;Fine-Grain&rdquo; that the GPS in your smartphone provides.</p>
-
-<p>The second location to think about here is the location used to register/
-activate the phone in the first place. For American burners, they are required
-to call into a toll-free number and setup their new phone using a name,
-address, and secret password. Of course this information is not verified and
-can be easily spoofed. But the phone number used to activate the account, is
-forever associated to that device.</p>
-
-<p><img class="center" src="/images/phone.jpg" title="" ></p>
-
-<h2>When not to use a burner</h2>
-
-<ul>
-<li><strong>hiding from a national adversary</strong>: If you think the government is after you,
-there&rsquo;s really not much a burner phone is going to help you with. They
-can pull up security camera bartage of when you purchased the phone, they can
-map all the locations in which you&rsquo;ve powered on the device, they can
-watch the calls being made by a variety of burners and correlate them all
-together.</li>
-<li><strong>near your home</strong>: Every time you power up, that information is logged. If you
-decide to constantly turn on your device in or around our apartment, it is
-very easy for even local law enforcement to find you</li>
-<li><strong>calling someone you know that does not use a burner</strong>: If all you&rsquo;re
-going to do is call Jimmy down the street, it&rsquo;s easy to correlate your
-activities across multiple burners because the destination address never
-change. It becomes a bit harder if Jimmy changes his phone number at the same
-time you change yours.</li>
-<li><strong>registering for a gmail address</strong>: you might think it&rsquo;s a good idea to
-setup a burner to make a new email address but while it can be, you also have
-to be careful with how you use that address, and where you registered your
-phone. If you buy a phone in London, and then pretend that you&rsquo;re in
-Brazil for all of your email correspondence, this will be a red flag for
-investigators. Make sure you remember what that phone will be for.</li>
-</ul>
+<blockquote><p>Snowden was not yet ready to tell me his name, but he said he was<br/>certain to be exposed &#8220;by his own hand or somebody else&#8217;s.&#8221;&#8221; Until<br/>then, he asked that I not quote him at length. He said semantic<br/>analysis, another of the NSA&#8217;s capabilities, would identify him by<br/>his patterns of language.</p></blockquote>
 
 
-<h2>When is a burner useful</h2>
+<p>Barton Gellman <a href="http://www.washingtonpost.com/world/national-security/code-name-verax-snowden-in-exchanges-with-post-reporter-made-clear-he-knew-risks/2013/06/09/c9a25b54-d14c-11e2-9f1a-1a7cdee20287_story.html">Washington Post Snowden Communications</a></p>
 
-<ul>
-<li><strong>hiding from non-law enforcement</strong>: If your goal is to just make sure that no
-one you know can find your name or home address, a burner is useful.</li>
-<li><strong>registering for inconsequential accounts</strong>: If you just need to register an
-account, but aren&rsquo;t concerned about being tracked back to its activity,
-you can use a burner as an alternative to registering with a pay phone or
-something else.</li>
-</ul>
+<p>Also to note, this is not merely an NSA capability, intelligence compaies like
+Palantir posses this capabibility and wrap it into the products that they
+offer.</p>
 
+<p>In 2007, researchers for the <a href="http://readwrite.com/2008/02/14/spidering_the_dark_web">Univesity of Arizona</a>, scraped the Deep Web blogs,
+forums, and anything else they could get their hands on, in an attempt to
+attribute people. They crawled forums run by neo-nazis and devised a way of
+taking all that information, and separating out who was who on the forums. They
+used stylometrics to collect enough information to group people up based on a
+variety of features.</p>
 
-<h2>Pro tips</h2>
+<h2>Types of stylometrics</h2>
 
-<p>Based on everything we&rsquo;ve discussed so far, here are some operational
-suggestions. Feel free to suggest more that work for you:</p>
+<p>There are two ways in which stylometrics can be used against you. (Both of them
+have their names borrowed from an approach to Natural Language Processing.) One
+way, which is called &ldquo;Supervised,&rdquo; refers to taking a group of
+documents with known authors, and attributing them to an unknown author. For
+instance if we had a writing sample from Edward Snowden, we could attempt to
+attribute his authoriship of something he anonymously posted, by comparing his
+writing styles. This type is relatively easy for humans to do themselves.</p>
+
+<p>The second type, &ldquo;Unsupervised,&rdquo; leverages computational power to
+take a pile of anonymous blocks of text, and group them together based on the
+writing style. The example, the neo-nazi forum research didn&rsquo;t identify
+individuals posting to the forum, but they grouped which posts belonged to
+NaziA and which posts belonged to NaziB.</p>
+
+<h2>What makes up your style</h2>
+
+<p>There are dozens of models that deliver a perspective on your writing style.
+They&rsquo;ve been created by academics and all aim to be more accurate than
+the next. One called the &ldquo;9 Feature Model&rdquo; is merely taking nine
+properties like sentence length, unique words, a readability index, and some
+other simple to measure features of the text to come out with a classification.</p>
+
+<p>Other, more complex methods like the &ldquo;Writeprints&rdquo; method, use
+hundreds of features to make their conclusions. I&rsquo;m simplifying this to
+features classifiers, but these are actually extremely complicated models using
+neaural nets to generate their results.</p>
+
+<h2>Evasion tactics</h2>
+
+<p>If we see this as a threat, we need to mitigate. Researchers who <a href="http://events.ccc.de/congress/2011/Fahrplan/attachments/2019_28C3-authorship.pdf">presented at 28C3</a> define a few ways in which to evade being finterprinted:</p>
 
 <ol>
-<li> Get feature/dumb/flip-phones rather than smart phones. iOS, Android (or
- whatever other OS you choose) is not interested in keeping track of your
- privacy. Feature phones have the benefit of being generally too stupid to
- leak information about you.</li>
-<li> Never turn your phone on in, or around your home. Take the battery out
- when it&rsquo;s not being used.</li>
-<li> Leave your phone at a place you&rsquo;re going to use it to make sure it
- never gets turned on at your home</li>
-<li> If possible, pay someone else to activate the phone for you. This is a way
- of removing yourself from the activation process completely. There are
- some burner trading sites on the deep web.</li>
-<li> Fill your phone with fake contacts. Each burner should look like it has a
- different set of contacts in it.</li>
-<li> Never save your real contacts in the phone. Put them on paper, or on a
- separate device, but never on the phone. This information is potentially
- saved on the SIM and accessible to carriers.</li>
-<li> Pad operational calls with random calls. Dial numbers you don&rsquo;t
- know, leave messages, call tech support, send an SMS. Make it difficult to
- differentiate between your operations and random activities.</li>
-<li> Use a burner as little as possible before switching to the next one.</li>
-<li> If purchased from a retail store, wait at least 60 days to activate. This
- is usually how far back mom and pop stores keep security bartage.</li>
-<li> Activate from a payphone as far away from home as possible, or at least in
- the area where you will be using it most often</li>
-<li> Dispose of burner phones completely. Don&rsquo;t recycle them or throw
- them away in your apartment garbage. They should be destroyed completely,
- electronically wiped, and physically wipe down.</li>
+<li> <strong>Obfuscation</strong>: Generally make the text appear unlike your normal writing
+ style.</li>
+<li> <strong>Imitation</strong>: Make your writing stile look like someone elses.</li>
 </ol>
 
+
+<p>(They also recommend what they call &ldquo;Translation&rdquo; which is merely
+taking a text, using an automatic translator service to convert it to a
+different language, and then change it back. I don&rsquo;t see any difference
+between this and &ldquo;Obfuscation&rdquo; and it presents a new anonymity
+issue.)</p>
+
+<p><img class="center" src="/images/style1.png" title="" ></p>
+
+<p><img class="center" src="/images/style2.png" title="" ></p>
+
+<h2>Tool: Anonymouth</h2>
+
+<p>These researchers even gave us some data that shows how effective each type of
+mitigation is to defend against. They show us a break down of the stylometric
+model employed, and how effective each type of evasion tactic was. They also
+give us a tool to help us anonymize our own documents that works surprisingly
+well. Althought it&rsquo;s very complicated.</p>
+
+<p>There are a lot more details about how the tool works and when to use it, but
+for now, you can take a look at <a href="https://github.com/psal/anonymouth">Anonymouth</a>. This is a Java tool that takes the document you&rsquo;d like to anonymize, compares it to other documents
+you&rsquo;ve written, and then takes a variety of texts from other others to
+compare against. The results give you a breakdown of common words you use,
+attributing sentence structure, and even some suggestions about how to change
+the document to defend against attribution.</p>
+
+<p>As this is an Academic research tool, it&rsquo;s written in Java and awkward to
+use, but in general, it is pretty effective. They are now working to automate
+many of its features so that instead of manually anonymizing a document, you
+can tell the tool a directory of documents that you&rsquo;d like to anonymize.</p>
 </div>
   
   
@@ -233,6 +213,10 @@ suggestions. Feel free to suggest more that work for you:</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/22/privacy-controls-for-fingerprinting/">Privacy Controls as a Fingerprinting Attack</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/29/fingerprinting-resolution/">Fingerprinting Attacks on Screen Resolution</a>
@@ -270,10 +254,6 @@ suggestions. Feel free to suggest more that work for you:</p>
         <a href="/blog/2014/02/04/event-boundaries-helping-to-compartmentalize-your-operations/">Event Boundaries: Helping to Compartmentalize Your Operations</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/01/31/tools-styometrics/">Tools to Evade Stylometrics</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -283,13 +263,13 @@ suggestions. Feel free to suggest more that work for you:</p>
 
     </div>
   </div>
-  <footer role="contentinfo"><a title="Real Time Web Analytics" href="http://clicky.com/100742079"><img alt="Real Time Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
-<script src="//static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100742079); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100742079ns.gif" /></p></noscript>
-<p>
+  <footer role="contentinfo"><p>
   Copyright &copy; 2014 - b3rn3d -
 </p>
+<a title="Web Analytics" href="http://clicky.com/100742097"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100742097); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100742097ns.gif" /></p></noscript>
 
 </footer>
   
