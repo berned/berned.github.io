@@ -9,8 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="I never had the chance to meet Aaron_Swartz, but I have been lucky enough to
-meet the people of whom&rsquo;s life he affected. The Day We Fight Back &hellip;">
+  <meta name="description" content="<span class='pullquote-right' data-pullquote='operational security&#8217;s primary goal is to
+mitigate risk while maintaining operational &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@ meet the people of whom&rsquo;s life he affected. The Day We Fight Back &hellip;
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/10/for-aaron/">For Aaron</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/02/17/perspectives-of-opsec/">Perspectives of OPSEC Models</a></h1>
     
     
       <p class="meta">
@@ -86,55 +86,102 @@ meet the people of whom&rsquo;s life he affected. The Day We Fight Back &hellip;
   
 
 
-<time datetime="2014-02-10T00:00:00+00:00" pubdate data-updated="true">Feb 10<span>th</span>, 2014</time>
+<time datetime="2014-02-17T00:00:00+00:00" pubdate data-updated="true">Feb 17<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img class="center" src="/images/aaronswartz.jpg" width="500"></p>
-
-<p>I never had the chance to meet <a href="https://en.wikipedia.org/wiki/Aaron_Swartz#Life_and_works">Aaron_Swartz</a>, but I have been lucky enough to
-meet the people of whom&rsquo;s life he affected. <a href="https://thedaywefightback.org/">The Day We Fight Back</a> is a bitter sweet project to me, that helps commemorate Aaron&rsquo;s time on this
-planet and the work that put towards improving the online society that we knew
-and loved, as well as show the groundswell of community support.</p>
-
-<p>I have no overwhelming feeling that TDWFB will have any direct affect on the
-real issues that we are concerned about, but I believe it&rsquo;s important to
-support this cause for many reasons. First of which is to show powers-that-be
-that there is already a massive, soon-to-be organized community of people who
-are willing to fight back for not just the way we interconnect between
-computing devices, but for the community that has been created on-top of the
-Internet. It&rsquo;s this community that we&rsquo;re hoping to rebuild either
-through noble means of change, or on-top of the ashes of the previous
-generation.</p>
-
-<p><span class='pullquote-right' data-pullquote='there are
-people that operate in dark corners, not because of some kind of nefarious
-activity they are performing online, but because this is the only legitimate
-location where they can feel free to operate'>
-I don&rsquo;t usually feel my personal opinions are appropriate for this blog,
-but I think that there are a lot of people that have, similar to me, decided to
-self-censor and remove their voice from the community. I believe there are
-people that operate in dark corners, not because of some kind of nefarious
-activity they are performing online, but because this is the only legitimate
-location where they can feel free to operate&mdash; a feeling the online
-community used to breed by default.
+  <div class="entry-content"><p><span class='pullquote-right' data-pullquote='operational security&#8217;s primary goal is to
+mitigate risk while maintaining operational capabilities'>
+As I&rsquo;ve discussed <a href="/blog/2014/01/10/ask-him-about-his-threat-model">before</a>, threat models or risk models help you to define the adversaries you should invest the most resources being concerned about. There are a variety of different risk perspectives you can use to design a
+threat model: adversary-centric, asset-centric, or software-centric. We can
+adopt these into very similar models for OPSEC plans. Each of these models have
+a single principal that operational security&rsquo;s primary goal is to
+mitigate risk while maintaining operational capabilities.
 </span></p>
 
-<p>Aaron believed strongly in the openness of information and sharing and
-creativity and innovation &mdash; all the tenets of the online community that
-we knew. He believed that these values should be upheld at all costs. In his
-<a href="https://archive.org/stream/GuerillaOpenAccessManifesto/Goamjuly2008_djvu.txt">Guerilla Open Access Manifesto</a>, there&rsquo;s a quote that is salient beyond
-just open access to information, but to privacy, surveillance, and anything
-that degrades the online community:</p>
+<h2>Adversary-Centric OPSEC</h2>
 
-<blockquote><p>“I agree,” many say, “but what can we do? The companies hold the<br/>copyrights, they make enormous amounts of money by charging for<br/>access, and it’s perfectly legal&#8221; there’s nothing we can do to<br/>stop them.” But there is something we can, something that’s<br/>already being done: we can fight back.</p></blockquote>
+<p><img class="right" src="/images/adversary.png" title="" ></p>
 
+<p>In these types of plans, we&rsquo;re focused on what an attacker or adversary
+can do to us; who is coming after you, what they can do, and how you can
+defend. An adversary-cetnric policy has the advantage of being much easier to
+create and document because many people already think this way. It&rsquo;s very
+simple to come up with a list of adversaries that have the potential to affect
+what&rsquo;s important to you. The down-side of this approach is that you need
+to know your adversaries. In the case of the NSA &ldquo;revelations&rdquo;,
+many were shocked to find out that a nation-state had the type of capabilities
+that were disclosed. Prior to this, not many were able to mitigate themselves
+from these types of threats because they simply didn&rsquo;t know or fully
+appreciate an adversary of this nature.</p>
 
-<p>This is for Aaron; the days he fought, the fights of today, and the fights that
-continue on his behalf.</p>
+<h2>Asset-Centric OPSEC</h2>
+
+<p><img class="right" src="/images/asset.png" title="" ></p>
+
+<p>This approach focuses on designging mitigations around your assets &mdash; the
+things you value the most. If, for example, your asset is your ability to
+privately communicate on the Internet, you&rsquo;re going to do everything you
+can to ensure no-one can affect this. You&rsquo;re not focused on specific
+adversaries per se in this approach, but you are doing everything in your power
+to protect yourself. Maybe you&rsquo;re buying a VPN service or using a botnet
+or Tor for all communications. Maybe you&rsquo;ve decided that you&rsquo;re
+going to try out one of the new <a href="https://bitmessage.org/wiki/Main_Page">decentralized</a> <a href="http://dee.su/cables">messaging</a> <a href="https://crypto.cat/">systems</a> as a way of
+keeping yourself secure.</p>
+
+<p>One of the benefits of this method is that it&rsquo;s easy to explain why a
+measure needs to take place. If you&rsquo;re operating in a group, this may be
+an important factor. You can easily make the case that your asset needs to be
+secure, therefore we are taking these steps to mitigate the risk. Contrary to
+the adversary-centric approach, this is a less passive perspective &mdash; you
+are not taking the point of view of being fearful of something happening, you
+are merely performing the proactive, required procedures to keep your assets
+safe.</p>
+
+<h2>Operation-Centric OPSEC</h2>
+
+<p><img class="right" src="/images/boxes.png" title="" >
+This approach, my favorite, lends itself nicely to compartmentalization if
+you&rsquo;re managing multiple identities across multiple operations. An
+operation in this case could be an identitiy, a research project, an regular
+activitiy or whatever, that may require specific operational security measures.
+An operation-centreic OPSEC plan may sound recursive to you, but the gist is
+that your plans are focused on your specific operation, and that operation
+alone. The main difference between this and an asset-centric approach is that
+it is designed to have drastically different and compartmentalized procedures
+allowing for scalability without letting one operation interfere with another.</p>
+
+<p>If you&rsquo;ve ever taken a look at the security plans of a large, Fortune 500
+company compared to that of a startup, it&rsquo;s quite possible that the
+startup is able to implement simple, elegent, effective security plans while
+the Fortune 500 spends millions of dollars designing a unilateral security
+policy that severely inhibits the organizations operational capabilities. The
+reason that a small, agile startup can devise elegant OPSEC measures, is the
+same reason that compartmentalizing your OPSEC procedures in an operation-
+centric point-of-view is effective.</p>
+
+<p>The other reason that I like this is because it gives you a good balance of a
+variety of different OPSEC approaches. You are paying attention to your
+operation&rsquo;s assets while taking into account specific adversaries and
+their attacks. As you define an operation &mdash; we&rsquo;ll say buying
+illegal drugs on the internet &mdash; you will be scoped down to a specific
+task and controlled environment. It lets you define boundaries in which your
+OPSEC guidelines can define situations in which your measures/countermeasures
+no longer protect you. This keeps risks at a minimum because you are only
+defending against a subset of your activities &mdash; those associated with the
+operation. In the example of buying illegal drugs on a darknet market, your
+OPSEC guidelines can state that in the case of the darkmarket collapse (which
+seems to happen regularly <a href="http://www.deepdotweb.com/2014/02/13/silk-road-2-hacked-bitcoins-stolen-unknown-amount/">lately</a>), your operation should fold and the identity
+should be burned. You can take into accounts adversaries such as those that own
+the market, and assets you&rsquo;re concerned about such as keeping yourself
+out of jail.</p>
+
+<p>I will admit, none of those listed are perfect, nor do they make up an
+exhaustive list. They may however give you a starting point for building an
+OPSEC plan for yourself.</p>
 </div>
   
   
@@ -157,6 +204,10 @@ continue on his behalf.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/06/22/privacy-controls-for-fingerprinting/">Privacy Controls as a Fingerprinting Attack</a>
@@ -192,10 +243,6 @@ continue on his behalf.</p>
     
       <li class="post">
         <a href="/blog/2014/02/10/for-aaron/">For Aaron</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/04/event-boundaries-helping-to-compartmentalize-your-operations/">Event Boundaries: Helping to Compartmentalize Your Operations</a>
       </li>
     
   </ul>
