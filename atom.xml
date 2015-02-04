@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2014-07-04T04:12:15+00:00</updated>
+  <updated>2015-02-04T17:38:52+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ego and OPSEC]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/02/04/ego-and-opsec/"/>
+    <updated>2015-02-04T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/02/04/ego-and-opsec</id>
+    <content type="html"><![CDATA[<p>If you&rsquo;ve been following the DPR story you&rsquo;ll notice that the prosecution paints DPR as an ego-maniac willing to do anything to gain more and more power and money. It doesn&rsquo;t matter if a lawyer is right, but the picture that it paints highlights a challenge that humans have with OPSEC, their ego.</p>
+
+<p>As you go dark, moving away from what would be your normal life (or factioning off from it) has a novelty to it. It feels fun, and exciting, and you feel like you&rsquo;re doing something more interesting. This is your ego kicking you in the back of the head and if you feel it at first, you&rsquo;ll know it&rsquo;s going to be a problem going forward. As the novelty wears off, your OPSEC becomes more of a discipline than a game. You follow your procedures and lock yourself down, but you sigh at how it&rsquo;s arduous compared to the everyday consumer.</p>
+
+<p>If you&rsquo;ve continued this far, and you haven&rsquo;t broken protocol, the feeling of isolation and lonliness creeps in. Similar to what U.S. and U.K soldiers deal with when given high clearances. You can&rsquo;t talk about what you did, are doing, or will be doing otherwise the results will be devestating.</p>
+
+<p>Even if your natural tendancy is not to be an outwardly confident person, your mind automatically has a need to feel pride for the work that it&rsquo;s doing. Similar to how a school janitor is proud of her job, and takes it as serious as the medical doctor, your brain will rationalize your success relative to your surroundings. Without this feeling of success fueling your ego, your self-esteem begins to deteriorate and you begin to question your life.</p>
+
+<h2>DPR Ego Mistakes</h2>
+
+<p>The DPR case is a perfect reminder. Thus far, the story goes that DPR was caught at a library because he walked away from his computer while it was still running. He kept a backup copy of the Silk Road software on his nightstand. He originally created Silk Road as a clearnet domain, silkroad.org and then took that down. He kept a journal of all of his activities while he was dark and even referenced personal details like travel plans and medical issues.</p>
+
+<p>It&rsquo;s easy to conclude that DPR is a young, naive kid without any plans to truly defend against the type of surveillance that he was put under. That may be true but I would like to suggest that he succumb to the natural human tendancy to share with someone the fame and power that he had created. To let people in on how accomplished (in his own mind) he had become. As the fame of Silk Road increased, so did his need to take a little credit.</p>
+
+<h2>Alter ego</h2>
+
+<p>The alter ego is supposed to be a split off of your personality, have different motivators, different skills, different temperment. In many ways this is a powerfull asset as an OPSEC expert, yet difficult to achieve. Even up achieving, you will continue to be a slave to feeding that alter ego&rsquo;s, ego, so don&rsquo;t ignore it.</p>
+
+<h2>Lessons Learned</h2>
+
+<p>It might be easy to say &ldquo;I&rsquo;ll just not pay attention to my ego&rdquo; but this would be a challenge that Eastern Religions have tried teach individuals for years and years. Your ego plays an important part of your psyche and there may be tricks to ignore it, but it&rsquo;s easier to accept it and learn how to feed it. If your operations have an outcome, ensure that you take the time to appreciate that you have achieved your goals. You can even take some of the motivators out of a weight-loss book and set a celebratory event based on the success of your operation.</p>
+
+<p>Buy yourself that cake. You deserve it. Just remember to eat it in the darkness. :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[XKeyScore Source Code Review]]></title>
