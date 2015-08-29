@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2015-08-29T03:48:41+00:00</updated>
+  <updated>2015-08-29T04:06:17+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -62,6 +62,27 @@
 <p>The last option is not a disclosure at all but maintains a zero knowledge relationship going forward. In terms of OPSEC, you can consider this a firewall rule that blocks all by default. In this scenario you get no reward, no commonality in the relationship, and no benefit besides the fact that you can keep in your pocket that you have a secret in-depth knowledge of a subject that may be of interest to the subject. Because remember, knowledge is power and knowledge of someone’s knowledge is a power you may not want to concede.</p>
 
 <p>Be disciplined. Be in control. Make active decisions about your disclosures and your relationships.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Risks of Relationships]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/07/04/opsec-relationships/"/>
+    <updated>2015-07-04T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/07/04/opsec-relationships</id>
+    <content type="html"><![CDATA[<p>I don&rsquo;t often write about myself but for examples purposes, I will disclose that I&rsquo;ve recently entered into a relationship with a person for the first time in a long time. While this is exciting for me and also sad, the idea of how to handle relationships while maintaining OPSEC is a minefield.</p>
+
+<h2>Trust</h2>
+
+<p>The first thing you&rsquo;re told in any relationship be it with a signifigant other, a family member, or a friend, is that trust is key. You should be able to confid in the other person about your darkest secrets.</p>
+
+<p>For some of us, our darkest secrets are not things to disclose to the SO. Not because you&rsquo;re selfish or don&rsquo;t trust the other, but because some disclosures make the other liable (a legal term).</p>
+
+<h2>Identity Division</h2>
+
+<p>In other cases, you&rsquo;ve created a new identity that has nothing to do with your IRL identity in which case, these secrets have nothing to do with the other person. If you&rsquo;ve created an OPSEC campaign where you&rsquo;ve properly divided all of your personal relationships from your online identity, you are no longer that person.</p>
+
+<p>This, admittedly, is a rationalization of a complicated issue that I have not, nor plan to in the near future, discuss with my SO. I suggest that you do the same.</p>
 ]]></content>
   </entry>
   
