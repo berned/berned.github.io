@@ -9,8 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
-&ndash; either by name, fingerprint, or country code. If you have a &hellip;">
+  <meta name="description" content="In two articles from Pursuit Magazine, Lindsay Moran, an Ex-CIA operative is
+interviewed about being in the CIA, explains psychology around maintaing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/03/05/tor-country-codes/">Tor Country Codes</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/03/09/cia-spycraft-psychology/">CIA Operative Teaches Spycraft and Psychology</a></h1>
     
     
       <p class="meta">
@@ -86,338 +86,119 @@
   
 
 
-<time datetime="2014-03-05T00:00:00+00:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
+<time datetime="2014-03-09T00:00:00+00:00" pubdate data-updated="true">Mar 9<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
-&ndash; either by name, fingerprint, or country code. If you have a trusted
-list of nodes you&rsquo;d like to use as a whitelist, you can use that, or if
-you have a list of nodes on a blacklist, it supports that configuration. But
-for those of us that are attempting to be someone else, specifically someone
-from a different country, we can use Tor to not only hide our identity, but
-make it appear to be from a specific geographic location.</p>
+  <div class="entry-content"><p>In two articles from Pursuit Magazine, Lindsay Moran, an Ex-CIA operative is
+interviewed about being in the CIA, explains psychology around maintaing a
+separate life, and gives a few cute stories about tradecraft. You can start
+reading <a href="http://pursuitmag.com/lindsay-moran-former-cia-agent-talks-spycraft/">them</a> <a href="http://pursuitmag.com/lindsay-moran-former-cia-operative-why-became-spy/">here</a> if for nothing else, a fun read. I think there are some OPSEC
+take-aways here in regard to psychological problems of maintaining
+compartmentalized identities, using psychological motivators to exploit humans,
+and defending yourself from surveillance &mdash; human or technical.</p>
 
-<p>Our example here may be an identity where you want to appear like a Ukrainian
-dissident &mdash; when in reality you&rsquo;re a soccer Mom from Chicago, IL.
-By setting up a dedicated machine, with a specific Tor configuration, you can
-make sure that all of your traffic is routed out of an Ukrainian Exit Node.</p>
+<h2>Professional Liar</h2>
 
-<h2>TORRC</h2>
+<p>I&rsquo;m most interested in the psychological perspective that she gives and
+the issues that appear when one is compartmentalizing their identities. You
+can&rsquo;t discuss, disclose, or share what&rsquo;s going on between your
+various identities. In her case, she was maintaining just two identities; her
+personal life, and her professional one. Having a career where everything you
+do is regarded by the U.S. Government as Top-Secret and requiring a specific
+clearance to discuss, is taxing on humans.</p>
 
-<p>The configuration is simple, modify your torrc file to add the follwoing line
-to ensure Tor will only use Ukraine based exit nodes:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  ExitNodes {ua}
-</span><span class='line'>  StrictNodes 1</span></code></pre></td></tr></table></div></figure>
+<blockquote><p>…I found that a lot of my relationships outside the Agency suffered. It becomes a chore to get together with people and have to lie to them because you feel guilty, and the result is that you kind of shut down, which is just not my nature.</p></blockquote>
 
 
-<p>Please note that in all of these examples, we must enable StrictNodes. This
-example will use either Ukraine, Uganda, South Korea, or Ireland as an exit:</p>
+<p>The natural tendency to &ldquo;shut down,&rdquo; as she says, is common in
+groups that need to keep secrets; hackers, activists, military families.
+You&rsquo;re maintaining an index of things you can share, and things you
+can&rsquo;t. It requires discipline to keep track of these and adhere to the
+lines. This is one of the problems with compartmentalizing multiple identities,
+or even just one.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExitNodes {ua},{ug},{kp},{ie}</span></code></pre></td></tr></table></div></figure>
+<h2>Living in a Bubble</h2>
 
+<p>Moran went on to describe, what I would call, a lonely sentiment when you are
+working for the CIA.</p>
 
-<h2>Blacklisting</h2>
-
-<p>You can also use this as a defensive measure as well. If you&rsquo;ve believe
-there is some kind of geo-centric threat in Uganda, you can configure Tor to
-never use these exit nodes.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeExitNodes {ua}</span></code></pre></td></tr></table></div></figure>
+<blockquote><p>You tend to forget when you&#8217;re inside the CIA that there&#8217;s a whole other world out there. It&#8217;s to fall back on a cliche, a bubble.</p></blockquote>
 
 
-<p>You can exclude all node types for a specific country as well &ndash; exits,
-relays, entry, and bridge nodes.</p>
+<p>You&rsquo;ve lost track of reality &mdash; of your personal identity &mdash;
+and you&rsquo;re more focused on maintaining your secrets and lies than having
+personal relationships. I find this may hit close to some that have decided to
+go dark and stay in the caverns of the Internet. For those, they may lean
+towards the identity that gives them the most enjoyment, not the ones that
+require the most work. You, for example, as a gun smuggler, trading on the
+Internet, would much rather have a conversation with a fellow drug smuggler,
+than your coworker at the bank. If for no other reason, you can speak more
+freely about the topic without concern about accidentally leaking the fact that
+you&rsquo;re smuggling guns.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeNodes {us}</span></code></pre></td></tr></table></div></figure>
+<h2>Exploiting Loneliness</h2>
+
+<p>It should be noted that your adversaries realize that your life as a nomad is
+lonely. It&rsquo;s a sad fact that many or most of the people caught doing
+something illegal on the Internet are identified by LEO&rsquo;s that play into
+how lonely your life is. Moran says:</p>
+
+<blockquote><p>On the most basic level you&#8217;re acting &#8211;almost&#8211; as a clinical<br/>psychologist for your assets.</p></blockquote>
 
 
-<p>You have the ability to whitelist all node types which is to say you can make
-sure that your entire Tor circuit only uses a certain country. This is NOT
-recommended of course. An ideal circuit will cross countries and legal
-jurisdictions.</p>
+<p>She&rsquo;s referring to using the <a href="https://en.wikipedia.org/wiki/Motives_for_spying">classic CIA definition of motivators</a>, and
+exploiting these in people to get what she wants out of the asset. As a gun
+smuggler, you may be motivated by ego, but there&rsquo;s no way you can brag
+about how good you are at smuggling guns on the Internet. But when having a
+private conversation with someone that appears to be a gun smuggler, why not
+show off how cool you are.</p>
 
-<h2>The ?? Country</h2>
+<h2>Anti-Surveillance Tactics</h2>
 
-<p>Tor uses Maxmind&rsquo;s Geo-ip lookup system for this functionality. Some of
-the versions of their database contain a &ldquo;??&rdquo; country code. This is
-reserved for IPs they either don&rsquo;t know, or aren&rsquo;t willing to
-share. (Tor is making some changes to compensate for this in the future.)</p>
+<p>One of the more benign, but subtly interesting comments that she gives was
+referring to ways of evading surveillance. She contrasts how in the movies,
+when someone it tailing you, you speed away as fast as you can. But in all
+actuality, you are trying to lull them to sleep by acting boring.
+There&rsquo;s a bit of HUMINT craft here, that can be applied to electronic
+OPSEC. If you were under electronic surveillance, you can take actions to
+protect yourself. The movie version, of speed away and run a red light would be
+to choose to encrypt your communications. In actuality as a spy, nomad,
+activist, or whatever, your first job is to not be directly targeted. Moran, in
+her tailing example, says:</p>
 
-<p>Knowing this can be useful in one of two ways. First, you may think that if you
-don&rsquo;t know what country you&rsquo;re going to be using as a node, then
-you don&rsquo;t want to use it. This is probably a legitimate thought without
-having more information on what causes an IP to have &ldquo;??&rdquo;. Second,
-and more interestingly, some (poorly configured) firewalls will automatically
-drop connections from certain countries. Admins will say &ldquo;Screw it, block
-China. Hacking problem solved!&rdquo; and ask for a raise. Maxmind is a very
-popular Geo-ip lookup database and you can imagine that all of the security
-services built into those fancy enterprise firewalls will most likely be using
-it if it&rsquo;s doing geographic lookups. While many of these admins will have
-policies for how to handle &ldquo;us&rdquo;, &ldquo;cn&rdquo;, and &ldquo;de&rdquo;, I&rsquo;ve found many have issues with a country code that is &ldquo;??&rdquo;. In one case, I&rsquo;ve found a system that blocks all exit
-nodes, except those coming from a &ldquo;??&rdquo; country. I have not
-identitied why this mis-configuration occurs, but hopefully someone can
-leverage this to their advantage.</p>
+<blockquote><p>You&#8217;re supposed to convince anyone following you that you&#8217;re not<br/>     a spy.</p></blockquote>
 
-<h2>List of country codes for Tor</h2>
 
-<pre><code>Country                               Abbrev
-ASCENSION ISLAND                      {ac}
-AFGHANISTAN                           {af}
-ALAND                                 {ax}
-ALBANIA                               {al}
-ALGERIA                               {dz}
-ANDORRA                               {ad}
-ANGOLA                                {ao}
-ANGUILLA                              {ai}
-ANTARCTICA                            {aq}
-ANTIGUA AND BARBUDA                   {ag}
-ARGENTINA REPUBLIC                    {ar}
-ARMENIA                               {am}
-ARUBA                                 {aw}
-AUSTRALIA                             {au}
-AUSTRIA                               {at}
-AZERBAIJAN                            {az}
-BAHAMAS                               {bs}
-BAHRAIN                               {bh}
-BANGLADESH                            {bd}
-BARBADOS                              {bb}
-BELARUS                               {by}
-BELGIUM                               {be}
-BELIZE                                {bz}
-BENIN                                 {bj}
-BERMUDA                               {bm}
-BHUTAN                                {bt}
-BOLIVIA                               {bo}
-BOSNIA AND HERZEGOVINA                {ba}
-BOTSWANA                              {bw}
-BOUVET ISLAND                         {bv}
-BRAZIL                                {br}
-BRITISH INDIAN OCEAN TERR             {io}
-BRITISH VIRGIN ISLANDS                {vg}
-BRUNEI DARUSSALAM                     {bn}
-BULGARIA                              {bg}
-BURKINA FASO                          {bf}
-BURUNDI                               {bi}
-CAMBODIA                              {kh}
-CAMEROON                              {cm}
-CANADA                                {ca}
-CAPE VERDE                            {cv}
-CAYMAN ISLANDS                        {ky}
-CENTRAL AFRICAN REPUBLIC              {cf}
-CHAD                                  {td}
-CHILE                                 {cl}
-PEOPLE'S REPUBLIC OF CHINA            {cn}
-CHRISTMAS ISLANDS                     {cx}
-COCOS ISLANDS                         {cc}
-COLOMBIA                              {co}
-COMORAS                               {km}
-CONGO                                 {cg}
-CONGO (DEMOCRATIC REPUBLIC)           {cd}
-COOK ISLANDS                          {ck}
-COSTA RICA                            {cr}
-COTE D IVOIRE                         {ci}
-CROATIA                               {hr}
-CUBA                                  {cu}
-CYPRUS                                {cy}
-CZECH REPUBLIC                        {cz}
-DENMARK                               {dk}
-DJIBOUTI                              {dj}
-DOMINICA                              {dm}
-DOMINICAN REPUBLIC                    {do}
-EAST TIMOR                            {tp}
-ECUADOR                               {ec}
-EGYPT                                 {eg}
-EL SALVADOR                           {sv}
-EQUATORIAL GUINEA                     {gq}
-ESTONIA                               {ee}
-ETHIOPIA                              {et}
-FALKLAND ISLANDS                      {fk}
-FAROE ISLANDS                         {fo}
-FIJI                                  {fj}
-FINLAND                               {fi}
-FRANCE                                {fr}
-FRANCE METROPOLITAN                   {fx}
-FRENCH GUIANA                         {gf}
-FRENCH POLYNESIA                      {pf}
-FRENCH SOUTHERN TERRITORIES           {tf}
-GABON                                 {ga}
-GAMBIA                                {gm}
-GEORGIA                               {ge}
-GERMANY                               {de}
-GHANA                                 {gh}
-GIBRALTER                             {gi}
-GREECE                                {gr}
-GREENLAND                             {gl}
-GRENADA                               {gd}
-GUADELOUPE                            {gp}
-GUAM                                  {gu}
-GUATEMALA                             {gt}
-GUINEA                                {gn}
-GUINEA-BISSAU                         {gw}
-GUYANA                                {gy}
-HAITI                                 {ht}
-HEARD &amp;amp; MCDONALD ISLAND           {hm}
-HONDURAS                              {hn}
-HONG KONG                             {hk}
-HUNGARY                               {hu}
-ICELAND                               {is}
-INDIA                                 {in}
-INDONESIA                             {id}
-IRAN, ISLAMIC REPUBLIC OF             {ir}
-IRAQ                                  {iq}
-IRELAND                               {ie}
-ISLE OF MAN                           {im}
-ISRAEL                                {il}
-ITALY                                 {it}
-JAMAICA                               {jm}
-JAPAN                                 {jp}
-JORDAN                                {jo}
-KAZAKHSTAN                            {kz}
-KENYA                                 {ke}
-KIRIBATI                              {ki}
-KOREA, DEM. PEOPLES REP OF            {kp}
-KOREA, REPUBLIC OF                    {kr}
-KUWAIT                                {kw}
-KYRGYZSTAN                            {kg}
-LAO PEOPLE'S DEM. REPUBLIC            {la}
-LATVIA                                {lv}
-LEBANON                               {lb}
-LESOTHO                               {ls}
-LIBERIA                               {lr}
-LIBYAN ARAB JAMAHIRIYA                {ly}
-LIECHTENSTEIN                         {li}
-LITHUANIA                             {lt}
-LUXEMBOURG                            {lu}
-MACAO                                 {mo}
-MACEDONIA                             {mk}
-MADAGASCAR                            {mg}
-MALAWI                                {mw}
-MALAYSIA                              {my}
-MALDIVES                              {mv}
-MALI                                  {ml}
-MALTA                                 {mt}
-MARSHALL ISLANDS                      {mh}
-MARTINIQUE                            {mq}
-MAURITANIA                            {mr}
-MAURITIUS                             {mu}
-MAYOTTE                               {yt}
-MEXICO                                {mx}
-MICRONESIA                            {fm}
-MOLDAVA REPUBLIC OF                   {md}
-MONACO                                {mc}
-MONGOLIA                              {mn}
-MONTENEGRO                            {me}
-MONTSERRAT                            {ms}
-MOROCCO                               {ma}
-MOZAMBIQUE                            {mz}
-MYANMAR                               {mm}
-NAMIBIA                               {na}
-NAURU                                 {nr}
-NEPAL                                 {np}
-NETHERLANDS ANTILLES                  {an}
-NETHERLANDS, THE                      {nl}
-NEW CALEDONIA                         {nc}
-NEW ZEALAND                           {nz}
-NICARAGUA                             {ni}
-NIGER                                 {ne}
-NIGERIA                               {ng}
-NIUE                                  {nu}
-NORFOLK ISLAND                        {nf}
-NORTHERN MARIANA ISLANDS              {mp}
-NORWAY                                {no}
-OMAN                                  {om}
-PAKISTAN                              {pk}
-PALAU                                 {pw}
-PALESTINE                             {ps}
-PANAMA                                {pa}
-PAPUA NEW GUINEA                      {pg}
-PARAGUAY                              {py}
-PERU                                  {pe}
-PHILIPPINES (REPUBLIC OF THE)         {ph}
-PITCAIRN                              {pn}
-POLAND                                {pl}
-PORTUGAL                              {pt}
-PUERTO RICO                           {pr}
-QATAR                                 {qa}
-REUNION                               {re}
-ROMANIA                               {ro}
-RUSSIAN FEDERATION                    {ru}
-RWANDA                                {rw}
-SAMOA                                 {ws}
-SAN MARINO                            {sm}
-SAO TOME/PRINCIPE                     {st}
-SAUDI ARABIA                          {sa}
-SCOTLAND                              {uk}
-SENEGAL                               {sn}
-SERBIA                                {rs}
-SEYCHELLES                            {sc}
-SIERRA LEONE                          {sl}
-SINGAPORE                             {sg}
-SLOVAKIA                              {sk}
-SLOVENIA                              {si}
-SOLOMON ISLANDS                       {sb}
-SOMALIA                               {so}
-SOMOA,GILBERT,ELLICE ISLANDS          {as}
-SOUTH AFRICA                          {za}
-SOUTH GEORGIA, SOUTH SANDWICH ISLANDS {gs}
-SOVIET UNION                          {su}
-SPAIN                                 {es}
-SRI LANKA                             {lk}
-ST. HELENA                            {sh}
-ST. KITTS AND NEVIS                   {kn}
-ST. LUCIA                             {lc}
-ST. PIERRE AND MIQUELON               {pm}
-ST. VINCENT &amp;amp; THE GRENADINES      {vc}
-SUDAN                                 {sd}
-SURINAME                              {sr}
-SVALBARD AND JAN MAYEN                {sj}
-SWAZILAND                             {sz}
-SWEDEN                                {se}
-SWITZERLAND                           {ch}
-SYRIAN ARAB REPUBLIC                  {sy}
-TAIWAN                                {tw}
-TAJIKISTAN                            {tj}
-TANZANIA, UNITED REPUBLIC OF          {tz}
-THAILAND                              {th}
-TOGO                                  {tg}
-TOKELAU                               {tk}
-TONGA                                 {to}
-TRINIDAD AND TOBAGO                   {tt}
-TUNISIA                               {tn}
-TURKEY                                {tr}
-TURKMENISTAN                          {tm}
-TURKS AND CALCOS ISLANDS              {tc}
-TUVALU                                {tv}
-UGANDA                                {ug}
-UKRAINE                               {ua}
-UNITED ARAB EMIRATES                  {ae}
-UNITED KINGDOM (no new registrations) {gb}
-UNITED KINGDOM                        {uk}
-UNITED STATES                         {us}
-UNITED STATES MINOR OUTL.IS.          {um}
-URUGUAY                               {uy}
-UZBEKISTAN                            {uz}
-VANUATU                               {vu}
-VATICAN CITY STATE                    {va}
-VENEZUELA                             {ve}
-VIET NAM                              {vn}
-VIRGIN ISLANDS (USA)                  {vi}
-WALLIS AND FUTUNA ISLANDS             {wf}
-WESTERN SAHARA                        {eh}
-YEMEN                                 {ye}
-ZAMBIA                                {zm}
-ZIMBABWE                              {zw}
-</code></pre>
+<p>We shouldn&rsquo;t speed away, we should walk into the grocery store or go to
+the movies. This is where, in my opinion, our current common consensus with-
+regard-to answering the question of &ldquo;How to defend ourselves against
+electronic surveillance&rdquo; falls flat. Depending on your threat model, and
+what you are concerned about, merely encrypting your communications is not
+enough. By doing so, you have effectively confirmed, in the eyes of the
+adversary, that you have something to hide and are therefore worthy of further
+action. This tactic has been confirmed in an old Edward Snowden release that
+states that the use of encryption, is a determiner of whether or not you will
+be further targeted.</p>
+
+<h2>Take-Aways</h2>
+
+<p>This was a light, fluffy interview that I may be over-analyzing, but it does
+highlight some ways in which the Americans view OPSEC. The psychology of the
+subject has some direct take aways.</p>
+
+<ul>
+<li>When trying to compartmentalize, make
+sure your motivators of money, ideology, coercion, and ego, and fulfilled
+internally. Do not rely on an external resource for this.</li>
+<li>A confidentiality and anonymity (or un-attributability) win over merely confidentiality in the
+face of electronic surveillance.</li>
+<li>Identify the natural tendencies to shut down, or tunnel yourself into a single identity, and compensate by building personal, trusted relationships in your other identities.</li>
+</ul>
+
 </div>
   
   
@@ -440,6 +221,10 @@ ZIMBABWE                              {zw}
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/22/secret-disclosures/">Analyzing Trust and Secret Disclosure</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
@@ -475,10 +260,6 @@ ZIMBABWE                              {zw}
     
       <li class="post">
         <a href="/blog/2014/03/05/tor-country-codes/">Tor Country Codes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/17/perspectives-of-opsec/">Perspectives of OPSEC Models</a>
       </li>
     
   </ul>

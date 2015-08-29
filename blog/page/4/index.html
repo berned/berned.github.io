@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks &hellip;">
+  <meta name="description" content="Privacy conscious websites and applications often give you privacy controls like &ldquo;opt&#8217;ing-out&rdquo; of using your browsing habits for &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/29/fingerprinting-resolution/">Fingerprinting Attacks on Screen Resolution</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/06/22/privacy-controls-for-fingerprinting/">Privacy Controls as a Fingerprinting Attack</a></h1>
     
     
       <p class="meta">
@@ -85,81 +85,57 @@
   
 
 
-<time datetime="2014-05-29T00:00:00+00:00" pubdate data-updated="true">May 29<span>th</span>, 2014</time>
+<time datetime="2014-06-22T00:00:00+00:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
+  <div class="entry-content"><p>Privacy conscious websites and applications often give you privacy controls like &ldquo;opt&#8217;ing-out&rdquo; of using your browsing habits for statistics, or setting whether or not to share your profile information. If you&rsquo;ve already done your job to ensure that you are not sharing any sensitive information, these pseudo-privacy controls may put you at a high risk of being labeled a suspicious account.</p>
 
-<p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
+<h2>How Privacy Controls Actually Work</h2>
 
-<p>This is even more dangerous on mobile devices such as Android. Each manufacturer releases new phones and tablets with different resolution, these are often very odd screen resolutions, making them very unique to that phone time. There are dozens of sites that provide this information for you:</p>
+<p>Lets take, for example, a forum where you can make changes to your settings to not include your information in the anonymized statistics gathering. Does that mean that your activities will not be tracked now that you have clicked the opt-out check box? In most cases, all this means is that your activities will not be used for statistics and reporting, but your activities will continue be logged.</p>
 
-<ul>
-<li><a href="http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density">http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density</a></li>
-<li><a href="https://deviceatlas.com/">https://deviceatlas.com/</a></li>
-<li><a href="http://wurfl.sourceforge.net/">http://wurfl.sourceforge.net/</a></li>
-</ul>
+<p>In many cases, what happens in the backend is there will be an &ldquo;opt-out&rdquo; value assigned to your user account. A database contains your account information, your settings, and then a single True or False value dictating whether you&rsquo;ve opt-out. A simple query of this database will return all users in the system that have decided to opt-out.</p>
 
-
-<h2>Background</h2>
-
-<p>There are two types of fingerprinting; passive and active. Active fingerprinting attacks are usually reserved to those that are collecting information about your network traffic, and do a secondary correlation. For example, if an adversary were running multiple exit nodes, they collect the list of sites each circuit connects to, and tries correlates that to a specific user.</p>
-
-<p>Active attacks will manipulate or inject an identifier into your traffic &mdash; an identifying cookie or malicious JavaScript that when executed tries to collect identifying information about your browsing environment.</p>
-
-<p>This is not a new revelation, the EFF has highlighted this problem by making the <a href="https://panopticlick.eff.org/">Panopticlick</a> project. This simulates attacks that aim at fingerprinting your browser, its plugins, fonts installed, etc. This is similar to the <a href="http://browserspy.dk/">BrowserSpy</a> project.</p>
-
-<h2>Screen Resolution</h2>
-
-<p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
-
-<p>Here&rsquo;s a simple Javascript example that does that</p>
+<p>One specific example is the popular <a href="http://www.simplemachines.org/">Simple Machines Forum</a> which retains a value in the database named &ldquo;private.&rdquo; This is just an integer that controls the various levels of privacy control on your forum profile.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
-</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
-</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if (isset($modSettings['smfVersion']) && $modSettings['smfVersion'] &lt;= '2.0 Beta 1')
+</span><span class='line'>{
+</span><span class='line'>  upgrade_query("
+</span><span class='line'>  UPDATE {$db_prefix}custom_fields
+</span><span class='line'>  SET private = 2
+</span><span class='line'>  WHERE private = 1");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Demo: <a href="javascript:alert
-('Your resolution is '+screen.width+'x'+screen.height);">
-Screen Resolution Detection Example</A></p>
+<h2>Enabling the Privacy Zealot Flag</h2>
 
-<p>EDIT: <a href="www.reddit.com/user/lugh">lugh</a> points out that this example is inconsistent and depends on your OS and browser.</p>
+<p>The problem, as you can see, is that you are vulnerable to a type of fingerprinting attack. If law enforcement wanted find the highest risk accounts on a system, they would not want to weed through thousands of accounts or use expensive <a href="http://www.palantir.com">analytical software</a>. They they will partition the accounts in the simplest means necessary, one of which being users who have decided to opt-out or have enabled the various privacy features.</p>
 
-<h2>Defense Measures</h2>
+<h2>Target Selection</h2>
 
-<p>There are a couple of ways of defending, let me go over some possibilities:</p>
+<p>The concept of specifically targeting users concerned about privacy, and labeling them potential subjects, is nothing new. We&rsquo;ve heard it happen with journalists, activists, and especially pregnant women. If you haven&rsquo;t read it yet, check out the article, <a href="http://time.com/83200/privacy-internet-big-data-opt-out/">Here&rsquo;s what happened when I tried to hide my pregnancy from the Internet and marketing companies</a> about what happens when you actually go through all the steps to protect your privacy.</p>
+
+<h2>Defense</h2>
+
+<p>Why opt-out? Ask yourself &ldquo;what does this privacy feature actually do?&rdquo; In most cases, the anonymous statistics that a web application collects, are less of a risk to your privacy than the possibility that an account be given the &ldquo;privacy zealot&rdquo; flag. Your first goal when trying to maintain your anonymity and defend against similar attacks, is to do everything you can to not become a target of interest. This includes:</p>
 
 <ul>
-<li><strong>disabling Javascript</strong>: CSS (AFAIK) does not have a way of detecting your screen resolution</li>
-<li><strong>resizing your browser window</strong>: Sometimes attacks do not read screen resolution, but just window size.</li>
-<li><strong>changing your screen resolution</strong>: This is often difficult but by choosing a screen resolution that many other users may have, would help defend against fingerprinting. The <a href="http://dee.su/liberte-security">Liberte Linux</a> distribution is the only system I&rsquo;ve seen that automatically does this by forcing the screen resolution of 800x600.</li>
-<li><strong>external monitors</strong>: If you are on a laptop, and have an external monitor around, it might be possible to have its resolution provide instead of your laptop screen. Note here that different operating systems handle this value in different ways. Some append the width and height of both screens to eachother.</li>
-<li><strong>modifying the JavaScript engine</strong>: This solution has not been done very often and is considered a security risk, but there is a possibility that a new custom JavaScript engine could return a different value than your actual resolution.</li>
-<li><strong>virtualization</strong>: If you are running your anonymous environment inside of a virtual machine, you can dynamically change the resolution very easily by resizing the window of the VM.</li>
+<li>Not enabling any settings on your account that may make you look concerned about your privacy</li>
+<li>Keeping your browser configuration similar to other users of that system (e.g. JavaScript enabled, commong UserAgent)</li>
+<li>Being aware of phrases that could make you a target. Check out <a href="http://pastebin.com/yDicWqb2">the list of NSA keywords</a> to see the types of words they key in on.</li>
 </ul>
 
-
-<p>There are different situations that heed different defense. If you run into a site you need access to that requires JavaScript, you&rsquo;re not going to be able to disable it. Same applies for the browser window trick if the service is detecting Screen.height as opposed to Window.height. Going into your screen settings and changing your screen resolution might work, but it&rsquo;s pretty cumbersome. The virtualization option is very plausible but requires that you are running virtualization software like Virtual Box.</p>
-
-<h2>Real-World Attacks</h2>
-
-<p>One example of software designed for fingerprinting is <a href="http://www.juniper.net/us/en/products-services/security/webapp-secure/">Juniper&rsquo;s Webapp Secure</a>. It is a tool that will fingerprint a web site&rsquo;s users based on a variety of metrics; one of which is your computer&rsquo;s resolution. By doing so, they are able to track their browsing experience across multiple sessions without any cookies.</p>
-
-<h2>Applying to Registration</h2>
-
-<p>Screen resolution is just a single attribute that can be keyed on but I find that it is relied upon the most often during web provider registration processes. This may be because the providers don&rsquo;t believe that anyone would go through the steps of changing their screen resolution &mdash; I&rsquo;m not sure. In any event, by merely changing your screen resolution, you are able to easily register without the stigma of anything you have done in a previous sessions possibly fingerprinting you. This along with clearing your cookies, connecting with a different IP address, and possibly manipulating the fonts that are installed on your computer will let you bypass the registration process&hellip;. sometimes.</p>
-
-<h2>Conclusions</h2>
-
-<p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
 </div>
   
   
@@ -182,6 +158,10 @@ Screen Resolution Detection Example</A></p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/22/secret-disclosures/">Analyzing Trust and Secret Disclosure</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
@@ -217,10 +197,6 @@ Screen Resolution Detection Example</A></p>
     
       <li class="post">
         <a href="/blog/2014/03/05/tor-country-codes/">Tor Country Codes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/17/perspectives-of-opsec/">Perspectives of OPSEC Models</a>
       </li>
     
   </ul>
