@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Snowden - B3RN3D</title>
+  <title>Evading Stylometry Attacks Using VIM Spellcheck - B3RN3D</title>
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Category: snowden">
+  <meta name="description" content="We&rsquo;ve discussed the concerns of stylometric attacks and how good adversaries are at it today. There are only a few tools that attempt to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.b3rn3d.comblog/categories/snowden">
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
@@ -62,35 +62,104 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Snowden</h1>
+    
+      <h1 class="entry-title">Evading Stylometry Attacks Using VIM Spellcheck</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-09-22T00:00:00+00:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2015</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
 
-  
-  <h2>2014</h2>
+<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
 
-<article>
-  
-<h1><a href="/blog/2014/05/16/greenwald/">Journalist OPSEC Gap: Lessons From the Snowden Stories</a></h1>
-<time datetime="2014-05-16T00:00:00+00:00" pubdate><span class='month'>May</span> <span class='day'>16</span> <span class='year'>2014</span></time>
+<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/greenwald/'>greenwald</a>, <a class='category' href='/blog/categories/journalism/'>journalism</a>, <a class='category' href='/blog/categories/opsec/'>opsec</a>, <a class='category' href='/blog/categories/poitras/'>poitras</a>, <a class='category' href='/blog/categories/snowden/'>snowden</a></span>
-</footer>
+<h2>VIM</h2>
+
+<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings&#8217; grammar, as well as help you find which words to add.</p>
+
+<ul>
+<li>Enable spell check in your .vimrc file by adding the following line:</li>
+</ul>
 
 
-</article>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
 
+
+<ul>
+<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
+</ul>
+
+
+<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
+
+<h2>Grammar</h2>
+
+<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-09-22T00:00:00+00:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2015</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/09/22/lie-to-me/" title="Previous Post: Lie To Me, Please">&laquo; Lie To Me, Please</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

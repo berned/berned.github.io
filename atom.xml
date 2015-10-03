@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2015-10-03T18:50:40+00:00</updated>
+  <updated>2015-10-03T22:00:12+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Evading Stylometry Attacks Using VIM Spellcheck]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck/"/>
+    <updated>2015-09-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck</id>
+    <content type="html"><![CDATA[<p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
+
+<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
+
+<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
+
+<h2>VIM</h2>
+
+<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings&#8217; grammar, as well as help you find which words to add.</p>
+
+<ul>
+<li>Enable spell check in your .vimrc file by adding the following line:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
+</ul>
+
+
+<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
+
+<h2>Grammar</h2>
+
+<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lie to Me, Please]]></title>
@@ -1637,83 +1674,6 @@ comfortable. They might even fit in with your current lifestyle.
 If you&rsquo;re a nation state dissident and your activities being attributed
 to you results in your death, your operational security measures are going to
 be extremely high and would require a disciplined, rigid approach.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Managing Pseudonyms Better Than DPR]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/01/08/managing-pseudonyms/"/>
-    <updated>2014-01-08T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/01/08/managing-pseudonyms</id>
-    <content type="html"><![CDATA[<p>When Dread Pirate Roberts was caught, there was a lot of talk about all of his
-OPSEC failures. Specifically how he had used a pseudonym to reference another
-pseudonym&rsquo;s email address, letting investigators tie together the
-activities of both of those accounts.</p>
-
-<p>We&rsquo;ve heard it time and time again that we need to
-&ldquo;compartmentalize&rdquo; our lives and identities and never let them
-touch. For most, this is easier said that done but here are a few thoughts on
-making it easier.</p>
-
-<h2>Start From Scratch</h2>
-
-<p>When he started out, DPR probably didn&rsquo;t realize that his darkmarket
-forum would take off as well as it did, and he probably didn&rsquo;t know he
-was going to be such a juicy target for law enforcement. So he had made some
-pseudonyms and was doing some research without paying much attention.
-What we should learn is that, when it&rsquo;s time to go dark, there is no
-looking back; we have to start from scratch. It doesn&rsquo;t matter how
-popular you have become under one of your other nyms and how much community
-&ldquo;cred&rdquo; you&rsquo;ve earned thus far, you have to drop it all.</p>
-
-<p>Start from scratch and decide what you&rsquo;re doing. Make up new accounts,
-and document your adversaries that you need to plan for. If you think you might
-ever accidentally cross back over, burn those accounts. Generate new passwords
-and forget them. Don&rsquo;t let yourself ever log into them again.</p>
-
-<h2>Lose the Ego</h2>
-
-<p>Starting from scratch also means accepting that, in some ways, you&rsquo;ve
-completely wasted your time. The previous accounts you&rsquo;ve created can
-never be used for what you other accounts are doing. You can send a private
-message to your friends saying, &ldquo;Hey, this is actually
-Th3D@rkDru1d&rdquo; because no matter how much you trust them, they will have
-become a liability.</p>
-
-<p>You can see this issue again coming into play with DPR. He writes about how he
-is rich and powerful and feels limitless. It was his final power move of trying
-to kill someone that actually took him down the hardest.</p>
-
-<h2>Know Your Identity</h2>
-
-<p>If you&rsquo;re creating more than one identity, you need to be able to know
-that person inside and out. Names, addresses, background history, social
-network, common websites. Even things like writing style and personality type.
-All of these are tools that an adversary could use to correlate your accounts.</p>
-
-<h2>Real Life is its Own Identity</h2>
-
-<p>Your real life identity should be your most prized possession. It&rsquo;s the
-most difficult one to burn, you can&rsquo;t just start from scratch, and most
-do not want to cut ties with their personal relationships. So this is the one
-you should protect the most.</p>
-
-<p>One of the most common mistakes is tie your real life identity, to an online
-pseudonym. It&rsquo;s becoming popular for &ldquo;hackers&rdquo; and
-&ldquo;security researchers&rdquo; to share all their projects and information;
-some of which is illegal. Technically, port scanning an un-owned host is
-illegal but it&rsquo;s one of those accepted things like speeding. As
-&ldquo;hackers&rdquo; are becoming famous at things like Defcon, Blackhat, and
-any of the other thousands of security conferences, the reward for disclosing
-things to the public is higher. This makes them make riskier decisions to get
-that fame.</p>
-
-<h2>Know Your OPSEC</h2>
-
-<p>Decide on your OPSEC measures. Figure out what you&rsquo;re going to do to
-protect yourself and your identities. Each of your risky online activities will
-usually require its own separate OPSEC measures. Keep them divided, but keep
-them consistent.</p>
 ]]></content>
   </entry>
   
