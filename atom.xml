@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2015-08-29T04:06:17+00:00</updated>
+  <updated>2015-10-03T18:50:40+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lie to Me, Please]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/09/22/lie-to-me/"/>
+    <updated>2015-09-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/09/22/lie-to-me</id>
+    <content type="html"><![CDATA[<p>You can always tell how important a secret is to you by how many people you tell and the way you keep the secret. That is to say, when hiding whether or not you were dating So-and-So, you might coyly smirk &mdash; a simple tell for anyone to determine you&rsquo;re lying and that&rsquo;s exactly your intention: to gain more attention. But when you killed someone in a hit-and-run for example, there&rsquo;s no coy smirk on your face when you adamantly deny it. These two types of lies are an important differentiation to realize when protecting yourself.</p>
+
+<p>If you have an interesting project that needs to be kept secret, it may be hard to maintain the discipline of keeping it a secret. Often, the vanity of your project will tempt you to share the details with someone else even though you know it is safer to keep them a secret. In hindsight, you&rsquo;ll come to realize that you&rsquo;ve created a liability but for those few moments of discussion, you will irrationally determine it was worth it.</p>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/conversation.png" width="400"></p>
+
+<p>In hacker OPSEC the first rule is of course we don&rsquo;t talk about OPSEC. And that, just like in Fight Club, is the first rule that is broken. We have friends that we&rsquo;d like to share information with, or we disclose a small portion of a secret that leads to questions about that secret. If this doesn&rsquo;t make sense, let me present you a conversation:</p>
+
+<p>A: I wonder what $Company does for their physical security system.
+B: Well&hellip; they actually do X, Y, and Z.
+A: How do you know that?</p>
+
+<p><span class='pullquote-right' data-pullquote='People feel more comfortable being blatantly lied to as opposed to telling them that they can&#8217;t find out the truth.'>
+Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo; with an all-knowing smirk, or if that truly was information you&rsquo;re protecting, you lie. And this is my point: People feel more comfortable being blatantly lied to as opposed to telling them that they can&rsquo;t find out the truth.
+</span></p>
+
+<p>I bring this up because this should be remembered from two points of view. The first from your own perspective: you should never break the first rule of opsec and hopefully never lead someone into asking you these types of questions. The second reason is to bring attention to those that talk this way and how they are leaking intel.</p>
+
+<p>In most cases, those people that say they are hiding something, are usually not. The coy smiles are a way of appearing interesting without the threat of actually requiring to be interesting. In these cases, you can easily define whether the person could become a resource or should discarded.</p>
+
+<p>In summary, make sure you lie to people. Ideally it should be a well thought through lie but if you don&rsquo;t have that, say something&hellip; anything. A stupid lie is much better than saying nothing or that you can&rsquo;t tell them because it makes the other party more interested. This type of attention is not something you usually want.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Analyzing Trust and Secret Disclosure]]></title>
@@ -1685,81 +1714,6 @@ that fame.</p>
 protect yourself and your identities. Each of your risky online activities will
 usually require its own separate OPSEC measures. Keep them divided, but keep
 them consistent.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Defining Levels of Opsec to Your Identities]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/01/05/levels-of-opsec/"/>
-    <updated>2014-01-05T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/01/05/levels-of-opsec</id>
-    <content type="html"><![CDATA[<p>If you are compartmentalizing accounts, making multiple identities, and keeping
-them separated, you run into a few problems. One of which is remembering the
-OPSEC measures you&rsquo;ve decided to employ for each account.</p>
-
-<ul>
-<li>Political Dissident
-
-<ul>
-<li>Goal: Leak information about a local dirty politician</li>
-<li>OPSEC: Work laptop but using a VPN service to access Twitter</li>
-<li>Risks: Politician will come after you and your familiy</li>
-</ul>
-</li>
-<li>Human Body Part Trafficer
-
-<ul>
-<li>Goal: Buy and sell kidneys, livers, and various body parts to the highest
-bidder on the black market</li>
-<li>OPSEC: Dedicated laptop running an anonymized OS. Do not access any other
-services besides the black market forum. Never gets on the Clearnet.</li>
-<li>Risks: Law enforcement may find you and throw you in jail for a long time</li>
-</ul>
-</li>
-</ul>
-
-
-<p>In each of these examples you have completely different activities and
-completely different risks. The political dissident has decided she only needs
-to minimally protect herself as the local politician she&rsquo;s messing with
-doesn&rsquo;t have the means to figure out who would be leaking the
-information. The body part trafficer though knows that he is a target and has
-chosen to protect himself.</p>
-
-<p>What happens when you scale even further: One identity runs a black market
-forum, one identity likes to chat with people on twitter, one identity hangs
-out in the Anon IRC channels. It&rsquo;s easy to lose track of which identities
-are used for what and what kind of OPSEC measures you&rsquo;ve chosen to use.</p>
-
-<p>ne solution to this is to categorize your identities into levels where each
-level has its own decided upon OPSEC measure. For instance:</p>
-
-<ul>
-<li>Level 0 &mdash; No protections. You don&rsquo;t care about privacy and are
-not concerned with other people attributing your online activities to
-yourself.</li>
-<li>Level 1 &mdash; Minimal: You are concerned about privacy, but choose simple,
-minimalist tactics to protect yourself. For example, you are using a VPN
-service for everyday browsing, but being caught is inconsequential.</li>
-<li>Level 2 &mdash; Medium: You are concerned with your privacy and take action
-to ensure that you are safe. It is likely that if someone finds out what you
-are doing, you&rsquo;ll have to pay a price, but it is not a life-and-death
-situation. For example, journalists working with a source use the TAILS
-LiveCD.</li>
-<li>Level 3 &mdash; High: Those users that are likely to be targeted, and likely
-to have heavy consequences if caught. They have done everything in their
-power to maintain their pseudonymity, but still try to lead some semblance of
-a personal life.</li>
-<li>Level 4 &mdash; Extreme: These are reserved for those people doing high risk
-activities where the result of an adversary outing you is a matter of life
-and death. You&rsquo;re prepared to forgo personal relationships, worldly
-goods, and just about anything to maintain your anonymity.</li>
-</ul>
-
-
-<p>Knowing your likely threats, and defining your level of pseudonymity will help
-keep management of your OPSEC measures consistent. Something that recent
-arrests seem to have failed at.</p>
 ]]></content>
   </entry>
   
