@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2015-10-03T23:46:10+00:00</updated>
+  <updated>2015-10-20T22:15:08+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Camgirl OPSEC]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec/"/>
+    <updated>2015-10-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec</id>
+    <content type="html"><![CDATA[<p>If you read this <a href="http://motherboard.vice.com/read/camgirl-opsec-how-the-worlds-newest-porn-stars-protect-their-privacy-online">interesting post</a> from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as part of your threat model.</p>
+
+<h2>Low Tech But High Investment</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/badgirl.jpg" width="300"></p>
+
+<p>You don&rsquo;t expect that an overzealous camgirl fan to be able to do facial recognition, but we know that services like Google and Facebook can offer <a href="http://www.facesearch.com/">this service</a> for free! Doing a reverse image lookup or trying to look at a photo&rsquo;s metadata are really simple things that just about any low life can figure out.</p>
+
+<p>The more serious weapon that they have is not technology, but commitment and drive. They will do anything in their power to try and find out information about you.</p>
+
+<h2>Recommendations</h2>
+
+<p><strong>Buy Burner Everything</strong>: We&rsquo;ve heard about burner phones but don&rsquo;t forget about a dedicated cam girl laptop, and more importantly camgirl camera used only for your online business.</p>
+
+<p>Your camera can tell a lot about you. The optics, resolution, capabilities are all fingerprintable metrics. If a perv is able to find another photo series using the same expensive equipment, it may be be possible for them to find that you&rsquo;re cross-posting dirty pictures on other sites like Facebook.</p>
+
+<p><strong>Do Your Homework On The Service:</strong> The article mentions using a VPN of course. This is important as a fall back but it&rsquo;s important that the camgirl service being used does everything it can to protect your IP from being leaked. Ask questions to the service about whether IPs are logged and who has access to that information. How do you create accounts and how do you recover your password if it&rsquo;s lost? Which brings us to a reminder about account security.</p>
+
+<p><strong>Secure Your Accounts:</strong> Does the cam service let you reset your password by answering a few personal questions? Are these questions that someone that is a super-fan would know by chatting with you? Find a cam service that provides two-factor security so that you enter in a user name, a password, and then you have to enter in a One-Time-Password. This will help ensure that no one is able to get in even if they guess what your password is. In my &ldquo;research&rdquo; I have found only once service that provides this type of security. And of course, choose a strong password.</p>
+
+<p><strong>Build a List Of Lies:</strong> There is no good defense against someone that is going to do everything they can to try and get you to leak information about yourself. As I&rsquo;ve discussed before, don&rsquo;t tell them what you don&rsquo;t want them to know. Lie to them.</p>
+
+<p>If someone asks you about your coffee table and you realize it was made two streets down from your current location, don&rsquo;t say &ldquo;Sorry I can&rsquo;t tell you.&rdquo; You&rsquo;ve confirmed to the adversary a piece of sensitive information that they will likely target at another time. Lie to them. Tell them it&rsquo;s a popular brand purchased from a popular store that is popular in your entire country.</p>
+
+<p>Come up with a list of lies so that you can remember to maintain them. This could include:</p>
+
+<ul>
+<li>Name</li>
+<li>Country of origin</li>
+<li>Age of your house</li>
+<li>Brothers, sisters, family members and their names</li>
+<li>Previous relationships</li>
+<li>Favorite band, music, politician, TV show, movie, book, etc.</li>
+<li>University and expertise</li>
+<li>Professional employment</li>
+</ul>
+
+
+<p><strong>Hide In The Darkness:</strong> If you live cam at 17:00 every day, and you do it by a window, they not only will be able to deduce what timezone you&rsquo;re in, but also how far North you live. Those camgirls that live in the Scottish Highlands will have a lot less daylight towards Winter, something that an attacker would notice.</p>
+
+<p><strong>Tell Your Friends About Your Policy:</strong> You might be embarrassed about being a cam&#8217;er and telling your friends about it is the worst idea. But consider this, if someone finds out that you are a cam girl, are you sure that friend won&rsquo;t leak your information.</p>
+
+<p>When someone finds out that you are friends with someone else, their gears will automatically shift to finding out about them. Do they have the same OPSEC policy as you? Do they have an open Facebook account? Do they have any other pictures of you that they&rsquo;re willing to sell?</p>
+
+<p><span class='pullquote-right' data-pullquote='It&#8217;s always better to confide in someone a secret, than risk they find out on their own.'>
+It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s always better to confide in someone a secret, than risk they find out on their own. By letting them in on the secret, and showing them how serious the secret is to you, you are asking them to join in to protect that secret. Without doing so ahead of time, there is no social contract that would imply this.
+</span></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Evading Stylometry Attacks Using VIM Spellcheck]]></title>
@@ -1724,52 +1779,6 @@ helpful to bring you to a specific state of consciousness, it can also help
 deter adversaries from being able to tell what timezone you live in.</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Did You Ask Him About His Threat Model]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/01/10/ask-him-about-his-threat-model/"/>
-    <updated>2014-01-10T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/01/10/ask-him-about-his-threat-model</id>
-    <content type="html"><![CDATA[<p>Have you ever seen one of those arguments on forums or IRL where a group of
-people argues which scenario is more secure compared to another? It goes
-something like this:</p>
-
-<blockquote><p>Hey, how secure is Cloud? Should I use that?&#8221;<br/> Alice: Cloud is fine. I just wouldn&#8217;t save your passwords in it.<br/> Bob: Actually, Cloud is really dangerous. If someone hacks into your<br/>account they&#8217;ll be able to get everything that you own in the<br/>Cloud.<br/> Carl. It&#8217;s worse than that! The cloud should never ever be used<br/>under any circumstance. It is inherently insecure.<br/> Doug: People that use the cloud should be removed from this earth.</p></blockquote>
-
-
-<p>These are usually escalating arguments that try to pretend that if you have
-some higher level of security measures in place, it&rsquo;s a sign of wisdom. The
-truth is, every answer is wrong because they don&rsquo;t have enough information to
-intelligently make a recommendation. What should have been asked is &ldquo;What
-is your threat model?&rdquo; Or put simply, what are you legitimately concerned
-about. A nation-state, hunting you down for disclosing its secret, or are you
-just kind of concerned about your privacy without doing activities with life
-ending repercussions?</p>
-
-<p>You&rsquo;ve heard that IT guy tell you the story about how &ldquo;The most secure
-computer is the one that&rsquo;s turned off, put in a locked room, and filled
-with cement&rdquo; usually followed up by another IT guy adding in some other
-obscene logistic. Yes this is secure, but it&rsquo;s not a real-world solution
-because most computers have operational requirements.</p>
-
-<p>Step away from technical examples &mdash; let&rsquo;s take the United States
-Secret Service for instance. Their job is to protect the United States
-President from a variety of adversaries. If your job was to protect the
-President, why not just put him in a locked room padded with cement and keep
-him there until the end of his term? Because he has operational requirements.
-This is the rub of all operational security measures.</p>
-
-<p>You can apply this to your lives. You shouldn&rsquo;t be asking how much you
-care about security, you should be asking what is the biggest threat to your
-well being. If you&rsquo;re just concerned about your privacy, but someone
-attributing you to your activities results in embarrassment (as opposed to jail
-time), then maybe your operational security measures can be more relaxed and
-comfortable. They might even fit in with your current lifestyle.
-If you&rsquo;re a nation state dissident and your activities being attributed
-to you results in your death, your operational security measures are going to
-be extremely high and would require a disciplined, rigid approach.</p>
 ]]></content>
   </entry>
   
