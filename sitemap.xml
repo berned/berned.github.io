@@ -95,12 +95,16 @@
         <lastmod>2015-10-20T22:15:08+00:00</lastmod>
     </url>
     <url>
+        <loc>http://www.b3rn3d.com/blog/2015/12/04/qubes-opsec/</loc>
+        <lastmod>2015-12-06T20:27:30+00:00</lastmod>
+    </url>
+    <url>
         <loc>http://www.b3rn3d.com/robots.txt</loc>
         <lastmod>2015-10-03T21:45:37+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.b3rn3d.com/blog/archives/</loc>
-        <lastmod>2015-10-20T22:15:08+00:00</lastmod>
+        <lastmod>2015-12-06T20:27:30+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.b3rn3d.com/contact/</loc>
@@ -108,6 +112,6 @@
     </url>
     <url>
         <loc>http://www.b3rn3d.com/</loc>
-        <lastmod>2015-10-20T22:15:08+00:00</lastmod>
+        <lastmod>2015-12-06T20:27:30+00:00</lastmod>
     </url>
 </urlset>
