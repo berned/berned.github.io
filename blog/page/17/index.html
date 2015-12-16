@@ -9,8 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="<span class='pullquote-right' data-pullquote='operational security&#8217;s primary goal is to
-mitigate risk while maintaining operational &hellip;">
+  <meta name="description" content="Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
+&ndash; either by name, fingerprint, or country code. If you have a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@ mitigate risk while maintaining operational &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/17/perspectives-of-opsec/">Perspectives of OPSEC Models</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/03/05/tor-country-codes/">Tor Country Codes</a></h1>
     
     
       <p class="meta">
@@ -86,102 +86,338 @@ mitigate risk while maintaining operational &hellip;">
   
 
 
-<time datetime="2014-02-17T00:00:00+00:00" pubdate data-updated="true">Feb 17<span>th</span>, 2014</time>
+<time datetime="2014-03-05T00:00:00+00:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><span class='pullquote-right' data-pullquote='operational security&#8217;s primary goal is to
-mitigate risk while maintaining operational capabilities'>
-As I&rsquo;ve discussed <a href="/blog/2014/01/10/ask-him-about-his-threat-model">before</a>, threat models or risk models help you to define the adversaries you should invest the most resources being concerned about. There are a variety of different risk perspectives you can use to design a
-threat model: adversary-centric, asset-centric, or software-centric. We can
-adopt these into very similar models for OPSEC plans. Each of these models have
-a single principal that operational security&rsquo;s primary goal is to
-mitigate risk while maintaining operational capabilities.
-</span></p>
+  <div class="entry-content"><p>Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
+&ndash; either by name, fingerprint, or country code. If you have a trusted
+list of nodes you&rsquo;d like to use as a whitelist, you can use that, or if
+you have a list of nodes on a blacklist, it supports that configuration. But
+for those of us that are attempting to be someone else, specifically someone
+from a different country, we can use Tor to not only hide our identity, but
+make it appear to be from a specific geographic location.</p>
 
-<h2>Adversary-Centric OPSEC</h2>
+<p>Our example here may be an identity where you want to appear like a Ukrainian
+dissident &mdash; when in reality you&rsquo;re a soccer Mom from Chicago, IL.
+By setting up a dedicated machine, with a specific Tor configuration, you can
+make sure that all of your traffic is routed out of an Ukrainian Exit Node.</p>
 
-<p><img class="right" src="/images/adversary.png" title="" ></p>
+<h2>TORRC</h2>
 
-<p>In these types of plans, we&rsquo;re focused on what an attacker or adversary
-can do to us; who is coming after you, what they can do, and how you can
-defend. An adversary-cetnric policy has the advantage of being much easier to
-create and document because many people already think this way. It&rsquo;s very
-simple to come up with a list of adversaries that have the potential to affect
-what&rsquo;s important to you. The down-side of this approach is that you need
-to know your adversaries. In the case of the NSA &ldquo;revelations&rdquo;,
-many were shocked to find out that a nation-state had the type of capabilities
-that were disclosed. Prior to this, not many were able to mitigate themselves
-from these types of threats because they simply didn&rsquo;t know or fully
-appreciate an adversary of this nature.</p>
+<p>The configuration is simple, modify your torrc file to add the follwoing line
+to ensure Tor will only use Ukraine based exit nodes:</p>
 
-<h2>Asset-Centric OPSEC</h2>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  ExitNodes {ua}
+</span><span class='line'>  StrictNodes 1</span></code></pre></td></tr></table></div></figure>
 
-<p><img class="right" src="/images/asset.png" title="" ></p>
 
-<p>This approach focuses on designging mitigations around your assets &mdash; the
-things you value the most. If, for example, your asset is your ability to
-privately communicate on the Internet, you&rsquo;re going to do everything you
-can to ensure no-one can affect this. You&rsquo;re not focused on specific
-adversaries per se in this approach, but you are doing everything in your power
-to protect yourself. Maybe you&rsquo;re buying a VPN service or using a botnet
-or Tor for all communications. Maybe you&rsquo;ve decided that you&rsquo;re
-going to try out one of the new <a href="https://bitmessage.org/wiki/Main_Page">decentralized</a> <a href="http://dee.su/cables">messaging</a> <a href="https://crypto.cat/">systems</a> as a way of
-keeping yourself secure.</p>
+<p>Please note that in all of these examples, we must enable StrictNodes. This
+example will use either Ukraine, Uganda, South Korea, or Ireland as an exit:</p>
 
-<p>One of the benefits of this method is that it&rsquo;s easy to explain why a
-measure needs to take place. If you&rsquo;re operating in a group, this may be
-an important factor. You can easily make the case that your asset needs to be
-secure, therefore we are taking these steps to mitigate the risk. Contrary to
-the adversary-centric approach, this is a less passive perspective &mdash; you
-are not taking the point of view of being fearful of something happening, you
-are merely performing the proactive, required procedures to keep your assets
-safe.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExitNodes {ua},{ug},{kp},{ie}</span></code></pre></td></tr></table></div></figure>
 
-<h2>Operation-Centric OPSEC</h2>
 
-<p><img class="right" src="/images/boxes.png" title="" >
-This approach, my favorite, lends itself nicely to compartmentalization if
-you&rsquo;re managing multiple identities across multiple operations. An
-operation in this case could be an identitiy, a research project, an regular
-activitiy or whatever, that may require specific operational security measures.
-An operation-centreic OPSEC plan may sound recursive to you, but the gist is
-that your plans are focused on your specific operation, and that operation
-alone. The main difference between this and an asset-centric approach is that
-it is designed to have drastically different and compartmentalized procedures
-allowing for scalability without letting one operation interfere with another.</p>
+<h2>Blacklisting</h2>
 
-<p>If you&rsquo;ve ever taken a look at the security plans of a large, Fortune 500
-company compared to that of a startup, it&rsquo;s quite possible that the
-startup is able to implement simple, elegent, effective security plans while
-the Fortune 500 spends millions of dollars designing a unilateral security
-policy that severely inhibits the organizations operational capabilities. The
-reason that a small, agile startup can devise elegant OPSEC measures, is the
-same reason that compartmentalizing your OPSEC procedures in an operation-
-centric point-of-view is effective.</p>
+<p>You can also use this as a defensive measure as well. If you&rsquo;ve believe
+there is some kind of geo-centric threat in Uganda, you can configure Tor to
+never use these exit nodes.</p>
 
-<p>The other reason that I like this is because it gives you a good balance of a
-variety of different OPSEC approaches. You are paying attention to your
-operation&rsquo;s assets while taking into account specific adversaries and
-their attacks. As you define an operation &mdash; we&rsquo;ll say buying
-illegal drugs on the internet &mdash; you will be scoped down to a specific
-task and controlled environment. It lets you define boundaries in which your
-OPSEC guidelines can define situations in which your measures/countermeasures
-no longer protect you. This keeps risks at a minimum because you are only
-defending against a subset of your activities &mdash; those associated with the
-operation. In the example of buying illegal drugs on a darknet market, your
-OPSEC guidelines can state that in the case of the darkmarket collapse (which
-seems to happen regularly <a href="http://www.deepdotweb.com/2014/02/13/silk-road-2-hacked-bitcoins-stolen-unknown-amount/">lately</a>), your operation should fold and the identity
-should be burned. You can take into accounts adversaries such as those that own
-the market, and assets you&rsquo;re concerned about such as keeping yourself
-out of jail.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeExitNodes {ua}</span></code></pre></td></tr></table></div></figure>
 
-<p>I will admit, none of those listed are perfect, nor do they make up an
-exhaustive list. They may however give you a starting point for building an
-OPSEC plan for yourself.</p>
+
+<p>You can exclude all node types for a specific country as well &ndash; exits,
+relays, entry, and bridge nodes.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeNodes {us}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You have the ability to whitelist all node types which is to say you can make
+sure that your entire Tor circuit only uses a certain country. This is NOT
+recommended of course. An ideal circuit will cross countries and legal
+jurisdictions.</p>
+
+<h2>The ?? Country</h2>
+
+<p>Tor uses Maxmind&rsquo;s Geo-ip lookup system for this functionality. Some of
+the versions of their database contain a &ldquo;??&rdquo; country code. This is
+reserved for IPs they either don&rsquo;t know, or aren&rsquo;t willing to
+share. (Tor is making some changes to compensate for this in the future.)</p>
+
+<p>Knowing this can be useful in one of two ways. First, you may think that if you
+don&rsquo;t know what country you&rsquo;re going to be using as a node, then
+you don&rsquo;t want to use it. This is probably a legitimate thought without
+having more information on what causes an IP to have &ldquo;??&rdquo;. Second,
+and more interestingly, some (poorly configured) firewalls will automatically
+drop connections from certain countries. Admins will say &ldquo;Screw it, block
+China. Hacking problem solved!&rdquo; and ask for a raise. Maxmind is a very
+popular Geo-ip lookup database and you can imagine that all of the security
+services built into those fancy enterprise firewalls will most likely be using
+it if it&rsquo;s doing geographic lookups. While many of these admins will have
+policies for how to handle &ldquo;us&rdquo;, &ldquo;cn&rdquo;, and &ldquo;de&rdquo;, I&rsquo;ve found many have issues with a country code that is &ldquo;??&rdquo;. In one case, I&rsquo;ve found a system that blocks all exit
+nodes, except those coming from a &ldquo;??&rdquo; country. I have not
+identitied why this mis-configuration occurs, but hopefully someone can
+leverage this to their advantage.</p>
+
+<h2>List of country codes for Tor</h2>
+
+<pre><code>Country                               Abbrev
+ASCENSION ISLAND                      {ac}
+AFGHANISTAN                           {af}
+ALAND                                 {ax}
+ALBANIA                               {al}
+ALGERIA                               {dz}
+ANDORRA                               {ad}
+ANGOLA                                {ao}
+ANGUILLA                              {ai}
+ANTARCTICA                            {aq}
+ANTIGUA AND BARBUDA                   {ag}
+ARGENTINA REPUBLIC                    {ar}
+ARMENIA                               {am}
+ARUBA                                 {aw}
+AUSTRALIA                             {au}
+AUSTRIA                               {at}
+AZERBAIJAN                            {az}
+BAHAMAS                               {bs}
+BAHRAIN                               {bh}
+BANGLADESH                            {bd}
+BARBADOS                              {bb}
+BELARUS                               {by}
+BELGIUM                               {be}
+BELIZE                                {bz}
+BENIN                                 {bj}
+BERMUDA                               {bm}
+BHUTAN                                {bt}
+BOLIVIA                               {bo}
+BOSNIA AND HERZEGOVINA                {ba}
+BOTSWANA                              {bw}
+BOUVET ISLAND                         {bv}
+BRAZIL                                {br}
+BRITISH INDIAN OCEAN TERR             {io}
+BRITISH VIRGIN ISLANDS                {vg}
+BRUNEI DARUSSALAM                     {bn}
+BULGARIA                              {bg}
+BURKINA FASO                          {bf}
+BURUNDI                               {bi}
+CAMBODIA                              {kh}
+CAMEROON                              {cm}
+CANADA                                {ca}
+CAPE VERDE                            {cv}
+CAYMAN ISLANDS                        {ky}
+CENTRAL AFRICAN REPUBLIC              {cf}
+CHAD                                  {td}
+CHILE                                 {cl}
+PEOPLE'S REPUBLIC OF CHINA            {cn}
+CHRISTMAS ISLANDS                     {cx}
+COCOS ISLANDS                         {cc}
+COLOMBIA                              {co}
+COMORAS                               {km}
+CONGO                                 {cg}
+CONGO (DEMOCRATIC REPUBLIC)           {cd}
+COOK ISLANDS                          {ck}
+COSTA RICA                            {cr}
+COTE D IVOIRE                         {ci}
+CROATIA                               {hr}
+CUBA                                  {cu}
+CYPRUS                                {cy}
+CZECH REPUBLIC                        {cz}
+DENMARK                               {dk}
+DJIBOUTI                              {dj}
+DOMINICA                              {dm}
+DOMINICAN REPUBLIC                    {do}
+EAST TIMOR                            {tp}
+ECUADOR                               {ec}
+EGYPT                                 {eg}
+EL SALVADOR                           {sv}
+EQUATORIAL GUINEA                     {gq}
+ESTONIA                               {ee}
+ETHIOPIA                              {et}
+FALKLAND ISLANDS                      {fk}
+FAROE ISLANDS                         {fo}
+FIJI                                  {fj}
+FINLAND                               {fi}
+FRANCE                                {fr}
+FRANCE METROPOLITAN                   {fx}
+FRENCH GUIANA                         {gf}
+FRENCH POLYNESIA                      {pf}
+FRENCH SOUTHERN TERRITORIES           {tf}
+GABON                                 {ga}
+GAMBIA                                {gm}
+GEORGIA                               {ge}
+GERMANY                               {de}
+GHANA                                 {gh}
+GIBRALTER                             {gi}
+GREECE                                {gr}
+GREENLAND                             {gl}
+GRENADA                               {gd}
+GUADELOUPE                            {gp}
+GUAM                                  {gu}
+GUATEMALA                             {gt}
+GUINEA                                {gn}
+GUINEA-BISSAU                         {gw}
+GUYANA                                {gy}
+HAITI                                 {ht}
+HEARD &amp;amp; MCDONALD ISLAND           {hm}
+HONDURAS                              {hn}
+HONG KONG                             {hk}
+HUNGARY                               {hu}
+ICELAND                               {is}
+INDIA                                 {in}
+INDONESIA                             {id}
+IRAN, ISLAMIC REPUBLIC OF             {ir}
+IRAQ                                  {iq}
+IRELAND                               {ie}
+ISLE OF MAN                           {im}
+ISRAEL                                {il}
+ITALY                                 {it}
+JAMAICA                               {jm}
+JAPAN                                 {jp}
+JORDAN                                {jo}
+KAZAKHSTAN                            {kz}
+KENYA                                 {ke}
+KIRIBATI                              {ki}
+KOREA, DEM. PEOPLES REP OF            {kp}
+KOREA, REPUBLIC OF                    {kr}
+KUWAIT                                {kw}
+KYRGYZSTAN                            {kg}
+LAO PEOPLE'S DEM. REPUBLIC            {la}
+LATVIA                                {lv}
+LEBANON                               {lb}
+LESOTHO                               {ls}
+LIBERIA                               {lr}
+LIBYAN ARAB JAMAHIRIYA                {ly}
+LIECHTENSTEIN                         {li}
+LITHUANIA                             {lt}
+LUXEMBOURG                            {lu}
+MACAO                                 {mo}
+MACEDONIA                             {mk}
+MADAGASCAR                            {mg}
+MALAWI                                {mw}
+MALAYSIA                              {my}
+MALDIVES                              {mv}
+MALI                                  {ml}
+MALTA                                 {mt}
+MARSHALL ISLANDS                      {mh}
+MARTINIQUE                            {mq}
+MAURITANIA                            {mr}
+MAURITIUS                             {mu}
+MAYOTTE                               {yt}
+MEXICO                                {mx}
+MICRONESIA                            {fm}
+MOLDAVA REPUBLIC OF                   {md}
+MONACO                                {mc}
+MONGOLIA                              {mn}
+MONTENEGRO                            {me}
+MONTSERRAT                            {ms}
+MOROCCO                               {ma}
+MOZAMBIQUE                            {mz}
+MYANMAR                               {mm}
+NAMIBIA                               {na}
+NAURU                                 {nr}
+NEPAL                                 {np}
+NETHERLANDS ANTILLES                  {an}
+NETHERLANDS, THE                      {nl}
+NEW CALEDONIA                         {nc}
+NEW ZEALAND                           {nz}
+NICARAGUA                             {ni}
+NIGER                                 {ne}
+NIGERIA                               {ng}
+NIUE                                  {nu}
+NORFOLK ISLAND                        {nf}
+NORTHERN MARIANA ISLANDS              {mp}
+NORWAY                                {no}
+OMAN                                  {om}
+PAKISTAN                              {pk}
+PALAU                                 {pw}
+PALESTINE                             {ps}
+PANAMA                                {pa}
+PAPUA NEW GUINEA                      {pg}
+PARAGUAY                              {py}
+PERU                                  {pe}
+PHILIPPINES (REPUBLIC OF THE)         {ph}
+PITCAIRN                              {pn}
+POLAND                                {pl}
+PORTUGAL                              {pt}
+PUERTO RICO                           {pr}
+QATAR                                 {qa}
+REUNION                               {re}
+ROMANIA                               {ro}
+RUSSIAN FEDERATION                    {ru}
+RWANDA                                {rw}
+SAMOA                                 {ws}
+SAN MARINO                            {sm}
+SAO TOME/PRINCIPE                     {st}
+SAUDI ARABIA                          {sa}
+SCOTLAND                              {uk}
+SENEGAL                               {sn}
+SERBIA                                {rs}
+SEYCHELLES                            {sc}
+SIERRA LEONE                          {sl}
+SINGAPORE                             {sg}
+SLOVAKIA                              {sk}
+SLOVENIA                              {si}
+SOLOMON ISLANDS                       {sb}
+SOMALIA                               {so}
+SOMOA,GILBERT,ELLICE ISLANDS          {as}
+SOUTH AFRICA                          {za}
+SOUTH GEORGIA, SOUTH SANDWICH ISLANDS {gs}
+SOVIET UNION                          {su}
+SPAIN                                 {es}
+SRI LANKA                             {lk}
+ST. HELENA                            {sh}
+ST. KITTS AND NEVIS                   {kn}
+ST. LUCIA                             {lc}
+ST. PIERRE AND MIQUELON               {pm}
+ST. VINCENT &amp;amp; THE GRENADINES      {vc}
+SUDAN                                 {sd}
+SURINAME                              {sr}
+SVALBARD AND JAN MAYEN                {sj}
+SWAZILAND                             {sz}
+SWEDEN                                {se}
+SWITZERLAND                           {ch}
+SYRIAN ARAB REPUBLIC                  {sy}
+TAIWAN                                {tw}
+TAJIKISTAN                            {tj}
+TANZANIA, UNITED REPUBLIC OF          {tz}
+THAILAND                              {th}
+TOGO                                  {tg}
+TOKELAU                               {tk}
+TONGA                                 {to}
+TRINIDAD AND TOBAGO                   {tt}
+TUNISIA                               {tn}
+TURKEY                                {tr}
+TURKMENISTAN                          {tm}
+TURKS AND CALCOS ISLANDS              {tc}
+TUVALU                                {tv}
+UGANDA                                {ug}
+UKRAINE                               {ua}
+UNITED ARAB EMIRATES                  {ae}
+UNITED KINGDOM (no new registrations) {gb}
+UNITED KINGDOM                        {uk}
+UNITED STATES                         {us}
+UNITED STATES MINOR OUTL.IS.          {um}
+URUGUAY                               {uy}
+UZBEKISTAN                            {uz}
+VANUATU                               {vu}
+VATICAN CITY STATE                    {va}
+VENEZUELA                             {ve}
+VIET NAM                              {vn}
+VIRGIN ISLANDS (USA)                  {vi}
+WALLIS AND FUTUNA ISLANDS             {wf}
+WESTERN SAHARA                        {eh}
+YEMEN                                 {ye}
+ZAMBIA                                {zm}
+ZIMBABWE                              {zw}
+</code></pre>
 </div>
   
   
@@ -204,6 +440,10 @@ OPSEC plan for yourself.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/12/22/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/14/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
@@ -239,10 +479,6 @@ OPSEC plan for yourself.</p>
     
       <li class="post">
         <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/22/privacy-controls-for-fingerprinting/">Privacy Controls as a Fingerprinting Attack</a>
       </li>
     
   </ul>

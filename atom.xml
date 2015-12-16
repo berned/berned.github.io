@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2015-12-16T01:53:52+00:00</updated>
+  <updated>2015-12-16T02:24:31+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,72 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Ship Drugs to Your House]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/12/22/how-to-ship-drugs/"/>
+    <updated>2015-12-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/12/22/how-to-ship-drugs</id>
+    <content type="html"><![CDATA[<p>You&rsquo;ve found your favorite drugs on your favorite darknets but then your OPSEC buzzer goes off and you say &ldquo;How do I actually get it shipped to me?&rdquo; Lets talk about some of the risks and likely attacks.</p>
+
+<h2>The Fallacy Of The Drop Ship</h2>
+
+<p>The first thing you might this is, just like your computer, find a way to be completely anonymous. That would mean sending to a &ldquo;drop ship&rdquo; location or someone else&rsquo;s house. You&rsquo;ll find documents online about how the best way to do this is:</p>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/package.png" width="400"></p>
+
+<ul>
+<li>find a house in a city that no one lives in</li>
+<li>mow the lawn once week</li>
+<li>let the neighbors know who you are</li>
+<li>send some fake packages and receive them at the location</li>
+<li>establish a pretend situation where you are there multiple times during the week.</li>
+</ul>
+
+
+<p>The number of people that can do this is uselessly low. If you can do this, good for you but don&rsquo;t waste your time trying to figure this situation out.</p>
+
+<p>Lets talks talk about some pragmatic approaches.</p>
+
+<h2>Risk Calculations</h2>
+
+<p>To get something shipped, you must take a risk calculation. How much do you care about the package you&rsquo;re receiving, how often are you doing it, how likely are you to be caught, and what are the consequences of being caught.</p>
+
+<pre><code>value * frequency + caught * sentence = RISK
+</code></pre>
+
+<p>This is a bull shit calculation but you can use it to come up with an arbitrary number to assign a consistent risk score and it&rsquo;s on point.</p>
+
+<p>Lets review your situation:</p>
+
+<ul>
+<li>you plan on sending an illegal product across country, providence, or state lines</li>
+<li>you plan on using a federally funded system to do so (in the case of US Mail)</li>
+<li>You are plan on putting a name and address on the recipient of the illegal product</li>
+</ul>
+
+
+<h2>How do you do it?</h2>
+
+<p>First: Don&rsquo;t. I know that&rsquo;s a cop out but seriously reconsider. Other options are:</p>
+
+<ul>
+<li>pick it up directly from the contact</li>
+<li>agree on shipping using a private company</li>
+</ul>
+
+
+<p>Ok, you&rsquo;re not going to do that. If you need to, here are a few things to remember:</p>
+
+<ul>
+<li>Use your real name. I know, just do it.</li>
+<li>Make yourself unlikely to be cause. Small packages, envelopes, now quantities</li>
+<li>Be nice. There&rsquo;s some real documents that show how delivery guys are responsible for determining if you are a sketchy person and decide that you&rsquo;re a high risk delivery.</li>
+<li>Don&rsquo;t sign for your packages. There will always be situations where you need to but don&rsquo;t use your real signature.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Website Fingerprinting Attacks and Defense]]></title>
@@ -1630,112 +1696,6 @@ personal life</li>
 <li>recall how that identity is supposed to act online</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Tools to Evade Stylometrics]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/"/>
-    <updated>2014-01-31T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics</id>
-    <content type="html"><![CDATA[<p>Stylometrics is the idea that your writing style can be quantified, even
-fingerprinted. The way you turn a phrase, the average word or sentence length,
-the vocabulary used, all contribute to a a scientific perspective of your
-writing style. In terms of OPSEC, stylometrics is an adversarial concern
-&mdash; one of which can be difficult to defend against.</p>
-
-<p>One of the operational security measures that Edward Snowden employed, was to
-write short bits of information; small paragraphs, a few sentences, but never
-long prose. This was, in part, because he had concerns that no matter what kind
-of anyonymity systems or security tactics taken, if an adversary with enough
-power was able to extract the plain text from one of his messages, it could be
-correlated back to himself based on previous documents he had written.</p>
-
-<blockquote><p>Snowden was not yet ready to tell me his name, but he said he was<br/>certain to be exposed &#8220;by his own hand or somebody else&#8217;s.&#8221;&#8221; Until<br/>then, he asked that I not quote him at length. He said semantic<br/>analysis, another of the NSA&#8217;s capabilities, would identify him by<br/>his patterns of language.</p></blockquote>
-
-
-<p>Barton Gellman <a href="http://www.washingtonpost.com/world/national-security/code-name-verax-snowden-in-exchanges-with-post-reporter-made-clear-he-knew-risks/2013/06/09/c9a25b54-d14c-11e2-9f1a-1a7cdee20287_story.html">Washington Post Snowden Communications</a></p>
-
-<p>Also to note, this is not merely an NSA capability, intelligence compaies like
-Palantir posses this capabibility and wrap it into the products that they
-offer.</p>
-
-<p>In 2007, researchers for the <a href="http://readwrite.com/2008/02/14/spidering_the_dark_web">Univesity of Arizona</a>, scraped the Deep Web blogs,
-forums, and anything else they could get their hands on, in an attempt to
-attribute people. They crawled forums run by neo-nazis and devised a way of
-taking all that information, and separating out who was who on the forums. They
-used stylometrics to collect enough information to group people up based on a
-variety of features.</p>
-
-<h2>Types of stylometrics</h2>
-
-<p>There are two ways in which stylometrics can be used against you. (Both of them
-have their names borrowed from an approach to Natural Language Processing.) One
-way, which is called &ldquo;Supervised,&rdquo; refers to taking a group of
-documents with known authors, and attributing them to an unknown author. For
-instance if we had a writing sample from Edward Snowden, we could attempt to
-attribute his authoriship of something he anonymously posted, by comparing his
-writing styles. This type is relatively easy for humans to do themselves.</p>
-
-<p>The second type, &ldquo;Unsupervised,&rdquo; leverages computational power to
-take a pile of anonymous blocks of text, and group them together based on the
-writing style. The example, the neo-nazi forum research didn&rsquo;t identify
-individuals posting to the forum, but they grouped which posts belonged to
-NaziA and which posts belonged to NaziB.</p>
-
-<h2>What makes up your style</h2>
-
-<p>There are dozens of models that deliver a perspective on your writing style.
-They&rsquo;ve been created by academics and all aim to be more accurate than
-the next. One called the &ldquo;9 Feature Model&rdquo; is merely taking nine
-properties like sentence length, unique words, a readability index, and some
-other simple to measure features of the text to come out with a classification.</p>
-
-<p>Other, more complex methods like the &ldquo;Writeprints&rdquo; method, use
-hundreds of features to make their conclusions. I&rsquo;m simplifying this to
-features classifiers, but these are actually extremely complicated models using
-neaural nets to generate their results.</p>
-
-<h2>Evasion tactics</h2>
-
-<p>If we see this as a threat, we need to mitigate. Researchers who <a href="http://events.ccc.de/congress/2011/Fahrplan/attachments/2019_28C3-authorship.pdf">presented at 28C3</a> define a few ways in which to evade being finterprinted:</p>
-
-<ol>
-<li> <strong>Obfuscation</strong>: Generally make the text appear unlike your normal writing
- style.</li>
-<li> <strong>Imitation</strong>: Make your writing stile look like someone elses.</li>
-</ol>
-
-
-<p>(They also recommend what they call &ldquo;Translation&rdquo; which is merely
-taking a text, using an automatic translator service to convert it to a
-different language, and then change it back. I don&rsquo;t see any difference
-between this and &ldquo;Obfuscation&rdquo; and it presents a new anonymity
-issue.)</p>
-
-<p><img class="center" src="http://www.b3rn3d.com/images/style1.png" title="" ></p>
-
-<p><img class="center" src="http://www.b3rn3d.com/images/style2.png" title="" ></p>
-
-<h2>Tool: Anonymouth</h2>
-
-<p>These researchers even gave us some data that shows how effective each type of
-mitigation is to defend against. They show us a break down of the stylometric
-model employed, and how effective each type of evasion tactic was. They also
-give us a tool to help us anonymize our own documents that works surprisingly
-well. Althought it&rsquo;s very complicated.</p>
-
-<p>There are a lot more details about how the tool works and when to use it, but
-for now, you can take a look at <a href="https://github.com/psal/anonymouth">Anonymouth</a>. This is a Java tool that takes the document you&rsquo;d like to anonymize, compares it to other documents
-you&rsquo;ve written, and then takes a variety of texts from other others to
-compare against. The results give you a breakdown of common words you use,
-attributing sentence structure, and even some suggestions about how to change
-the document to defend against attribution.</p>
-
-<p>As this is an Academic research tool, it&rsquo;s written in Java and awkward to
-use, but in general, it is pretty effective. They are now working to automate
-many of its features so that instead of manually anonymizing a document, you
-can tell the tool a directory of documents that you&rsquo;d like to anonymize.</p>
 ]]></content>
   </entry>
   

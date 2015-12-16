@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously &hellip;">
+  <meta name="description" content="I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. A Critical &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/14/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a></h1>
     
     
       <p class="meta">
@@ -85,99 +85,60 @@
   
 
 
-<time datetime="2015-12-04T00:00:00+00:00" pubdate data-updated="true">Dec 4<span>th</span>, 2015</time>
+<time datetime="2015-12-14T00:00:00+00:00" pubdate data-updated="true">Dec 14<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
+  <div class="entry-content"><p>I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. <a href="https://securewww.esat.kuleuven.be/cosic/publications/article-2456.pdf">A Critical Evaluation of Website Fingerprinting Attacks</a> takes a look at some of the theoretical attacks on Tor and see how likely they would work in the real world.</p>
 
-<h1>TAILS</h1>
+<p>Better than that, it gives you a break down of the most likely attacks that users need to defend themselves against.</p>
 
-<p><img class="right" src="/images/tails.png" width="300">
-<a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
+<h2>Website Fingerprinting</h2>
 
-<p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n&#8217;th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
+<p>The attack that they&rsquo;re reviewing here shouldn&rsquo;t be confused with Browser Fingerprinting or other types of fingerprinting attacks. It refers to an adversary being able to deduce what website you&rsquo;re going to.</p>
 
-<p>As stated, we are paying more attention to the secure tools that we use and this has identified some <a href="https://www.schneier.com/blog/archives/2014/07/security_vulner_4.html">fatal flaws</a> in TAILS. If you <a href="https://tails.boum.org/security/#index3h1">look back</a> at the TAILS project, the number of vulnerabilities identified and reported have are much smaller before than after Snowden disclosures.</p>
+<p>The premise in previous papers has been that on low-latency anonymity networks (like tor), attackers can analyze your connection and guess which page you&rsquo;re visiting. For example, when you go to <a href="https://www.google.com,">https://www.google.com,</a> you are visiting a page that has a predictable size, response time, and predictable number of secondary page requests being made.</p>
 
-<ul>
-<li><strong>Development</strong>: Highly active with multiple paid developers</li>
-<li><strong>Maturity</strong>: First created in</li>
-<li><strong>Goals</strong>: Provide an easy-to-use live environment for temporary work.</li>
-<li><strong>Roadmap</strong>: Continue same model and further harden the OS.</li>
-<li><strong>Challenges</strong>:
+<h2>The Size Correlation Fingerprint</h2>
 
-<ul>
-<li>Minimal support for persistence (besides files). Not designed to be installed but just run once.</li>
-<li>No mitigations for GCHQ/NSA type low level hardware attacks</li>
-<li>The focus on supporting all forms of users may affect security</li>
-</ul>
-</li>
-</ul>
+<p>One of the most rudimentary attacks is an adversary that stands between a user and Tor to see the packets being sent out and the size of the packets returned. In this simple approach, it&rsquo;s possible for an attacker that has a database of websites and their possible sizes, is able to guess which sites a user is visiting.</p>
 
+<p><strong>Defense</strong>: &ldquo;Padding&rdquo; is considered a defense against website fingerprinting because it adds arbitrary data to your request that makes it harder for an attacker to correlate your visit to the actual website in question.</p>
 
-<h2>Qubes OS</h2>
+<p>The Tor Project has made a decision not to implement padding. On purpose. They&rsquo;re now taking a look at research that might mean that adding small amounts of padding will have a major affect. It&rsquo;s yet to be concluded.</p>
 
-<p><img class="right" src="/images/qubes.png" width="300">
-I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
+<p>Other defenses that the paper goes into are what happens when there are multiple tabs being opened and what about the situation where something else on the network is padding things for you. The latest TBB has a nice feature that makes a separate connection in multiple tabs.</p>
 
-<p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
+<h2>The Behavioral Fingerprint</h2>
 
-<p><span class='pullquote-right' data-pullquote='it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &#8220;identity&#8221; with &#8220;virtual object&#8221; and you have their security model'>
-Technical details aside for a moment, it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &ldquo;identity&rdquo; with &ldquo;virtual object&rdquo; and you have their security model.</p>
+<p>One of the most discussed tactic was to take a pile of University students&#8217;, watch the websites that they visit over multiple days, and then watch for similar patterns sent over Tor.</p>
 
-<p>This is accomplished by making several virtual objects. You virtualize your firewall, you virtualize your USB controller, you virtualize the browser you&rsquo;re using for Project A, and separately, you virtualize the browser you&rsquo;re using for Project B. From here, QubesOS helps facilitate communications between those objects if necessary.
-</span></p>
+<p>The basis of this attack is that you visit web pages in a linear order. You will go to your favorite news site, then Facebook, then your boyfriend&rsquo;s blog, and then your favorite shopping site. Often times, you will go in the cycle of visits multiple times over the course of a day.</p>
 
-<p>QubesOS offers some features that no other system currently offers. The big one for me is virtualization for USB controller. So no only are you creating virtual machines, you&rsquo;re creating virtual controllers. If someone malicious is plugged into your system, even in the case of an [0-day exploiting the firmware of your USB controller], the rest of your system is not compromised.</p>
+<p>Attackers knowing the potential sizes of pages, the loading time of a site, and other quantifiable factors, can fingerprint your browsing behavior.</p>
 
-<p>The other major feature that we know is in the GCHQ playbook is protection from WiFi driver exploits. We&rsquo;ve heard of this exploit being used in the while but have yet to have a real mitigation from it. With QubesOS, your wireless card is its own virtual object that contains the exploit into its own virtual machine.</p>
+<p><strong>Defense</strong>: There are two options that I&rsquo;m sure you can imagine: Don&rsquo;t ever switch between dark and clear or make sure that your behavior is completely different on a dark persona.</p>
 
-<p>There is a lot more to talk about with QubesOS but it does seem the one to watch going forward.</p>
+<h2>Targeted vs Untargeted</h2>
+
+<p>There&rsquo;s a major different in the attack vectors between an adversary targeting you as an individual, versus what the paper calls a &ldquo;drag-net&rdquo; approach.</p>
 
 <ul>
-<li><strong>Development</strong>: Active but a small group.</li>
-<li><strong>Maturity</strong>: v3.1 released is functional but not perfect.</li>
-<li><strong>Roadmap</strong>: Investing time in rebuilding the UI is a priority.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Hardware support is difficult to predict. They have an approved list but you can&rsquo;t assume it will work on all systems.</li>
-<li>Performance is relatively poor to the other systems and Qubes consumes a lot of memory for each of the virtual machines.</li>
-</ul>
-</li>
+<li>Targeted attacks have less reward but are more accurate</li>
+<li>Untargeted attacks have more reward but are more difficult to identify high value targets</li>
 </ul>
 
 
-<h2>SubgraphOS</h2>
+<p>Which is most likely? While the most paranoid of us believe we are being targeted (and we should), unless you are truly a high-value target, there are not many groups trying to specifically launch a targeted attack. But a mass surveillance situation is a much more likely scenario.</p>
 
-<p><img class="right" src="/images/subgraph.png" width="300">
-<a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
+<p><strong>Defense</strong>: Burn, and burn often. The premise of my OPSEC model is to never give someone a chance to correlate between two different identities. If you&rsquo;re able to do that, you&rsquo;re able to defend against either of these attack scenarios.</p>
 
-<p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
+<h2>Results</h2>
 
-<p>The problem thus far is that only a small group of people have seen SubgraphOS working. I&rsquo;m also concerned about the development of SubgraphOS by the company, Subgraph. We know that Subgraph is a <a href="https://subgraph.com/about-us/index.en.html">&ldquo;security&rdquo; company</a> that aims to provide services and products to its clients. The other two projects discussed here have been community projects and money is not the primary goal. The owner of the company comes from the secure kernel world where he was a mod of one of the most popular and dramatic bug hunting mailing lists.</p>
-
-<p>SubgraphOS had the problem of being announced way too soon. They showed off the now famous <a href="https://subgraph.com/img/sgos.png">SubgraphOS images</a> that caught everyone&rsquo;s eye before there was anything to actually look at.</p>
-
-<p>I come from the perspective of seeing tons of projects die in the past. The ones that I&rsquo;ve seen stick through are not usually (ever?) the ones released for free by a money making company.</p>
-
-<ul>
-<li><strong>Development</strong>: Probably active? Not open to the public.</li>
-<li><strong>Maturity</strong>: Immature, pre-alpha releases</li>
-<li><strong>Roadmap</strong>: Hopefully release a beta to the public soon.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Money may affect the development of the product.</li>
-<li>Closed development may deter acceptance of even a finished product.</li>
-</ul>
-</li>
-</ul>
-
+<p>Long story short, some of these academic papers talking about potential attacks, take a substantial investment. That being said, we know there are organizations interested in investing those resources, but at the same time, a targeted attack on individual computers is less likely than a mass surveillance situation. Be aware that these attacks exist and never visit your favorite websites across multiple identifies.</p>
 </div>
   
   
@@ -200,6 +161,10 @@ Technical details aside for a moment, it works similar to how I write about OSPE
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/12/22/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/14/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
@@ -235,10 +200,6 @@ Technical details aside for a moment, it works similar to how I write about OSPE
     
       <li class="post">
         <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/22/privacy-controls-for-fingerprinting/">Privacy Controls as a Fingerprinting Attack</a>
       </li>
     
   </ul>
