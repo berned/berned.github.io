@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2015-12-06T20:37:42+00:00</updated>
+  <updated>2015-12-16T01:53:52+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Website Fingerprinting Attacks and Defense]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/12/14/behavior-fingerprinting/"/>
+    <updated>2015-12-14T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/12/14/behavior-fingerprinting</id>
+    <content type="html"><![CDATA[<p>I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. <a href="https://securewww.esat.kuleuven.be/cosic/publications/article-2456.pdf">A Critical Evaluation of Website Fingerprinting Attacks</a> takes a look at some of the theoretical attacks on Tor and see how likely they would work in the real world.</p>
+
+<p>Better than that, it gives you a break down of the most likely attacks that users need to defend themselves against.</p>
+
+<h2>Website Fingerprinting</h2>
+
+<p>The attack that they&rsquo;re reviewing here shouldn&rsquo;t be confused with Browser Fingerprinting or other types of fingerprinting attacks. It refers to an adversary being able to deduce what website you&rsquo;re going to.</p>
+
+<p>The premise in previous papers has been that on low-latency anonymity networks (like tor), attackers can analyze your connection and guess which page you&rsquo;re visiting. For example, when you go to <a href="https://www.google.com,">https://www.google.com,</a> you are visiting a page that has a predictable size, response time, and predictable number of secondary page requests being made.</p>
+
+<h2>The Size Correlation Fingerprint</h2>
+
+<p>One of the most rudimentary attacks is an adversary that stands between a user and Tor to see the packets being sent out and the size of the packets returned. In this simple approach, it&rsquo;s possible for an attacker that has a database of websites and their possible sizes, is able to guess which sites a user is visiting.</p>
+
+<p><strong>Defense</strong>: &ldquo;Padding&rdquo; is considered a defense against website fingerprinting because it adds arbitrary data to your request that makes it harder for an attacker to correlate your visit to the actual website in question.</p>
+
+<p>The Tor Project has made a decision not to implement padding. On purpose. They&rsquo;re now taking a look at research that might mean that adding small amounts of padding will have a major affect. It&rsquo;s yet to be concluded.</p>
+
+<p>Other defenses that the paper goes into are what happens when there are multiple tabs being opened and what about the situation where something else on the network is padding things for you. The latest TBB has a nice feature that makes a separate connection in multiple tabs.</p>
+
+<h2>The Behavioral Fingerprint</h2>
+
+<p>One of the most discussed tactic was to take a pile of University students&#8217;, watch the websites that they visit over multiple days, and then watch for similar patterns sent over Tor.</p>
+
+<p>The basis of this attack is that you visit web pages in a linear order. You will go to your favorite news site, then Facebook, then your boyfriend&rsquo;s blog, and then your favorite shopping site. Often times, you will go in the cycle of visits multiple times over the course of a day.</p>
+
+<p>Attackers knowing the potential sizes of pages, the loading time of a site, and other quantifiable factors, can fingerprint your browsing behavior.</p>
+
+<p><strong>Defense</strong>: There are two options that I&rsquo;m sure you can imagine: Don&rsquo;t ever switch between dark and clear or make sure that your behavior is completely different on a dark persona.</p>
+
+<h2>Targeted vs Untargeted</h2>
+
+<p>There&rsquo;s a major different in the attack vectors between an adversary targeting you as an individual, versus what the paper calls a &ldquo;drag-net&rdquo; approach.</p>
+
+<ul>
+<li>Targeted attacks have less reward but are more accurate</li>
+<li>Untargeted attacks have more reward but are more difficult to identify high value targets</li>
+</ul>
+
+
+<p>Which is most likely? While the most paranoid of us believe we are being targeted (and we should), unless you are truly a high-value target, there are not many groups trying to specifically launch a targeted attack. But a mass surveillance situation is a much more likely scenario.</p>
+
+<p><strong>Defense</strong>: Burn, and burn often. The premise of my OPSEC model is to never give someone a chance to correlate between two different identities. If you&rsquo;re able to do that, you&rsquo;re able to defend against either of these attack scenarios.</p>
+
+<h2>Results</h2>
+
+<p>Long story short, some of these academic papers talking about potential attacks, take a substantial investment. That being said, we know there are organizations interested in investing those resources, but at the same time, a targeted attack on individual computers is less likely than a mass surveillance situation. Be aware that these attacks exist and never visit your favorite websites across multiple identifies.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Arms Race to the Most Secure OS]]></title>
@@ -1681,132 +1736,6 @@ the document to defend against attribution.</p>
 use, but in general, it is pretty effective. They are now working to automate
 many of its features so that instead of manually anonymizing a document, you
 can tell the tool a directory of documents that you&rsquo;d like to anonymize.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Burner Phone Best Practices]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/01/22/burnerphone/"/>
-    <updated>2014-01-22T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/01/22/burnerphone</id>
-    <content type="html"><![CDATA[<p>There&rsquo;s a good mix of useful and mis-information in regard to burner
-phones out there. I thought I would compile some facts and review the proper
-use-case for a burner phone.</p>
-
-<h2>Tracking: Fingerprinting</h2>
-
-<p>Burner phones, for both CDMA (US Sprint, US Verizon Wireless) and GSM (Ever
-other carrier network in the world), are easy to trace. Carriers specifically
-segregate burner/prepaid traffic from normal subscriber traffic. Yes, this is
-primarily used to control which type of traffic should receive priority, but
-it&rsquo;s used by <a href="https://en.wikipedia.org/wiki/Law_enforcement_officer">LEOs</a> to easily identify network traffic used by targets.</p>
-
-<p>Bruce Schneier recently commented on what the NSA is actively doing in regards
-to burner phones. In a recent lawsuit between the NSA and the EFF, the court
-documents show that one of the ways the US keeps track of burner traffic, is by
-fingerprinting the number of unique contacts, and the times of the calls. With
-this information, it&rsquo;s much easier to keep track of whose phone is whose.</p>
-
-<p>For example, Joe talks to John, George, and Jimmi on a daily basis. He cycles
-through burner phones at least once a week. For each phone, Joe adds the
-contact information for John, George, and Jimmi and calls only them. Joe stops
-never re-uses a burner phone.</p>
-
-<p>From this information, we can easily track his first burner&rsquo;s contact
-(namely John, George, and Jimmi) because this information is <a href="http://www.forensicswiki.org/wiki/SIM_Cards">stored on the SIM</a>,
-and correlate it to the contacts used by the next burner phone. How hard would
-it be for law enforcment to trace this information? Turns out not very hard if
-you&rsquo;re a subject of interest.</p>
-
-<h2>Tracking: Location</h2>
-
-<p>There are two parts to the location of your burner you need to be aware of.
-First, carriers maintain logs of the signal strengh between your phone and a
-carrier tower/base station. With this information they can <a href="http://www.al911.org/wireless/triangulation_location.htm">triangulate your location</a>. On your smart phone this is
-considered your &ldquo;Course-Grain&rdquo; location as opposed to &ldquo;Fine-Grain&rdquo; that the GPS in your smartphone provides.</p>
-
-<p>The second location to think about here is the location used to register/
-activate the phone in the first place. For American burners, they are required
-to call into a toll-free number and setup their new phone using a name,
-address, and secret password. Of course this information is not verified and
-can be easily spoofed. But the phone number used to activate the account, is
-forever associated to that device.</p>
-
-<p><img class="center" src="http://www.b3rn3d.com/images/phone.jpg" title="" ></p>
-
-<h2>When not to use a burner</h2>
-
-<ul>
-<li><strong>hiding from a national adversary</strong>: If you think the government is after you,
-there&rsquo;s really not much a burner phone is going to help you with. They
-can pull up security camera bartage of when you purchased the phone, they can
-map all the locations in which you&rsquo;ve powered on the device, they can
-watch the calls being made by a variety of burners and correlate them all
-together.</li>
-<li><strong>near your home</strong>: Every time you power up, that information is logged. If you
-decide to constantly turn on your device in or around our apartment, it is
-very easy for even local law enforcement to find you</li>
-<li><strong>calling someone you know that does not use a burner</strong>: If all you&rsquo;re
-going to do is call Jimmy down the street, it&rsquo;s easy to correlate your
-activities across multiple burners because the destination address never
-change. It becomes a bit harder if Jimmy changes his phone number at the same
-time you change yours.</li>
-<li><strong>registering for a gmail address</strong>: you might think it&rsquo;s a good idea to
-setup a burner to make a new email address but while it can be, you also have
-to be careful with how you use that address, and where you registered your
-phone. If you buy a phone in London, and then pretend that you&rsquo;re in
-Brazil for all of your email correspondence, this will be a red flag for
-investigators. Make sure you remember what that phone will be for.</li>
-</ul>
-
-
-<h2>When is a burner useful</h2>
-
-<ul>
-<li><strong>hiding from non-law enforcement</strong>: If your goal is to just make sure that no
-one you know can find your name or home address, a burner is useful.</li>
-<li><strong>registering for inconsequential accounts</strong>: If you just need to register an
-account, but aren&rsquo;t concerned about being tracked back to its activity,
-you can use a burner as an alternative to registering with a pay phone or
-something else.</li>
-</ul>
-
-
-<h2>Pro tips</h2>
-
-<p>Based on everything we&rsquo;ve discussed so far, here are some operational
-suggestions. Feel free to suggest more that work for you:</p>
-
-<ol>
-<li> Get feature/dumb/flip-phones rather than smart phones. iOS, Android (or
- whatever other OS you choose) is not interested in keeping track of your
- privacy. Feature phones have the benefit of being generally too stupid to
- leak information about you.</li>
-<li> Never turn your phone on in, or around your home. Take the battery out
- when it&rsquo;s not being used.</li>
-<li> Leave your phone at a place you&rsquo;re going to use it to make sure it
- never gets turned on at your home</li>
-<li> If possible, pay someone else to activate the phone for you. This is a way
- of removing yourself from the activation process completely. There are
- some burner trading sites on the deep web.</li>
-<li> Fill your phone with fake contacts. Each burner should look like it has a
- different set of contacts in it.</li>
-<li> Never save your real contacts in the phone. Put them on paper, or on a
- separate device, but never on the phone. This information is potentially
- saved on the SIM and accessible to carriers.</li>
-<li> Pad operational calls with random calls. Dial numbers you don&rsquo;t
- know, leave messages, call tech support, send an SMS. Make it difficult to
- differentiate between your operations and random activities.</li>
-<li> Use a burner as little as possible before switching to the next one.</li>
-<li> If purchased from a retail store, wait at least 60 days to activate. This
- is usually how far back mom and pop stores keep security bartage.</li>
-<li> Activate from a payphone as far away from home as possible, or at least in
- the area where you will be using it most often</li>
-<li> Dispose of burner phones completely. Don&rsquo;t recycle them or throw
- them away in your apartment garbage. They should be destroyed completely,
- electronically wiped, and physically wipe down.</li>
-</ol>
-
 ]]></content>
   </entry>
   

@@ -9,8 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Have you ever seen one of those arguments on forums or IRL where a group of
-people argues which scenario is more secure compared to another? It goes &hellip;">
+  <meta name="description" content="Creating different usernames is just the first step when we&rsquo;re developing an
+OPSEC plan for pseudonymity. One of the most plausible threats to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@ people argues which scenario is more secure compared to another? It goes &hellip
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/01/10/ask-him-about-his-threat-model/">Did You Ask Him About His Threat Model</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/01/13/braintricks-opsec/">Braintricks for OPSEC</a></h1>
     
     
       <p class="meta">
@@ -86,51 +86,71 @@ people argues which scenario is more secure compared to another? It goes &hellip
   
 
 
-<time datetime="2014-01-10T00:00:00+00:00" pubdate data-updated="true">Jan 10<span>th</span>, 2014</time>
+<time datetime="2014-01-13T00:00:00+00:00" pubdate data-updated="true">Jan 13<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Have you ever seen one of those arguments on forums or IRL where a group of
-people argues which scenario is more secure compared to another? It goes
-something like this:</p>
+  <div class="entry-content"><p>Creating different usernames is just the first step when we&rsquo;re developing an
+OPSEC plan for pseudonymity. One of the most plausible threats to your privacy/anonymity/pseudonymity is one where the adversary correlates a personality
+trait across all of your accounts.</p>
 
-<blockquote><p>Hey, how secure is Cloud? Should I use that?&#8221;<br/> Alice: Cloud is fine. I just wouldn&#8217;t save your passwords in it.<br/> Bob: Actually, Cloud is really dangerous. If someone hacks into your<br/>account they&#8217;ll be able to get everything that you own in the<br/>Cloud.<br/> Carl. It&#8217;s worse than that! The cloud should never ever be used<br/>under any circumstance. It is inherently insecure.<br/> Doug: People that use the cloud should be removed from this earth.</p></blockquote>
+<p>In 2011, researchers from University of Cambridge published details in how to
+correlate traffic patterns of a Tor user, to their real life identity. They did
+this by taking advantage of the fact that most people visit a certain set of
+websites on a regular basis. Reddit, Facebook, Twitter, or some specific site
+of interest. This is an example where an attacker is taking advantage of a
+personality quirk to attribute you to your identity.</p>
 
+<p><span class='pullquote-right' data-pullquote='SDM is when the
+human brain compartmentalizes certain memories based on the state-of-mind of
+that person'>
+Your writing style is also something attributable. You may know that certain
+adversaries have the ability to do correlation attacks on your writing style
+(or at least Edward Snowden thinks so). Taking something that you&rsquo;ve written
+anonymously and matching it to something you&rsquo;ve written in the clear.
+The idea of State-Dependant Memory (SDM) can help us here. SDM is when the
+human brain compartmentalizes certain memories based on the state-of-mind of
+that person. While in that state-of-mind or consciousness, memories are harder
+or easier to recall. Think of this like a lock box for your memories.  A common
+example of this is studying for a test at a University. Before your exam, you
+study in the room you&rsquo;ll be taking the test, at the time of day you&rsquo;ll be
+taking the test, at the same desk that you will be using. When you go to take
+your exam, your brain will flip into the state that you&rsquo;ve trained it for,
+making it easier to recall those memories.
+</span></p>
 
-<p>These are usually escalating arguments that try to pretend that if you have
-some higher level of security measures in place, it&rsquo;s a sign of wisdom. The
-truth is, every answer is wrong because they don&rsquo;t have enough information to
-intelligently make a recommendation. What should have been asked is &ldquo;What
-is your threat model?&rdquo; Or put simply, what are you legitimately concerned
-about. A nation-state, hunting you down for disclosing its secret, or are you
-just kind of concerned about your privacy without doing activities with life
-ending repercussions?</p>
+<p>You can apply this as a management tactic for you pseudonymity. For each
+identity that is created, design a state of mind for that user. Your
+consciousness can be adjusted using a combination of one of your human inputs:</p>
 
-<p>You&rsquo;ve heard that IT guy tell you the story about how &ldquo;The most secure
-computer is the one that&rsquo;s turned off, put in a locked room, and filled
-with cement&rdquo; usually followed up by another IT guy adding in some other
-obscene logistic. Yes this is secure, but it&rsquo;s not a real-world solution
-because most computers have operational requirements.</p>
+<ul>
+<li>Music/Audio: play certain music, certain songs, certain albums or look into a
+specific meditation album that can put you into a specific, reproducable
+state of mind. (See Robert Monroe&rsquo;s tapes)</li>
+<li>Environment: It might not be possible to switch keyboard, monitor, or desktop
+environment you normally work under but changing where you work has a huge
+impact. Find a public place that your identity always goes, or sit in a
+specific area of your apartment.</li>
+<li>Lighting/Colors: Studies have shown that lighting and the colors of that
+light have a drastic impact on the mood and state of being. This could be as
+simple as having a light on or off while working, changing the color scheme
+of the monitor, or closing the blinds for a window.</li>
+<li>Drugs/Chemicals: When trying to reach a state of mind, you&rsquo;d be hard
+pressed to find a faster, more consistent way to get into a reproducible
+state. Many stimulants like caffeine, Ridilin, and cocaine, have a common
+affect on people where taking something like LSD may not give you
+reproducible results.</li>
+<li>Smells: As we&rsquo;re going through all the senses, don&rsquo;t forget smell. Simply
+lighting a specific candle or type of incense can take you into the place
+that you need to be.</li>
+<li>Time: Being aware of the time of day and when the identity works, is not just
+helpful to bring you to a specific state of consciousness, it can also help
+deter adversaries from being able to tell what timezone you live in.</li>
+</ul>
 
-<p>Step away from technical examples &mdash; let&rsquo;s take the United States
-Secret Service for instance. Their job is to protect the United States
-President from a variety of adversaries. If your job was to protect the
-President, why not just put him in a locked room padded with cement and keep
-him there until the end of his term? Because he has operational requirements.
-This is the rub of all operational security measures.</p>
-
-<p>You can apply this to your lives. You shouldn&rsquo;t be asking how much you
-care about security, you should be asking what is the biggest threat to your
-well being. If you&rsquo;re just concerned about your privacy, but someone
-attributing you to your activities results in embarrassment (as opposed to jail
-time), then maybe your operational security measures can be more relaxed and
-comfortable. They might even fit in with your current lifestyle.
-If you&rsquo;re a nation state dissident and your activities being attributed
-to you results in your death, your operational security measures are going to
-be extremely high and would require a disciplined, rigid approach.</p>
 </div>
   
   
@@ -153,6 +173,10 @@ be extremely high and would require a disciplined, rigid approach.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/12/14/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a>
@@ -188,10 +212,6 @@ be extremely high and would require a disciplined, rigid approach.</p>
     
       <li class="post">
         <a href="/blog/2014/06/22/privacy-controls-for-fingerprinting/">Privacy Controls as a Fingerprinting Attack</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/05/29/fingerprinting-resolution/">Fingerprinting Attacks on Screen Resolution</a>
       </li>
     
   </ul>
