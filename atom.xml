@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2015-12-16T02:24:31+00:00</updated>
+  <updated>2015-12-16T17:15:34+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -14,123 +14,126 @@
 
   
   <entry>
-    <title type="html"><![CDATA[How to Ship Drugs to Your House]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/12/22/how-to-ship-drugs/"/>
-    <updated>2015-12-22T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/12/22/how-to-ship-drugs</id>
-    <content type="html"><![CDATA[<p>You&rsquo;ve found your favorite drugs on your favorite darknets but then your OPSEC buzzer goes off and you say &ldquo;How do I actually get it shipped to me?&rdquo; Lets talk about some of the risks and likely attacks.</p>
+    <title type="html"><![CDATA[Tor Browser vs Your Browser]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/12/16/tor-browser-vs-your-browser/"/>
+    <updated>2015-12-16T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/12/16/tor-browser-vs-your-browser</id>
+    <content type="html"><![CDATA[<p>There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making a secure host and you only route traffic over tor and you&rsquo;ve employed various security protections to limit your risk, etc. So you, you say to yourself, &ldquo;I don&rsquo;t need the Tor Browser Bundle, I&rsquo;ve already installed tor.&rdquo; You would be wrong.</p>
 
-<h2>The Fallacy Of The Drop Ship</h2>
+<p>The Tor Browser (part of TBB) offers a lot of additional security protections that your &ldquo;raw&rdquo; browser doesn&rsquo;t. <a href="https://www.torproject.org/about/corepeople.html.en">Mike Perry</a> who manages the TBB portion of the Tor Project (among other things) has put in a lot of work.</p>
 
-<p>The first thing you might this is, just like your computer, find a way to be completely anonymous. That would mean sending to a &ldquo;drop ship&rdquo; location or someone else&rsquo;s house. You&rsquo;ll find documents online about how the best way to do this is:</p>
+<p>Here are just a few reasons:</p>
 
-<p><img class="right" src="http://www.b3rn3d.com/images/package.png" width="400"></p>
+<h1>Reason #1: WebRTC</h1>
+
+<p>Here&rsquo;s a quick example: Remember the <a href="https://threatpost.com/webrtc-found-leaking-local-ip-addresses/110803/">private IP disclosure</a> vulnerability that&rsquo;s possible using WebRTC? Well the <em>only</em> browser (AFAIK) that isn&rsquo;t vulnerable to this issue is the Tor Browser. You can&rsquo;t prevent it by disabling JavaScript and you can&rsquo;t block it through an extension. And we know that Chrome, Safari, IE, and Opera aren&rsquo;t any help either.</p>
+
+<p>This issue alone should scare you into reconsidering using a raw browser no matter how many extensions you have installed. By the way, if you&rsquo;re interested in seeing how you can disable WebRTC from firefox, it&rsquo;s a compiletime flag: <code>--disable-webrtc</code>.</p>
+
+<h1>Unique Identifiers</h1>
+
+<p>If I can correlate your website visit across mutiple sessions I can potentially deanonymize you in the case that you visit my site over tor and then in the clear. Even in the best case, I will still be able to watch your activities across multiple visits. What if I can correlate between when you log in as user A to those when you log in as user B.</p>
+
+<p>There are so many situations where a malicious web page could include some kind of identifying token. The ones mitigated by TB include:</p>
 
 <ul>
-<li>find a house in a city that no one lives in</li>
-<li>mow the lawn once week</li>
-<li>let the neighbors know who you are</li>
-<li>send some fake packages and receive them at the location</li>
-<li>establish a pretend situation where you are there multiple times during the week.</li>
+<li>HTTP auth headers (e.g. <code>http://{IDENTIFIER}username:password@website.com/</code>)</li>
+<li>Cache lookup (e.g. injecting an ID into the cache and check to see if it exists on next visit)</li>
+<li>Cookies (e.g. tracking cookie identified by third parties)</li>
+<li>HSTS super cookies (e.g. multi-site owners can build a unique ID based on whether a user has a cached HSTS record for a particular set of domains)</li>
 </ul>
 
 
-<p>The number of people that can do this is uselessly low. If you can do this, good for you but don&rsquo;t waste your time trying to figure this situation out.</p>
+<h1>Fingerprinting Defenses</h1>
 
-<p>Lets talks talk about some pragmatic approaches.</p>
-
-<h2>Risk Calculations</h2>
-
-<p>To get something shipped, you must take a risk calculation. How much do you care about the package you&rsquo;re receiving, how often are you doing it, how likely are you to be caught, and what are the consequences of being caught.</p>
-
-<pre><code>value * frequency + caught * sentence = RISK
-</code></pre>
-
-<p>This is a bull shit calculation but you can use it to come up with an arbitrary number to assign a consistent risk score and it&rsquo;s on point.</p>
-
-<p>Lets review your situation:</p>
+<p>Fingerprinting the browser, the hardware, the user, the location, or any kind of identifying information related to a user&rsquo;s session is a very difficult attack to completely defend against. TB does what it can though to defend against this scenario. There are some crazy attacks available including:</p>
 
 <ul>
-<li>you plan on sending an illegal product across country, providence, or state lines</li>
-<li>you plan on using a federally funded system to do so (in the case of US Mail)</li>
-<li>You are plan on putting a name and address on the recipient of the illegal product</li>
+<li><a href="http://www.andlabs.org/tools/jsrecon.html">port scanning via web sockets</a></li>
+<li>extracting a list of installed fonts</li>
+<li><a href="https://dvcs.w3.org/hg/gamepad/raw-file/default/gamepad.html#widl-Gamepad-id">USB device enumearation via the Gamepad API</a></li>
 </ul>
 
 
-<h2>How do you do it?</h2>
+<p>Maybe TB hasn&rsquo;t solved this problem but the question is, what do you think your current browser is doing?</p>
 
-<p>First: Don&rsquo;t. I know that&rsquo;s a cop out but seriously reconsider. Other options are:</p>
+<h1>Plugin Controls</h1>
 
-<ul>
-<li>pick it up directly from the contact</li>
-<li>agree on shipping using a private company</li>
-</ul>
+<p>Your extensions/plugins/addons are terrifying. They can do whatever they want, not only to your browser, but to anything on your system. Because of this, TB has <a href="https://gitweb.torproject.org/tor-browser.git/commit/?h=tor-browser-31.6.0esr-4.5-1&amp;id=8c6604d2b776f0d8e33ed9130c5f5b8cf744bac8">patched the DNS service</a> to ensure that a browser extension doesn&rsquo;t accidentally leak your DNS requests. This is also done for OCSP so that certificate lookups must be done over the SOCKS proxy and tor.</p>
 
+<p>Similarly, when loading the Flash or Gnash plugin, TB uses the click-to-play control so that in order to play a Flash applet, the user must explicitally click on it before it executes. The risk of Flash or any plugin for that matter goes back to whether it always adheres to proxy settings as well as what type of information is exposed to the applet. Can they obtain your local IP? Can they access a session cookie?</p>
 
-<p>Ok, you&rsquo;re not going to do that. If you need to, here are a few things to remember:</p>
+<h1>External Event Blocking</h1>
 
-<ul>
-<li>Use your real name. I know, just do it.</li>
-<li>Make yourself unlikely to be cause. Small packages, envelopes, now quantities</li>
-<li>Be nice. There&rsquo;s some real documents that show how delivery guys are responsible for determining if you are a sketchy person and decide that you&rsquo;re a high risk delivery.</li>
-<li>Don&rsquo;t sign for your packages. There will always be situations where you need to but don&rsquo;t use your real signature.</li>
-</ul>
+<p>On your computer right now, you&rsquo;ve likely setup default programs associated with certain types of files. In a browser, you can also setup external programs associated to a protocol. For example <code>tel://</code>, <code>skype://</code>, or <code>ssh://</code> allows a browser to automatically send data from the browser into the associated program. There&rsquo;s a risk here that it will disclose your private info to those programs and therefore compromise your anonymity.</p>
 
+<p>The defense in this case is present a <a href="https://gitweb.torproject.org/torbutton.git/tree/src/components/external-app-blocker.js">pop-up</a> whenever a request to leave the browser is made.</p>
+
+<h1>History and Storage</h1>
+
+<p>TB does everything it can to never touch your disk and never allow your browsing history to be saved to a file. There are a lot of ways <a href="https://trac.torproject.org/projects/tor/query?keywords=~tbb-disk-leak&amp;status=!closed">this is accomplished</a> but the risk has been that if the history or sensitive information is stored on disk, it may be accessible to other appliations or to a forensic investigator.</p>
+
+<h1>More information</h1>
+
+<p>There&rsquo;s <a href="https://www.torproject.org/projects/torbrowser/design/">dozens of other</a> reasons that may or may not be applicable to your plans. The point here again is, the level of effort that the Tor Browser has employed makes you question how secure your current browser configuration is.</p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Website Fingerprinting Attacks and Defense]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/12/14/behavior-fingerprinting/"/>
-    <updated>2015-12-14T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/12/14/behavior-fingerprinting</id>
-    <content type="html"><![CDATA[<p>I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. <a href="https://securewww.esat.kuleuven.be/cosic/publications/article-2456.pdf">A Critical Evaluation of Website Fingerprinting Attacks</a> takes a look at some of the theoretical attacks on Tor and see how likely they would work in the real world.</p>
+    <title type="html"><![CDATA[Running Tor Browser Without the Bundle]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle/"/>
+    <updated>2015-12-15T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle</id>
+    <content type="html"><![CDATA[<p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
 
-<p>Better than that, it gives you a break down of the most likely attacks that users need to defend themselves against.</p>
-
-<h2>Website Fingerprinting</h2>
-
-<p>The attack that they&rsquo;re reviewing here shouldn&rsquo;t be confused with Browser Fingerprinting or other types of fingerprinting attacks. It refers to an adversary being able to deduce what website you&rsquo;re going to.</p>
-
-<p>The premise in previous papers has been that on low-latency anonymity networks (like tor), attackers can analyze your connection and guess which page you&rsquo;re visiting. For example, when you go to <a href="https://www.google.com,">https://www.google.com,</a> you are visiting a page that has a predictable size, response time, and predictable number of secondary page requests being made.</p>
-
-<h2>The Size Correlation Fingerprint</h2>
-
-<p>One of the most rudimentary attacks is an adversary that stands between a user and Tor to see the packets being sent out and the size of the packets returned. In this simple approach, it&rsquo;s possible for an attacker that has a database of websites and their possible sizes, is able to guess which sites a user is visiting.</p>
-
-<p><strong>Defense</strong>: &ldquo;Padding&rdquo; is considered a defense against website fingerprinting because it adds arbitrary data to your request that makes it harder for an attacker to correlate your visit to the actual website in question.</p>
-
-<p>The Tor Project has made a decision not to implement padding. On purpose. They&rsquo;re now taking a look at research that might mean that adding small amounts of padding will have a major affect. It&rsquo;s yet to be concluded.</p>
-
-<p>Other defenses that the paper goes into are what happens when there are multiple tabs being opened and what about the situation where something else on the network is padding things for you. The latest TBB has a nice feature that makes a separate connection in multiple tabs.</p>
-
-<h2>The Behavioral Fingerprint</h2>
-
-<p>One of the most discussed tactic was to take a pile of University students&#8217;, watch the websites that they visit over multiple days, and then watch for similar patterns sent over Tor.</p>
-
-<p>The basis of this attack is that you visit web pages in a linear order. You will go to your favorite news site, then Facebook, then your boyfriend&rsquo;s blog, and then your favorite shopping site. Often times, you will go in the cycle of visits multiple times over the course of a day.</p>
-
-<p>Attackers knowing the potential sizes of pages, the loading time of a site, and other quantifiable factors, can fingerprint your browsing behavior.</p>
-
-<p><strong>Defense</strong>: There are two options that I&rsquo;m sure you can imagine: Don&rsquo;t ever switch between dark and clear or make sure that your behavior is completely different on a dark persona.</p>
-
-<h2>Targeted vs Untargeted</h2>
-
-<p>There&rsquo;s a major different in the attack vectors between an adversary targeting you as an individual, versus what the paper calls a &ldquo;drag-net&rdquo; approach.</p>
+<h2>How</h2>
 
 <ul>
-<li>Targeted attacks have less reward but are more accurate</li>
-<li>Untargeted attacks have more reward but are more difficult to identify high value targets</li>
+<li>Download <a href="https://www.torproject.org/download/download-easy.html.en">TBB</a></li>
+<li>Extract</li>
+<li><p>Cd to the following directory:</p>
+
+<pre><code>  tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default$
+</code></pre></li>
+<li>Modify <code>extensions.ini</code></li>
+<li><p>Comment out the following line:</p>
+
+<pre><code>  #Extension2=/home/death/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher@torproject.org.xpi
+</code></pre></li>
 </ul>
 
 
-<p>Which is most likely? While the most paranoid of us believe we are being targeted (and we should), unless you are truly a high-value target, there are not many groups trying to specifically launch a targeted attack. But a mass surveillance situation is a much more likely scenario.</p>
+<h2>Setup</h2>
 
-<p><strong>Defense</strong>: Burn, and burn often. The premise of my OPSEC model is to never give someone a chance to correlate between two different identities. If you&rsquo;re able to do that, you&rsquo;re able to defend against either of these attack scenarios.</p>
+<p>This assumes that you&rsquo;re running tor on port 9050 and ideally that you have your control port enabled with a password of &ldquo;secret&rdquo; to access it. That&rsquo;s only if you want to be able to control Tor via the browser extension. Maybe you don&rsquo;t.</p>
 
-<h2>Results</h2>
+<p>If you want to set your password to &ldquo;sercret&rdquo; you can use tor to generate the hash for you:</p>
 
-<p>Long story short, some of these academic papers talking about potential attacks, take a substantial investment. That being said, we know there are organizations interested in investing those resources, but at the same time, a targeted attack on individual computers is less likely than a mass surveillance situation. Be aware that these attacks exist and never visit your favorite websites across multiple identifies.</p>
+<pre><code>    tor --hash-password secret
+</code></pre>
+
+<p>Copy that into your /etc/torrc file under the HashedPassword section.</p>
+
+<p>You can take a look at the other comments found in <code>start-tor-browser</code>:</p>
+
+<pre><code>    # SETTING NAME                            VALUE
+    # extensions.torbutton.banned_ports       [...],&lt;SocksPort&gt;,&lt;ControlPort&gt;
+    # extensions.torbutton.block_disk         false
+    # extensions.torbutton.custom.socks_host  127.0.0.1
+    # extensions.torbutton.custom.socks_port  &lt;SocksPort&gt;
+    # extensions.torbutton.inserted_button    true
+    # extensions.torbutton.launch_warning     false
+    # extensions.torbutton.loglevel           2
+    # extensions.torbutton.logmethod          0
+    # extensions.torbutton.settings_method    custom
+    # extensions.torbutton.socks_port         &lt;SocksPort&gt;
+    # extensions.torbutton.use_privoxy        false
+    # extensions.torlauncher.control_port      &lt;ControlPort&gt;
+    # extensions.torlauncher.loglevel          2
+    # extensions.torlauncher.logmethod         0
+    # extensions.torlauncher.prompt_at_startup false
+    # extensions.torlauncher.start_tor         false
+</code></pre>
 ]]></content>
   </entry>
   
