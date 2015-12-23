@@ -9,7 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks &hellip;">
+  <meta name="description" content="The recent revelations from Jake Applebaum, et all today, highlight some not-to-be-understated revelations. Tor users are directly targeted
+TAILS &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/29/fingerprinting-resolution/">Fingerprinting Attacks on Screen Resolution</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a></h1>
     
     
       <p class="meta">
@@ -85,81 +86,132 @@
   
 
 
-<time datetime="2014-05-29T00:00:00+00:00" pubdate data-updated="true">May 29<span>th</span>, 2014</time>
+<time datetime="2014-07-04T00:00:00+00:00" pubdate data-updated="true">Jul 4<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
-
-<p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
-
-<p>This is even more dangerous on mobile devices such as Android. Each manufacturer releases new phones and tablets with different resolution, these are often very odd screen resolutions, making them very unique to that phone time. There are dozens of sites that provide this information for you:</p>
+  <div class="entry-content"><p>The <a href="http://boingboing.net/2014/07/03/if-you-read-boing-boing-the-n.html">recent revelations from Jake Applebaum, et all today</a>, highlight some not-to-be-understated revelations.</p>
 
 <ul>
-<li><a href="http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density">http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density</a></li>
-<li><a href="https://deviceatlas.com/">https://deviceatlas.com/</a></li>
-<li><a href="http://wurfl.sourceforge.net/">http://wurfl.sourceforge.net/</a></li>
+<li>Tor users are directly targeted</li>
+<li>TAILS users are directly targeted</li>
+<li>People searching for privacy tools are targeted</li>
 </ul>
 
 
-<h2>Background</h2>
+<p>While the conclusion by some may have been &ldquo;well of course the NSA is doing that&rdquo; the revelation and the insight it provides is direct, specific evidence that people worried about their privacy are being attacked. More-over, this provides further evidence that the NSA&rsquo;s goal is to <a href="http://www.democracynow.org/2014/5/13/collect_it_all_glenn_greenwald_on">collect it all</a>.</p>
 
-<p>There are two types of fingerprinting; passive and active. Active fingerprinting attacks are usually reserved to those that are collecting information about your network traffic, and do a secondary correlation. For example, if an adversary were running multiple exit nodes, they collect the list of sites each circuit connects to, and tries correlates that to a specific user.</p>
+<h2>The Revelations</h2>
 
-<p>Active attacks will manipulate or inject an identifier into your traffic &mdash; an identifying cookie or malicious JavaScript that when executed tries to collect identifying information about your browsing environment.</p>
+<p><span class='pullquote-right' data-pullquote='privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services'>
+To summarize, the source code to the NSA program, <a href="https://en.wikipedia.org/wiki/XKeyscore">XKeyscore</a> (known since the early days of the Snowden disclosures) has been leaked. It sounds like the program&rsquo;s entire source code is in the hands of another party and it shows what the code does, how it works and who it&rsquo;s targeting. We now know that privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services. Each of these are considered suspicious activities and flagged as the IP&rsquo;s of suspects by NSA&rsquo;s network monitoring machine.  This is further a reminder that if you look like you are privacy conscious, you are going to be a targeted as an &ldquo;extremist&rdquo; in the eyes of the United States and it&rsquo;s allies.
+</span></p>
 
-<p>This is not a new revelation, the EFF has highlighted this problem by making the <a href="https://panopticlick.eff.org/">Panopticlick</a> project. This simulates attacks that aim at fingerprinting your browser, its plugins, fonts installed, etc. This is similar to the <a href="http://browserspy.dk/">BrowserSpy</a> project.</p>
+<h2>Tracking Bridge Users</h2>
 
-<h2>Screen Resolution</h2>
+<p>XKeyscore is tracking the IP addresses that are sending emails to the Tor bridge automated account. When a user is in a country that blocks Tor, they have an option to use an unlisted Tor entry node called bridges. To get an unlisted bridge IP, one of the options is to email a Tor Project email address which auto-replies with an address of a bridge. The <a href="https://en.wikipedia.org/wiki/Five_Eyes">Five Eyes</a> have been documenting each IP that makes a request to that email address.</p>
 
-<p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
+<h2>Tracking Tor Directory Authorities</h2>
 
-<p>Here&rsquo;s a simple Javascript example that does that</p>
+<p>Another facet disclosed was that the NSA are targeting a specific Tor directory server run by Sebastian Hahn. I believe that this is the case only because the source of the XKeycode leak was by a node in Germany. Looking at nodes in other countries, would point to a corresponding directory authority in that region.</p>
+
+<p>Until relatively recently, the Tor Network consisted of only 9 directory servers of which all clients would first make a connection to prior to joining the Tor network. These 9 directory servers are still in place, but an additional feature lets Tor nodes act as a directory server cache. With this feature, you weren&rsquo;t automatically required to connect to one of the directory authorities during each bootup. This helps mitigate this risk.</p>
+
+<h2>Tracking Tor Entry Nodes</h2>
+
+<p>Even if your connection to the directory authorities were not caught by the program, your connections to the Tor entry nodes were. So while directory authorities were only used during boot, the connections to Tor entry nodes were used repeatedly as your client will build a circuit.</p>
+
+<p>There&rsquo;s not much you can do to defend against this one. Using a bridge would ensure that XKeyScore won&rsquo;t know which IP&rsquo;s to track, but the requests for bridges are caught as well. One may consider running their own unlisted Tor entry node, which is possible, but it severely degrades your anonymity. Users concerned with this may consider using a VPN service and then connecting over Tor. This would not fix it, but it would make it more difficult to identify the originating request to connect to Tor.</p>
+
+<h2>Tracking Torproject.org Visits</h2>
+
+<p>One of the more useless network iterations that are logged is that of users visiting www.torproject.org. The document shows what they are calling &ldquo;microplugins&rdquo; that highlight specific pieces of information that are caught in transit. Your visit to the Tor Project&rsquo;s website logged and you are now flagged as suspicious.</p>
+
+<h2>XKeyScore Code</h2>
+
+<p>The most interesting part is the code released showing how XKeyScore works. Many have already highlighted that the NSA programs are merely malicious implementations of existing technology (as opposed to custom software built from the ground up). We can see that XKeyScore&rsquo;s database uses a <a href="https://en.wikipedia.org/wiki/Mapreduce">MapReduce</a> model. One very common with NoSQL databases like Hadoop. This is hinted in the &ldquo;mapper&rdquo; and &ldquo;reducer&rdquo; functions that searches for onion addresses:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
-</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
-</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mapper&lt;onion_t>: 
+</span><span class='line'>      static const std::string prefix = "anonymizer/tor/hiddenservice/address/";
+</span><span class='line'>
+</span><span class='line'>      onion_t onion;
+</span><span class='line'>      size_t matches = cur_args()->matches.size();
+</span><span class='line'>      for (size_t pos=0; pos &lt; matches; ++pos) \{
+</span><span class='line'>        const std::string &value = match(pos);
+</span><span class='line'>        if (value.size() == 16)
+</span><span class='line'>          onion.set_address(value);
+</span><span class='line'>        else if(!onion.has_scheme())
+</span><span class='line'>          onion.set_scheme(value);
+</span><span class='line'>        else
+</span><span class='line'>          onion.set_port(value);
+</span><span class='line'>      \}
+</span><span class='line'>
+</span><span class='line'>      if (!onion.has_address())
+</span><span class='line'>        return false;
+</span><span class='line'>
+</span><span class='line'>      MAPPER.map(onion.address(), onion);
+</span><span class='line'>      xks::fire_fingerprint(prefix + onion.address());
+</span><span class='line'>      return true;
+</span><span class='line'>  
+</span><span class='line'>    reducer&lt;onion_t>:
+</span><span class='line'>      for (values_t::const_iterator iter = VALUES.begin();
+</span><span class='line'>          iter != VALUES.end();
+</span><span class='line'>          ++iter) {
+</span><span class='line'>        DB["tor_onion_survey"]["onion_address"] = iter->address() + ".onion";
+</span><span class='line'>        if (iter->has_scheme())
+</span><span class='line'>          DB["tor_onion_survey"]["onion_scheme"] = iter->scheme();
+</span><span class='line'>        if (iter->has_port())
+</span><span class='line'>          DB["tor_onion_survey"]["onion_port"] = iter->port();
+</span><span class='line'>        DB["tor_onion_survey"]["onion_count"] = boost::lexical_cast&lt;std::string>(TOTAL_VALUE_COUNT);
+</span><span class='line'>        DB.apply();
+</span><span class='line'>        DB.clear();
+</span><span class='line'>      }
+</span><span class='line'>      return true;</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Demo: <a href="javascript:alert
-('Your resolution is '+screen.width+'x'+screen.height);">
-Screen Resolution Detection Example</A></p>
+<h2>Full Code</h2>
 
-<p>EDIT: <a href="www.reddit.com/user/lugh">lugh</a> points out that this example is inconsistent and depends on your OS and browser.</p>
-
-<h2>Defense Measures</h2>
-
-<p>There are a couple of ways of defending, let me go over some possibilities:</p>
-
-<ul>
-<li><strong>disabling Javascript</strong>: CSS (AFAIK) does not have a way of detecting your screen resolution</li>
-<li><strong>resizing your browser window</strong>: Sometimes attacks do not read screen resolution, but just window size.</li>
-<li><strong>changing your screen resolution</strong>: This is often difficult but by choosing a screen resolution that many other users may have, would help defend against fingerprinting. The <a href="http://dee.su/liberte-security">Liberte Linux</a> distribution is the only system I&rsquo;ve seen that automatically does this by forcing the screen resolution of 800x600.</li>
-<li><strong>external monitors</strong>: If you are on a laptop, and have an external monitor around, it might be possible to have its resolution provide instead of your laptop screen. Note here that different operating systems handle this value in different ways. Some append the width and height of both screens to eachother.</li>
-<li><strong>modifying the JavaScript engine</strong>: This solution has not been done very often and is considered a security risk, but there is a possibility that a new custom JavaScript engine could return a different value than your actual resolution.</li>
-<li><strong>virtualization</strong>: If you are running your anonymous environment inside of a virtual machine, you can dynamically change the resolution very easily by resizing the window of the VM.</li>
-</ul>
-
-
-<p>There are different situations that heed different defense. If you run into a site you need access to that requires JavaScript, you&rsquo;re not going to be able to disable it. Same applies for the browser window trick if the service is detecting Screen.height as opposed to Window.height. Going into your screen settings and changing your screen resolution might work, but it&rsquo;s pretty cumbersome. The virtualization option is very plausible but requires that you are running virtualization software like Virtual Box.</p>
-
-<h2>Real-World Attacks</h2>
-
-<p>One example of software designed for fingerprinting is <a href="http://www.juniper.net/us/en/products-services/security/webapp-secure/">Juniper&rsquo;s Webapp Secure</a>. It is a tool that will fingerprint a web site&rsquo;s users based on a variety of metrics; one of which is your computer&rsquo;s resolution. By doing so, they are able to track their browsing experience across multiple sessions without any cookies.</p>
-
-<h2>Applying to Registration</h2>
-
-<p>Screen resolution is just a single attribute that can be keyed on but I find that it is relied upon the most often during web provider registration processes. This may be because the providers don&rsquo;t believe that anyone would go through the steps of changing their screen resolution &mdash; I&rsquo;m not sure. In any event, by merely changing your screen resolution, you are able to easily register without the stigma of anything you have done in a previous sessions possibly fingerprinting you. This along with clearing your cookies, connecting with a different IP address, and possibly manipulating the fonts that are installed on your computer will let you bypass the registration process&hellip;. sometimes.</p>
-
-<h2>Conclusions</h2>
-
-<p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
+<p>Below is the full code released:
+<a href="/assets/xkeyscorerules100.txt">xkeyscorerules100.txt</a></p>
 </div>
   
   
@@ -182,6 +234,14 @@ Screen Resolution Detection Example</A></p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -213,14 +273,6 @@ Screen Resolution Detection Example</A></p>
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

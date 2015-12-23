@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously &hellip;">
+  <meta name="description" content="There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a></h1>
     
     
       <p class="meta">
@@ -85,99 +85,71 @@
   
 
 
-<time datetime="2015-12-04T00:00:00+00:00" pubdate data-updated="true">Dec 4<span>th</span>, 2015</time>
+<time datetime="2015-12-16T00:00:00+00:00" pubdate data-updated="true">Dec 16<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
+  <div class="entry-content"><p>There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making a secure host and you only route traffic over tor and you&rsquo;ve employed various security protections to limit your risk, etc. So you, you say to yourself, &ldquo;I don&rsquo;t need the Tor Browser Bundle, I&rsquo;ve already installed tor.&rdquo; You would be wrong.</p>
 
-<h1>TAILS</h1>
+<p>The Tor Browser (part of TBB) offers a lot of additional security protections that your &ldquo;raw&rdquo; browser doesn&rsquo;t. <a href="https://www.torproject.org/about/corepeople.html.en">Mike Perry</a> who manages the TBB portion of the Tor Project (among other things) has put in a lot of work.</p>
 
-<p><img class="right" src="/images/tails.png" width="300">
-<a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
+<p>Here are just a few reasons:</p>
 
-<p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n&#8217;th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
+<h1>Reason #1: WebRTC</h1>
 
-<p>As stated, we are paying more attention to the secure tools that we use and this has identified some <a href="https://www.schneier.com/blog/archives/2014/07/security_vulner_4.html">fatal flaws</a> in TAILS. If you <a href="https://tails.boum.org/security/#index3h1">look back</a> at the TAILS project, the number of vulnerabilities identified and reported have are much smaller before than after Snowden disclosures.</p>
+<p>Here&rsquo;s a quick example: Remember the <a href="https://threatpost.com/webrtc-found-leaking-local-ip-addresses/110803/">private IP disclosure</a> vulnerability that&rsquo;s possible using WebRTC? Well the <em>only</em> browser (AFAIK) that isn&rsquo;t vulnerable to this issue is the Tor Browser. You can&rsquo;t prevent it by disabling JavaScript and you can&rsquo;t block it through an extension. And we know that Chrome, Safari, IE, and Opera aren&rsquo;t any help either.</p>
 
-<ul>
-<li><strong>Development</strong>: Highly active with multiple paid developers</li>
-<li><strong>Maturity</strong>: First created in</li>
-<li><strong>Goals</strong>: Provide an easy-to-use live environment for temporary work.</li>
-<li><strong>Roadmap</strong>: Continue same model and further harden the OS.</li>
-<li><strong>Challenges</strong>:
+<p>This issue alone should scare you into reconsidering using a raw browser no matter how many extensions you have installed. By the way, if you&rsquo;re interested in seeing how you can disable WebRTC from firefox, it&rsquo;s a compiletime flag: <code>--disable-webrtc</code>.</p>
 
-<ul>
-<li>Minimal support for persistence (besides files). Not designed to be installed but just run once.</li>
-<li>No mitigations for GCHQ/NSA type low level hardware attacks</li>
-<li>The focus on supporting all forms of users may affect security</li>
-</ul>
-</li>
-</ul>
+<h1>Unique Identifiers</h1>
 
+<p>If I can correlate your website visit across mutiple sessions I can potentially deanonymize you in the case that you visit my site over tor and then in the clear. Even in the best case, I will still be able to watch your activities across multiple visits. What if I can correlate between when you log in as user A to those when you log in as user B.</p>
 
-<h2>Qubes OS</h2>
-
-<p><img class="right" src="/images/qubes.png" width="300">
-I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
-
-<p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
-
-<p><span class='pullquote-right' data-pullquote='it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &#8220;identity&#8221; with &#8220;virtual object&#8221; and you have their security model'>
-Technical details aside for a moment, it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &ldquo;identity&rdquo; with &ldquo;virtual object&rdquo; and you have their security model.</p>
-
-<p>This is accomplished by making several virtual objects. You virtualize your firewall, you virtualize your USB controller, you virtualize the browser you&rsquo;re using for Project A, and separately, you virtualize the browser you&rsquo;re using for Project B. From here, QubesOS helps facilitate communications between those objects if necessary.
-</span></p>
-
-<p>QubesOS offers some features that no other system currently offers. The big one for me is virtualization for USB controller. So no only are you creating virtual machines, you&rsquo;re creating virtual controllers. If someone malicious is plugged into your system, even in the case of an [0-day exploiting the firmware of your USB controller], the rest of your system is not compromised.</p>
-
-<p>The other major feature that we know is in the GCHQ playbook is protection from WiFi driver exploits. We&rsquo;ve heard of this exploit being used in the while but have yet to have a real mitigation from it. With QubesOS, your wireless card is its own virtual object that contains the exploit into its own virtual machine.</p>
-
-<p>There is a lot more to talk about with QubesOS but it does seem the one to watch going forward.</p>
+<p>There are so many situations where a malicious web page could include some kind of identifying token. The ones mitigated by TB include:</p>
 
 <ul>
-<li><strong>Development</strong>: Active but a small group.</li>
-<li><strong>Maturity</strong>: v3.1 released is functional but not perfect.</li>
-<li><strong>Roadmap</strong>: Investing time in rebuilding the UI is a priority.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Hardware support is difficult to predict. They have an approved list but you can&rsquo;t assume it will work on all systems.</li>
-<li>Performance is relatively poor to the other systems and Qubes consumes a lot of memory for each of the virtual machines.</li>
-</ul>
-</li>
+<li>HTTP auth headers (e.g. <code>http://{IDENTIFIER}username:password@website.com/</code>)</li>
+<li>Cache lookup (e.g. injecting an ID into the cache and check to see if it exists on next visit)</li>
+<li>Cookies (e.g. tracking cookie identified by third parties)</li>
+<li>HSTS super cookies (e.g. multi-site owners can build a unique ID based on whether a user has a cached HSTS record for a particular set of domains)</li>
 </ul>
 
 
-<h2>SubgraphOS</h2>
+<h1>Fingerprinting Defenses</h1>
 
-<p><img class="right" src="/images/subgraph.png" width="300">
-<a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
-
-<p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
-
-<p>The problem thus far is that only a small group of people have seen SubgraphOS working. I&rsquo;m also concerned about the development of SubgraphOS by the company, Subgraph. We know that Subgraph is a <a href="https://subgraph.com/about-us/index.en.html">&ldquo;security&rdquo; company</a> that aims to provide services and products to its clients. The other two projects discussed here have been community projects and money is not the primary goal. The owner of the company comes from the secure kernel world where he was a mod of one of the most popular and dramatic bug hunting mailing lists.</p>
-
-<p>SubgraphOS had the problem of being announced way too soon. They showed off the now famous <a href="https://subgraph.com/img/sgos.png">SubgraphOS images</a> that caught everyone&rsquo;s eye before there was anything to actually look at.</p>
-
-<p>I come from the perspective of seeing tons of projects die in the past. The ones that I&rsquo;ve seen stick through are not usually (ever?) the ones released for free by a money making company.</p>
+<p>Fingerprinting the browser, the hardware, the user, the location, or any kind of identifying information related to a user&rsquo;s session is a very difficult attack to completely defend against. TB does what it can though to defend against this scenario. There are some crazy attacks available including:</p>
 
 <ul>
-<li><strong>Development</strong>: Probably active? Not open to the public.</li>
-<li><strong>Maturity</strong>: Immature, pre-alpha releases</li>
-<li><strong>Roadmap</strong>: Hopefully release a beta to the public soon.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Money may affect the development of the product.</li>
-<li>Closed development may deter acceptance of even a finished product.</li>
-</ul>
-</li>
+<li><a href="http://www.andlabs.org/tools/jsrecon.html">port scanning via web sockets</a></li>
+<li>extracting a list of installed fonts</li>
+<li><a href="https://dvcs.w3.org/hg/gamepad/raw-file/default/gamepad.html#widl-Gamepad-id">USB device enumearation via the Gamepad API</a></li>
 </ul>
 
+
+<p>Maybe TB hasn&rsquo;t solved this problem but the question is, what do you think your current browser is doing?</p>
+
+<h1>Plugin Controls</h1>
+
+<p>Your extensions/plugins/addons are terrifying. They can do whatever they want, not only to your browser, but to anything on your system. Because of this, TB has <a href="https://gitweb.torproject.org/tor-browser.git/commit/?h=tor-browser-31.6.0esr-4.5-1&amp;id=8c6604d2b776f0d8e33ed9130c5f5b8cf744bac8">patched the DNS service</a> to ensure that a browser extension doesn&rsquo;t accidentally leak your DNS requests. This is also done for OCSP so that certificate lookups must be done over the SOCKS proxy and tor.</p>
+
+<p>Similarly, when loading the Flash or Gnash plugin, TB uses the click-to-play control so that in order to play a Flash applet, the user must explicitally click on it before it executes. The risk of Flash or any plugin for that matter goes back to whether it always adheres to proxy settings as well as what type of information is exposed to the applet. Can they obtain your local IP? Can they access a session cookie?</p>
+
+<h1>External Event Blocking</h1>
+
+<p>On your computer right now, you&rsquo;ve likely setup default programs associated with certain types of files. In a browser, you can also setup external programs associated to a protocol. For example <code>tel://</code>, <code>skype://</code>, or <code>ssh://</code> allows a browser to automatically send data from the browser into the associated program. There&rsquo;s a risk here that it will disclose your private info to those programs and therefore compromise your anonymity.</p>
+
+<p>The defense in this case is present a <a href="https://gitweb.torproject.org/torbutton.git/tree/src/components/external-app-blocker.js">pop-up</a> whenever a request to leave the browser is made.</p>
+
+<h1>History and Storage</h1>
+
+<p>TB does everything it can to never touch your disk and never allow your browsing history to be saved to a file. There are a lot of ways <a href="https://trac.torproject.org/projects/tor/query?keywords=~tbb-disk-leak&amp;status=!closed">this is accomplished</a> but the risk has been that if the history or sensitive information is stored on disk, it may be accessible to other appliations or to a forensic investigator.</p>
+
+<h1>More information</h1>
+
+<p>There&rsquo;s <a href="https://www.torproject.org/projects/torbrowser/design/">dozens of other</a> reasons that may or may not be applicable to your plans. The point here again is, the level of effort that the Tor Browser has employed makes you question how secure your current browser configuration is.</p>
 </div>
   
   
@@ -200,6 +172,14 @@ Technical details aside for a moment, it works similar to how I write about OSPE
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -231,14 +211,6 @@ Technical details aside for a moment, it works similar to how I write about OSPE
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

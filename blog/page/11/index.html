@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Privacy conscious websites and applications often give you privacy controls like &ldquo;opt&#8217;ing-out&rdquo; of using your browsing habits for &hellip;">
+  <meta name="description" content="If you&rsquo;ve been following the DPR story you&rsquo;ll notice that the prosecution paints DPR as an ego-maniac willing to do anything to gain more &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/06/22/privacy-controls-for-fingerprinting/">Privacy Controls as a Fingerprinting Attack</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a></h1>
     
     
       <p class="meta">
@@ -85,57 +85,40 @@
   
 
 
-<time datetime="2014-06-22T00:00:00+00:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2014</time>
+<time datetime="2015-02-04T00:00:00+00:00" pubdate data-updated="true">Feb 4<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Privacy conscious websites and applications often give you privacy controls like &ldquo;opt&#8217;ing-out&rdquo; of using your browsing habits for statistics, or setting whether or not to share your profile information. If you&rsquo;ve already done your job to ensure that you are not sharing any sensitive information, these pseudo-privacy controls may put you at a high risk of being labeled a suspicious account.</p>
+  <div class="entry-content"><p>If you&rsquo;ve been <a href="http://www.htxt.co.za/2015/02/04/silk-road-trial-closes-would-dread-pirate-roberts-do-that/">following the DPR story</a> you&rsquo;ll notice that the prosecution paints DPR as an ego-maniac willing to do anything to gain more and more power and money. It doesn&rsquo;t matter if a lawyer is right, but the picture that it paints highlights a challenge that humans have with OPSEC, their ego.</p>
 
-<h2>How Privacy Controls Actually Work</h2>
+<p><img class="right" src="/images/ego.jpg" width="400"></p>
 
-<p>Lets take, for example, a forum where you can make changes to your settings to not include your information in the anonymized statistics gathering. Does that mean that your activities will not be tracked now that you have clicked the opt-out check box? In most cases, all this means is that your activities will not be used for statistics and reporting, but your activities will continue be logged.</p>
+<p>As you go dark, moving away from what would be your normal life (or fractioning off from it) has a novelty to it. It feels fun, and exciting, and you feel like you&rsquo;re doing something interesting. This is your ego kicking you in the back of the head and if you feel it at first, you&rsquo;ll know it&rsquo;s going to be a problem going forward. As the novelty wears off, your OPSEC becomes more of a discipline than a game. You follow your procedures and lock yourself down, but you sigh at how it&rsquo;s arduous compared to the everyday consumer.</p>
 
-<p>In many cases, what happens in the backend is there will be an &ldquo;opt-out&rdquo; value assigned to your user account. A database contains your account information, your settings, and then a single True or False value dictating whether you&rsquo;ve opt-out. A simple query of this database will return all users in the system that have decided to opt-out.</p>
+<p>If you&rsquo;ve continued this far, and you haven&rsquo;t broken protocol, the feeling of isolation and loneliness creeps in. Similar to what U.S. and U.K soldiers deal with when given high clearances. You can&rsquo;t talk about what you did, are doing, or will be doing otherwise the results will be devastating.</p>
 
-<p>One specific example is the popular <a href="http://www.simplemachines.org/">Simple Machines Forum</a> which retains a value in the database named &ldquo;private.&rdquo; This is just an integer that controls the various levels of privacy control on your forum profile.</p>
+<p><span class='pullquote-right' data-pullquote='Without this feeling of success fueling your ego, your self-esteem begins to deteriorate, and your motivation turns into self-discipline.'>
+Even if your natural tendency is not to be an outwardly confident person, your mind automatically has a need to feel pride for the work that it&rsquo;s doing. Similar to how a school janitor is proud of her job, and takes it as serious as the medical doctor, your brain will automatically rationalize your success relative to your surroundings. Without this feeling of success fueling your ego, your self-esteem begins to deteriorate, and your motivation turns into self-discipline.
+</span></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>if (isset($modSettings['smfVersion']) && $modSettings['smfVersion'] &lt;= '2.0 Beta 1')
-</span><span class='line'>{
-</span><span class='line'>  upgrade_query("
-</span><span class='line'>  UPDATE {$db_prefix}custom_fields
-</span><span class='line'>  SET private = 2
-</span><span class='line'>  WHERE private = 1");
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<h2>DPR Ego Mistakes</h2>
 
+<p>The DPR case is a perfect reminder. Thus far, the story goes that DPR was caught at a library because he walked away from his computer while it was still running. He kept a backup copy of the Silk Road software on his nightstand. He originally created Silk Road as a clearnet domain, silkroad.org and then took that down. He kept a journal of all of his activities while he was dark and even referenced personal details like travel plans and medical issues.</p>
 
-<h2>Enabling the Privacy Zealot Flag</h2>
+<p>It&rsquo;s easy to conclude that DPR is a young, naive kid without any plans to truly defend against the type of surveillance that he was put under. That may be true but I would like to suggest that he succumb to the natural human tendency to share with someone the fame and power that he had created. To let people in on how accomplished (in his own mind) he had become. As the fame of Silk Road increased, so did his need to take a little credit.</p>
 
-<p>The problem, as you can see, is that you are vulnerable to a type of fingerprinting attack. If law enforcement wanted find the highest risk accounts on a system, they would not want to weed through thousands of accounts or use expensive <a href="http://www.palantir.com">analytical software</a>. They they will partition the accounts in the simplest means necessary, one of which being users who have decided to opt-out or have enabled the various privacy features.</p>
+<h2>Alter ego</h2>
 
-<h2>Target Selection</h2>
+<p>The alter ego is supposed to be a split off of your personality, have different motivators, different skills, different temperament. In many ways this is a powerful asset as an OPSEC expert, yet difficult to achieve. Even up achieving, you will continue to be a slave to feeding that alter ego&rsquo;s, ego, so don&rsquo;t ignore it.</p>
 
-<p>The concept of specifically targeting users concerned about privacy, and labeling them potential subjects, is nothing new. We&rsquo;ve heard it happen with journalists, activists, and especially pregnant women. If you haven&rsquo;t read it yet, check out the article, <a href="http://time.com/83200/privacy-internet-big-data-opt-out/">Here&rsquo;s what happened when I tried to hide my pregnancy from the Internet and marketing companies</a> about what happens when you actually go through all the steps to protect your privacy.</p>
+<h2>Lessons Learned</h2>
 
-<h2>Defense</h2>
+<p>It might be easy to say &ldquo;I&rsquo;ll just not pay attention to my ego&rdquo; but this would be a challenge that Eastern Religions have tried teach individuals for years and years. Your ego plays an important part of your psyche and there may be tricks to ignore it, but it&rsquo;s easier to accept it and learn how to feed it. If your operations have an outcome, ensure that you take the time to appreciate that you have achieved your goals. You can even take some of the motivators out of a weight-loss book and set a celebratory event based on the success of your operation.</p>
 
-<p>Why opt-out? Ask yourself &ldquo;what does this privacy feature actually do?&rdquo; In most cases, the anonymous statistics that a web application collects, are less of a risk to your privacy than the possibility that an account be given the &ldquo;privacy zealot&rdquo; flag. Your first goal when trying to maintain your anonymity and defend against similar attacks, is to do everything you can to not become a target of interest. This includes:</p>
-
-<ul>
-<li>Not enabling any settings on your account that may make you look concerned about your privacy</li>
-<li>Keeping your browser configuration similar to other users of that system (e.g. JavaScript enabled, commong UserAgent)</li>
-<li>Being aware of phrases that could make you a target. Check out <a href="http://pastebin.com/yDicWqb2">the list of NSA keywords</a> to see the types of words they key in on.</li>
-</ul>
-
+<p>Buy yourself that cake. You deserve it. Just remember to eat it in the darkness. :)</p>
 </div>
   
   
@@ -158,6 +141,14 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -189,14 +180,6 @@
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &mdash; that up &hellip;">
+  <meta name="description" content="In Greenwald&rsquo;s book on Edward Snowden, No Place To Hide, he brings to light some of the details about how Snowden originally contacted him. The &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/10/back-and-reburned/">Lessons Burned</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/05/16/greenwald/">Journalist OPSEC Gap: Lessons From the Snowden Stories</a></h1>
     
     
       <p class="meta">
@@ -85,35 +85,47 @@
   
 
 
-<time datetime="2014-05-10T00:00:00+00:00" pubdate data-updated="true">May 10<span>th</span>, 2014</time>
+<time datetime="2014-05-16T00:00:00+00:00" pubdate data-updated="true">May 16<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img class="center" src="/images/trainhop.jpg" title="" ></p>
+  <div class="entry-content"><p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
 
-<p>Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &mdash; that up until that point had reliably allowed me to maintain my anonymity &mdash; suddenly requested that I verify my identity (for some random definition of identity in this case). There were a couple of ways to do this, and to be honest, it was something very easy to bypass. The point was that the provider suddenly did not enjoy my company.</p>
+<h2>Greenwald&rsquo;s Reluctant OPSEC</h2>
 
-<p>What was interesting (see distressing) was this occurred synchronously with two of my email addresses being suddenly blocked requiring that I now log in through what they considered a &ldquo;trusted IP&rdquo;. These were two email accounts that had never, ever, touched eachother (never shared contacts, never same IP, randomized timezones). They were from the same provider which could possibly reflect a change in policy for everyone.</p>
+<p>The first chapter is written in a self-deprecating way &mdash; the same way that an old man would talk about computers to a young person; &ldquo;You kids and your computers.&rdquo; In this case, it was more &ldquo;You political dissidents and your cryptography.&rdquo; Even after repeated attempts by Snowden to have Greenwald merely install GPG, he could not be convinced.</p>
 
-<h2>Burn and Move</h2>
-
-<p>Overly paranoid, long story, short, I wiped it all and moved on. In this case it was nice that they left my old site up for me to clone off. My assumption is that it will soon be taken down. And if they&rsquo;re reading this, they can feel free to do so. :)</p>
-
-<h2>New Perspectives</h2>
-
-<p>The set back was one of the first times that I honestly felt it was 100% necessary to burn and move on. Other times it wasn&rsquo;t mandatory but made sense at that point of the operation. Uncertainty is a decent motivator to review a few of my operational decisions. In the near future, I&rsquo;d like to share my current perspectives on:</p>
-
-<ul>
-<li>Email addresses</li>
-<li>Hosting providers</li>
-<li>Anonymous messaging</li>
-</ul>
+<blockquote><p>&#8220;Here am I,&#8221; he thought, &#8220;ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation&#8217;s most secretive agency &#8211; a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can&#8217;t even be bothered to install an encryption program.&#8221;</p></blockquote>
 
 
-<p>These three are for many, the building blocks of all identities and extra care (which I thought I had given) should be taken. Until then, I&rsquo;ve imported my previous posts.</p>
+<p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
+
+<p><img class="center" src="/images/greenwald.png" title="" ></p>
+
+<p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
+
+<h2>Laura</h2>
+
+<p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t &ndash; iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
+
+<p><img class="center" src="/images/laurapoitras.jpg" title="" ></p>
+
+<p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &mdash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
+
+<p>Why does a filmmaker have better OPSEC than a journalist? It&rsquo;s not baffling, but it reflects the sad state of journalist awareness to operational security.</p>
+
+<h2>Journalist OPSEC</h2>
+
+<p>While frustrating, Greenwald is not an one-off situation. In fact, most journalists have no clue how to use encryption programs, or think about any kind of operational security logistics. This is the reason that sites like Wikileaks have become popular &mdash; they are on the cutting edge of technology, understand the value of providing an anonymous communication medium, and while they can&rsquo;t be regarded as having the same journalistic integrity as an institution like The Guardian, they are trusted (by some) to not accidentally or on purpose disclose their sources.</p>
+
+<p><span class='pullquote-right' data-pullquote='a cultural conflict between journalists that consider this type of software designed for &#8220;hackers&#8221; and tech savvy young people that are frustrated with the previous generation&#8217;s unwillingness to use technology.'>
+At this point we have some tools designed to protect ourselves. <a href="https://tools.ietf.org/html/rfc1991">PGP</a> has been around for a millennium in Internet years. <a href="http://www.newyorker.com/strongbox/">Strongbox</a> is an attempt at securing communications between two people that don&rsquo;t know what they&rsquo;re doing. What have is a cultural conflict between journalists that consider this type of software designed for &ldquo;hackers&rdquo; and tech savvy young people that are frustrated with the previous generation&rsquo;s unwillingness to use technology. These &ldquo;hackers&rdquo; have spent collective years building tools and documents designed for these situations, and journalists aren&rsquo;t willing to use them.
+</span></p>
+
+<p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
 </div>
   
   
@@ -136,6 +148,14 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -167,14 +187,6 @@
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

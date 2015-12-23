@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="If you read this interesting post from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as &hellip;">
+  <meta name="description" content="In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a></h1>
     
     
       <p class="meta">
@@ -85,60 +85,63 @@
   
 
 
-<time datetime="2015-10-22T00:00:00+00:00" pubdate data-updated="true">Oct 22<span>nd</span>, 2015</time>
+<time datetime="2015-12-15T00:00:00+00:00" pubdate data-updated="true">Dec 15<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>If you read this <a href="http://motherboard.vice.com/read/camgirl-opsec-how-the-worlds-newest-porn-stars-protect-their-privacy-online">interesting post</a> from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as part of your threat model.</p>
+  <div class="entry-content"><p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
 
-<h2>Low Tech But High Investment</h2>
-
-<p><img class="right" src="/images/badgirl.jpg" width="300"></p>
-
-<p>You don&rsquo;t expect that an overzealous camgirl fan to be able to do facial recognition, but we know that services like Google and Facebook can offer <a href="http://www.facesearch.com/">this service</a> for free! Doing a reverse image lookup or trying to look at a photo&rsquo;s metadata are really simple things that just about any low life can figure out.</p>
-
-<p>The more serious weapon that they have is not technology, but commitment and drive. They will do anything in their power to try and find out information about you.</p>
-
-<h2>Recommendations</h2>
-
-<p><strong>Buy Burner Everything</strong>: We&rsquo;ve heard about burner phones but don&rsquo;t forget about a dedicated cam girl laptop, and more importantly camgirl camera used only for your online business.</p>
-
-<p>Your camera can tell a lot about you. The optics, resolution, capabilities are all fingerprintable metrics. If a perv is able to find another photo series using the same expensive equipment, it may be be possible for them to find that you&rsquo;re cross-posting dirty pictures on other sites like Facebook.</p>
-
-<p><strong>Do Your Homework On The Service:</strong> The article mentions using a VPN of course. This is important as a fall back but it&rsquo;s important that the camgirl service being used does everything it can to protect your IP from being leaked. Ask questions to the service about whether IPs are logged and who has access to that information. How do you create accounts and how do you recover your password if it&rsquo;s lost? Which brings us to a reminder about account security.</p>
-
-<p><strong>Secure Your Accounts:</strong> Does the cam service let you reset your password by answering a few personal questions? Are these questions that someone that is a super-fan would know by chatting with you? Find a cam service that provides two-factor security so that you enter in a user name, a password, and then you have to enter in a One-Time-Password. This will help ensure that no one is able to get in even if they guess what your password is. In my &ldquo;research&rdquo; I have found only once service that provides this type of security. And of course, choose a strong password.</p>
-
-<p><strong>Build a List Of Lies:</strong> There is no good defense against someone that is going to do everything they can to try and get you to leak information about yourself. As I&rsquo;ve discussed before, don&rsquo;t tell them what you don&rsquo;t want them to know. Lie to them.</p>
-
-<p>If someone asks you about your coffee table and you realize it was made two streets down from your current location, don&rsquo;t say &ldquo;Sorry I can&rsquo;t tell you.&rdquo; You&rsquo;ve confirmed to the adversary a piece of sensitive information that they will likely target at another time. Lie to them. Tell them it&rsquo;s a popular brand purchased from a popular store that is popular in your entire country.</p>
-
-<p>Come up with a list of lies so that you can remember to maintain them. This could include:</p>
+<h2>How</h2>
 
 <ul>
-<li>Name</li>
-<li>Country of origin</li>
-<li>Age of your house</li>
-<li>Brothers, sisters, family members and their names</li>
-<li>Previous relationships</li>
-<li>Favorite band, music, politician, TV show, movie, book, etc.</li>
-<li>University and expertise</li>
-<li>Professional employment</li>
+<li>Download <a href="https://www.torproject.org/download/download-easy.html.en">TBB</a></li>
+<li>Extract</li>
+<li><p>Cd to the following directory:</p>
+
+<pre><code>  tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default$
+</code></pre></li>
+<li>Modify <code>extensions.ini</code></li>
+<li><p>Comment out the following line:</p>
+
+<pre><code>  #Extension2=/home/death/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher@torproject.org.xpi
+</code></pre></li>
 </ul>
 
 
-<p><strong>Hide In The Darkness:</strong> If you live cam at 17:00 every day, and you do it by a window, they not only will be able to deduce what timezone you&rsquo;re in, but also how far North you live. Those camgirls that live in the Scottish Highlands will have a lot less daylight towards Winter, something that an attacker would notice.</p>
+<h2>Setup</h2>
 
-<p><strong>Tell Your Friends About Your Policy:</strong> You might be embarrassed about being a cam&#8217;er and telling your friends about it is the worst idea. But consider this, if someone finds out that you are a cam girl, are you sure that friend won&rsquo;t leak your information.</p>
+<p>This assumes that you&rsquo;re running tor on port 9050 and ideally that you have your control port enabled with a password of &ldquo;secret&rdquo; to access it. That&rsquo;s only if you want to be able to control Tor via the browser extension. Maybe you don&rsquo;t.</p>
 
-<p>When someone finds out that you are friends with someone else, their gears will automatically shift to finding out about them. Do they have the same OPSEC policy as you? Do they have an open Facebook account? Do they have any other pictures of you that they&rsquo;re willing to sell?</p>
+<p>If you want to set your password to &ldquo;sercret&rdquo; you can use tor to generate the hash for you:</p>
 
-<p><span class='pullquote-right' data-pullquote='It&#8217;s always better to confide in someone a secret, than risk they find out on their own.'>
-It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s always better to confide in someone a secret, than risk they find out on their own. By letting them in on the secret, and showing them how serious the secret is to you, you are asking them to join in to protect that secret. Without doing so ahead of time, there is no social contract that would imply this.
-</span></p>
+<pre><code>    tor --hash-password secret
+</code></pre>
+
+<p>Copy that into your /etc/torrc file under the HashedPassword section.</p>
+
+<p>You can take a look at the other comments found in <code>start-tor-browser</code>:</p>
+
+<pre><code>    # SETTING NAME                            VALUE
+    # extensions.torbutton.banned_ports       [...],&lt;SocksPort&gt;,&lt;ControlPort&gt;
+    # extensions.torbutton.block_disk         false
+    # extensions.torbutton.custom.socks_host  127.0.0.1
+    # extensions.torbutton.custom.socks_port  &lt;SocksPort&gt;
+    # extensions.torbutton.inserted_button    true
+    # extensions.torbutton.launch_warning     false
+    # extensions.torbutton.loglevel           2
+    # extensions.torbutton.logmethod          0
+    # extensions.torbutton.settings_method    custom
+    # extensions.torbutton.socks_port         &lt;SocksPort&gt;
+    # extensions.torbutton.use_privoxy        false
+    # extensions.torlauncher.control_port      &lt;ControlPort&gt;
+    # extensions.torlauncher.loglevel          2
+    # extensions.torlauncher.logmethod         0
+    # extensions.torlauncher.prompt_at_startup false
+    # extensions.torlauncher.start_tor         false
+</code></pre>
 </div>
   
   
@@ -161,6 +164,14 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -192,14 +203,6 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

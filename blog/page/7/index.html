@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="OPSEC and relationships are often opposing forces. You’ve spent months perfecting your OPSEC for a campaign when your friend walks in and says “Ooh &hellip;">
+  <meta name="description" content="We&rsquo;ve discussed the concerns of stylometric attacks and how good adversaries are at it today. There are only a few tools that attempt to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/08/22/secret-disclosures/">Analyzing Trust and Secret Disclosure</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a></h1>
     
     
       <p class="meta">
@@ -85,57 +85,138 @@
   
 
 
-<time datetime="2015-08-22T00:00:00+00:00" pubdate data-updated="true">Aug 22<span>nd</span>, 2015</time>
+<time datetime="2015-09-22T00:00:00+00:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>OPSEC and relationships are often opposing forces. You’ve spent months perfecting your OPSEC for a campaign when your friend walks in and says “Ooh what’s that.” Or you signifigant other finds a file marked “Super juicy secret.” I do believe that humans are social beings no matter how hard we try. Even nerds that stay home will end up yearning for personal  contact in some way. How do you determine if you should share a secret with another person and build a relationship with that person at the risk of compromising your campaign?</p>
+  <div class="entry-content"><p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
 
-<p><img class="right" src="/images/relationships.jpg" width="400"></p>
+<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
 
-<p>Look at the OPSEC measures that the members of lulzsec used. They all trusted eachother and everyone knew other peoples names, and in some cases addresses. This relationship of trust ended up being their downfall.</p>
+<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
 
-<h2>Example</h2>
+<h2>VIM</h2>
 
-<p>Let us start with a secret for sake of discussion: I have a laptop riddled with Taylor Swift songs.</p>
+<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings&#8217; grammar, as well as help you find which words to add.</p>
 
-<p>My OPSEC campaign includes that I’ve encrypted my laptop so that even with access, the songs would be difficult to find. I hide my laptop in a broom closet. The broom closet for some reason has a lock on it. But still there are days when I really want to listen to my favorite Swift jam and because I live with my mother, she catches me rocking out.</p>
-
-<p>In this case, its straight forward. Your mother is the adversary, she can never know about Taylor Swift songs and you’ve likely done a better job at hiding.</p>
-
-<p>But what about the situation where you are hanging out with a friend and notice that she is an avid Taylor Swift fan and if you share this commonality with her, you might establish a deeper relationship.</p>
-
-<h2>The Three Disclosure Tactics</h2>
-
-<p>I’ve found that people handle this in three potential tactics when disclosing a secret:</p>
-
-<ol>
-<li>You decide that you can trust this person and privately disclose that you are a Taylor Swift fan.</li>
-<li>You drop hints that you may or may know something about Taylor but you’re unwilling to disclose it out-right to just anyone but secretly hope that the other person will ask you about it.</li>
-<li>You don’t let on that you’re into TS at all.</li>
-</ol>
+<ul>
+<li>Enable spell check in your .vimrc file by adding the following line:</li>
+</ul>
 
 
-<p>These are stupid situations but these are how most people handle secrets.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
 
-<h2>Trusted Disclosure</h2>
 
-<p>Option 1, trusted disclosure is where you analyze the relationship with the other person, look at the risk involved in disclosing, and the potential reward that exists if you do share. This is what some may call “normal” in terms of relationships. You decide that you will disclose a secret to a trusted person and expect that the trusted person does not use this information against you. If for example, you know that the other party has worthwhile knowledge related to your secret, the reward may outweigh the risk that the disclosure is used to exploit you.</p>
+<ul>
+<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
+</ul>
 
-<h2>Plausibly Deniable Disclosure</h2>
 
-<p>In option 2, plausibly deniable disclosure, you hint that you might have a secret but you can still plausibly deny that the secret exists. There is less analysis of risk vs reward or analysis of the trust of the person so you’ll often hear people leak this in public. “I might know something about X but I can’t tell you”. If you go to DEFCON, you will hear this just about every day.</p>
+<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
 
-<p>This is the most common tactic with people missing social contact/relationships and let their ego get in the way. This either means that the secret being kept is not that risky of a secret, or the person is not disciplined enough to follow opsec. In either case, frowned upon in terms of OPSEC.</p>
+<h2>Grammar</h2>
 
-<h2>Zero Knowledge</h2>
+<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
 
-<p>The last option is not a disclosure at all but maintains a zero knowledge relationship going forward. In terms of OPSEC, you can consider this a firewall rule that blocks all by default. In this scenario you get no reward, no commonality in the relationship, and no benefit besides the fact that you can keep in your pocket that you have a secret in-depth knowledge of a subject that may be of interest to the subject. Because remember, knowledge is power and knowledge of someone’s knowledge is a power you may not want to concede.</p>
+<h2>UPDATE</h2>
 
-<p>Be disciplined. Be in control. Make active decisions about your disclosures and your relationships.</p>
+<p>If you want to at least do a frequency analysis of the words in your text, it&rsquo;s pretty easy to do. The following is an example in python. If you run this and provide an argument of your text file, it will give you a break down of your most common words, hopefully to help you determine what words you could be attributed to using most often.</p>
+
+<figure class='code'><figcaption><span>stemmer.py </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
+</span><span class='line'><span class="c"># Author: b3rn3d</span>
+</span><span class='line'><span class="c"># Based on: http://www.nltk.org/api/nltk.stem.html</span>
+</span><span class='line'><span class="c"># Usage: ./stemmer.py filename.txt</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'>  <span class="kn">from</span> <span class="nn">Stemmer</span> <span class="kn">import</span> <span class="n">Stemmer</span> <span class="k">as</span> <span class="n">SS</span>
+</span><span class='line'><span class="k">except</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;Stemmer/Snowball not installed. Please install it via apt-get install python-stemmer&quot;</span>
+</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;FAIL: Supply test file to analyze.&quot;</span>
+</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span class='line'><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#extract words</span>
+</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;\w+&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">stemmer</span> <span class="o">=</span> <span class="n">SS</span><span class="p">(</span><span class="s">&#39;english&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#count stems and extract shortest words possible</span>
+</span><span class='line'><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">stem</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stemWord</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">stem</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">shortest</span><span class="p">,</span><span class="n">count</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span>
+</span><span class='line'>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">shortest</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">shortest</span> <span class="o">=</span> <span class="n">word</span>
+</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">shortest</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#convert {key: (word, count)} to [(word, count, key)] for convenient sort and print</span>
+</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">wordcount</span> <span class="o">+</span> <span class="p">(</span><span class="n">root</span><span class="p">,)</span> <span class="k">for</span> <span class="n">root</span><span class="p">,</span><span class="n">wordcount</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+</span><span class='line'><span class="c">#trick to sort output by count (descending) &amp; word (alphabetically)</span>
+</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</span><span class='line'><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s"> (Root: </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">item</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
   
   
@@ -158,6 +239,14 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -189,14 +278,6 @@
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

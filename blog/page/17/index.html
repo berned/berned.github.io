@@ -9,8 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
-&ndash; either by name, fingerprint, or country code. If you have a &hellip;">
+  <meta name="description" content="Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &mdash; that up &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/03/05/tor-country-codes/">Tor Country Codes</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/05/10/back-and-reburned/">Lessons Burned</a></h1>
     
     
       <p class="meta">
@@ -86,338 +85,35 @@
   
 
 
-<time datetime="2014-03-05T00:00:00+00:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
+<time datetime="2014-05-10T00:00:00+00:00" pubdate data-updated="true">May 10<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
-&ndash; either by name, fingerprint, or country code. If you have a trusted
-list of nodes you&rsquo;d like to use as a whitelist, you can use that, or if
-you have a list of nodes on a blacklist, it supports that configuration. But
-for those of us that are attempting to be someone else, specifically someone
-from a different country, we can use Tor to not only hide our identity, but
-make it appear to be from a specific geographic location.</p>
+  <div class="entry-content"><p><img class="center" src="/images/trainhop.jpg" title="" ></p>
 
-<p>Our example here may be an identity where you want to appear like a Ukrainian
-dissident &mdash; when in reality you&rsquo;re a soccer Mom from Chicago, IL.
-By setting up a dedicated machine, with a specific Tor configuration, you can
-make sure that all of your traffic is routed out of an Ukrainian Exit Node.</p>
+<p>Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &mdash; that up until that point had reliably allowed me to maintain my anonymity &mdash; suddenly requested that I verify my identity (for some random definition of identity in this case). There were a couple of ways to do this, and to be honest, it was something very easy to bypass. The point was that the provider suddenly did not enjoy my company.</p>
 
-<h2>TORRC</h2>
+<p>What was interesting (see distressing) was this occurred synchronously with two of my email addresses being suddenly blocked requiring that I now log in through what they considered a &ldquo;trusted IP&rdquo;. These were two email accounts that had never, ever, touched eachother (never shared contacts, never same IP, randomized timezones). They were from the same provider which could possibly reflect a change in policy for everyone.</p>
 
-<p>The configuration is simple, modify your torrc file to add the follwoing line
-to ensure Tor will only use Ukraine based exit nodes:</p>
+<h2>Burn and Move</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  ExitNodes {ua}
-</span><span class='line'>  StrictNodes 1</span></code></pre></td></tr></table></div></figure>
+<p>Overly paranoid, long story, short, I wiped it all and moved on. In this case it was nice that they left my old site up for me to clone off. My assumption is that it will soon be taken down. And if they&rsquo;re reading this, they can feel free to do so. :)</p>
+
+<h2>New Perspectives</h2>
+
+<p>The set back was one of the first times that I honestly felt it was 100% necessary to burn and move on. Other times it wasn&rsquo;t mandatory but made sense at that point of the operation. Uncertainty is a decent motivator to review a few of my operational decisions. In the near future, I&rsquo;d like to share my current perspectives on:</p>
+
+<ul>
+<li>Email addresses</li>
+<li>Hosting providers</li>
+<li>Anonymous messaging</li>
+</ul>
 
 
-<p>Please note that in all of these examples, we must enable StrictNodes. This
-example will use either Ukraine, Uganda, South Korea, or Ireland as an exit:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExitNodes {ua},{ug},{kp},{ie}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Blacklisting</h2>
-
-<p>You can also use this as a defensive measure as well. If you&rsquo;ve believe
-there is some kind of geo-centric threat in Uganda, you can configure Tor to
-never use these exit nodes.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeExitNodes {ua}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can exclude all node types for a specific country as well &ndash; exits,
-relays, entry, and bridge nodes.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeNodes {us}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You have the ability to whitelist all node types which is to say you can make
-sure that your entire Tor circuit only uses a certain country. This is NOT
-recommended of course. An ideal circuit will cross countries and legal
-jurisdictions.</p>
-
-<h2>The ?? Country</h2>
-
-<p>Tor uses Maxmind&rsquo;s Geo-ip lookup system for this functionality. Some of
-the versions of their database contain a &ldquo;??&rdquo; country code. This is
-reserved for IPs they either don&rsquo;t know, or aren&rsquo;t willing to
-share. (Tor is making some changes to compensate for this in the future.)</p>
-
-<p>Knowing this can be useful in one of two ways. First, you may think that if you
-don&rsquo;t know what country you&rsquo;re going to be using as a node, then
-you don&rsquo;t want to use it. This is probably a legitimate thought without
-having more information on what causes an IP to have &ldquo;??&rdquo;. Second,
-and more interestingly, some (poorly configured) firewalls will automatically
-drop connections from certain countries. Admins will say &ldquo;Screw it, block
-China. Hacking problem solved!&rdquo; and ask for a raise. Maxmind is a very
-popular Geo-ip lookup database and you can imagine that all of the security
-services built into those fancy enterprise firewalls will most likely be using
-it if it&rsquo;s doing geographic lookups. While many of these admins will have
-policies for how to handle &ldquo;us&rdquo;, &ldquo;cn&rdquo;, and &ldquo;de&rdquo;, I&rsquo;ve found many have issues with a country code that is &ldquo;??&rdquo;. In one case, I&rsquo;ve found a system that blocks all exit
-nodes, except those coming from a &ldquo;??&rdquo; country. I have not
-identitied why this mis-configuration occurs, but hopefully someone can
-leverage this to their advantage.</p>
-
-<h2>List of country codes for Tor</h2>
-
-<pre><code>Country                               Abbrev
-ASCENSION ISLAND                      {ac}
-AFGHANISTAN                           {af}
-ALAND                                 {ax}
-ALBANIA                               {al}
-ALGERIA                               {dz}
-ANDORRA                               {ad}
-ANGOLA                                {ao}
-ANGUILLA                              {ai}
-ANTARCTICA                            {aq}
-ANTIGUA AND BARBUDA                   {ag}
-ARGENTINA REPUBLIC                    {ar}
-ARMENIA                               {am}
-ARUBA                                 {aw}
-AUSTRALIA                             {au}
-AUSTRIA                               {at}
-AZERBAIJAN                            {az}
-BAHAMAS                               {bs}
-BAHRAIN                               {bh}
-BANGLADESH                            {bd}
-BARBADOS                              {bb}
-BELARUS                               {by}
-BELGIUM                               {be}
-BELIZE                                {bz}
-BENIN                                 {bj}
-BERMUDA                               {bm}
-BHUTAN                                {bt}
-BOLIVIA                               {bo}
-BOSNIA AND HERZEGOVINA                {ba}
-BOTSWANA                              {bw}
-BOUVET ISLAND                         {bv}
-BRAZIL                                {br}
-BRITISH INDIAN OCEAN TERR             {io}
-BRITISH VIRGIN ISLANDS                {vg}
-BRUNEI DARUSSALAM                     {bn}
-BULGARIA                              {bg}
-BURKINA FASO                          {bf}
-BURUNDI                               {bi}
-CAMBODIA                              {kh}
-CAMEROON                              {cm}
-CANADA                                {ca}
-CAPE VERDE                            {cv}
-CAYMAN ISLANDS                        {ky}
-CENTRAL AFRICAN REPUBLIC              {cf}
-CHAD                                  {td}
-CHILE                                 {cl}
-PEOPLE'S REPUBLIC OF CHINA            {cn}
-CHRISTMAS ISLANDS                     {cx}
-COCOS ISLANDS                         {cc}
-COLOMBIA                              {co}
-COMORAS                               {km}
-CONGO                                 {cg}
-CONGO (DEMOCRATIC REPUBLIC)           {cd}
-COOK ISLANDS                          {ck}
-COSTA RICA                            {cr}
-COTE D IVOIRE                         {ci}
-CROATIA                               {hr}
-CUBA                                  {cu}
-CYPRUS                                {cy}
-CZECH REPUBLIC                        {cz}
-DENMARK                               {dk}
-DJIBOUTI                              {dj}
-DOMINICA                              {dm}
-DOMINICAN REPUBLIC                    {do}
-EAST TIMOR                            {tp}
-ECUADOR                               {ec}
-EGYPT                                 {eg}
-EL SALVADOR                           {sv}
-EQUATORIAL GUINEA                     {gq}
-ESTONIA                               {ee}
-ETHIOPIA                              {et}
-FALKLAND ISLANDS                      {fk}
-FAROE ISLANDS                         {fo}
-FIJI                                  {fj}
-FINLAND                               {fi}
-FRANCE                                {fr}
-FRANCE METROPOLITAN                   {fx}
-FRENCH GUIANA                         {gf}
-FRENCH POLYNESIA                      {pf}
-FRENCH SOUTHERN TERRITORIES           {tf}
-GABON                                 {ga}
-GAMBIA                                {gm}
-GEORGIA                               {ge}
-GERMANY                               {de}
-GHANA                                 {gh}
-GIBRALTER                             {gi}
-GREECE                                {gr}
-GREENLAND                             {gl}
-GRENADA                               {gd}
-GUADELOUPE                            {gp}
-GUAM                                  {gu}
-GUATEMALA                             {gt}
-GUINEA                                {gn}
-GUINEA-BISSAU                         {gw}
-GUYANA                                {gy}
-HAITI                                 {ht}
-HEARD &amp;amp; MCDONALD ISLAND           {hm}
-HONDURAS                              {hn}
-HONG KONG                             {hk}
-HUNGARY                               {hu}
-ICELAND                               {is}
-INDIA                                 {in}
-INDONESIA                             {id}
-IRAN, ISLAMIC REPUBLIC OF             {ir}
-IRAQ                                  {iq}
-IRELAND                               {ie}
-ISLE OF MAN                           {im}
-ISRAEL                                {il}
-ITALY                                 {it}
-JAMAICA                               {jm}
-JAPAN                                 {jp}
-JORDAN                                {jo}
-KAZAKHSTAN                            {kz}
-KENYA                                 {ke}
-KIRIBATI                              {ki}
-KOREA, DEM. PEOPLES REP OF            {kp}
-KOREA, REPUBLIC OF                    {kr}
-KUWAIT                                {kw}
-KYRGYZSTAN                            {kg}
-LAO PEOPLE'S DEM. REPUBLIC            {la}
-LATVIA                                {lv}
-LEBANON                               {lb}
-LESOTHO                               {ls}
-LIBERIA                               {lr}
-LIBYAN ARAB JAMAHIRIYA                {ly}
-LIECHTENSTEIN                         {li}
-LITHUANIA                             {lt}
-LUXEMBOURG                            {lu}
-MACAO                                 {mo}
-MACEDONIA                             {mk}
-MADAGASCAR                            {mg}
-MALAWI                                {mw}
-MALAYSIA                              {my}
-MALDIVES                              {mv}
-MALI                                  {ml}
-MALTA                                 {mt}
-MARSHALL ISLANDS                      {mh}
-MARTINIQUE                            {mq}
-MAURITANIA                            {mr}
-MAURITIUS                             {mu}
-MAYOTTE                               {yt}
-MEXICO                                {mx}
-MICRONESIA                            {fm}
-MOLDAVA REPUBLIC OF                   {md}
-MONACO                                {mc}
-MONGOLIA                              {mn}
-MONTENEGRO                            {me}
-MONTSERRAT                            {ms}
-MOROCCO                               {ma}
-MOZAMBIQUE                            {mz}
-MYANMAR                               {mm}
-NAMIBIA                               {na}
-NAURU                                 {nr}
-NEPAL                                 {np}
-NETHERLANDS ANTILLES                  {an}
-NETHERLANDS, THE                      {nl}
-NEW CALEDONIA                         {nc}
-NEW ZEALAND                           {nz}
-NICARAGUA                             {ni}
-NIGER                                 {ne}
-NIGERIA                               {ng}
-NIUE                                  {nu}
-NORFOLK ISLAND                        {nf}
-NORTHERN MARIANA ISLANDS              {mp}
-NORWAY                                {no}
-OMAN                                  {om}
-PAKISTAN                              {pk}
-PALAU                                 {pw}
-PALESTINE                             {ps}
-PANAMA                                {pa}
-PAPUA NEW GUINEA                      {pg}
-PARAGUAY                              {py}
-PERU                                  {pe}
-PHILIPPINES (REPUBLIC OF THE)         {ph}
-PITCAIRN                              {pn}
-POLAND                                {pl}
-PORTUGAL                              {pt}
-PUERTO RICO                           {pr}
-QATAR                                 {qa}
-REUNION                               {re}
-ROMANIA                               {ro}
-RUSSIAN FEDERATION                    {ru}
-RWANDA                                {rw}
-SAMOA                                 {ws}
-SAN MARINO                            {sm}
-SAO TOME/PRINCIPE                     {st}
-SAUDI ARABIA                          {sa}
-SCOTLAND                              {uk}
-SENEGAL                               {sn}
-SERBIA                                {rs}
-SEYCHELLES                            {sc}
-SIERRA LEONE                          {sl}
-SINGAPORE                             {sg}
-SLOVAKIA                              {sk}
-SLOVENIA                              {si}
-SOLOMON ISLANDS                       {sb}
-SOMALIA                               {so}
-SOMOA,GILBERT,ELLICE ISLANDS          {as}
-SOUTH AFRICA                          {za}
-SOUTH GEORGIA, SOUTH SANDWICH ISLANDS {gs}
-SOVIET UNION                          {su}
-SPAIN                                 {es}
-SRI LANKA                             {lk}
-ST. HELENA                            {sh}
-ST. KITTS AND NEVIS                   {kn}
-ST. LUCIA                             {lc}
-ST. PIERRE AND MIQUELON               {pm}
-ST. VINCENT &amp;amp; THE GRENADINES      {vc}
-SUDAN                                 {sd}
-SURINAME                              {sr}
-SVALBARD AND JAN MAYEN                {sj}
-SWAZILAND                             {sz}
-SWEDEN                                {se}
-SWITZERLAND                           {ch}
-SYRIAN ARAB REPUBLIC                  {sy}
-TAIWAN                                {tw}
-TAJIKISTAN                            {tj}
-TANZANIA, UNITED REPUBLIC OF          {tz}
-THAILAND                              {th}
-TOGO                                  {tg}
-TOKELAU                               {tk}
-TONGA                                 {to}
-TRINIDAD AND TOBAGO                   {tt}
-TUNISIA                               {tn}
-TURKEY                                {tr}
-TURKMENISTAN                          {tm}
-TURKS AND CALCOS ISLANDS              {tc}
-TUVALU                                {tv}
-UGANDA                                {ug}
-UKRAINE                               {ua}
-UNITED ARAB EMIRATES                  {ae}
-UNITED KINGDOM (no new registrations) {gb}
-UNITED KINGDOM                        {uk}
-UNITED STATES                         {us}
-UNITED STATES MINOR OUTL.IS.          {um}
-URUGUAY                               {uy}
-UZBEKISTAN                            {uz}
-VANUATU                               {vu}
-VATICAN CITY STATE                    {va}
-VENEZUELA                             {ve}
-VIET NAM                              {vn}
-VIRGIN ISLANDS (USA)                  {vi}
-WALLIS AND FUTUNA ISLANDS             {wf}
-WESTERN SAHARA                        {eh}
-YEMEN                                 {ye}
-ZAMBIA                                {zm}
-ZIMBABWE                              {zw}
-</code></pre>
+<p>These three are for many, the building blocks of all identities and extra care (which I thought I had given) should be taken. Until then, I&rsquo;ve imported my previous posts.</p>
 </div>
   
   
@@ -440,6 +136,14 @@ ZIMBABWE                              {zw}
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -471,14 +175,6 @@ ZIMBABWE                              {zw}
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

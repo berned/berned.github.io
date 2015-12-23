@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it &hellip;">
+  <meta name="description" content="You&rsquo;ve found your favorite drugs on your favorite darknets but then your OPSEC buzzer goes off and you say &ldquo;How do I actually get it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a></h1>
     
     
       <p class="meta">
@@ -85,63 +85,71 @@
   
 
 
-<time datetime="2015-12-15T00:00:00+00:00" pubdate data-updated="true">Dec 15<span>th</span>, 2015</time>
+<time datetime="2016-01-02T00:00:00+00:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2016</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
+  <div class="entry-content"><p>You&rsquo;ve found your favorite drugs on your favorite darknets but then your OPSEC buzzer goes off and you say &ldquo;How do I actually get it shipped to me?&rdquo; Lets talk about some of the risks and likely attacks.</p>
 
-<h2>How</h2>
+<h2>The Fallacy Of The Drop Ship</h2>
+
+<p>The first thing you might this is, just like your computer, find a way to be completely anonymous. That would mean sending to a &ldquo;drop ship&rdquo; location or someone else&rsquo;s house. You&rsquo;ll find documents online about how the best way to do this is:</p>
+
+<p><img class="right" src="/images/package.png" width="400"></p>
 
 <ul>
-<li>Download <a href="https://www.torproject.org/download/download-easy.html.en">TBB</a></li>
-<li>Extract</li>
-<li><p>Cd to the following directory:</p>
-
-<pre><code>  tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default$
-</code></pre></li>
-<li>Modify <code>extensions.ini</code></li>
-<li><p>Comment out the following line:</p>
-
-<pre><code>  #Extension2=/home/death/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher@torproject.org.xpi
-</code></pre></li>
+<li>find a house in a city that no one lives in</li>
+<li>mow the lawn once week</li>
+<li>let the neighbors know who you are</li>
+<li>send some fake packages and receive them at the location</li>
+<li>establish a pretend situation where you are there multiple times during the week.</li>
 </ul>
 
 
-<h2>Setup</h2>
+<p>The number of people that can do this is uselessly low. If you can do this, good for you but don&rsquo;t waste your time trying to figure this situation out.</p>
 
-<p>This assumes that you&rsquo;re running tor on port 9050 and ideally that you have your control port enabled with a password of &ldquo;secret&rdquo; to access it. That&rsquo;s only if you want to be able to control Tor via the browser extension. Maybe you don&rsquo;t.</p>
+<p>Lets talks talk about some pragmatic approaches.</p>
 
-<p>If you want to set your password to &ldquo;sercret&rdquo; you can use tor to generate the hash for you:</p>
+<h2>Risk Calculations</h2>
 
-<pre><code>    tor --hash-password secret
+<p>To get something shipped, you must take a risk calculation. How much do you care about the package you&rsquo;re receiving, how often are you doing it, how likely are you to be caught, and what are the consequences of being caught.</p>
+
+<pre><code>value * frequency + caught * sentence = RISK
 </code></pre>
 
-<p>Copy that into your /etc/torrc file under the HashedPassword section.</p>
+<p>This is a bull shit calculation but you can use it to come up with an arbitrary number to assign a consistent risk score and it&rsquo;s on point.</p>
 
-<p>You can take a look at the other comments found in <code>start-tor-browser</code>:</p>
+<p>Lets review your situation:</p>
 
-<pre><code>    # SETTING NAME                            VALUE
-    # extensions.torbutton.banned_ports       [...],&lt;SocksPort&gt;,&lt;ControlPort&gt;
-    # extensions.torbutton.block_disk         false
-    # extensions.torbutton.custom.socks_host  127.0.0.1
-    # extensions.torbutton.custom.socks_port  &lt;SocksPort&gt;
-    # extensions.torbutton.inserted_button    true
-    # extensions.torbutton.launch_warning     false
-    # extensions.torbutton.loglevel           2
-    # extensions.torbutton.logmethod          0
-    # extensions.torbutton.settings_method    custom
-    # extensions.torbutton.socks_port         &lt;SocksPort&gt;
-    # extensions.torbutton.use_privoxy        false
-    # extensions.torlauncher.control_port      &lt;ControlPort&gt;
-    # extensions.torlauncher.loglevel          2
-    # extensions.torlauncher.logmethod         0
-    # extensions.torlauncher.prompt_at_startup false
-    # extensions.torlauncher.start_tor         false
-</code></pre>
+<ul>
+<li>you plan on sending an illegal product across country, providence, or state lines</li>
+<li>you plan on using a federally funded system to do so (in the case of US Mail)</li>
+<li>You are plan on putting a name and address on the recipient of the illegal product</li>
+</ul>
+
+
+<h2>How do you do it?</h2>
+
+<p>First: Don&rsquo;t. I know that&rsquo;s a cop out but seriously reconsider. Other options are:</p>
+
+<ul>
+<li>pick it up directly from the contact</li>
+<li>agree on shipping using a private company</li>
+</ul>
+
+
+<p>Ok, you&rsquo;re not going to do that. If you need to, here are a few things to remember:</p>
+
+<ul>
+<li>Use your real name. I know, just do it.</li>
+<li>Make yourself unlikely to be cause. Small packages, envelopes, now quantities</li>
+<li>Be nice. There&rsquo;s some real documents that show how delivery guys are responsible for determining if you are a sketchy person and decide that you&rsquo;re a high risk delivery.</li>
+<li>Don&rsquo;t sign for your packages. There will always be situations where you need to but don&rsquo;t use your real signature.</li>
+</ul>
+
 </div>
   
   
@@ -164,6 +172,14 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -195,14 +211,6 @@
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

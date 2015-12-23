@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="We&rsquo;ve discussed the concerns of stylometric attacks and how good adversaries are at it today. There are only a few tools that attempt to &hellip;">
+  <meta name="description" content="The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a></h1>
     
     
       <p class="meta">
@@ -85,137 +85,98 @@
   
 
 
-<time datetime="2015-09-22T00:00:00+00:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2015</time>
+<time datetime="2015-12-04T00:00:00+00:00" pubdate data-updated="true">Dec 4<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
+  <div class="entry-content"><p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
 
-<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
+<h1>TAILS</h1>
 
-<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
+<p><img class="right" src="/images/tails.png" width="300">
+<a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
 
-<h2>VIM</h2>
+<p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n&#8217;th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
 
-<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings&#8217; grammar, as well as help you find which words to add.</p>
+<p>As stated, we are paying more attention to the secure tools that we use and this has identified some <a href="https://www.schneier.com/blog/archives/2014/07/security_vulner_4.html">fatal flaws</a> in TAILS. If you <a href="https://tails.boum.org/security/#index3h1">look back</a> at the TAILS project, the number of vulnerabilities identified and reported have are much smaller before than after Snowden disclosures.</p>
 
 <ul>
-<li>Enable spell check in your .vimrc file by adding the following line:</li>
+<li><strong>Development</strong>: Highly active with multiple paid developers</li>
+<li><strong>Maturity</strong>: First created in</li>
+<li><strong>Goals</strong>: Provide an easy-to-use live environment for temporary work.</li>
+<li><strong>Roadmap</strong>: Continue same model and further harden the OS.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Minimal support for persistence (besides files). Not designed to be installed but just run once.</li>
+<li>No mitigations for GCHQ/NSA type low level hardware attacks</li>
+<li>The focus on supporting all forms of users may affect security</li>
+</ul>
+</li>
 </ul>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
+<h2>Qubes OS</h2>
 
+<p><img class="right" src="/images/qubes.png" width="300">
+I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
+
+<p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
+
+<p><span class='pullquote-right' data-pullquote='it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &#8220;identity&#8221; with &#8220;virtual object&#8221; and you have their security model'>
+Technical details aside for a moment, it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &ldquo;identity&rdquo; with &ldquo;virtual object&rdquo; and you have their security model.</p>
+
+<p>This is accomplished by making several virtual objects. You virtualize your firewall, you virtualize your USB controller, you virtualize the browser you&rsquo;re using for Project A, and separately, you virtualize the browser you&rsquo;re using for Project B. From here, QubesOS helps facilitate communications between those objects if necessary.
+</span></p>
+
+<p>QubesOS offers some features that no other system currently offers. The big one for me is virtualization for USB controller. So no only are you creating virtual machines, you&rsquo;re creating virtual controllers. If someone malicious is plugged into your system, even in the case of an [0-day exploiting the firmware of your USB controller], the rest of your system is not compromised.</p>
+
+<p>The other major feature that we know is in the GCHQ playbook is protection from WiFi driver exploits. We&rsquo;ve heard of this exploit being used in the while but have yet to have a real mitigation from it. With QubesOS, your wireless card is its own virtual object that contains the exploit into its own virtual machine.</p>
+
+<p>There is a lot more to talk about with QubesOS but it does seem the one to watch going forward.</p>
 
 <ul>
-<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
+<li><strong>Development</strong>: Active but a small group.</li>
+<li><strong>Maturity</strong>: v3.1 released is functional but not perfect.</li>
+<li><strong>Roadmap</strong>: Investing time in rebuilding the UI is a priority.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Hardware support is difficult to predict. They have an approved list but you can&rsquo;t assume it will work on all systems.</li>
+<li>Performance is relatively poor to the other systems and Qubes consumes a lot of memory for each of the virtual machines.</li>
+</ul>
+</li>
 </ul>
 
 
-<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
+<h2>SubgraphOS</h2>
 
-<h2>Grammar</h2>
+<p><img class="right" src="/images/subgraph.png" width="300">
+<a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
 
-<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
+<p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
 
-<h2>UPDATE</h2>
+<p>The problem thus far is that only a small group of people have seen SubgraphOS working. I&rsquo;m also concerned about the development of SubgraphOS by the company, Subgraph. We know that Subgraph is a <a href="https://subgraph.com/about-us/index.en.html">&ldquo;security&rdquo; company</a> that aims to provide services and products to its clients. The other two projects discussed here have been community projects and money is not the primary goal. The owner of the company comes from the secure kernel world where he was a mod of one of the most popular and dramatic bug hunting mailing lists.</p>
 
-<p>If you want to at least do a frequency analysis of the words in your text, it&rsquo;s pretty easy to do. The following is an example in python. If you run this and provide an argument of your text file, it will give you a break down of your most common words, hopefully to help you determine what words you could be attributed to using most often.</p>
+<p>SubgraphOS had the problem of being announced way too soon. They showed off the now famous <a href="https://subgraph.com/img/sgos.png">SubgraphOS images</a> that caught everyone&rsquo;s eye before there was anything to actually look at.</p>
 
-<figure class='code'><figcaption><span>stemmer.py </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
-</span><span class='line'><span class="c"># Author: b3rn3d</span>
-</span><span class='line'><span class="c"># Based on: http://www.nltk.org/api/nltk.stem.html</span>
-</span><span class='line'><span class="c"># Usage: ./stemmer.py filename.txt</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'><span class="k">try</span><span class="p">:</span>
-</span><span class='line'>  <span class="kn">from</span> <span class="nn">Stemmer</span> <span class="kn">import</span> <span class="n">Stemmer</span> <span class="k">as</span> <span class="n">SS</span>
-</span><span class='line'><span class="k">except</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;Stemmer/Snowball not installed. Please install it via apt-get install python-stemmer&quot;</span>
-</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;FAIL: Supply test file to analyze.&quot;</span>
-</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span class='line'><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#extract words</span>
-</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;\w+&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">stemmer</span> <span class="o">=</span> <span class="n">SS</span><span class="p">(</span><span class="s">&#39;english&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#count stems and extract shortest words possible</span>
-</span><span class='line'><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">stem</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stemWord</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">stem</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">shortest</span><span class="p">,</span><span class="n">count</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span>
-</span><span class='line'>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">shortest</span><span class="p">):</span>
-</span><span class='line'>            <span class="n">shortest</span> <span class="o">=</span> <span class="n">word</span>
-</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">shortest</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#convert {key: (word, count)} to [(word, count, key)] for convenient sort and print</span>
-</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">wordcount</span> <span class="o">+</span> <span class="p">(</span><span class="n">root</span><span class="p">,)</span> <span class="k">for</span> <span class="n">root</span><span class="p">,</span><span class="n">wordcount</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-</span><span class='line'><span class="c">#trick to sort output by count (descending) &amp; word (alphabetically)</span>
-</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-</span><span class='line'><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
-</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s"> (Root: </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">item</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>I come from the perspective of seeing tons of projects die in the past. The ones that I&rsquo;ve seen stick through are not usually (ever?) the ones released for free by a money making company.</p>
 
+<ul>
+<li><strong>Development</strong>: Probably active? Not open to the public.</li>
+<li><strong>Maturity</strong>: Immature, pre-alpha releases</li>
+<li><strong>Roadmap</strong>: Hopefully release a beta to the public soon.</li>
+<li><strong>Challenges</strong>:
 
+<ul>
+<li>Money may affect the development of the product.</li>
+<li>Closed development may deter acceptance of even a finished product.</li>
+</ul>
+</li>
+</ul>
 
 </div>
   
@@ -239,6 +200,14 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -270,14 +239,6 @@
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

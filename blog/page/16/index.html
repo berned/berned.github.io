@@ -9,8 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In two articles from Pursuit Magazine, Lindsay Moran, an Ex-CIA operative is
-interviewed about being in the CIA, explains psychology around maintaing &hellip;">
+  <meta name="description" content="Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +69,7 @@ interviewed about being in the CIA, explains psychology around maintaing &hellip
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/03/09/cia-spycraft-psychology/">CIA Operative Teaches Spycraft and Psychology</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/05/16/email/">The Importance of Anonymous Email Addresses</a></h1>
     
     
       <p class="meta">
@@ -86,119 +85,150 @@ interviewed about being in the CIA, explains psychology around maintaing &hellip
   
 
 
-<time datetime="2014-03-09T00:00:00+00:00" pubdate data-updated="true">Mar 9<span>th</span>, 2014</time>
+<time datetime="2014-05-16T00:00:00+00:00" pubdate data-updated="true">May 16<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In two articles from Pursuit Magazine, Lindsay Moran, an Ex-CIA operative is
-interviewed about being in the CIA, explains psychology around maintaing a
-separate life, and gives a few cute stories about tradecraft. You can start
-reading <a href="http://pursuitmag.com/lindsay-moran-former-cia-agent-talks-spycraft/">them</a> <a href="http://pursuitmag.com/lindsay-moran-former-cia-operative-why-became-spy/">here</a> if for nothing else, a fun read. I think there are some OPSEC
-take-aways here in regard to psychological problems of maintaining
-compartmentalized identities, using psychological motivators to exploit humans,
-and defending yourself from surveillance &mdash; human or technical.</p>
+  <div class="entry-content"><p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
 
-<h2>Professional Liar</h2>
+<p><img class="center" src="/images/email.png" title="" ></p>
 
-<p>I&rsquo;m most interested in the psychological perspective that she gives and
-the issues that appear when one is compartmentalizing their identities. You
-can&rsquo;t discuss, disclose, or share what&rsquo;s going on between your
-various identities. In her case, she was maintaining just two identities; her
-personal life, and her professional one. Having a career where everything you
-do is regarded by the U.S. Government as Top-Secret and requiring a specific
-clearance to discuss, is taxing on humans.</p>
+<p>Notice that we are not talking about anonymous communication here, because we know that email is the worst possible option for that at this point. We are talking about anonymously registering for an email account, so that you can also potentially register for other services anonymously.</p>
 
-<blockquote><p>…I found that a lot of my relationships outside the Agency suffered. It becomes a chore to get together with people and have to lie to them because you feel guilty, and the result is that you kind of shut down, which is just not my nature.</p></blockquote>
+<p>Here&rsquo;s an example: Github. In order to create a github account, you need to give them an email address so that you can activate your account.</p>
 
+<h2>The Problem</h2>
 
-<p>The natural tendency to &ldquo;shut down,&rdquo; as she says, is common in
-groups that need to keep secrets; hackers, activists, military families.
-You&rsquo;re maintaining an index of things you can share, and things you
-can&rsquo;t. It requires discipline to keep track of these and adhere to the
-lines. This is one of the problems with compartmentalizing multiple identities,
-or even just one.</p>
+<p>The problem for anonymous privacy concerned peoples of the Internet, is that it&rsquo;s relatively difficult to get an email address while using something like Tor. Sites will block you in a variety of ways:</p>
 
-<h2>Living in a Bubble</h2>
-
-<p>Moran went on to describe, what I would call, a lonely sentiment when you are
-working for the CIA.</p>
-
-<blockquote><p>You tend to forget when you&#8217;re inside the CIA that there&#8217;s a whole other world out there. It&#8217;s to fall back on a cliche, a bubble.</p></blockquote>
+<ol>
+<li><strong>Blocking Registration</strong>: A site like Hotmail will block all access to register for a new address. You cannot use Tor to create an account.</li>
+<li><strong>Blocking Service</strong>: The site will let you register, and subsequently block access to webmail from any Tor exit node.</li>
+<li><strong>Requiring Extensive Validation</strong>: The site allows registration, and access, but will eventually require you to validate your identity through some kind of out-of-band system like an SMS.</li>
+<li><strong>The Tease</strong>: And then there are sites that seem to allow you to register, access the service, but a few months down the line, you suddenly find out that your account has been blocked or requires a special non-Tor validation mechanism.</li>
+</ol>
 
 
-<p>You&rsquo;ve lost track of reality &mdash; of your personal identity &mdash;
-and you&rsquo;re more focused on maintaining your secrets and lies than having
-personal relationships. I find this may hit close to some that have decided to
-go dark and stay in the caverns of the Internet. For those, they may lean
-towards the identity that gives them the most enjoyment, not the ones that
-require the most work. You, for example, as a gun smuggler, trading on the
-Internet, would much rather have a conversation with a fellow drug smuggler,
-than your coworker at the bank. If for no other reason, you can speak more
-freely about the topic without concern about accidentally leaking the fact that
-you&rsquo;re smuggling guns.</p>
+<p><span class='pullquote-right' data-pullquote='the conclusion must be the same &#8211; these providers do not want anonymous users'>
+In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But the conclusion must be the same &mdash; these providers do not want anonymous users. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. </span></p>
 
-<h2>Exploiting Loneliness</h2>
+<h2>The Solutions</h2>
 
-<p>It should be noted that your adversaries realize that your life as a nomad is
-lonely. It&rsquo;s a sad fact that many or most of the people caught doing
-something illegal on the Internet are identified by LEO&rsquo;s that play into
-how lonely your life is. Moran says:</p>
+<p>So what options do anonymous users have? Remember, our goal is to eventually register for some other service that requires an email address, but we can&rsquo;t even register to get an email address in the first place.</p>
 
-<blockquote><p>On the most basic level you&#8217;re acting &#8211;almost&#8211; as a clinical<br/>psychologist for your assets.</p></blockquote>
+<h3>Webmail Providers</h3>
+
+<p>Gmail, Yahoo, Microsoft, all offer webmail. In an ideal world, you could just register with them, get an email address, and be done with it. If your operation only requires that you hide behind a VPN, this may work for you but if you&rsquo;re using something like Tor, you are going to be blocked as described above.</p>
+
+<p>Google has an interesting blocking program right now. When a user goes to register, they create a fingerprinted definition of that user &mdash; what is the resolution of their computer, what plugins do they have installed, what fonts are supported, etc. Therefore changing IP addresses and clearing out your cookies, will not affect the registation process. Google sets a number for each user so that when you first register for an account, you do not have to activate via SMS or phone call. But your third or fourth will require it. There is a method to the madness but I&rsquo;ve yet to figure it out (or care enough).</p>
+
+<p>Yahoo is one of those situations where they allow anonymous registration, but after a month or two they will block access with an un-usable CAPTCHA. No mater how many times you attempt to complete it, when using Tor, the result will say that you have entered the CAPTCHA incorrectly.</p>
+
+<p>This is a semi-plausible option, but generally not a good solution for long term operations. Its safe to say that I would almost never recommend using something like Gmail.</p>
+
+<h3>Temporary Email Services</h3>
+
+<p>Sites like Mailinator provide a temporary email address. You create a random address, sign up for a service using that address and you can check that mailbox whenever you need. Email is cleared out after a certain period of time. It&rsquo;s great for spam and sites with unnecessary registrations.</p>
+
+<p>There are a couple of problems though. one is that many (most?) service providers block registration from Mailinator addresses. Another is that anyone that knows your mailinator email address, can access your email; the concern here being someone resetting your password.</p>
+
+<p>Want an example? Why not reset the passwords for any of these Skype accounts:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <strong>Name</strong>          </th>
+<th> <strong>Mailinator Address</strong> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> Merlin        </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=merlin">merlin@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td> anbu.mailinator   </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">anbu@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td> wert          </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">wert@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
-<p>She&rsquo;s referring to using the <a href="https://en.wikipedia.org/wiki/Motives_for_spying">classic CIA definition of motivators</a>, and
-exploiting these in people to get what she wants out of the asset. As a gun
-smuggler, you may be motivated by ego, but there&rsquo;s no way you can brag
-about how good you are at smuggling guns on the Internet. But when having a
-private conversation with someone that appears to be a gun smuggler, why not
-show off how cool you are.</p>
+<p>The point is, Mailinator works, when it works, but most of the time it doesn&rsquo;t. For short operations, or something you need temporary access to, this is a good solution.</p>
 
-<h2>Anti-Surveillance Tactics</h2>
-
-<p>One of the more benign, but subtly interesting comments that she gives was
-referring to ways of evading surveillance. She contrasts how in the movies,
-when someone it tailing you, you speed away as fast as you can. But in all
-actuality, you are trying to lull them to sleep by acting boring.
-There&rsquo;s a bit of HUMINT craft here, that can be applied to electronic
-OPSEC. If you were under electronic surveillance, you can take actions to
-protect yourself. The movie version, of speed away and run a red light would be
-to choose to encrypt your communications. In actuality as a spy, nomad,
-activist, or whatever, your first job is to not be directly targeted. Moran, in
-her tailing example, says:</p>
-
-<blockquote><p>You&#8217;re supposed to convince anyone following you that you&#8217;re not<br/>     a spy.</p></blockquote>
-
-
-<p>We shouldn&rsquo;t speed away, we should walk into the grocery store or go to
-the movies. This is where, in my opinion, our current common consensus with-
-regard-to answering the question of &ldquo;How to defend ourselves against
-electronic surveillance&rdquo; falls flat. Depending on your threat model, and
-what you are concerned about, merely encrypting your communications is not
-enough. By doing so, you have effectively confirmed, in the eyes of the
-adversary, that you have something to hide and are therefore worthy of further
-action. This tactic has been confirmed in an old Edward Snowden release that
-states that the use of encryption, is a determiner of whether or not you will
-be further targeted.</p>
-
-<h2>Take-Aways</h2>
-
-<p>This was a light, fluffy interview that I may be over-analyzing, but it does
-highlight some ways in which the Americans view OPSEC. The psychology of the
-subject has some direct take aways.</p>
+<p>Other alternatives to Mailinator:</p>
 
 <ul>
-<li>When trying to compartmentalize, make
-sure your motivators of money, ideology, coercion, and ego, and fulfilled
-internally. Do not rely on an external resource for this.</li>
-<li>A confidentiality and anonymity (or un-attributability) win over merely confidentiality in the
-face of electronic surveillance.</li>
-<li>Identify the natural tendencies to shut down, or tunnel yourself into a single identity, and compensate by building personal, trusted relationships in your other identities.</li>
+<li><a href="http://www.spambog.com/">Spambog.com</a></li>
+<li><a href="http://maildrop.cc/">Maildrop.cc</a></li>
+<li><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></li>
+<li><a href="https://trashmail.com/">Trashmail</a></li>
+<li><a href="http://10minutemail.com/10MinuteMail/index.html">10 Minute Mail</a></li>
 </ul>
 
+
+<h3>Acquired Accounts</h3>
+
+<p>There are a variety of dark market sales that will give you pre-configured email addresses. These are either hacked accounts, or merely registered addresses to save you the hassle. You can buy them in packs of 100 or 1000 (and up) for a small fraction of Bitcoin. (It&rsquo;s not even worth linking to dark markets at this point but I&rsquo;m sure you&rsquo;ll find them.)</p>
+
+<p>Purchasing email accounts from a dark market is relatively legitimate compared to the alternatives of breaking into the accounts yourself. If you have the time and effort, you might be surprised at how easy this is especially when you look at the very simple password reset questions often used.</p>
+
+<h3>Self-Hosted Email</h3>
+
+<p>One of the most suggested solutions to the email problem is to host email yourself. You purchase a domain anonymously using bitcoin, gift cards, or whatever anonymous method you choose. You spoof or falsify the WHOIS lookup information so that nothing points back to your real identity. Then you purchase a hosting provider using the same anonymous methods. Finally, you run a mail service so you can give yourself an infinite number of email addresses.</p>
+
+<p>This is a viable solution for some operations. If you don&rsquo;t mind admin&#8217;ing a server and walking through the steps, this can be a good option.</p>
+
+<p>The reason I don&rsquo;t like this is that it increases your attack surface. You are now hosting a mail server that directly points to you. If this server is exploited, every email address you have ever created is now accessible.</p>
+
+<p>And for someone like me, that will compartmentalize identities, this solution doesn&rsquo;t scale. I would have to build out a new email server, new domain, new hosting provider for each identity. This is not a problem with the solution as much as it is a problem with OPSEC decisions.</p>
+
+<h3>Trusted Anonymous Email</h3>
+
+<p>The other option, is to find an email provider that you, yourself, trust. Trust is a difficult subject to cover so lets give it an operational definition of a service provider in which you believe won&rsquo;t sell your emails. (We&rsquo;ll ignore the possible nation state surveillance and potential legal jurisdiction issues.)</p>
+
+<p>Here are a few providers that are &ldquo;trusted&rdquo; in many privacy circles:</p>
+
+<ul>
+<li><a href="https://riseup.net/">Riseup.net</a>: This is a provider designed for activitists and community organizers. It is hosted in the U.S. In order to receive an email, you must know two people with an address, or try to request one from an admin on IRC.</li>
+<li><a href="www.autistici.org/">Autustici</a>: Offer a range of services with privacy and activism in mind. Webmail, web site hosting, blog host, newsgroups.</li>
+<li><a href="https://aktivix.org/">Aktivix</a>: Small site that offers free email addresses if you can convinve them you should have one&hellip;via email.</li>
+</ul>
+
+
+<p><span class='pullquote-right' data-pullquote='the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against'>
+These are a breath of fresh air compared to the other solutions where you&rsquo;ve had to trick and lie your way into getting an account. These services generally approve of anonymous users and make it a goal to provide privacy-centric services. I can&rsquo;t highlight enough, the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against.
+</span></p>
+
+<p>The problem is that these are often volunteer organized services, and community driven. That is to say, each of these providers have a hoop you need to jump through in order to obtain an address. This often means you have to befriend someone online, or give them a reason about how you are improving the world and need to maintain your anonymity.</p>
+
+<h2>The Future</h2>
+
+<p>The unfortunate truth is, email will be around for a long time. How long it will be around as an authentication system will hopefully be $longtime &ndash; n.</p>
+
+<p><span class='pullquote-right' data-pullquote='These federated services that were once used for social networking, are now becoming authentication endpoints'>
+What&rsquo;s replacing email registrations is just as scary though. We now see &ldquo;Sign in with Google+&rdquo; and &ldquo;Login with your Facebook account.&rdquo; These federated services that were once used for social networking, are now becoming authentication endpoints. The future of an always-authenticated, always-attributed Internet is very close.
+</span></p>
+
+<h2>Conclusions</h2>
+
+<p>This is the current state of email and anonymity from my point of view. Your operation dicates which solution is going to work the best, no single option will unilaterally work. For long operations greater than a year, it may be worth investing some time into a stable email address where self-hosting is the right answer. For operations that last for a month, temporary email address providers might be the right choice.</p>
 </div>
   
   
@@ -221,6 +251,14 @@ face of electronic surveillance.</li>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -252,14 +290,6 @@ face of electronic surveillance.</li>
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

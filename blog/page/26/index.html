@@ -9,8 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="If you are compartmentalizing accounts, making multiple identities, and keeping
-them separated, you run into a few problems. One of which is &hellip;">
+  <meta name="description" content="Have you ever seen one of those arguments on forums or IRL where a group of
+people argues which scenario is more secure compared to another? It goes &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@ them separated, you run into a few problems. One of which is &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/01/05/levels-of-opsec/">Defining Levels of Opsec to Your Identities</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/01/10/ask-him-about-his-threat-model/">Did You Ask Him About His Threat Model</a></h1>
     
     
       <p class="meta">
@@ -86,80 +86,51 @@ them separated, you run into a few problems. One of which is &hellip;">
   
 
 
-<time datetime="2014-01-05T00:00:00+00:00" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
+<time datetime="2014-01-10T00:00:00+00:00" pubdate data-updated="true">Jan 10<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>If you are compartmentalizing accounts, making multiple identities, and keeping
-them separated, you run into a few problems. One of which is remembering the
-OPSEC measures you&rsquo;ve decided to employ for each account.</p>
+  <div class="entry-content"><p>Have you ever seen one of those arguments on forums or IRL where a group of
+people argues which scenario is more secure compared to another? It goes
+something like this:</p>
 
-<ul>
-<li>Political Dissident
-
-<ul>
-<li>Goal: Leak information about a local dirty politician</li>
-<li>OPSEC: Work laptop but using a VPN service to access Twitter</li>
-<li>Risks: Politician will come after you and your familiy</li>
-</ul>
-</li>
-<li>Human Body Part Trafficer
-
-<ul>
-<li>Goal: Buy and sell kidneys, livers, and various body parts to the highest
-bidder on the black market</li>
-<li>OPSEC: Dedicated laptop running an anonymized OS. Do not access any other
-services besides the black market forum. Never gets on the Clearnet.</li>
-<li>Risks: Law enforcement may find you and throw you in jail for a long time</li>
-</ul>
-</li>
-</ul>
+<blockquote><p>Hey, how secure is Cloud? Should I use that?&#8221;<br/> Alice: Cloud is fine. I just wouldn&#8217;t save your passwords in it.<br/> Bob: Actually, Cloud is really dangerous. If someone hacks into your<br/>account they&#8217;ll be able to get everything that you own in the<br/>Cloud.<br/> Carl. It&#8217;s worse than that! The cloud should never ever be used<br/>under any circumstance. It is inherently insecure.<br/> Doug: People that use the cloud should be removed from this earth.</p></blockquote>
 
 
-<p>In each of these examples you have completely different activities and
-completely different risks. The political dissident has decided she only needs
-to minimally protect herself as the local politician she&rsquo;s messing with
-doesn&rsquo;t have the means to figure out who would be leaking the
-information. The body part trafficer though knows that he is a target and has
-chosen to protect himself.</p>
+<p>These are usually escalating arguments that try to pretend that if you have
+some higher level of security measures in place, it&rsquo;s a sign of wisdom. The
+truth is, every answer is wrong because they don&rsquo;t have enough information to
+intelligently make a recommendation. What should have been asked is &ldquo;What
+is your threat model?&rdquo; Or put simply, what are you legitimately concerned
+about. A nation-state, hunting you down for disclosing its secret, or are you
+just kind of concerned about your privacy without doing activities with life
+ending repercussions?</p>
 
-<p>What happens when you scale even further: One identity runs a black market
-forum, one identity likes to chat with people on twitter, one identity hangs
-out in the Anon IRC channels. It&rsquo;s easy to lose track of which identities
-are used for what and what kind of OPSEC measures you&rsquo;ve chosen to use.</p>
+<p>You&rsquo;ve heard that IT guy tell you the story about how &ldquo;The most secure
+computer is the one that&rsquo;s turned off, put in a locked room, and filled
+with cement&rdquo; usually followed up by another IT guy adding in some other
+obscene logistic. Yes this is secure, but it&rsquo;s not a real-world solution
+because most computers have operational requirements.</p>
 
-<p>ne solution to this is to categorize your identities into levels where each
-level has its own decided upon OPSEC measure. For instance:</p>
+<p>Step away from technical examples &mdash; let&rsquo;s take the United States
+Secret Service for instance. Their job is to protect the United States
+President from a variety of adversaries. If your job was to protect the
+President, why not just put him in a locked room padded with cement and keep
+him there until the end of his term? Because he has operational requirements.
+This is the rub of all operational security measures.</p>
 
-<ul>
-<li>Level 0 &mdash; No protections. You don&rsquo;t care about privacy and are
-not concerned with other people attributing your online activities to
-yourself.</li>
-<li>Level 1 &mdash; Minimal: You are concerned about privacy, but choose simple,
-minimalist tactics to protect yourself. For example, you are using a VPN
-service for everyday browsing, but being caught is inconsequential.</li>
-<li>Level 2 &mdash; Medium: You are concerned with your privacy and take action
-to ensure that you are safe. It is likely that if someone finds out what you
-are doing, you&rsquo;ll have to pay a price, but it is not a life-and-death
-situation. For example, journalists working with a source use the TAILS
-LiveCD.</li>
-<li>Level 3 &mdash; High: Those users that are likely to be targeted, and likely
-to have heavy consequences if caught. They have done everything in their
-power to maintain their pseudonymity, but still try to lead some semblance of
-a personal life.</li>
-<li>Level 4 &mdash; Extreme: These are reserved for those people doing high risk
-activities where the result of an adversary outing you is a matter of life
-and death. You&rsquo;re prepared to forgo personal relationships, worldly
-goods, and just about anything to maintain your anonymity.</li>
-</ul>
-
-
-<p>Knowing your likely threats, and defining your level of pseudonymity will help
-keep management of your OPSEC measures consistent. Something that recent
-arrests seem to have failed at.</p>
+<p>You can apply this to your lives. You shouldn&rsquo;t be asking how much you
+care about security, you should be asking what is the biggest threat to your
+well being. If you&rsquo;re just concerned about your privacy, but someone
+attributing you to your activities results in embarrassment (as opposed to jail
+time), then maybe your operational security measures can be more relaxed and
+comfortable. They might even fit in with your current lifestyle.
+If you&rsquo;re a nation state dissident and your activities being attributed
+to you results in your death, your operational security measures are going to
+be extremely high and would require a disciplined, rigid approach.</p>
 </div>
   
   
@@ -168,6 +139,8 @@ arrests seem to have failed at.</p>
     </article>
   
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/27/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -180,6 +153,14 @@ arrests seem to have failed at.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -211,14 +192,6 @@ arrests seem to have failed at.</p>
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>

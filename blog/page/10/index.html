@@ -9,8 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="The recent revelations from Jake Applebaum, et all today, highlight some not-to-be-understated revelations. Tor users are directly targeted
-TAILS &hellip;">
+  <meta name="description" content="I don&rsquo;t often write about myself but for examples purposes, I will disclose that I&rsquo;ve recently entered into a relationship with a person &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +69,7 @@ TAILS &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a></h1>
     
     
       <p class="meta">
@@ -86,132 +85,26 @@ TAILS &hellip;">
   
 
 
-<time datetime="2014-07-04T00:00:00+00:00" pubdate data-updated="true">Jul 4<span>th</span>, 2014</time>
+<time datetime="2015-07-04T00:00:00+00:00" pubdate data-updated="true">Jul 4<span>th</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The <a href="http://boingboing.net/2014/07/03/if-you-read-boing-boing-the-n.html">recent revelations from Jake Applebaum, et all today</a>, highlight some not-to-be-understated revelations.</p>
+  <div class="entry-content"><p>I don&rsquo;t often write about myself but for examples purposes, I will disclose that I&rsquo;ve recently entered into a relationship with a person for the first time in a long time. While this is exciting for me and also sad, the idea of how to handle relationships while maintaining OPSEC is a minefield.</p>
 
-<ul>
-<li>Tor users are directly targeted</li>
-<li>TAILS users are directly targeted</li>
-<li>People searching for privacy tools are targeted</li>
-</ul>
+<h2>Trust</h2>
 
+<p>The first thing you&rsquo;re told in any relationship be it with a signifigant other, a family member, or a friend, is that trust is key. You should be able to confid in the other person about your darkest secrets.</p>
 
-<p>While the conclusion by some may have been &ldquo;well of course the NSA is doing that&rdquo; the revelation and the insight it provides is direct, specific evidence that people worried about their privacy are being attacked. More-over, this provides further evidence that the NSA&rsquo;s goal is to <a href="http://www.democracynow.org/2014/5/13/collect_it_all_glenn_greenwald_on">collect it all</a>.</p>
+<p>For some of us, our darkest secrets are not things to disclose to the SO. Not because you&rsquo;re selfish or don&rsquo;t trust the other, but because some disclosures make the other liable (a legal term).</p>
 
-<h2>The Revelations</h2>
+<h2>Identity Division</h2>
 
-<p><span class='pullquote-right' data-pullquote='privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services'>
-To summarize, the source code to the NSA program, <a href="https://en.wikipedia.org/wiki/XKeyscore">XKeyscore</a> (known since the early days of the Snowden disclosures) has been leaked. It sounds like the program&rsquo;s entire source code is in the hands of another party and it shows what the code does, how it works and who it&rsquo;s targeting. We now know that privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services. Each of these are considered suspicious activities and flagged as the IP&rsquo;s of suspects by NSA&rsquo;s network monitoring machine.  This is further a reminder that if you look like you are privacy conscious, you are going to be a targeted as an &ldquo;extremist&rdquo; in the eyes of the United States and it&rsquo;s allies.
-</span></p>
+<p>In other cases, you&rsquo;ve created a new identity that has nothing to do with your IRL identity in which case, these secrets have nothing to do with the other person. If you&rsquo;ve created an OPSEC campaign where you&rsquo;ve properly divided all of your personal relationships from your online identity, you are no longer that person.</p>
 
-<h2>Tracking Bridge Users</h2>
-
-<p>XKeyscore is tracking the IP addresses that are sending emails to the Tor bridge automated account. When a user is in a country that blocks Tor, they have an option to use an unlisted Tor entry node called bridges. To get an unlisted bridge IP, one of the options is to email a Tor Project email address which auto-replies with an address of a bridge. The <a href="https://en.wikipedia.org/wiki/Five_Eyes">Five Eyes</a> have been documenting each IP that makes a request to that email address.</p>
-
-<h2>Tracking Tor Directory Authorities</h2>
-
-<p>Another facet disclosed was that the NSA are targeting a specific Tor directory server run by Sebastian Hahn. I believe that this is the case only because the source of the XKeycode leak was by a node in Germany. Looking at nodes in other countries, would point to a corresponding directory authority in that region.</p>
-
-<p>Until relatively recently, the Tor Network consisted of only 9 directory servers of which all clients would first make a connection to prior to joining the Tor network. These 9 directory servers are still in place, but an additional feature lets Tor nodes act as a directory server cache. With this feature, you weren&rsquo;t automatically required to connect to one of the directory authorities during each bootup. This helps mitigate this risk.</p>
-
-<h2>Tracking Tor Entry Nodes</h2>
-
-<p>Even if your connection to the directory authorities were not caught by the program, your connections to the Tor entry nodes were. So while directory authorities were only used during boot, the connections to Tor entry nodes were used repeatedly as your client will build a circuit.</p>
-
-<p>There&rsquo;s not much you can do to defend against this one. Using a bridge would ensure that XKeyScore won&rsquo;t know which IP&rsquo;s to track, but the requests for bridges are caught as well. One may consider running their own unlisted Tor entry node, which is possible, but it severely degrades your anonymity. Users concerned with this may consider using a VPN service and then connecting over Tor. This would not fix it, but it would make it more difficult to identify the originating request to connect to Tor.</p>
-
-<h2>Tracking Torproject.org Visits</h2>
-
-<p>One of the more useless network iterations that are logged is that of users visiting www.torproject.org. The document shows what they are calling &ldquo;microplugins&rdquo; that highlight specific pieces of information that are caught in transit. Your visit to the Tor Project&rsquo;s website logged and you are now flagged as suspicious.</p>
-
-<h2>XKeyScore Code</h2>
-
-<p>The most interesting part is the code released showing how XKeyScore works. Many have already highlighted that the NSA programs are merely malicious implementations of existing technology (as opposed to custom software built from the ground up). We can see that XKeyScore&rsquo;s database uses a <a href="https://en.wikipedia.org/wiki/Mapreduce">MapReduce</a> model. One very common with NoSQL databases like Hadoop. This is hinted in the &ldquo;mapper&rdquo; and &ldquo;reducer&rdquo; functions that searches for onion addresses:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mapper&lt;onion_t>: 
-</span><span class='line'>      static const std::string prefix = "anonymizer/tor/hiddenservice/address/";
-</span><span class='line'>
-</span><span class='line'>      onion_t onion;
-</span><span class='line'>      size_t matches = cur_args()->matches.size();
-</span><span class='line'>      for (size_t pos=0; pos &lt; matches; ++pos) \{
-</span><span class='line'>        const std::string &value = match(pos);
-</span><span class='line'>        if (value.size() == 16)
-</span><span class='line'>          onion.set_address(value);
-</span><span class='line'>        else if(!onion.has_scheme())
-</span><span class='line'>          onion.set_scheme(value);
-</span><span class='line'>        else
-</span><span class='line'>          onion.set_port(value);
-</span><span class='line'>      \}
-</span><span class='line'>
-</span><span class='line'>      if (!onion.has_address())
-</span><span class='line'>        return false;
-</span><span class='line'>
-</span><span class='line'>      MAPPER.map(onion.address(), onion);
-</span><span class='line'>      xks::fire_fingerprint(prefix + onion.address());
-</span><span class='line'>      return true;
-</span><span class='line'>  
-</span><span class='line'>    reducer&lt;onion_t>:
-</span><span class='line'>      for (values_t::const_iterator iter = VALUES.begin();
-</span><span class='line'>          iter != VALUES.end();
-</span><span class='line'>          ++iter) {
-</span><span class='line'>        DB["tor_onion_survey"]["onion_address"] = iter->address() + ".onion";
-</span><span class='line'>        if (iter->has_scheme())
-</span><span class='line'>          DB["tor_onion_survey"]["onion_scheme"] = iter->scheme();
-</span><span class='line'>        if (iter->has_port())
-</span><span class='line'>          DB["tor_onion_survey"]["onion_port"] = iter->port();
-</span><span class='line'>        DB["tor_onion_survey"]["onion_count"] = boost::lexical_cast&lt;std::string>(TOTAL_VALUE_COUNT);
-</span><span class='line'>        DB.apply();
-</span><span class='line'>        DB.clear();
-</span><span class='line'>      }
-</span><span class='line'>      return true;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Full Code</h2>
-
-<p>Below is the full code released:
-<a href="/assets/xkeyscorerules100.txt">xkeyscorerules100.txt</a></p>
+<p>This, admittedly, is a rationalization of a complicated issue that I have not, nor plan to in the near future, discuss with my SO. I suggest that you do the same.</p>
 </div>
   
   
@@ -234,6 +127,14 @@ To summarize, the source code to the NSA program, <a href="https://en.wikipedia.
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
@@ -265,14 +166,6 @@ To summarize, the source code to the NSA program, <a href="https://en.wikipedia.
     
       <li class="post">
         <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a>
       </li>
     
   </ul>
