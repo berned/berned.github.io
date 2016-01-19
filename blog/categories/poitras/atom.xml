@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Poitras | B3RN3D]]></title>
+  <link href="http://b3rn3d.com/blog/categories/poitras/atom.xml" rel="self"/>
+  <link href="http://b3rn3d.com/"/>
+  <updated>2016-01-19T17:18:28+00:00</updated>
+  <id>http://b3rn3d.com/</id>
+  <author>
+    <name><![CDATA[b3rn3d]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Journalist OPSEC Gap: Lessons From the Snowden Stories]]></title>
+    <link href="http://b3rn3d.com/blog/2014/05/16/greenwald/"/>
+    <updated>2014-05-16T00:00:00+00:00</updated>
+    <id>http://b3rn3d.com/blog/2014/05/16/greenwald</id>
+    <content type="html"><![CDATA[<p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
+
+<h2>Greenwald&rsquo;s Reluctant OPSEC</h2>
+
+<p>The first chapter is written in a self-deprecating way &ndash; the same way that an old man would talk about computers to a young person; &ldquo;You kids and your computers.&rdquo; In this case, it was more &ldquo;You political dissidents and your cryptography.&rdquo; Even after repeated attempts by Snowden to have Greenwald merely install GPG, he could not be convinced.</p>
+
+<p><blockquote><p>&ldquo;Here am I,&rdquo; he thought, &ldquo;ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation&rsquo;s most secretive agency &ndash; a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can&rsquo;t even be bothered to install an encryption program.&rdquo;</p></blockquote></p>
+
+<p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
+
+<p><img class="center" src="/images/greenwald.png" title="" ></p>
+
+<p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
+
+<h2>Laura</h2>
+
+<p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t - iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
+
+<p><img class="center" src="/images/laurapoitras.jpg" title="" ></p>
+
+<p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &ndash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
+
+<p>Why does a filmmaker have better OPSEC than a journalist? It&rsquo;s not baffling, but it reflects the sad state of journalist awareness to operational security.</p>
+
+<h2>Journalist OPSEC</h2>
+
+<p>While frustrating, Greenwald is not an one-off situation. In fact, most journalists have no clue how to use encryption programs, or think about any kind of operational security logistics. This is the reason that sites like Wikileaks have become popular &ndash; they are on the cutting edge of technology, understand the value of providing an anonymous communication medium, and while they can&rsquo;t be regarded as having the same journalistic integrity as an institution like The Guardian, they are trusted (by some) to not accidentally or on purpose disclose their sources.</p>
+
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
+]]></content>
+  </entry>
+  
+</feed>
