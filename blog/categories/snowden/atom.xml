@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Snowden | B3RN3D]]></title>
-  <link href="http://b3rn3d.com/blog/categories/snowden/atom.xml" rel="self"/>
-  <link href="http://b3rn3d.com/"/>
-  <updated>2016-01-19T17:18:28+00:00</updated>
-  <id>http://b3rn3d.com/</id>
+  <link href="http://www.b3rn3d.com/blog/categories/snowden/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2016-01-19T17:27:11+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Journalist OPSEC Gap: Lessons From the Snowden Stories]]></title>
-    <link href="http://b3rn3d.com/blog/2014/05/16/greenwald/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/greenwald/"/>
     <updated>2014-05-16T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/05/16/greenwald</id>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/greenwald</id>
     <content type="html"><![CDATA[<p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
 
 <h2>Greenwald&rsquo;s Reluctant OPSEC</h2>

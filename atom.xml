@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[B3RN3D]]></title>
-  <link href="http://b3rn3d.com/atom.xml" rel="self"/>
-  <link href="http://b3rn3d.com/"/>
-  <updated>2016-01-19T17:18:28+00:00</updated>
-  <id>http://b3rn3d.com/</id>
+  <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2016-01-19T17:27:11+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Dark Shipping: A Case Study]]></title>
-    <link href="http://b3rn3d.com/blog/2016/01/22/shipping-case-studies/"/>
+    <link href="http://www.b3rn3d.com/blog/2016/01/22/shipping-case-studies/"/>
     <updated>2016-01-22T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2016/01/22/shipping-case-studies</id>
-    <content type="html"><![CDATA[<p>I <a href="http://b3rn3d.com/blog/2016/01/02/how-to-ship-drugs/">wrote recently</a> about the risks of shipping using your country&rsquo;s shipping service and had a lot of interesting feedback. One individual which I believe has the experience raised an interesting suggestion so I thought a few case studies might be useful to discuss.</p>
+    <id>http://www.b3rn3d.com/blog/2016/01/22/shipping-case-studies</id>
+    <content type="html"><![CDATA[<p>I <a href="http://www.b3rn3d.com/blog/2016/01/02/how-to-ship-drugs/">wrote recently</a> about the risks of shipping using your country&rsquo;s shipping service and had a lot of interesting feedback. One individual which I believe has the experience raised an interesting suggestion so I thought a few case studies might be useful to discuss.</p>
 
 <p>While not a shining example of solid OPSEC, Dread Pirate Roberts gives us a real-world perspective on what people are willing to do to ship things, illegally. Let&rsquo;s review a few of the things we know about his attempts to be dark.</p>
 
@@ -60,9 +60,9 @@
   
   <entry>
     <title type="html"><![CDATA[Website Fingerprinting Attacks and Defense]]></title>
-    <link href="http://b3rn3d.com/blog/2016/01/20/behavior-fingerprinting/"/>
+    <link href="http://www.b3rn3d.com/blog/2016/01/20/behavior-fingerprinting/"/>
     <updated>2016-01-20T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2016/01/20/behavior-fingerprinting</id>
+    <id>http://www.b3rn3d.com/blog/2016/01/20/behavior-fingerprinting</id>
     <content type="html"><![CDATA[<p>I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. <a href="https://securewww.esat.kuleuven.be/cosic/publications/article-2456.pdf">A Critical Evaluation of Website Fingerprinting Attacks</a> takes a look at some of the theoretical attacks on Tor and see how likely they would work in the real world.</p>
 
 <p>Better than that, it gives you a break down of the most likely attacks that users need to defend themselves against.</p>
@@ -115,16 +115,16 @@
   
   <entry>
     <title type="html"><![CDATA[How to Ship Drugs to Your House]]></title>
-    <link href="http://b3rn3d.com/blog/2016/01/02/how-to-ship-drugs/"/>
+    <link href="http://www.b3rn3d.com/blog/2016/01/02/how-to-ship-drugs/"/>
     <updated>2016-01-02T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2016/01/02/how-to-ship-drugs</id>
+    <id>http://www.b3rn3d.com/blog/2016/01/02/how-to-ship-drugs</id>
     <content type="html"><![CDATA[<p>You&rsquo;ve found your favorite drugs on your favorite darknets but then your OPSEC buzzer goes off and you say &ldquo;How do I actually get it shipped to me?&rdquo; Lets talk about some of the risks and likely attacks.</p>
 
 <h2>The Fallacy Of The Drop Ship</h2>
 
 <p>The first thing you might think is, just like your computer, find a way to be completely anonymous. That would mean sending to a &ldquo;drop ship&rdquo; location or someone else&rsquo;s house. You&rsquo;ll find documents online about how the best way to do this is:</p>
 
-<p><img class="right" src="http://b3rn3d.com/images/package.png" width="400"></p>
+<p><img class="right" src="http://www.b3rn3d.com/images/package.png" width="400"></p>
 
 <ul>
 <li>find a house in a city that no one lives in</li>
@@ -181,9 +181,9 @@
   
   <entry>
     <title type="html"><![CDATA[Tor Browser vs Your Browser]]></title>
-    <link href="http://b3rn3d.com/blog/2015/12/16/tor-browser-vs-your-browser/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/12/16/tor-browser-vs-your-browser/"/>
     <updated>2015-12-16T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/12/16/tor-browser-vs-your-browser</id>
+    <id>http://www.b3rn3d.com/blog/2015/12/16/tor-browser-vs-your-browser</id>
     <content type="html"><![CDATA[<p>There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making a secure host and you only route traffic over tor and you&rsquo;ve employed various security protections to limit your risk, etc. So you, you say to yourself, &ldquo;I don&rsquo;t need the Tor Browser Bundle, I&rsquo;ve already installed tor.&rdquo; You would be wrong.</p>
 
 <p>The Tor Browser (part of TBB) offers a lot of additional security protections that your &ldquo;raw&rdquo; browser doesn&rsquo;t. <a href="https://www.torproject.org/about/corepeople.html.en">Mike Perry</a> who manages the TBB portion of the Tor Project (among other things) has put in a lot of work.</p>
@@ -247,9 +247,9 @@
   
   <entry>
     <title type="html"><![CDATA[Running Tor Browser Without the Bundle]]></title>
-    <link href="http://b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle/"/>
     <updated>2015-12-15T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle</id>
+    <id>http://www.b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle</id>
     <content type="html"><![CDATA[<p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
 
 <h2>How</h2>
@@ -305,14 +305,14 @@
   
   <entry>
     <title type="html"><![CDATA[Arms Race to the Most Secure OS]]></title>
-    <link href="http://b3rn3d.com/blog/2015/12/04/qubes-opsec/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/12/04/qubes-opsec/"/>
     <updated>2015-12-04T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/12/04/qubes-opsec</id>
+    <id>http://www.b3rn3d.com/blog/2015/12/04/qubes-opsec</id>
     <content type="html"><![CDATA[<p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
 
 <h1>TAILS</h1>
 
-<p><img class="right" src="http://b3rn3d.com/images/tails.png" width="300">
+<p><img class="right" src="http://www.b3rn3d.com/images/tails.png" width="300">
 <a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
 
 <p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n'th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
@@ -337,7 +337,7 @@
 
 <h2>Qubes OS</h2>
 
-<p><img class="right" src="http://b3rn3d.com/images/qubes.png" width="300">
+<p><img class="right" src="http://www.b3rn3d.com/images/qubes.png" width="300">
 I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
 
 <p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
@@ -370,7 +370,7 @@ Technical details aside for a moment, it works similar to how I write about OSPE
 
 <h2>SubgraphOS</h2>
 
-<p><img class="right" src="http://b3rn3d.com/images/subgraph.png" width="300">
+<p><img class="right" src="http://www.b3rn3d.com/images/subgraph.png" width="300">
 <a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
 
 <p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
@@ -399,14 +399,14 @@ Technical details aside for a moment, it works similar to how I write about OSPE
   
   <entry>
     <title type="html"><![CDATA[Camgirl OPSEC]]></title>
-    <link href="http://b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec/"/>
     <updated>2015-10-22T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec</id>
+    <id>http://www.b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec</id>
     <content type="html"><![CDATA[<p>If you read this <a href="http://motherboard.vice.com/read/camgirl-opsec-how-the-worlds-newest-porn-stars-protect-their-privacy-online">interesting post</a> from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as part of your threat model.</p>
 
 <h2>Low Tech But High Investment</h2>
 
-<p><img class="right" src="http://b3rn3d.com/images/badgirl.jpg" width="300"></p>
+<p><img class="right" src="http://www.b3rn3d.com/images/badgirl.jpg" width="300"></p>
 
 <p>You don&rsquo;t expect that an overzealous camgirl fan to be able to do facial recognition, but we know that services like Google and Facebook can offer <a href="http://www.facesearch.com/">this service</a> for free! Doing a reverse image lookup or trying to look at a photo&rsquo;s metadata are really simple things that just about any low life can figure out.</p>
 
@@ -454,9 +454,9 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
   
   <entry>
     <title type="html"><![CDATA[Evading Stylometry Attacks Using VIM Spellcheck]]></title>
-    <link href="http://b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck/"/>
     <updated>2015-09-22T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck</id>
+    <id>http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck</id>
     <content type="html"><![CDATA[<p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
 
 <p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
@@ -585,14 +585,14 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
   
   <entry>
     <title type="html"><![CDATA[Lie to Me, Please]]></title>
-    <link href="http://b3rn3d.com/blog/2015/09/22/lie-to-me/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/09/22/lie-to-me/"/>
     <updated>2015-09-22T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/09/22/lie-to-me</id>
+    <id>http://www.b3rn3d.com/blog/2015/09/22/lie-to-me</id>
     <content type="html"><![CDATA[<p>You can always tell how important a secret is to you by how many people you tell and the way you keep the secret. That is to say, when hiding whether or not you were dating So-and-So, you might coyly smirk &ndash; a simple tell for anyone to determine you&rsquo;re lying and that&rsquo;s exactly your intention: to gain more attention. But when you killed someone in a hit-and-run for example, there&rsquo;s no coy smirk on your face when you adamantly deny it. These two types of lies are an important differentiation to realize when protecting yourself.</p>
 
 <p>If you have an interesting project that needs to be kept secret, it may be hard to maintain the discipline of keeping it a secret. Often, the vanity of your project will tempt you to share the details with someone else even though you know it is safer to keep them a secret. In hindsight, you&rsquo;ll come to realize that you&rsquo;ve created a liability but for those few moments of discussion, you will irrationally determine it was worth it.</p>
 
-<p><img class="right" src="http://b3rn3d.com/images/conversation.png" width="400"></p>
+<p><img class="right" src="http://www.b3rn3d.com/images/conversation.png" width="400"></p>
 
 <p>In hacker OPSEC the first rule is of course we don&rsquo;t talk about OPSEC. And that, just like in Fight Club, is the first rule that is broken. We have friends that we&rsquo;d like to share information with, or we disclose a small portion of a secret that leads to questions about that secret. If this doesn&rsquo;t make sense, let me present you a conversation:</p>
 
@@ -614,12 +614,12 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
   
   <entry>
     <title type="html"><![CDATA[Analyzing Trust and Secret Disclosure]]></title>
-    <link href="http://b3rn3d.com/blog/2015/08/22/secret-disclosures/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/08/22/secret-disclosures/"/>
     <updated>2015-08-22T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/08/22/secret-disclosures</id>
+    <id>http://www.b3rn3d.com/blog/2015/08/22/secret-disclosures</id>
     <content type="html"><![CDATA[<p>OPSEC and relationships are often opposing forces. You’ve spent months perfecting your OPSEC for a campaign when your friend walks in and says “Ooh what’s that.” Or you signifigant other finds a file marked “Super juicy secret.” I do believe that humans are social beings no matter how hard we try. Even nerds that stay home will end up yearning for personal  contact in some way. How do you determine if you should share a secret with another person and build a relationship with that person at the risk of compromising your campaign?</p>
 
-<p><img class="right" src="http://b3rn3d.com/images/relationships.jpg" width="400"></p>
+<p><img class="right" src="http://www.b3rn3d.com/images/relationships.jpg" width="400"></p>
 
 <p>Look at the OPSEC measures that the members of lulzsec used. They all trusted eachother and everyone knew other peoples names, and in some cases addresses. This relationship of trust ended up being their downfall.</p>
 
@@ -666,9 +666,9 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
   
   <entry>
     <title type="html"><![CDATA[Risks of Relationships]]></title>
-    <link href="http://b3rn3d.com/blog/2015/07/04/opsec-relationships/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/07/04/opsec-relationships/"/>
     <updated>2015-07-04T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/07/04/opsec-relationships</id>
+    <id>http://www.b3rn3d.com/blog/2015/07/04/opsec-relationships</id>
     <content type="html"><![CDATA[<p>I don&rsquo;t often write about myself but for examples purposes, I will disclose that I&rsquo;ve recently entered into a relationship with a person for the first time in a long time. While this is exciting for me and also sad, the idea of how to handle relationships while maintaining OPSEC is a minefield.</p>
 
 <h2>Trust</h2>
@@ -687,12 +687,12 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
   
   <entry>
     <title type="html"><![CDATA[Ego and OPSEC]]></title>
-    <link href="http://b3rn3d.com/blog/2015/02/04/ego-and-opsec/"/>
+    <link href="http://www.b3rn3d.com/blog/2015/02/04/ego-and-opsec/"/>
     <updated>2015-02-04T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2015/02/04/ego-and-opsec</id>
+    <id>http://www.b3rn3d.com/blog/2015/02/04/ego-and-opsec</id>
     <content type="html"><![CDATA[<p>If you&rsquo;ve been <a href="http://www.htxt.co.za/2015/02/04/silk-road-trial-closes-would-dread-pirate-roberts-do-that/">following the DPR story</a> you&rsquo;ll notice that the prosecution paints DPR as an ego-maniac willing to do anything to gain more and more power and money. It doesn&rsquo;t matter if a lawyer is right, but the picture that it paints highlights a challenge that humans have with OPSEC, their ego.</p>
 
-<p><img class="right" src="http://b3rn3d.com/images/ego.jpg" width="400"></p>
+<p><img class="right" src="http://www.b3rn3d.com/images/ego.jpg" width="400"></p>
 
 <p>As you go dark, moving away from what would be your normal life (or fractioning off from it) has a novelty to it. It feels fun, and exciting, and you feel like you&rsquo;re doing something interesting. This is your ego kicking you in the back of the head and if you feel it at first, you&rsquo;ll know it&rsquo;s going to be a problem going forward. As the novelty wears off, your OPSEC becomes more of a discipline than a game. You follow your procedures and lock yourself down, but you sigh at how it&rsquo;s arduous compared to the everyday consumer.</p>
 
@@ -722,9 +722,9 @@ Even if your natural tendency is not to be an outwardly confident person, your m
   
   <entry>
     <title type="html"><![CDATA[XKeyScore Source Code Review]]></title>
-    <link href="http://b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review/"/>
     <updated>2014-07-04T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review</id>
+    <id>http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review</id>
     <content type="html"><![CDATA[<p>The <a href="http://boingboing.net/2014/07/03/if-you-read-boing-boing-the-n.html">recent revelations from Jake Applebaum, et all today</a>, highlight some not-to-be-understated revelations.</p>
 
 <ul>
@@ -843,15 +843,15 @@ To summarize, the source code to the NSA program, <a href="https://en.wikipedia.
 <h2>Full Code</h2>
 
 <p>Below is the full code released:
-<a href="http://b3rn3d.com/assets/xkeyscorerules100.txt">xkeyscorerules100.txt</a></p>
+<a href="http://www.b3rn3d.com/assets/xkeyscorerules100.txt">xkeyscorerules100.txt</a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Privacy Controls as a Fingerprinting Attack]]></title>
-    <link href="http://b3rn3d.com/blog/2014/06/22/privacy-controls-for-fingerprinting/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/06/22/privacy-controls-for-fingerprinting/"/>
     <updated>2014-06-22T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/06/22/privacy-controls-for-fingerprinting</id>
+    <id>http://www.b3rn3d.com/blog/2014/06/22/privacy-controls-for-fingerprinting</id>
     <content type="html"><![CDATA[<p>Privacy conscious websites and applications often give you privacy controls like &ldquo;opt'ing-out&rdquo; of using your browsing habits for statistics, or setting whether or not to share your profile information. If you&rsquo;ve already done your job to ensure that you are not sharing any sensitive information, these pseudo-privacy controls may put you at a high risk of being labeled a suspicious account.</p>
 
 <h2>How Privacy Controls Actually Work</h2>
@@ -901,10 +901,10 @@ To summarize, the source code to the NSA program, <a href="https://en.wikipedia.
   
   <entry>
     <title type="html"><![CDATA[Fingerprinting Attacks on Screen Resolution]]></title>
-    <link href="http://b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
     <updated>2014-05-29T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://b3rn3d.com/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
+    <id>http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
 
 <p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
 
@@ -977,9 +977,9 @@ Screen Resolution Detection Example</A></p>
   
   <entry>
     <title type="html"><![CDATA[Journalist OPSEC Gap: Lessons From the Snowden Stories]]></title>
-    <link href="http://b3rn3d.com/blog/2014/05/16/greenwald/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/greenwald/"/>
     <updated>2014-05-16T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/05/16/greenwald</id>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/greenwald</id>
     <content type="html"><![CDATA[<p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
 
 <h2>Greenwald&rsquo;s Reluctant OPSEC</h2>
@@ -991,7 +991,7 @@ Screen Resolution Detection Example</A></p>
 
 <p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
 
-<p><img class="center" src="http://b3rn3d.com/images/greenwald.png" title="" ></p>
+<p><img class="center" src="http://www.b3rn3d.com/images/greenwald.png" title="" ></p>
 
 <p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
 
@@ -999,7 +999,7 @@ Screen Resolution Detection Example</A></p>
 
 <p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t - iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
 
-<p><img class="center" src="http://b3rn3d.com/images/laurapoitras.jpg" title="" ></p>
+<p><img class="center" src="http://www.b3rn3d.com/images/laurapoitras.jpg" title="" ></p>
 
 <p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &ndash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
 
@@ -1019,12 +1019,12 @@ At this point we have some tools designed to protect ourselves. <a href="https:/
   
   <entry>
     <title type="html"><![CDATA[The Importance of Anonymous Email Addresses]]></title>
-    <link href="http://b3rn3d.com/blog/2014/05/16/email/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/email/"/>
     <updated>2014-05-16T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/05/16/email</id>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/email</id>
     <content type="html"><![CDATA[<p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
 
-<p><img class="center" src="http://b3rn3d.com/images/email.png" title="" ></p>
+<p><img class="center" src="http://www.b3rn3d.com/images/email.png" title="" ></p>
 
 <p>Notice that we are not talking about anonymous communication here, because we know that email is the worst possible option for that at this point. We are talking about anonymously registering for an email account, so that you can also potentially register for other services anonymously.</p>
 
@@ -1043,7 +1043,7 @@ At this point we have some tools designed to protect ourselves. <a href="https:/
 
 
 <p><span class='pullquote-right' data-pullquote='the conclusion must be the same – these providers do not want anonymous users'>
-In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="http://b3rn3d.com/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But the conclusion must be the same &ndash; these providers do not want anonymous users. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. </span></p>
+In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="http://www.b3rn3d.com/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But the conclusion must be the same &ndash; these providers do not want anonymous users. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. </span></p>
 
 <h2>The Solutions</h2>
 
@@ -1159,10 +1159,10 @@ What&rsquo;s replacing email registrations is just as scary though. We now see &
   
   <entry>
     <title type="html"><![CDATA[Lessons Burned]]></title>
-    <link href="http://b3rn3d.com/blog/2014/05/10/back-and-reburned/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/05/10/back-and-reburned/"/>
     <updated>2014-05-10T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/05/10/back-and-reburned</id>
-    <content type="html"><![CDATA[<p><img class="center" src="http://b3rn3d.com/images/trainhop.jpg" title="" ></p>
+    <id>http://www.b3rn3d.com/blog/2014/05/10/back-and-reburned</id>
+    <content type="html"><![CDATA[<p><img class="center" src="http://www.b3rn3d.com/images/trainhop.jpg" title="" ></p>
 
 <p>Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &ndash; that up until that point had reliably allowed me to maintain my anonymity &ndash; suddenly requested that I verify my identity (for some random definition of identity in this case). There were a couple of ways to do this, and to be honest, it was something very easy to bypass. The point was that the provider suddenly did not enjoy my company.</p>
 
@@ -1189,9 +1189,9 @@ What&rsquo;s replacing email registrations is just as scary though. We now see &
   
   <entry>
     <title type="html"><![CDATA[CIA Operative Teaches Spycraft and Psychology]]></title>
-    <link href="http://b3rn3d.com/blog/2014/03/09/cia-spycraft-psychology/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/03/09/cia-spycraft-psychology/"/>
     <updated>2014-03-09T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/03/09/cia-spycraft-psychology</id>
+    <id>http://www.b3rn3d.com/blog/2014/03/09/cia-spycraft-psychology</id>
     <content type="html"><![CDATA[<p>In two articles from Pursuit Magazine, Lindsay Moran, an Ex-CIA operative is
 interviewed about being in the CIA, explains psychology around maintaing a
 separate life, and gives a few cute stories about tradecraft. You can start
@@ -1303,9 +1303,9 @@ face of electronic surveillance.</li>
   
   <entry>
     <title type="html"><![CDATA[Tor Country Codes]]></title>
-    <link href="http://b3rn3d.com/blog/2014/03/05/tor-country-codes/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/03/05/tor-country-codes/"/>
     <updated>2014-03-05T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/03/05/tor-country-codes</id>
+    <id>http://www.b3rn3d.com/blog/2014/03/05/tor-country-codes</id>
     <content type="html"><![CDATA[<p>Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
 &ndash; either by name, fingerprint, or country code. If you have a trusted
 list of nodes you&rsquo;d like to use as a whitelist, you can use that, or if

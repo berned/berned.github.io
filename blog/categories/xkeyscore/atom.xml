@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Xkeyscore | B3RN3D]]></title>
-  <link href="http://b3rn3d.com/blog/categories/xkeyscore/atom.xml" rel="self"/>
-  <link href="http://b3rn3d.com/"/>
-  <updated>2016-01-19T17:18:28+00:00</updated>
-  <id>http://b3rn3d.com/</id>
+  <link href="http://www.b3rn3d.com/blog/categories/xkeyscore/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2016-01-19T17:27:11+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[XKeyScore Source Code Review]]></title>
-    <link href="http://b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review/"/>
     <updated>2014-07-04T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review</id>
+    <id>http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review</id>
     <content type="html"><![CDATA[<p>The <a href="http://boingboing.net/2014/07/03/if-you-read-boing-boing-the-n.html">recent revelations from Jake Applebaum, et all today</a>, highlight some not-to-be-understated revelations.</p>
 
 <ul>

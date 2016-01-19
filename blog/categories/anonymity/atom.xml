@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Anonymity | B3RN3D]]></title>
-  <link href="http://b3rn3d.com/blog/categories/anonymity/atom.xml" rel="self"/>
-  <link href="http://b3rn3d.com/"/>
-  <updated>2016-01-19T17:18:28+00:00</updated>
-  <id>http://b3rn3d.com/</id>
+  <link href="http://www.b3rn3d.com/blog/categories/anonymity/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2016-01-19T17:27:11+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fingerprinting Attacks on Screen Resolution]]></title>
-    <link href="http://b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
     <updated>2014-05-29T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
+    <id>http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
     <content type="html"><![CDATA[<p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
 
 <p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
@@ -89,9 +89,9 @@ Screen Resolution Detection Example</A></p>
   
   <entry>
     <title type="html"><![CDATA[The Importance of Anonymous Email Addresses]]></title>
-    <link href="http://b3rn3d.com/blog/2014/05/16/email/"/>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/email/"/>
     <updated>2014-05-16T00:00:00+00:00</updated>
-    <id>http://b3rn3d.com/blog/2014/05/16/email</id>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/email</id>
     <content type="html"><![CDATA[<p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
 
 <p><img class="center" src="/images/email.png" title="" ></p>
