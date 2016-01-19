@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Website Fingerprinting Attacks and Defense - B3RN3D</title>
+  <meta name="author" content="b3rn3d">
+
+  
+  <meta name="description" content="I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. A Critical &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2016/01/20/behavior-fingerprinting">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">B3RN3D</a></h1>
+  
+    <h2>Staying in the darkness</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.b3rn3d.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Website Fingerprinting Attacks and Defense</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-20T00:00:00+00:00" pubdate data-updated="true">Jan 20<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. <a href="https://securewww.esat.kuleuven.be/cosic/publications/article-2456.pdf">A Critical Evaluation of Website Fingerprinting Attacks</a> takes a look at some of the theoretical attacks on Tor and see how likely they would work in the real world.</p>
+
+<p>Better than that, it gives you a break down of the most likely attacks that users need to defend themselves against.</p>
+
+<h2>Website Fingerprinting</h2>
+
+<p>The attack that they&rsquo;re reviewing here shouldn&rsquo;t be confused with Browser Fingerprinting or other types of fingerprinting attacks. It refers to an adversary being able to deduce what website you&rsquo;re going to.</p>
+
+<p>The premise in previous papers has been that on low-latency anonymity networks (like tor), attackers can analyze your connection and guess which page you&rsquo;re visiting. For example, when you go to <a href="https://www.google.com,">https://www.google.com,</a> you are visiting a page that has a predictable size, response time, and predictable number of secondary page requests being made.</p>
+
+<h2>The Size Correlation Fingerprint</h2>
+
+<p>One of the most rudimentary attacks is an adversary that stands between a user and Tor to see the packets being sent out and the size of the packets returned. In this simple approach, it&rsquo;s possible for an attacker that has a database of websites and their possible sizes, is able to guess which sites a user is visiting.</p>
+
+<p><strong>Defense</strong>: &ldquo;Padding&rdquo; is considered a defense against website fingerprinting because it adds arbitrary data to your request that makes it harder for an attacker to correlate your visit to the actual website in question.</p>
+
+<p>The Tor Project has made a decision not to implement padding. On purpose. They&rsquo;re now taking a look at research that might mean that adding small amounts of padding will have a major affect. It&rsquo;s yet to be concluded.</p>
+
+<p>Other defenses that the paper goes into are what happens when there are multiple tabs being opened and what about the situation where something else on the network is padding things for you. The latest TBB has a nice feature that makes a separate connection in multiple tabs.</p>
+
+<h2>The Behavioral Fingerprint</h2>
+
+<p>One of the most discussed tactic was to take a pile of University students&#8217;, watch the websites that they visit over multiple days, and then watch for similar patterns sent over Tor.</p>
+
+<p>The basis of this attack is that you visit web pages in a linear order. You will go to your favorite news site, then Facebook, then your boyfriend&rsquo;s blog, and then your favorite shopping site. Often times, you will go in the cycle of visits multiple times over the course of a day.</p>
+
+<p>Attackers knowing the potential sizes of pages, the loading time of a site, and other quantifiable factors, can fingerprint your browsing behavior.</p>
+
+<p><strong>Defense</strong>: There are two options that I&rsquo;m sure you can imagine: Don&rsquo;t ever switch between dark and clear or make sure that your behavior is completely different on a dark persona.</p>
+
+<h2>Targeted vs Untargeted</h2>
+
+<p>There&rsquo;s a major different in the attack vectors between an adversary targeting you as an individual, versus what the paper calls a &ldquo;drag-net&rdquo; approach.</p>
+
+<ul>
+<li>Targeted attacks have less reward but are more accurate</li>
+<li>Untargeted attacks have more reward but are more difficult to identify high value targets</li>
+</ul>
+
+
+<p>Which is most likely? While the most paranoid of us believe we are being targeted (and we should), unless you are truly a high-value target, there are not many groups trying to specifically launch a targeted attack. But a mass surveillance situation is a much more likely scenario.</p>
+
+<p><strong>Defense</strong>: Burn, and burn often. The premise of my OPSEC model is to never give someone a chance to correlate between two different identities. If you&rsquo;re able to do that, you&rsquo;re able to defend against either of these attack scenarios.</p>
+
+<h2>Results</h2>
+
+<p>Long story short, some of these academic papers talking about potential attacks, take a substantial investment. That being said, we know there are organizations interested in investing those resources, but at the same time, a targeted attack on individual computers is less likely than a mass surveillance situation. Be aware that these attacks exist and never visit your favorite websites across multiple identifies.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-20T00:00:00+00:00" pubdate data-updated="true">Jan 20<span>th</span>, 2016</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/01/02/how-to-ship-drugs/" title="Previous Post: How To Ship Drugs To Your House">&laquo; How To Ship Drugs To Your House</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/22/lie-to-me/">Lie to Me, Please</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/22/secret-disclosures/">Analyzing Trust and Secret Disclosure</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - b3rn3d -
+</p>
+<a title="Web Analytics" href="http://clicky.com/100742097"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100742097); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100742097ns.gif" /></p></noscript>
+<iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

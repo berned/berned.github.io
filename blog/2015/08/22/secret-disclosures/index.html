@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Analyzing Trust and Secret Disclosure - B3RN3D</title>
+  <meta name="author" content="b3rn3d">
+
+  
+  <meta name="description" content="OPSEC and relationships are often opposing forces. You’ve spent months perfecting your OPSEC for a campaign when your friend walks in and says “Ooh &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2015/08/22/secret-disclosures">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">B3RN3D</a></h1>
+  
+    <h2>Staying in the darkness</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.b3rn3d.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Analyzing Trust and Secret Disclosure</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-08-22T00:00:00+00:00" pubdate data-updated="true">Aug 22<span>nd</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>OPSEC and relationships are often opposing forces. You’ve spent months perfecting your OPSEC for a campaign when your friend walks in and says “Ooh what’s that.” Or you signifigant other finds a file marked “Super juicy secret.” I do believe that humans are social beings no matter how hard we try. Even nerds that stay home will end up yearning for personal  contact in some way. How do you determine if you should share a secret with another person and build a relationship with that person at the risk of compromising your campaign?</p>
+
+<p><img class="right" src="/images/relationships.jpg" width="400"></p>
+
+<p>Look at the OPSEC measures that the members of lulzsec used. They all trusted eachother and everyone knew other peoples names, and in some cases addresses. This relationship of trust ended up being their downfall.</p>
+
+<h2>Example</h2>
+
+<p>Let us start with a secret for sake of discussion: I have a laptop riddled with Taylor Swift songs.</p>
+
+<p>My OPSEC campaign includes that I’ve encrypted my laptop so that even with access, the songs would be difficult to find. I hide my laptop in a broom closet. The broom closet for some reason has a lock on it. But still there are days when I really want to listen to my favorite Swift jam and because I live with my mother, she catches me rocking out.</p>
+
+<p>In this case, its straight forward. Your mother is the adversary, she can never know about Taylor Swift songs and you’ve likely done a better job at hiding.</p>
+
+<p>But what about the situation where you are hanging out with a friend and notice that she is an avid Taylor Swift fan and if you share this commonality with her, you might establish a deeper relationship.</p>
+
+<h2>The Three Disclosure Tactics</h2>
+
+<p>I’ve found that people handle this in three potential tactics when disclosing a secret:</p>
+
+<ol>
+<li>You decide that you can trust this person and privately disclose that you are a Taylor Swift fan.</li>
+<li>You drop hints that you may or may know something about Taylor but you’re unwilling to disclose it out-right to just anyone but secretly hope that the other person will ask you about it.</li>
+<li>You don’t let on that you’re into TS at all.</li>
+</ol>
+
+
+<p>These are stupid situations but these are how most people handle secrets.</p>
+
+<h2>Trusted Disclosure</h2>
+
+<p>Option 1, trusted disclosure is where you analyze the relationship with the other person, look at the risk involved in disclosing, and the potential reward that exists if you do share. This is what some may call “normal” in terms of relationships. You decide that you will disclose a secret to a trusted person and expect that the trusted person does not use this information against you. If for example, you know that the other party has worthwhile knowledge related to your secret, the reward may outweigh the risk that the disclosure is used to exploit you.</p>
+
+<h2>Plausibly Deniable Disclosure</h2>
+
+<p>In option 2, plausibly deniable disclosure, you hint that you might have a secret but you can still plausibly deny that the secret exists. There is less analysis of risk vs reward or analysis of the trust of the person so you’ll often hear people leak this in public. “I might know something about X but I can’t tell you”. If you go to DEFCON, you will hear this just about every day.</p>
+
+<p>This is the most common tactic with people missing social contact/relationships and let their ego get in the way. This either means that the secret being kept is not that risky of a secret, or the person is not disciplined enough to follow opsec. In either case, frowned upon in terms of OPSEC.</p>
+
+<h2>Zero Knowledge</h2>
+
+<p>The last option is not a disclosure at all but maintains a zero knowledge relationship going forward. In terms of OPSEC, you can consider this a firewall rule that blocks all by default. In this scenario you get no reward, no commonality in the relationship, and no benefit besides the fact that you can keep in your pocket that you have a secret in-depth knowledge of a subject that may be of interest to the subject. Because remember, knowledge is power and knowledge of someone’s knowledge is a power you may not want to concede.</p>
+
+<p>Be disciplined. Be in control. Make active decisions about your disclosures and your relationships.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-08-22T00:00:00+00:00" pubdate data-updated="true">Aug 22<span>nd</span>, 2015</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/07/04/opsec-relationships/" title="Previous Post: Risks of Relationships">&laquo; Risks of Relationships</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/09/22/lie-to-me/" title="Next Post: Lie To Me, Please">Lie To Me, Please &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/22/lie-to-me/">Lie to Me, Please</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/22/secret-disclosures/">Analyzing Trust and Secret Disclosure</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - b3rn3d -
+</p>
+<a title="Web Analytics" href="http://clicky.com/100742097"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100742097); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100742097ns.gif" /></p></noscript>
+<iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

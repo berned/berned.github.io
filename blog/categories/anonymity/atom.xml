@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Anonymity | B3RN3D]]></title>
+  <link href="http://www.b3rn3d.com/blog/categories/anonymity/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2015-12-23T00:35:23+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
+  <author>
+    <name><![CDATA[b3rn3d]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fingerprinting Attacks on Screen Resolution]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
+    <updated>2014-05-29T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
+
+<p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
+
+<p>This is even more dangerous on mobile devices such as Android. Each manufacturer releases new phones and tablets with different resolution, these are often very odd screen resolutions, making them very unique to that phone time. There are dozens of sites that provide this information for you:</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density">http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density</a></li>
+<li><a href="https://deviceatlas.com/">https://deviceatlas.com/</a></li>
+<li><a href="http://wurfl.sourceforge.net/">http://wurfl.sourceforge.net/</a></li>
+</ul>
+
+
+<h2>Background</h2>
+
+<p>There are two types of fingerprinting; passive and active. Active fingerprinting attacks are usually reserved to those that are collecting information about your network traffic, and do a secondary correlation. For example, if an adversary were running multiple exit nodes, they collect the list of sites each circuit connects to, and tries correlates that to a specific user.</p>
+
+<p>Active attacks will manipulate or inject an identifier into your traffic &mdash; an identifying cookie or malicious JavaScript that when executed tries to collect identifying information about your browsing environment.</p>
+
+<p>This is not a new revelation, the EFF has highlighted this problem by making the <a href="https://panopticlick.eff.org/">Panopticlick</a> project. This simulates attacks that aim at fingerprinting your browser, its plugins, fonts installed, etc. This is similar to the <a href="http://browserspy.dk/">BrowserSpy</a> project.</p>
+
+<h2>Screen Resolution</h2>
+
+<p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
+
+<p>Here&rsquo;s a simple Javascript example that does that
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
+</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
+</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Demo: <a href="javascript:alert
+('Your resolution is '+screen.width+'x'+screen.height);">
+Screen Resolution Detection Example</A></p>
+
+<p>EDIT: <a href="www.reddit.com/user/lugh">lugh</a> points out that this example is inconsistent and depends on your OS and browser.</p>
+
+<h2>Defense Measures</h2>
+
+<p>There are a couple of ways of defending, let me go over some possibilities:</p>
+
+<ul>
+<li><strong>disabling Javascript</strong>: CSS (AFAIK) does not have a way of detecting your screen resolution</li>
+<li><strong>resizing your browser window</strong>: Sometimes attacks do not read screen resolution, but just window size.</li>
+<li><strong>changing your screen resolution</strong>: This is often difficult but by choosing a screen resolution that many other users may have, would help defend against fingerprinting. The <a href="http://dee.su/liberte-security">Liberte Linux</a> distribution is the only system I&rsquo;ve seen that automatically does this by forcing the screen resolution of 800x600.</li>
+<li><strong>external monitors</strong>: If you are on a laptop, and have an external monitor around, it might be possible to have its resolution provide instead of your laptop screen. Note here that different operating systems handle this value in different ways. Some append the width and height of both screens to eachother.</li>
+<li><strong>modifying the JavaScript engine</strong>: This solution has not been done very often and is considered a security risk, but there is a possibility that a new custom JavaScript engine could return a different value than your actual resolution.</li>
+<li><strong>virtualization</strong>: If you are running your anonymous environment inside of a virtual machine, you can dynamically change the resolution very easily by resizing the window of the VM.</li>
+</ul>
+
+
+<p>There are different situations that heed different defense. If you run into a site you need access to that requires JavaScript, you&rsquo;re not going to be able to disable it. Same applies for the browser window trick if the service is detecting Screen.height as opposed to Window.height. Going into your screen settings and changing your screen resolution might work, but it&rsquo;s pretty cumbersome. The virtualization option is very plausible but requires that you are running virtualization software like Virtual Box.</p>
+
+<h2>Real-World Attacks</h2>
+
+<p>One example of software designed for fingerprinting is <a href="http://www.juniper.net/us/en/products-services/security/webapp-secure/">Juniper&rsquo;s Webapp Secure</a>. It is a tool that will fingerprint a web site&rsquo;s users based on a variety of metrics; one of which is your computer&rsquo;s resolution. By doing so, they are able to track their browsing experience across multiple sessions without any cookies.</p>
+
+<h2>Applying to Registration</h2>
+
+<p>Screen resolution is just a single attribute that can be keyed on but I find that it is relied upon the most often during web provider registration processes. This may be because the providers don&rsquo;t believe that anyone would go through the steps of changing their screen resolution &mdash; I&rsquo;m not sure. In any event, by merely changing your screen resolution, you are able to easily register without the stigma of anything you have done in a previous sessions possibly fingerprinting you. This along with clearing your cookies, connecting with a different IP address, and possibly manipulating the fonts that are installed on your computer will let you bypass the registration process&hellip;. sometimes.</p>
+
+<h2>Conclusions</h2>
+
+<p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Importance of Anonymous Email Addresses]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/email/"/>
+    <updated>2014-05-16T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/email</id>
+    <content type="html"><![CDATA[<p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
+
+<p><img class="center" src="/images/email.png" title="" ></p>
+
+<p>Notice that we are not talking about anonymous communication here, because we know that email is the worst possible option for that at this point. We are talking about anonymously registering for an email account, so that you can also potentially register for other services anonymously.</p>
+
+<p>Here&rsquo;s an example: Github. In order to create a github account, you need to give them an email address so that you can activate your account.</p>
+
+<h2>The Problem</h2>
+
+<p>The problem for anonymous privacy concerned peoples of the Internet, is that it&rsquo;s relatively difficult to get an email address while using something like Tor. Sites will block you in a variety of ways:</p>
+
+<ol>
+<li><strong>Blocking Registration</strong>: A site like Hotmail will block all access to register for a new address. You cannot use Tor to create an account.</li>
+<li><strong>Blocking Service</strong>: The site will let you register, and subsequently block access to webmail from any Tor exit node.</li>
+<li><strong>Requiring Extensive Validation</strong>: The site allows registration, and access, but will eventually require you to validate your identity through some kind of out-of-band system like an SMS.</li>
+<li><strong>The Tease</strong>: And then there are sites that seem to allow you to register, access the service, but a few months down the line, you suddenly find out that your account has been blocked or requires a special non-Tor validation mechanism.</li>
+</ol>
+
+
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<h2>The Solutions</h2>
+
+<p>So what options do anonymous users have? Remember, our goal is to eventually register for some other service that requires an email address, but we can&rsquo;t even register to get an email address in the first place.</p>
+
+<h3>Webmail Providers</h3>
+
+<p>Gmail, Yahoo, Microsoft, all offer webmail. In an ideal world, you could just register with them, get an email address, and be done with it. If your operation only requires that you hide behind a VPN, this may work for you but if you&rsquo;re using something like Tor, you are going to be blocked as described above.</p>
+
+<p>Google has an interesting blocking program right now. When a user goes to register, they create a fingerprinted definition of that user &mdash; what is the resolution of their computer, what plugins do they have installed, what fonts are supported, etc. Therefore changing IP addresses and clearing out your cookies, will not affect the registation process. Google sets a number for each user so that when you first register for an account, you do not have to activate via SMS or phone call. But your third or fourth will require it. There is a method to the madness but I&rsquo;ve yet to figure it out (or care enough).</p>
+
+<p>Yahoo is one of those situations where they allow anonymous registration, but after a month or two they will block access with an un-usable CAPTCHA. No mater how many times you attempt to complete it, when using Tor, the result will say that you have entered the CAPTCHA incorrectly.</p>
+
+<p>This is a semi-plausible option, but generally not a good solution for long term operations. Its safe to say that I would almost never recommend using something like Gmail.</p>
+
+<h3>Temporary Email Services</h3>
+
+<p>Sites like Mailinator provide a temporary email address. You create a random address, sign up for a service using that address and you can check that mailbox whenever you need. Email is cleared out after a certain period of time. It&rsquo;s great for spam and sites with unnecessary registrations.</p>
+
+<p>There are a couple of problems though. one is that many (most?) service providers block registration from Mailinator addresses. Another is that anyone that knows your mailinator email address, can access your email; the concern here being someone resetting your password.</p>
+
+<p>Want an example? Why not reset the passwords for any of these Skype accounts:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <strong>Name</strong>          </th>
+<th> <strong>Mailinator Address</strong> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> Merlin        </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=merlin">merlin@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td> anbu.mailinator   </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">anbu@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td> wert          </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">wert@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>The point is, Mailinator works, when it works, but most of the time it doesn&rsquo;t. For short operations, or something you need temporary access to, this is a good solution.</p>
+
+<p>Other alternatives to Mailinator:</p>
+
+<ul>
+<li><a href="http://www.spambog.com/">Spambog.com</a></li>
+<li><a href="http://maildrop.cc/">Maildrop.cc</a></li>
+<li><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></li>
+<li><a href="https://trashmail.com/">Trashmail</a></li>
+<li><a href="http://10minutemail.com/10MinuteMail/index.html">10 Minute Mail</a></li>
+</ul>
+
+
+<h3>Acquired Accounts</h3>
+
+<p>There are a variety of dark market sales that will give you pre-configured email addresses. These are either hacked accounts, or merely registered addresses to save you the hassle. You can buy them in packs of 100 or 1000 (and up) for a small fraction of Bitcoin. (It&rsquo;s not even worth linking to dark markets at this point but I&rsquo;m sure you&rsquo;ll find them.)</p>
+
+<p>Purchasing email accounts from a dark market is relatively legitimate compared to the alternatives of breaking into the accounts yourself. If you have the time and effort, you might be surprised at how easy this is especially when you look at the very simple password reset questions often used.</p>
+
+<h3>Self-Hosted Email</h3>
+
+<p>One of the most suggested solutions to the email problem is to host email yourself. You purchase a domain anonymously using bitcoin, gift cards, or whatever anonymous method you choose. You spoof or falsify the WHOIS lookup information so that nothing points back to your real identity. Then you purchase a hosting provider using the same anonymous methods. Finally, you run a mail service so you can give yourself an infinite number of email addresses.</p>
+
+<p>This is a viable solution for some operations. If you don&rsquo;t mind admin'ing a server and walking through the steps, this can be a good option.</p>
+
+<p>The reason I don&rsquo;t like this is that it increases your attack surface. You are now hosting a mail server that directly points to you. If this server is exploited, every email address you have ever created is now accessible.</p>
+
+<p>And for someone like me, that will compartmentalize identities, this solution doesn&rsquo;t scale. I would have to build out a new email server, new domain, new hosting provider for each identity. This is not a problem with the solution as much as it is a problem with OPSEC decisions.</p>
+
+<h3>Trusted Anonymous Email</h3>
+
+<p>The other option, is to find an email provider that you, yourself, trust. Trust is a difficult subject to cover so lets give it an operational definition of a service provider in which you believe won&rsquo;t sell your emails. (We&rsquo;ll ignore the possible nation state surveillance and potential legal jurisdiction issues.)</p>
+
+<p>Here are a few providers that are &ldquo;trusted&rdquo; in many privacy circles:</p>
+
+<ul>
+<li><a href="https://riseup.net/">Riseup.net</a>: This is a provider designed for activitists and community organizers. It is hosted in the U.S. In order to receive an email, you must know two people with an address, or try to request one from an admin on IRC.</li>
+<li><a href="www.autistici.org/">Autustici</a>: Offer a range of services with privacy and activism in mind. Webmail, web site hosting, blog host, newsgroups.</li>
+<li><a href="https://aktivix.org/">Aktivix</a>: Small site that offers free email addresses if you can convinve them you should have one&hellip;via email.</li>
+</ul>
+
+
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<p>The problem is that these are often volunteer organized services, and community driven. That is to say, each of these providers have a hoop you need to jump through in order to obtain an address. This often means you have to befriend someone online, or give them a reason about how you are improving the world and need to maintain your anonymity.</p>
+
+<h2>The Future</h2>
+
+<p>The unfortunate truth is, email will be around for a long time. How long it will be around as an authentication system will hopefully be $longtime &ndash; n.</p>
+
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<h2>Conclusions</h2>
+
+<p>This is the current state of email and anonymity from my point of view. Your operation dicates which solution is going to work the best, no single option will unilaterally work. For long operations greater than a year, it may be worth investing some time into a stable email address where self-hosting is the right answer. For operations that last for a month, temporary email address providers might be the right choice.</p>
+]]></content>
+  </entry>
+  
+</feed>

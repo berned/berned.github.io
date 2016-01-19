@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Perspectives of OPSEC Models - B3RN3D</title>
+  <meta name="author" content="b3rn3d">
+
+  
+  <meta name="description" content="<span class='pullquote-right' data-pullquote='operational security&#8217;s primary goal is to
+mitigate risk while maintaining operational &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2014/02/17/perspectives-of-opsec">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">B3RN3D</a></h1>
+  
+    <h2>Staying in the darkness</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.b3rn3d.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Perspectives of OPSEC Models</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-17T00:00:00+00:00" pubdate data-updated="true">Feb 17<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><span class='pullquote-right' data-pullquote='operational security&#8217;s primary goal is to
+mitigate risk while maintaining operational capabilities'>
+As I&rsquo;ve discussed <a href="/blog/2014/01/10/ask-him-about-his-threat-model">before</a>, threat models or risk models help you to define the adversaries you should invest the most resources being concerned about. There are a variety of different risk perspectives you can use to design a
+threat model: adversary-centric, asset-centric, or software-centric. We can
+adopt these into very similar models for OPSEC plans. Each of these models have
+a single principal that operational security&rsquo;s primary goal is to
+mitigate risk while maintaining operational capabilities.
+</span></p>
+
+<h2>Adversary-Centric OPSEC</h2>
+
+<p><img class="right" src="/images/adversary.png" title="" ></p>
+
+<p>In these types of plans, we&rsquo;re focused on what an attacker or adversary
+can do to us; who is coming after you, what they can do, and how you can
+defend. An adversary-cetnric policy has the advantage of being much easier to
+create and document because many people already think this way. It&rsquo;s very
+simple to come up with a list of adversaries that have the potential to affect
+what&rsquo;s important to you. The down-side of this approach is that you need
+to know your adversaries. In the case of the NSA &ldquo;revelations&rdquo;,
+many were shocked to find out that a nation-state had the type of capabilities
+that were disclosed. Prior to this, not many were able to mitigate themselves
+from these types of threats because they simply didn&rsquo;t know or fully
+appreciate an adversary of this nature.</p>
+
+<h2>Asset-Centric OPSEC</h2>
+
+<p><img class="right" src="/images/asset.png" title="" ></p>
+
+<p>This approach focuses on designging mitigations around your assets &mdash; the
+things you value the most. If, for example, your asset is your ability to
+privately communicate on the Internet, you&rsquo;re going to do everything you
+can to ensure no-one can affect this. You&rsquo;re not focused on specific
+adversaries per se in this approach, but you are doing everything in your power
+to protect yourself. Maybe you&rsquo;re buying a VPN service or using a botnet
+or Tor for all communications. Maybe you&rsquo;ve decided that you&rsquo;re
+going to try out one of the new <a href="https://bitmessage.org/wiki/Main_Page">decentralized</a> <a href="http://dee.su/cables">messaging</a> <a href="https://crypto.cat/">systems</a> as a way of
+keeping yourself secure.</p>
+
+<p>One of the benefits of this method is that it&rsquo;s easy to explain why a
+measure needs to take place. If you&rsquo;re operating in a group, this may be
+an important factor. You can easily make the case that your asset needs to be
+secure, therefore we are taking these steps to mitigate the risk. Contrary to
+the adversary-centric approach, this is a less passive perspective &mdash; you
+are not taking the point of view of being fearful of something happening, you
+are merely performing the proactive, required procedures to keep your assets
+safe.</p>
+
+<h2>Operation-Centric OPSEC</h2>
+
+<p><img class="right" src="/images/boxes.png" title="" >
+This approach, my favorite, lends itself nicely to compartmentalization if
+you&rsquo;re managing multiple identities across multiple operations. An
+operation in this case could be an identitiy, a research project, an regular
+activitiy or whatever, that may require specific operational security measures.
+An operation-centreic OPSEC plan may sound recursive to you, but the gist is
+that your plans are focused on your specific operation, and that operation
+alone. The main difference between this and an asset-centric approach is that
+it is designed to have drastically different and compartmentalized procedures
+allowing for scalability without letting one operation interfere with another.</p>
+
+<p>If you&rsquo;ve ever taken a look at the security plans of a large, Fortune 500
+company compared to that of a startup, it&rsquo;s quite possible that the
+startup is able to implement simple, elegent, effective security plans while
+the Fortune 500 spends millions of dollars designing a unilateral security
+policy that severely inhibits the organizations operational capabilities. The
+reason that a small, agile startup can devise elegant OPSEC measures, is the
+same reason that compartmentalizing your OPSEC procedures in an operation-
+centric point-of-view is effective.</p>
+
+<p>The other reason that I like this is because it gives you a good balance of a
+variety of different OPSEC approaches. You are paying attention to your
+operation&rsquo;s assets while taking into account specific adversaries and
+their attacks. As you define an operation &mdash; we&rsquo;ll say buying
+illegal drugs on the internet &mdash; you will be scoped down to a specific
+task and controlled environment. It lets you define boundaries in which your
+OPSEC guidelines can define situations in which your measures/countermeasures
+no longer protect you. This keeps risks at a minimum because you are only
+defending against a subset of your activities &mdash; those associated with the
+operation. In the example of buying illegal drugs on a darknet market, your
+OPSEC guidelines can state that in the case of the darkmarket collapse (which
+seems to happen regularly <a href="http://www.deepdotweb.com/2014/02/13/silk-road-2-hacked-bitcoins-stolen-unknown-amount/">lately</a>), your operation should fold and the identity
+should be burned. You can take into accounts adversaries such as those that own
+the market, and assets you&rsquo;re concerned about such as keeping yourself
+out of jail.</p>
+
+<p>I will admit, none of those listed are perfect, nor do they make up an
+exhaustive list. They may however give you a starting point for building an
+OPSEC plan for yourself.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-17T00:00:00+00:00" pubdate data-updated="true">Feb 17<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/10/for-aaron/" title="Previous Post: For Aaron">&laquo; For Aaron</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/05/tor-country-codes/" title="Next Post: Tor Country Codes">Tor Country Codes &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/22/lie-to-me/">Lie to Me, Please</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/22/secret-disclosures/">Analyzing Trust and Secret Disclosure</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - b3rn3d -
+</p>
+<a title="Web Analytics" href="http://clicky.com/100742097"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100742097); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100742097ns.gif" /></p></noscript>
+<iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[B3RN3D]]></title>
+  <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2015-12-23T00:35:23+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
+  <author>
+    <name><![CDATA[b3rn3d]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Website Fingerprinting Attacks and Defense]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/01/20/behavior-fingerprinting/"/>
+    <updated>2016-01-20T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/01/20/behavior-fingerprinting</id>
+    <content type="html"><![CDATA[<p>I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. <a href="https://securewww.esat.kuleuven.be/cosic/publications/article-2456.pdf">A Critical Evaluation of Website Fingerprinting Attacks</a> takes a look at some of the theoretical attacks on Tor and see how likely they would work in the real world.</p>
+
+<p>Better than that, it gives you a break down of the most likely attacks that users need to defend themselves against.</p>
+
+<h2>Website Fingerprinting</h2>
+
+<p>The attack that they&rsquo;re reviewing here shouldn&rsquo;t be confused with Browser Fingerprinting or other types of fingerprinting attacks. It refers to an adversary being able to deduce what website you&rsquo;re going to.</p>
+
+<p>The premise in previous papers has been that on low-latency anonymity networks (like tor), attackers can analyze your connection and guess which page you&rsquo;re visiting. For example, when you go to <a href="https://www.google.com,">https://www.google.com,</a> you are visiting a page that has a predictable size, response time, and predictable number of secondary page requests being made.</p>
+
+<h2>The Size Correlation Fingerprint</h2>
+
+<p>One of the most rudimentary attacks is an adversary that stands between a user and Tor to see the packets being sent out and the size of the packets returned. In this simple approach, it&rsquo;s possible for an attacker that has a database of websites and their possible sizes, is able to guess which sites a user is visiting.</p>
+
+<p><strong>Defense</strong>: &ldquo;Padding&rdquo; is considered a defense against website fingerprinting because it adds arbitrary data to your request that makes it harder for an attacker to correlate your visit to the actual website in question.</p>
+
+<p>The Tor Project has made a decision not to implement padding. On purpose. They&rsquo;re now taking a look at research that might mean that adding small amounts of padding will have a major affect. It&rsquo;s yet to be concluded.</p>
+
+<p>Other defenses that the paper goes into are what happens when there are multiple tabs being opened and what about the situation where something else on the network is padding things for you. The latest TBB has a nice feature that makes a separate connection in multiple tabs.</p>
+
+<h2>The Behavioral Fingerprint</h2>
+
+<p>One of the most discussed tactic was to take a pile of University students&#8217;, watch the websites that they visit over multiple days, and then watch for similar patterns sent over Tor.</p>
+
+<p>The basis of this attack is that you visit web pages in a linear order. You will go to your favorite news site, then Facebook, then your boyfriend&rsquo;s blog, and then your favorite shopping site. Often times, you will go in the cycle of visits multiple times over the course of a day.</p>
+
+<p>Attackers knowing the potential sizes of pages, the loading time of a site, and other quantifiable factors, can fingerprint your browsing behavior.</p>
+
+<p><strong>Defense</strong>: There are two options that I&rsquo;m sure you can imagine: Don&rsquo;t ever switch between dark and clear or make sure that your behavior is completely different on a dark persona.</p>
+
+<h2>Targeted vs Untargeted</h2>
+
+<p>There&rsquo;s a major different in the attack vectors between an adversary targeting you as an individual, versus what the paper calls a &ldquo;drag-net&rdquo; approach.</p>
+
+<ul>
+<li>Targeted attacks have less reward but are more accurate</li>
+<li>Untargeted attacks have more reward but are more difficult to identify high value targets</li>
+</ul>
+
+
+<p>Which is most likely? While the most paranoid of us believe we are being targeted (and we should), unless you are truly a high-value target, there are not many groups trying to specifically launch a targeted attack. But a mass surveillance situation is a much more likely scenario.</p>
+
+<p><strong>Defense</strong>: Burn, and burn often. The premise of my OPSEC model is to never give someone a chance to correlate between two different identities. If you&rsquo;re able to do that, you&rsquo;re able to defend against either of these attack scenarios.</p>
+
+<h2>Results</h2>
+
+<p>Long story short, some of these academic papers talking about potential attacks, take a substantial investment. That being said, we know there are organizations interested in investing those resources, but at the same time, a targeted attack on individual computers is less likely than a mass surveillance situation. Be aware that these attacks exist and never visit your favorite websites across multiple identifies.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to Ship Drugs to Your House]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/01/02/how-to-ship-drugs/"/>
+    <updated>2016-01-02T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/01/02/how-to-ship-drugs</id>
+    <content type="html"><![CDATA[<p>You&rsquo;ve found your favorite drugs on your favorite darknets but then your OPSEC buzzer goes off and you say &ldquo;How do I actually get it shipped to me?&rdquo; Lets talk about some of the risks and likely attacks.</p>
+
+<h2>The Fallacy Of The Drop Ship</h2>
+
+<p>The first thing you might this is, just like your computer, find a way to be completely anonymous. That would mean sending to a &ldquo;drop ship&rdquo; location or someone else&rsquo;s house. You&rsquo;ll find documents online about how the best way to do this is:</p>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/package.png" width="400"></p>
+
+<ul>
+<li>find a house in a city that no one lives in</li>
+<li>mow the lawn once week</li>
+<li>let the neighbors know who you are</li>
+<li>send some fake packages and receive them at the location</li>
+<li>establish a pretend situation where you are there multiple times during the week.</li>
+</ul>
+
+
+<p>The number of people that can do this is uselessly low. If you can do this, good for you but don&rsquo;t waste your time trying to figure this situation out.</p>
+
+<p>Lets talks talk about some pragmatic approaches.</p>
+
+<h2>Risk Calculations</h2>
+
+<p>To get something shipped, you must take a risk calculation. How much do you care about the package you&rsquo;re receiving, how often are you doing it, how likely are you to be caught, and what are the consequences of being caught.</p>
+
+<pre><code>value * frequency + caught * sentence = RISK
+</code></pre>
+
+<p>This is a bull shit calculation but you can use it to come up with an arbitrary number to assign a consistent risk score and it&rsquo;s on point.</p>
+
+<p>Lets review your situation:</p>
+
+<ul>
+<li>you plan on sending an illegal product across country, providence, or state lines</li>
+<li>you plan on using a federally funded system to do so (in the case of US Mail)</li>
+<li>You are plan on putting a name and address on the recipient of the illegal product</li>
+</ul>
+
+
+<h2>How do you do it?</h2>
+
+<p>First: Don&rsquo;t. I know that&rsquo;s a cop out but seriously reconsider. Other options are:</p>
+
+<ul>
+<li>pick it up directly from the contact</li>
+<li>agree on shipping using a private company</li>
+</ul>
+
+
+<p>Ok, you&rsquo;re not going to do that. If you need to, here are a few things to remember:</p>
+
+<ul>
+<li>Use your real name. I know, just do it.</li>
+<li>Make yourself unlikely to be cause. Small packages, envelopes, now quantities</li>
+<li>Be nice. There&rsquo;s some real documents that show how delivery guys are responsible for determining if you are a sketchy person and decide that you&rsquo;re a high risk delivery.</li>
+<li>Don&rsquo;t sign for your packages. There will always be situations where you need to but don&rsquo;t use your real signature.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tor Browser vs Your Browser]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/12/16/tor-browser-vs-your-browser/"/>
+    <updated>2015-12-16T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/12/16/tor-browser-vs-your-browser</id>
+    <content type="html"><![CDATA[<p>There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making a secure host and you only route traffic over tor and you&rsquo;ve employed various security protections to limit your risk, etc. So you, you say to yourself, &ldquo;I don&rsquo;t need the Tor Browser Bundle, I&rsquo;ve already installed tor.&rdquo; You would be wrong.</p>
+
+<p>The Tor Browser (part of TBB) offers a lot of additional security protections that your &ldquo;raw&rdquo; browser doesn&rsquo;t. <a href="https://www.torproject.org/about/corepeople.html.en">Mike Perry</a> who manages the TBB portion of the Tor Project (among other things) has put in a lot of work.</p>
+
+<p>Here are just a few reasons:</p>
+
+<h1>Reason #1: WebRTC</h1>
+
+<p>Here&rsquo;s a quick example: Remember the <a href="https://threatpost.com/webrtc-found-leaking-local-ip-addresses/110803/">private IP disclosure</a> vulnerability that&rsquo;s possible using WebRTC? Well the <em>only</em> browser (AFAIK) that isn&rsquo;t vulnerable to this issue is the Tor Browser. You can&rsquo;t prevent it by disabling JavaScript and you can&rsquo;t block it through an extension. And we know that Chrome, Safari, IE, and Opera aren&rsquo;t any help either.</p>
+
+<p>This issue alone should scare you into reconsidering using a raw browser no matter how many extensions you have installed. By the way, if you&rsquo;re interested in seeing how you can disable WebRTC from firefox, it&rsquo;s a compiletime flag: <code>--disable-webrtc</code>.</p>
+
+<h1>Unique Identifiers</h1>
+
+<p>If I can correlate your website visit across mutiple sessions I can potentially deanonymize you in the case that you visit my site over tor and then in the clear. Even in the best case, I will still be able to watch your activities across multiple visits. What if I can correlate between when you log in as user A to those when you log in as user B.</p>
+
+<p>There are so many situations where a malicious web page could include some kind of identifying token. The ones mitigated by TB include:</p>
+
+<ul>
+<li>HTTP auth headers (e.g. <code>http://{IDENTIFIER}username:password@website.com/</code>)</li>
+<li>Cache lookup (e.g. injecting an ID into the cache and check to see if it exists on next visit)</li>
+<li>Cookies (e.g. tracking cookie identified by third parties)</li>
+<li>HSTS super cookies (e.g. multi-site owners can build a unique ID based on whether a user has a cached HSTS record for a particular set of domains)</li>
+</ul>
+
+
+<h1>Fingerprinting Defenses</h1>
+
+<p>Fingerprinting the browser, the hardware, the user, the location, or any kind of identifying information related to a user&rsquo;s session is a very difficult attack to completely defend against. TB does what it can though to defend against this scenario. There are some crazy attacks available including:</p>
+
+<ul>
+<li><a href="http://www.andlabs.org/tools/jsrecon.html">port scanning via web sockets</a></li>
+<li>extracting a list of installed fonts</li>
+<li><a href="https://dvcs.w3.org/hg/gamepad/raw-file/default/gamepad.html#widl-Gamepad-id">USB device enumearation via the Gamepad API</a></li>
+</ul>
+
+
+<p>Maybe TB hasn&rsquo;t solved this problem but the question is, what do you think your current browser is doing?</p>
+
+<h1>Plugin Controls</h1>
+
+<p>Your extensions/plugins/addons are terrifying. They can do whatever they want, not only to your browser, but to anything on your system. Because of this, TB has <a href="https://gitweb.torproject.org/tor-browser.git/commit/?h=tor-browser-31.6.0esr-4.5-1&amp;id=8c6604d2b776f0d8e33ed9130c5f5b8cf744bac8">patched the DNS service</a> to ensure that a browser extension doesn&rsquo;t accidentally leak your DNS requests. This is also done for OCSP so that certificate lookups must be done over the SOCKS proxy and tor.</p>
+
+<p>Similarly, when loading the Flash or Gnash plugin, TB uses the click-to-play control so that in order to play a Flash applet, the user must explicitally click on it before it executes. The risk of Flash or any plugin for that matter goes back to whether it always adheres to proxy settings as well as what type of information is exposed to the applet. Can they obtain your local IP? Can they access a session cookie?</p>
+
+<h1>External Event Blocking</h1>
+
+<p>On your computer right now, you&rsquo;ve likely setup default programs associated with certain types of files. In a browser, you can also setup external programs associated to a protocol. For example <code>tel://</code>, <code>skype://</code>, or <code>ssh://</code> allows a browser to automatically send data from the browser into the associated program. There&rsquo;s a risk here that it will disclose your private info to those programs and therefore compromise your anonymity.</p>
+
+<p>The defense in this case is present a <a href="https://gitweb.torproject.org/torbutton.git/tree/src/components/external-app-blocker.js">pop-up</a> whenever a request to leave the browser is made.</p>
+
+<h1>History and Storage</h1>
+
+<p>TB does everything it can to never touch your disk and never allow your browsing history to be saved to a file. There are a lot of ways <a href="https://trac.torproject.org/projects/tor/query?keywords=~tbb-disk-leak&amp;status=!closed">this is accomplished</a> but the risk has been that if the history or sensitive information is stored on disk, it may be accessible to other appliations or to a forensic investigator.</p>
+
+<h1>More information</h1>
+
+<p>There&rsquo;s <a href="https://www.torproject.org/projects/torbrowser/design/">dozens of other</a> reasons that may or may not be applicable to your plans. The point here again is, the level of effort that the Tor Browser has employed makes you question how secure your current browser configuration is.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Running Tor Browser Without the Bundle]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle/"/>
+    <updated>2015-12-15T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle</id>
+    <content type="html"><![CDATA[<p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
+
+<h2>How</h2>
+
+<ul>
+<li>Download <a href="https://www.torproject.org/download/download-easy.html.en">TBB</a></li>
+<li>Extract</li>
+<li><p>Cd to the following directory:</p>
+
+<pre><code>  tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default$
+</code></pre></li>
+<li>Modify <code>extensions.ini</code></li>
+<li><p>Comment out the following line:</p>
+
+<pre><code>  #Extension2=/home/death/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher@torproject.org.xpi
+</code></pre></li>
+</ul>
+
+
+<h2>Setup</h2>
+
+<p>This assumes that you&rsquo;re running tor on port 9050 and ideally that you have your control port enabled with a password of &ldquo;secret&rdquo; to access it. That&rsquo;s only if you want to be able to control Tor via the browser extension. Maybe you don&rsquo;t.</p>
+
+<p>If you want to set your password to &ldquo;sercret&rdquo; you can use tor to generate the hash for you:</p>
+
+<pre><code>    tor --hash-password secret
+</code></pre>
+
+<p>Copy that into your /etc/torrc file under the HashedPassword section.</p>
+
+<p>You can take a look at the other comments found in <code>start-tor-browser</code>:</p>
+
+<pre><code>    # SETTING NAME                            VALUE
+    # extensions.torbutton.banned_ports       [...],&lt;SocksPort&gt;,&lt;ControlPort&gt;
+    # extensions.torbutton.block_disk         false
+    # extensions.torbutton.custom.socks_host  127.0.0.1
+    # extensions.torbutton.custom.socks_port  &lt;SocksPort&gt;
+    # extensions.torbutton.inserted_button    true
+    # extensions.torbutton.launch_warning     false
+    # extensions.torbutton.loglevel           2
+    # extensions.torbutton.logmethod          0
+    # extensions.torbutton.settings_method    custom
+    # extensions.torbutton.socks_port         &lt;SocksPort&gt;
+    # extensions.torbutton.use_privoxy        false
+    # extensions.torlauncher.control_port      &lt;ControlPort&gt;
+    # extensions.torlauncher.loglevel          2
+    # extensions.torlauncher.logmethod         0
+    # extensions.torlauncher.prompt_at_startup false
+    # extensions.torlauncher.start_tor         false
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Arms Race to the Most Secure OS]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/12/04/qubes-opsec/"/>
+    <updated>2015-12-04T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/12/04/qubes-opsec</id>
+    <content type="html"><![CDATA[<p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
+
+<h1>TAILS</h1>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/tails.png" width="300">
+<a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
+
+<p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n&#8217;th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
+
+<p>As stated, we are paying more attention to the secure tools that we use and this has identified some <a href="https://www.schneier.com/blog/archives/2014/07/security_vulner_4.html">fatal flaws</a> in TAILS. If you <a href="https://tails.boum.org/security/#index3h1">look back</a> at the TAILS project, the number of vulnerabilities identified and reported have are much smaller before than after Snowden disclosures.</p>
+
+<ul>
+<li><strong>Development</strong>: Highly active with multiple paid developers</li>
+<li><strong>Maturity</strong>: First created in</li>
+<li><strong>Goals</strong>: Provide an easy-to-use live environment for temporary work.</li>
+<li><strong>Roadmap</strong>: Continue same model and further harden the OS.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Minimal support for persistence (besides files). Not designed to be installed but just run once.</li>
+<li>No mitigations for GCHQ/NSA type low level hardware attacks</li>
+<li>The focus on supporting all forms of users may affect security</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Qubes OS</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/qubes.png" width="300">
+I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
+
+<p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
+
+<p><span class='pullquote-right' data-pullquote='it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &#8220;identity&#8221; with &#8220;virtual object&#8221; and you have their security model'>
+Technical details aside for a moment, it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &ldquo;identity&rdquo; with &ldquo;virtual object&rdquo; and you have their security model.</p>
+
+<p>This is accomplished by making several virtual objects. You virtualize your firewall, you virtualize your USB controller, you virtualize the browser you&rsquo;re using for Project A, and separately, you virtualize the browser you&rsquo;re using for Project B. From here, QubesOS helps facilitate communications between those objects if necessary.
+</span></p>
+
+<p>QubesOS offers some features that no other system currently offers. The big one for me is virtualization for USB controller. So no only are you creating virtual machines, you&rsquo;re creating virtual controllers. If someone malicious is plugged into your system, even in the case of an [0-day exploiting the firmware of your USB controller], the rest of your system is not compromised.</p>
+
+<p>The other major feature that we know is in the GCHQ playbook is protection from WiFi driver exploits. We&rsquo;ve heard of this exploit being used in the while but have yet to have a real mitigation from it. With QubesOS, your wireless card is its own virtual object that contains the exploit into its own virtual machine.</p>
+
+<p>There is a lot more to talk about with QubesOS but it does seem the one to watch going forward.</p>
+
+<ul>
+<li><strong>Development</strong>: Active but a small group.</li>
+<li><strong>Maturity</strong>: v3.1 released is functional but not perfect.</li>
+<li><strong>Roadmap</strong>: Investing time in rebuilding the UI is a priority.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Hardware support is difficult to predict. They have an approved list but you can&rsquo;t assume it will work on all systems.</li>
+<li>Performance is relatively poor to the other systems and Qubes consumes a lot of memory for each of the virtual machines.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>SubgraphOS</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/subgraph.png" width="300">
+<a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
+
+<p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
+
+<p>The problem thus far is that only a small group of people have seen SubgraphOS working. I&rsquo;m also concerned about the development of SubgraphOS by the company, Subgraph. We know that Subgraph is a <a href="https://subgraph.com/about-us/index.en.html">&ldquo;security&rdquo; company</a> that aims to provide services and products to its clients. The other two projects discussed here have been community projects and money is not the primary goal. The owner of the company comes from the secure kernel world where he was a mod of one of the most popular and dramatic bug hunting mailing lists.</p>
+
+<p>SubgraphOS had the problem of being announced way too soon. They showed off the now famous <a href="https://subgraph.com/img/sgos.png">SubgraphOS images</a> that caught everyone&rsquo;s eye before there was anything to actually look at.</p>
+
+<p>I come from the perspective of seeing tons of projects die in the past. The ones that I&rsquo;ve seen stick through are not usually (ever?) the ones released for free by a money making company.</p>
+
+<ul>
+<li><strong>Development</strong>: Probably active? Not open to the public.</li>
+<li><strong>Maturity</strong>: Immature, pre-alpha releases</li>
+<li><strong>Roadmap</strong>: Hopefully release a beta to the public soon.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Money may affect the development of the product.</li>
+<li>Closed development may deter acceptance of even a finished product.</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Camgirl OPSEC]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec/"/>
+    <updated>2015-10-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec</id>
+    <content type="html"><![CDATA[<p>If you read this <a href="http://motherboard.vice.com/read/camgirl-opsec-how-the-worlds-newest-porn-stars-protect-their-privacy-online">interesting post</a> from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as part of your threat model.</p>
+
+<h2>Low Tech But High Investment</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/badgirl.jpg" width="300"></p>
+
+<p>You don&rsquo;t expect that an overzealous camgirl fan to be able to do facial recognition, but we know that services like Google and Facebook can offer <a href="http://www.facesearch.com/">this service</a> for free! Doing a reverse image lookup or trying to look at a photo&rsquo;s metadata are really simple things that just about any low life can figure out.</p>
+
+<p>The more serious weapon that they have is not technology, but commitment and drive. They will do anything in their power to try and find out information about you.</p>
+
+<h2>Recommendations</h2>
+
+<p><strong>Buy Burner Everything</strong>: We&rsquo;ve heard about burner phones but don&rsquo;t forget about a dedicated cam girl laptop, and more importantly camgirl camera used only for your online business.</p>
+
+<p>Your camera can tell a lot about you. The optics, resolution, capabilities are all fingerprintable metrics. If a perv is able to find another photo series using the same expensive equipment, it may be be possible for them to find that you&rsquo;re cross-posting dirty pictures on other sites like Facebook.</p>
+
+<p><strong>Do Your Homework On The Service:</strong> The article mentions using a VPN of course. This is important as a fall back but it&rsquo;s important that the camgirl service being used does everything it can to protect your IP from being leaked. Ask questions to the service about whether IPs are logged and who has access to that information. How do you create accounts and how do you recover your password if it&rsquo;s lost? Which brings us to a reminder about account security.</p>
+
+<p><strong>Secure Your Accounts:</strong> Does the cam service let you reset your password by answering a few personal questions? Are these questions that someone that is a super-fan would know by chatting with you? Find a cam service that provides two-factor security so that you enter in a user name, a password, and then you have to enter in a One-Time-Password. This will help ensure that no one is able to get in even if they guess what your password is. In my &ldquo;research&rdquo; I have found only once service that provides this type of security. And of course, choose a strong password.</p>
+
+<p><strong>Build a List Of Lies:</strong> There is no good defense against someone that is going to do everything they can to try and get you to leak information about yourself. As I&rsquo;ve discussed before, don&rsquo;t tell them what you don&rsquo;t want them to know. Lie to them.</p>
+
+<p>If someone asks you about your coffee table and you realize it was made two streets down from your current location, don&rsquo;t say &ldquo;Sorry I can&rsquo;t tell you.&rdquo; You&rsquo;ve confirmed to the adversary a piece of sensitive information that they will likely target at another time. Lie to them. Tell them it&rsquo;s a popular brand purchased from a popular store that is popular in your entire country.</p>
+
+<p>Come up with a list of lies so that you can remember to maintain them. This could include:</p>
+
+<ul>
+<li>Name</li>
+<li>Country of origin</li>
+<li>Age of your house</li>
+<li>Brothers, sisters, family members and their names</li>
+<li>Previous relationships</li>
+<li>Favorite band, music, politician, TV show, movie, book, etc.</li>
+<li>University and expertise</li>
+<li>Professional employment</li>
+</ul>
+
+
+<p><strong>Hide In The Darkness:</strong> If you live cam at 17:00 every day, and you do it by a window, they not only will be able to deduce what timezone you&rsquo;re in, but also how far North you live. Those camgirls that live in the Scottish Highlands will have a lot less daylight towards Winter, something that an attacker would notice.</p>
+
+<p><strong>Tell Your Friends About Your Policy:</strong> You might be embarrassed about being a cam&#8217;er and telling your friends about it is the worst idea. But consider this, if someone finds out that you are a cam girl, are you sure that friend won&rsquo;t leak your information.</p>
+
+<p>When someone finds out that you are friends with someone else, their gears will automatically shift to finding out about them. Do they have the same OPSEC policy as you? Do they have an open Facebook account? Do they have any other pictures of you that they&rsquo;re willing to sell?</p>
+
+<p><span class='pullquote-right' data-pullquote='It&#8217;s always better to confide in someone a secret, than risk they find out on their own.'>
+It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s always better to confide in someone a secret, than risk they find out on their own. By letting them in on the secret, and showing them how serious the secret is to you, you are asking them to join in to protect that secret. Without doing so ahead of time, there is no social contract that would imply this.
+</span></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Evading Stylometry Attacks Using VIM Spellcheck]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck/"/>
+    <updated>2015-09-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck</id>
+    <content type="html"><![CDATA[<p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
+
+<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
+
+<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
+
+<h2>VIM</h2>
+
+<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings&#8217; grammar, as well as help you find which words to add.</p>
+
+<ul>
+<li>Enable spell check in your .vimrc file by adding the following line:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
+</ul>
+
+
+<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
+
+<h2>Grammar</h2>
+
+<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
+
+<h2>UPDATE</h2>
+
+<p>If you want to at least do a frequency analysis of the words in your text, it&rsquo;s pretty easy to do. The following is an example in python. If you run this and provide an argument of your text file, it will give you a break down of your most common words, hopefully to help you determine what words you could be attributed to using most often.</p>
+
+<figure class='code'><figcaption><span>stemmer.py </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
+</span><span class='line'><span class="c"># Author: b3rn3d</span>
+</span><span class='line'><span class="c"># Based on: http://www.nltk.org/api/nltk.stem.html</span>
+</span><span class='line'><span class="c"># Usage: ./stemmer.py filename.txt</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'>  <span class="kn">from</span> <span class="nn">Stemmer</span> <span class="kn">import</span> <span class="n">Stemmer</span> <span class="k">as</span> <span class="n">SS</span>
+</span><span class='line'><span class="k">except</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;Stemmer/Snowball not installed. Please install it via apt-get install python-stemmer&quot;</span>
+</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;FAIL: Supply test file to analyze.&quot;</span>
+</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span class='line'><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#extract words</span>
+</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;\w+&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">stemmer</span> <span class="o">=</span> <span class="n">SS</span><span class="p">(</span><span class="s">&#39;english&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#count stems and extract shortest words possible</span>
+</span><span class='line'><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">stem</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stemWord</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">stem</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">shortest</span><span class="p">,</span><span class="n">count</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span>
+</span><span class='line'>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">shortest</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">shortest</span> <span class="o">=</span> <span class="n">word</span>
+</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">shortest</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#convert {key: (word, count)} to [(word, count, key)] for convenient sort and print</span>
+</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">wordcount</span> <span class="o">+</span> <span class="p">(</span><span class="n">root</span><span class="p">,)</span> <span class="k">for</span> <span class="n">root</span><span class="p">,</span><span class="n">wordcount</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+</span><span class='line'><span class="c">#trick to sort output by count (descending) &amp; word (alphabetically)</span>
+</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</span><span class='line'><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s"> (Root: </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">item</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lie to Me, Please]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/09/22/lie-to-me/"/>
+    <updated>2015-09-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/09/22/lie-to-me</id>
+    <content type="html"><![CDATA[<p>You can always tell how important a secret is to you by how many people you tell and the way you keep the secret. That is to say, when hiding whether or not you were dating So-and-So, you might coyly smirk &mdash; a simple tell for anyone to determine you&rsquo;re lying and that&rsquo;s exactly your intention: to gain more attention. But when you killed someone in a hit-and-run for example, there&rsquo;s no coy smirk on your face when you adamantly deny it. These two types of lies are an important differentiation to realize when protecting yourself.</p>
+
+<p>If you have an interesting project that needs to be kept secret, it may be hard to maintain the discipline of keeping it a secret. Often, the vanity of your project will tempt you to share the details with someone else even though you know it is safer to keep them a secret. In hindsight, you&rsquo;ll come to realize that you&rsquo;ve created a liability but for those few moments of discussion, you will irrationally determine it was worth it.</p>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/conversation.png" width="400"></p>
+
+<p>In hacker OPSEC the first rule is of course we don&rsquo;t talk about OPSEC. And that, just like in Fight Club, is the first rule that is broken. We have friends that we&rsquo;d like to share information with, or we disclose a small portion of a secret that leads to questions about that secret. If this doesn&rsquo;t make sense, let me present you a conversation:</p>
+
+<p>A: I wonder what $Company does for their physical security system.
+B: Well&hellip; they actually do X, Y, and Z.
+A: How do you know that?</p>
+
+<p><span class='pullquote-right' data-pullquote='People feel more comfortable being blatantly lied to as opposed to telling them that they can&#8217;t find out the truth.'>
+Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo; with an all-knowing smirk, or if that truly was information you&rsquo;re protecting, you lie. And this is my point: People feel more comfortable being blatantly lied to as opposed to telling them that they can&rsquo;t find out the truth.
+</span></p>
+
+<p>I bring this up because this should be remembered from two points of view. The first from your own perspective: you should never break the first rule of opsec and hopefully never lead someone into asking you these types of questions. The second reason is to bring attention to those that talk this way and how they are leaking intel.</p>
+
+<p>In most cases, those people that say they are hiding something, are usually not. The coy smiles are a way of appearing interesting without the threat of actually requiring to be interesting. In these cases, you can easily define whether the person could become a resource or should discarded.</p>
+
+<p>In summary, make sure you lie to people. Ideally it should be a well thought through lie but if you don&rsquo;t have that, say something&hellip; anything. A stupid lie is much better than saying nothing or that you can&rsquo;t tell them because it makes the other party more interested. This type of attention is not something you usually want.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Analyzing Trust and Secret Disclosure]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/08/22/secret-disclosures/"/>
+    <updated>2015-08-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/08/22/secret-disclosures</id>
+    <content type="html"><![CDATA[<p>OPSEC and relationships are often opposing forces. You’ve spent months perfecting your OPSEC for a campaign when your friend walks in and says “Ooh what’s that.” Or you signifigant other finds a file marked “Super juicy secret.” I do believe that humans are social beings no matter how hard we try. Even nerds that stay home will end up yearning for personal  contact in some way. How do you determine if you should share a secret with another person and build a relationship with that person at the risk of compromising your campaign?</p>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/relationships.jpg" width="400"></p>
+
+<p>Look at the OPSEC measures that the members of lulzsec used. They all trusted eachother and everyone knew other peoples names, and in some cases addresses. This relationship of trust ended up being their downfall.</p>
+
+<h2>Example</h2>
+
+<p>Let us start with a secret for sake of discussion: I have a laptop riddled with Taylor Swift songs.</p>
+
+<p>My OPSEC campaign includes that I’ve encrypted my laptop so that even with access, the songs would be difficult to find. I hide my laptop in a broom closet. The broom closet for some reason has a lock on it. But still there are days when I really want to listen to my favorite Swift jam and because I live with my mother, she catches me rocking out.</p>
+
+<p>In this case, its straight forward. Your mother is the adversary, she can never know about Taylor Swift songs and you’ve likely done a better job at hiding.</p>
+
+<p>But what about the situation where you are hanging out with a friend and notice that she is an avid Taylor Swift fan and if you share this commonality with her, you might establish a deeper relationship.</p>
+
+<h2>The Three Disclosure Tactics</h2>
+
+<p>I’ve found that people handle this in three potential tactics when disclosing a secret:</p>
+
+<ol>
+<li>You decide that you can trust this person and privately disclose that you are a Taylor Swift fan.</li>
+<li>You drop hints that you may or may know something about Taylor but you’re unwilling to disclose it out-right to just anyone but secretly hope that the other person will ask you about it.</li>
+<li>You don’t let on that you’re into TS at all.</li>
+</ol>
+
+
+<p>These are stupid situations but these are how most people handle secrets.</p>
+
+<h2>Trusted Disclosure</h2>
+
+<p>Option 1, trusted disclosure is where you analyze the relationship with the other person, look at the risk involved in disclosing, and the potential reward that exists if you do share. This is what some may call “normal” in terms of relationships. You decide that you will disclose a secret to a trusted person and expect that the trusted person does not use this information against you. If for example, you know that the other party has worthwhile knowledge related to your secret, the reward may outweigh the risk that the disclosure is used to exploit you.</p>
+
+<h2>Plausibly Deniable Disclosure</h2>
+
+<p>In option 2, plausibly deniable disclosure, you hint that you might have a secret but you can still plausibly deny that the secret exists. There is less analysis of risk vs reward or analysis of the trust of the person so you’ll often hear people leak this in public. “I might know something about X but I can’t tell you”. If you go to DEFCON, you will hear this just about every day.</p>
+
+<p>This is the most common tactic with people missing social contact/relationships and let their ego get in the way. This either means that the secret being kept is not that risky of a secret, or the person is not disciplined enough to follow opsec. In either case, frowned upon in terms of OPSEC.</p>
+
+<h2>Zero Knowledge</h2>
+
+<p>The last option is not a disclosure at all but maintains a zero knowledge relationship going forward. In terms of OPSEC, you can consider this a firewall rule that blocks all by default. In this scenario you get no reward, no commonality in the relationship, and no benefit besides the fact that you can keep in your pocket that you have a secret in-depth knowledge of a subject that may be of interest to the subject. Because remember, knowledge is power and knowledge of someone’s knowledge is a power you may not want to concede.</p>
+
+<p>Be disciplined. Be in control. Make active decisions about your disclosures and your relationships.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Risks of Relationships]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/07/04/opsec-relationships/"/>
+    <updated>2015-07-04T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/07/04/opsec-relationships</id>
+    <content type="html"><![CDATA[<p>I don&rsquo;t often write about myself but for examples purposes, I will disclose that I&rsquo;ve recently entered into a relationship with a person for the first time in a long time. While this is exciting for me and also sad, the idea of how to handle relationships while maintaining OPSEC is a minefield.</p>
+
+<h2>Trust</h2>
+
+<p>The first thing you&rsquo;re told in any relationship be it with a signifigant other, a family member, or a friend, is that trust is key. You should be able to confid in the other person about your darkest secrets.</p>
+
+<p>For some of us, our darkest secrets are not things to disclose to the SO. Not because you&rsquo;re selfish or don&rsquo;t trust the other, but because some disclosures make the other liable (a legal term).</p>
+
+<h2>Identity Division</h2>
+
+<p>In other cases, you&rsquo;ve created a new identity that has nothing to do with your IRL identity in which case, these secrets have nothing to do with the other person. If you&rsquo;ve created an OPSEC campaign where you&rsquo;ve properly divided all of your personal relationships from your online identity, you are no longer that person.</p>
+
+<p>This, admittedly, is a rationalization of a complicated issue that I have not, nor plan to in the near future, discuss with my SO. I suggest that you do the same.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ego and OPSEC]]></title>
+    <link href="http://www.b3rn3d.com/blog/2015/02/04/ego-and-opsec/"/>
+    <updated>2015-02-04T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2015/02/04/ego-and-opsec</id>
+    <content type="html"><![CDATA[<p>If you&rsquo;ve been <a href="http://www.htxt.co.za/2015/02/04/silk-road-trial-closes-would-dread-pirate-roberts-do-that/">following the DPR story</a> you&rsquo;ll notice that the prosecution paints DPR as an ego-maniac willing to do anything to gain more and more power and money. It doesn&rsquo;t matter if a lawyer is right, but the picture that it paints highlights a challenge that humans have with OPSEC, their ego.</p>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/ego.jpg" width="400"></p>
+
+<p>As you go dark, moving away from what would be your normal life (or fractioning off from it) has a novelty to it. It feels fun, and exciting, and you feel like you&rsquo;re doing something interesting. This is your ego kicking you in the back of the head and if you feel it at first, you&rsquo;ll know it&rsquo;s going to be a problem going forward. As the novelty wears off, your OPSEC becomes more of a discipline than a game. You follow your procedures and lock yourself down, but you sigh at how it&rsquo;s arduous compared to the everyday consumer.</p>
+
+<p>If you&rsquo;ve continued this far, and you haven&rsquo;t broken protocol, the feeling of isolation and loneliness creeps in. Similar to what U.S. and U.K soldiers deal with when given high clearances. You can&rsquo;t talk about what you did, are doing, or will be doing otherwise the results will be devastating.</p>
+
+<p><span class='pullquote-right' data-pullquote='Without this feeling of success fueling your ego, your self-esteem begins to deteriorate, and your motivation turns into self-discipline.'>
+Even if your natural tendency is not to be an outwardly confident person, your mind automatically has a need to feel pride for the work that it&rsquo;s doing. Similar to how a school janitor is proud of her job, and takes it as serious as the medical doctor, your brain will automatically rationalize your success relative to your surroundings. Without this feeling of success fueling your ego, your self-esteem begins to deteriorate, and your motivation turns into self-discipline.
+</span></p>
+
+<h2>DPR Ego Mistakes</h2>
+
+<p>The DPR case is a perfect reminder. Thus far, the story goes that DPR was caught at a library because he walked away from his computer while it was still running. He kept a backup copy of the Silk Road software on his nightstand. He originally created Silk Road as a clearnet domain, silkroad.org and then took that down. He kept a journal of all of his activities while he was dark and even referenced personal details like travel plans and medical issues.</p>
+
+<p>It&rsquo;s easy to conclude that DPR is a young, naive kid without any plans to truly defend against the type of surveillance that he was put under. That may be true but I would like to suggest that he succumb to the natural human tendency to share with someone the fame and power that he had created. To let people in on how accomplished (in his own mind) he had become. As the fame of Silk Road increased, so did his need to take a little credit.</p>
+
+<h2>Alter ego</h2>
+
+<p>The alter ego is supposed to be a split off of your personality, have different motivators, different skills, different temperament. In many ways this is a powerful asset as an OPSEC expert, yet difficult to achieve. Even up achieving, you will continue to be a slave to feeding that alter ego&rsquo;s, ego, so don&rsquo;t ignore it.</p>
+
+<h2>Lessons Learned</h2>
+
+<p>It might be easy to say &ldquo;I&rsquo;ll just not pay attention to my ego&rdquo; but this would be a challenge that Eastern Religions have tried teach individuals for years and years. Your ego plays an important part of your psyche and there may be tricks to ignore it, but it&rsquo;s easier to accept it and learn how to feed it. If your operations have an outcome, ensure that you take the time to appreciate that you have achieved your goals. You can even take some of the motivators out of a weight-loss book and set a celebratory event based on the success of your operation.</p>
+
+<p>Buy yourself that cake. You deserve it. Just remember to eat it in the darkness. :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[XKeyScore Source Code Review]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review/"/>
+    <updated>2014-07-04T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review</id>
+    <content type="html"><![CDATA[<p>The <a href="http://boingboing.net/2014/07/03/if-you-read-boing-boing-the-n.html">recent revelations from Jake Applebaum, et all today</a>, highlight some not-to-be-understated revelations.</p>
+
+<ul>
+<li>Tor users are directly targeted</li>
+<li>TAILS users are directly targeted</li>
+<li>People searching for privacy tools are targeted</li>
+</ul>
+
+
+<p>While the conclusion by some may have been &ldquo;well of course the NSA is doing that&rdquo; the revelation and the insight it provides is direct, specific evidence that people worried about their privacy are being attacked. More-over, this provides further evidence that the NSA&rsquo;s goal is to <a href="http://www.democracynow.org/2014/5/13/collect_it_all_glenn_greenwald_on">collect it all</a>.</p>
+
+<h2>The Revelations</h2>
+
+<p><span class='pullquote-right' data-pullquote='privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services'>
+To summarize, the source code to the NSA program, <a href="https://en.wikipedia.org/wiki/XKeyscore">XKeyscore</a> (known since the early days of the Snowden disclosures) has been leaked. It sounds like the program&rsquo;s entire source code is in the hands of another party and it shows what the code does, how it works and who it&rsquo;s targeting. We now know that privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services. Each of these are considered suspicious activities and flagged as the IP&rsquo;s of suspects by NSA&rsquo;s network monitoring machine.  This is further a reminder that if you look like you are privacy conscious, you are going to be a targeted as an &ldquo;extremist&rdquo; in the eyes of the United States and it&rsquo;s allies.
+</span></p>
+
+<h2>Tracking Bridge Users</h2>
+
+<p>XKeyscore is tracking the IP addresses that are sending emails to the Tor bridge automated account. When a user is in a country that blocks Tor, they have an option to use an unlisted Tor entry node called bridges. To get an unlisted bridge IP, one of the options is to email a Tor Project email address which auto-replies with an address of a bridge. The <a href="https://en.wikipedia.org/wiki/Five_Eyes">Five Eyes</a> have been documenting each IP that makes a request to that email address.</p>
+
+<h2>Tracking Tor Directory Authorities</h2>
+
+<p>Another facet disclosed was that the NSA are targeting a specific Tor directory server run by Sebastian Hahn. I believe that this is the case only because the source of the XKeycode leak was by a node in Germany. Looking at nodes in other countries, would point to a corresponding directory authority in that region.</p>
+
+<p>Until relatively recently, the Tor Network consisted of only 9 directory servers of which all clients would first make a connection to prior to joining the Tor network. These 9 directory servers are still in place, but an additional feature lets Tor nodes act as a directory server cache. With this feature, you weren&rsquo;t automatically required to connect to one of the directory authorities during each bootup. This helps mitigate this risk.</p>
+
+<h2>Tracking Tor Entry Nodes</h2>
+
+<p>Even if your connection to the directory authorities were not caught by the program, your connections to the Tor entry nodes were. So while directory authorities were only used during boot, the connections to Tor entry nodes were used repeatedly as your client will build a circuit.</p>
+
+<p>There&rsquo;s not much you can do to defend against this one. Using a bridge would ensure that XKeyScore won&rsquo;t know which IP&rsquo;s to track, but the requests for bridges are caught as well. One may consider running their own unlisted Tor entry node, which is possible, but it severely degrades your anonymity. Users concerned with this may consider using a VPN service and then connecting over Tor. This would not fix it, but it would make it more difficult to identify the originating request to connect to Tor.</p>
+
+<h2>Tracking Torproject.org Visits</h2>
+
+<p>One of the more useless network iterations that are logged is that of users visiting www.torproject.org. The document shows what they are calling &ldquo;microplugins&rdquo; that highlight specific pieces of information that are caught in transit. Your visit to the Tor Project&rsquo;s website logged and you are now flagged as suspicious.</p>
+
+<h2>XKeyScore Code</h2>
+
+<p>The most interesting part is the code released showing how XKeyScore works. Many have already highlighted that the NSA programs are merely malicious implementations of existing technology (as opposed to custom software built from the ground up). We can see that XKeyScore&rsquo;s database uses a <a href="https://en.wikipedia.org/wiki/Mapreduce">MapReduce</a> model. One very common with NoSQL databases like Hadoop. This is hinted in the &ldquo;mapper&rdquo; and &ldquo;reducer&rdquo; functions that searches for onion addresses:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mapper&lt;onion_t>: 
+</span><span class='line'>      static const std::string prefix = "anonymizer/tor/hiddenservice/address/";
+</span><span class='line'>
+</span><span class='line'>      onion_t onion;
+</span><span class='line'>      size_t matches = cur_args()->matches.size();
+</span><span class='line'>      for (size_t pos=0; pos &lt; matches; ++pos) \{
+</span><span class='line'>        const std::string &value = match(pos);
+</span><span class='line'>        if (value.size() == 16)
+</span><span class='line'>          onion.set_address(value);
+</span><span class='line'>        else if(!onion.has_scheme())
+</span><span class='line'>          onion.set_scheme(value);
+</span><span class='line'>        else
+</span><span class='line'>          onion.set_port(value);
+</span><span class='line'>      \}
+</span><span class='line'>
+</span><span class='line'>      if (!onion.has_address())
+</span><span class='line'>        return false;
+</span><span class='line'>
+</span><span class='line'>      MAPPER.map(onion.address(), onion);
+</span><span class='line'>      xks::fire_fingerprint(prefix + onion.address());
+</span><span class='line'>      return true;
+</span><span class='line'>  
+</span><span class='line'>    reducer&lt;onion_t>:
+</span><span class='line'>      for (values_t::const_iterator iter = VALUES.begin();
+</span><span class='line'>          iter != VALUES.end();
+</span><span class='line'>          ++iter) {
+</span><span class='line'>        DB["tor_onion_survey"]["onion_address"] = iter->address() + ".onion";
+</span><span class='line'>        if (iter->has_scheme())
+</span><span class='line'>          DB["tor_onion_survey"]["onion_scheme"] = iter->scheme();
+</span><span class='line'>        if (iter->has_port())
+</span><span class='line'>          DB["tor_onion_survey"]["onion_port"] = iter->port();
+</span><span class='line'>        DB["tor_onion_survey"]["onion_count"] = boost::lexical_cast&lt;std::string>(TOTAL_VALUE_COUNT);
+</span><span class='line'>        DB.apply();
+</span><span class='line'>        DB.clear();
+</span><span class='line'>      }
+</span><span class='line'>      return true;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Full Code</h2>
+
+<p>Below is the full code released:
+<a href="http://www.b3rn3d.com/assets/xkeyscorerules100.txt">xkeyscorerules100.txt</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Privacy Controls as a Fingerprinting Attack]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/06/22/privacy-controls-for-fingerprinting/"/>
+    <updated>2014-06-22T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/06/22/privacy-controls-for-fingerprinting</id>
+    <content type="html"><![CDATA[<p>Privacy conscious websites and applications often give you privacy controls like &ldquo;opt&#8217;ing-out&rdquo; of using your browsing habits for statistics, or setting whether or not to share your profile information. If you&rsquo;ve already done your job to ensure that you are not sharing any sensitive information, these pseudo-privacy controls may put you at a high risk of being labeled a suspicious account.</p>
+
+<h2>How Privacy Controls Actually Work</h2>
+
+<p>Lets take, for example, a forum where you can make changes to your settings to not include your information in the anonymized statistics gathering. Does that mean that your activities will not be tracked now that you have clicked the opt-out check box? In most cases, all this means is that your activities will not be used for statistics and reporting, but your activities will continue be logged.</p>
+
+<p>In many cases, what happens in the backend is there will be an &ldquo;opt-out&rdquo; value assigned to your user account. A database contains your account information, your settings, and then a single True or False value dictating whether you&rsquo;ve opt-out. A simple query of this database will return all users in the system that have decided to opt-out.</p>
+
+<p>One specific example is the popular <a href="http://www.simplemachines.org/">Simple Machines Forum</a> which retains a value in the database named &ldquo;private.&rdquo; This is just an integer that controls the various levels of privacy control on your forum profile.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if (isset($modSettings['smfVersion']) && $modSettings['smfVersion'] &lt;= '2.0 Beta 1')
+</span><span class='line'>{
+</span><span class='line'>  upgrade_query("
+</span><span class='line'>  UPDATE {$db_prefix}custom_fields
+</span><span class='line'>  SET private = 2
+</span><span class='line'>  WHERE private = 1");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Enabling the Privacy Zealot Flag</h2>
+
+<p>The problem, as you can see, is that you are vulnerable to a type of fingerprinting attack. If law enforcement wanted find the highest risk accounts on a system, they would not want to weed through thousands of accounts or use expensive <a href="http://www.palantir.com">analytical software</a>. They they will partition the accounts in the simplest means necessary, one of which being users who have decided to opt-out or have enabled the various privacy features.</p>
+
+<h2>Target Selection</h2>
+
+<p>The concept of specifically targeting users concerned about privacy, and labeling them potential subjects, is nothing new. We&rsquo;ve heard it happen with journalists, activists, and especially pregnant women. If you haven&rsquo;t read it yet, check out the article, <a href="http://time.com/83200/privacy-internet-big-data-opt-out/">Here&rsquo;s what happened when I tried to hide my pregnancy from the Internet and marketing companies</a> about what happens when you actually go through all the steps to protect your privacy.</p>
+
+<h2>Defense</h2>
+
+<p>Why opt-out? Ask yourself &ldquo;what does this privacy feature actually do?&rdquo; In most cases, the anonymous statistics that a web application collects, are less of a risk to your privacy than the possibility that an account be given the &ldquo;privacy zealot&rdquo; flag. Your first goal when trying to maintain your anonymity and defend against similar attacks, is to do everything you can to not become a target of interest. This includes:</p>
+
+<ul>
+<li>Not enabling any settings on your account that may make you look concerned about your privacy</li>
+<li>Keeping your browser configuration similar to other users of that system (e.g. JavaScript enabled, commong UserAgent)</li>
+<li>Being aware of phrases that could make you a target. Check out <a href="http://pastebin.com/yDicWqb2">the list of NSA keywords</a> to see the types of words they key in on.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fingerprinting Attacks on Screen Resolution]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
+    <updated>2014-05-29T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
+
+<p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
+
+<p>This is even more dangerous on mobile devices such as Android. Each manufacturer releases new phones and tablets with different resolution, these are often very odd screen resolutions, making them very unique to that phone time. There are dozens of sites that provide this information for you:</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density">http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density</a></li>
+<li><a href="https://deviceatlas.com/">https://deviceatlas.com/</a></li>
+<li><a href="http://wurfl.sourceforge.net/">http://wurfl.sourceforge.net/</a></li>
+</ul>
+
+
+<h2>Background</h2>
+
+<p>There are two types of fingerprinting; passive and active. Active fingerprinting attacks are usually reserved to those that are collecting information about your network traffic, and do a secondary correlation. For example, if an adversary were running multiple exit nodes, they collect the list of sites each circuit connects to, and tries correlates that to a specific user.</p>
+
+<p>Active attacks will manipulate or inject an identifier into your traffic &mdash; an identifying cookie or malicious JavaScript that when executed tries to collect identifying information about your browsing environment.</p>
+
+<p>This is not a new revelation, the EFF has highlighted this problem by making the <a href="https://panopticlick.eff.org/">Panopticlick</a> project. This simulates attacks that aim at fingerprinting your browser, its plugins, fonts installed, etc. This is similar to the <a href="http://browserspy.dk/">BrowserSpy</a> project.</p>
+
+<h2>Screen Resolution</h2>
+
+<p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
+
+<p>Here&rsquo;s a simple Javascript example that does that</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
+</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
+</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure>
+
+
+<p>Demo: <a href="javascript:alert
+('Your resolution is '+screen.width+'x'+screen.height);">
+Screen Resolution Detection Example</A></p>
+
+<p>EDIT: <a href="www.reddit.com/user/lugh">lugh</a> points out that this example is inconsistent and depends on your OS and browser.</p>
+
+<h2>Defense Measures</h2>
+
+<p>There are a couple of ways of defending, let me go over some possibilities:</p>
+
+<ul>
+<li><strong>disabling Javascript</strong>: CSS (AFAIK) does not have a way of detecting your screen resolution</li>
+<li><strong>resizing your browser window</strong>: Sometimes attacks do not read screen resolution, but just window size.</li>
+<li><strong>changing your screen resolution</strong>: This is often difficult but by choosing a screen resolution that many other users may have, would help defend against fingerprinting. The <a href="http://dee.su/liberte-security">Liberte Linux</a> distribution is the only system I&rsquo;ve seen that automatically does this by forcing the screen resolution of 800x600.</li>
+<li><strong>external monitors</strong>: If you are on a laptop, and have an external monitor around, it might be possible to have its resolution provide instead of your laptop screen. Note here that different operating systems handle this value in different ways. Some append the width and height of both screens to eachother.</li>
+<li><strong>modifying the JavaScript engine</strong>: This solution has not been done very often and is considered a security risk, but there is a possibility that a new custom JavaScript engine could return a different value than your actual resolution.</li>
+<li><strong>virtualization</strong>: If you are running your anonymous environment inside of a virtual machine, you can dynamically change the resolution very easily by resizing the window of the VM.</li>
+</ul>
+
+
+<p>There are different situations that heed different defense. If you run into a site you need access to that requires JavaScript, you&rsquo;re not going to be able to disable it. Same applies for the browser window trick if the service is detecting Screen.height as opposed to Window.height. Going into your screen settings and changing your screen resolution might work, but it&rsquo;s pretty cumbersome. The virtualization option is very plausible but requires that you are running virtualization software like Virtual Box.</p>
+
+<h2>Real-World Attacks</h2>
+
+<p>One example of software designed for fingerprinting is <a href="http://www.juniper.net/us/en/products-services/security/webapp-secure/">Juniper&rsquo;s Webapp Secure</a>. It is a tool that will fingerprint a web site&rsquo;s users based on a variety of metrics; one of which is your computer&rsquo;s resolution. By doing so, they are able to track their browsing experience across multiple sessions without any cookies.</p>
+
+<h2>Applying to Registration</h2>
+
+<p>Screen resolution is just a single attribute that can be keyed on but I find that it is relied upon the most often during web provider registration processes. This may be because the providers don&rsquo;t believe that anyone would go through the steps of changing their screen resolution &mdash; I&rsquo;m not sure. In any event, by merely changing your screen resolution, you are able to easily register without the stigma of anything you have done in a previous sessions possibly fingerprinting you. This along with clearing your cookies, connecting with a different IP address, and possibly manipulating the fonts that are installed on your computer will let you bypass the registration process&hellip;. sometimes.</p>
+
+<h2>Conclusions</h2>
+
+<p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Journalist OPSEC Gap: Lessons From the Snowden Stories]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/greenwald/"/>
+    <updated>2014-05-16T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/greenwald</id>
+    <content type="html"><![CDATA[<p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
+
+<h2>Greenwald&rsquo;s Reluctant OPSEC</h2>
+
+<p>The first chapter is written in a self-deprecating way &mdash; the same way that an old man would talk about computers to a young person; &ldquo;You kids and your computers.&rdquo; In this case, it was more &ldquo;You political dissidents and your cryptography.&rdquo; Even after repeated attempts by Snowden to have Greenwald merely install GPG, he could not be convinced.</p>
+
+<blockquote><p>&#8220;Here am I,&#8221; he thought, &#8220;ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation&#8217;s most secretive agency &#8211; a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can&#8217;t even be bothered to install an encryption program.&#8221;</p></blockquote>
+
+
+<p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/greenwald.png" title="" ></p>
+
+<p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
+
+<h2>Laura</h2>
+
+<p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t &ndash; iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/laurapoitras.jpg" title="" ></p>
+
+<p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &mdash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
+
+<p>Why does a filmmaker have better OPSEC than a journalist? It&rsquo;s not baffling, but it reflects the sad state of journalist awareness to operational security.</p>
+
+<h2>Journalist OPSEC</h2>
+
+<p>While frustrating, Greenwald is not an one-off situation. In fact, most journalists have no clue how to use encryption programs, or think about any kind of operational security logistics. This is the reason that sites like Wikileaks have become popular &mdash; they are on the cutting edge of technology, understand the value of providing an anonymous communication medium, and while they can&rsquo;t be regarded as having the same journalistic integrity as an institution like The Guardian, they are trusted (by some) to not accidentally or on purpose disclose their sources.</p>
+
+<p><span class='pullquote-right' data-pullquote='a cultural conflict between journalists that consider this type of software designed for &#8220;hackers&#8221; and tech savvy young people that are frustrated with the previous generation&#8217;s unwillingness to use technology.'>
+At this point we have some tools designed to protect ourselves. <a href="https://tools.ietf.org/html/rfc1991">PGP</a> has been around for a millennium in Internet years. <a href="http://www.newyorker.com/strongbox/">Strongbox</a> is an attempt at securing communications between two people that don&rsquo;t know what they&rsquo;re doing. What have is a cultural conflict between journalists that consider this type of software designed for &ldquo;hackers&rdquo; and tech savvy young people that are frustrated with the previous generation&rsquo;s unwillingness to use technology. These &ldquo;hackers&rdquo; have spent collective years building tools and documents designed for these situations, and journalists aren&rsquo;t willing to use them.
+</span></p>
+
+<p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Importance of Anonymous Email Addresses]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/16/email/"/>
+    <updated>2014-05-16T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/16/email</id>
+    <content type="html"><![CDATA[<p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/email.png" title="" ></p>
+
+<p>Notice that we are not talking about anonymous communication here, because we know that email is the worst possible option for that at this point. We are talking about anonymously registering for an email account, so that you can also potentially register for other services anonymously.</p>
+
+<p>Here&rsquo;s an example: Github. In order to create a github account, you need to give them an email address so that you can activate your account.</p>
+
+<h2>The Problem</h2>
+
+<p>The problem for anonymous privacy concerned peoples of the Internet, is that it&rsquo;s relatively difficult to get an email address while using something like Tor. Sites will block you in a variety of ways:</p>
+
+<ol>
+<li><strong>Blocking Registration</strong>: A site like Hotmail will block all access to register for a new address. You cannot use Tor to create an account.</li>
+<li><strong>Blocking Service</strong>: The site will let you register, and subsequently block access to webmail from any Tor exit node.</li>
+<li><strong>Requiring Extensive Validation</strong>: The site allows registration, and access, but will eventually require you to validate your identity through some kind of out-of-band system like an SMS.</li>
+<li><strong>The Tease</strong>: And then there are sites that seem to allow you to register, access the service, but a few months down the line, you suddenly find out that your account has been blocked or requires a special non-Tor validation mechanism.</li>
+</ol>
+
+
+<p><span class='pullquote-right' data-pullquote='the conclusion must be the same &#8211; these providers do not want anonymous users'>
+In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="http://www.b3rn3d.com/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But the conclusion must be the same &mdash; these providers do not want anonymous users. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. </span></p>
+
+<h2>The Solutions</h2>
+
+<p>So what options do anonymous users have? Remember, our goal is to eventually register for some other service that requires an email address, but we can&rsquo;t even register to get an email address in the first place.</p>
+
+<h3>Webmail Providers</h3>
+
+<p>Gmail, Yahoo, Microsoft, all offer webmail. In an ideal world, you could just register with them, get an email address, and be done with it. If your operation only requires that you hide behind a VPN, this may work for you but if you&rsquo;re using something like Tor, you are going to be blocked as described above.</p>
+
+<p>Google has an interesting blocking program right now. When a user goes to register, they create a fingerprinted definition of that user &mdash; what is the resolution of their computer, what plugins do they have installed, what fonts are supported, etc. Therefore changing IP addresses and clearing out your cookies, will not affect the registation process. Google sets a number for each user so that when you first register for an account, you do not have to activate via SMS or phone call. But your third or fourth will require it. There is a method to the madness but I&rsquo;ve yet to figure it out (or care enough).</p>
+
+<p>Yahoo is one of those situations where they allow anonymous registration, but after a month or two they will block access with an un-usable CAPTCHA. No mater how many times you attempt to complete it, when using Tor, the result will say that you have entered the CAPTCHA incorrectly.</p>
+
+<p>This is a semi-plausible option, but generally not a good solution for long term operations. Its safe to say that I would almost never recommend using something like Gmail.</p>
+
+<h3>Temporary Email Services</h3>
+
+<p>Sites like Mailinator provide a temporary email address. You create a random address, sign up for a service using that address and you can check that mailbox whenever you need. Email is cleared out after a certain period of time. It&rsquo;s great for spam and sites with unnecessary registrations.</p>
+
+<p>There are a couple of problems though. one is that many (most?) service providers block registration from Mailinator addresses. Another is that anyone that knows your mailinator email address, can access your email; the concern here being someone resetting your password.</p>
+
+<p>Want an example? Why not reset the passwords for any of these Skype accounts:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> <strong>Name</strong>          </th>
+<th> <strong>Mailinator Address</strong> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> Merlin        </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=merlin">merlin@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td> anbu.mailinator   </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">anbu@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td> wert          </td>
+<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">wert@mailinator.com</a> </td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>The point is, Mailinator works, when it works, but most of the time it doesn&rsquo;t. For short operations, or something you need temporary access to, this is a good solution.</p>
+
+<p>Other alternatives to Mailinator:</p>
+
+<ul>
+<li><a href="http://www.spambog.com/">Spambog.com</a></li>
+<li><a href="http://maildrop.cc/">Maildrop.cc</a></li>
+<li><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></li>
+<li><a href="https://trashmail.com/">Trashmail</a></li>
+<li><a href="http://10minutemail.com/10MinuteMail/index.html">10 Minute Mail</a></li>
+</ul>
+
+
+<h3>Acquired Accounts</h3>
+
+<p>There are a variety of dark market sales that will give you pre-configured email addresses. These are either hacked accounts, or merely registered addresses to save you the hassle. You can buy them in packs of 100 or 1000 (and up) for a small fraction of Bitcoin. (It&rsquo;s not even worth linking to dark markets at this point but I&rsquo;m sure you&rsquo;ll find them.)</p>
+
+<p>Purchasing email accounts from a dark market is relatively legitimate compared to the alternatives of breaking into the accounts yourself. If you have the time and effort, you might be surprised at how easy this is especially when you look at the very simple password reset questions often used.</p>
+
+<h3>Self-Hosted Email</h3>
+
+<p>One of the most suggested solutions to the email problem is to host email yourself. You purchase a domain anonymously using bitcoin, gift cards, or whatever anonymous method you choose. You spoof or falsify the WHOIS lookup information so that nothing points back to your real identity. Then you purchase a hosting provider using the same anonymous methods. Finally, you run a mail service so you can give yourself an infinite number of email addresses.</p>
+
+<p>This is a viable solution for some operations. If you don&rsquo;t mind admin&#8217;ing a server and walking through the steps, this can be a good option.</p>
+
+<p>The reason I don&rsquo;t like this is that it increases your attack surface. You are now hosting a mail server that directly points to you. If this server is exploited, every email address you have ever created is now accessible.</p>
+
+<p>And for someone like me, that will compartmentalize identities, this solution doesn&rsquo;t scale. I would have to build out a new email server, new domain, new hosting provider for each identity. This is not a problem with the solution as much as it is a problem with OPSEC decisions.</p>
+
+<h3>Trusted Anonymous Email</h3>
+
+<p>The other option, is to find an email provider that you, yourself, trust. Trust is a difficult subject to cover so lets give it an operational definition of a service provider in which you believe won&rsquo;t sell your emails. (We&rsquo;ll ignore the possible nation state surveillance and potential legal jurisdiction issues.)</p>
+
+<p>Here are a few providers that are &ldquo;trusted&rdquo; in many privacy circles:</p>
+
+<ul>
+<li><a href="https://riseup.net/">Riseup.net</a>: This is a provider designed for activitists and community organizers. It is hosted in the U.S. In order to receive an email, you must know two people with an address, or try to request one from an admin on IRC.</li>
+<li><a href="www.autistici.org/">Autustici</a>: Offer a range of services with privacy and activism in mind. Webmail, web site hosting, blog host, newsgroups.</li>
+<li><a href="https://aktivix.org/">Aktivix</a>: Small site that offers free email addresses if you can convinve them you should have one&hellip;via email.</li>
+</ul>
+
+
+<p><span class='pullquote-right' data-pullquote='the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against'>
+These are a breath of fresh air compared to the other solutions where you&rsquo;ve had to trick and lie your way into getting an account. These services generally approve of anonymous users and make it a goal to provide privacy-centric services. I can&rsquo;t highlight enough, the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against.
+</span></p>
+
+<p>The problem is that these are often volunteer organized services, and community driven. That is to say, each of these providers have a hoop you need to jump through in order to obtain an address. This often means you have to befriend someone online, or give them a reason about how you are improving the world and need to maintain your anonymity.</p>
+
+<h2>The Future</h2>
+
+<p>The unfortunate truth is, email will be around for a long time. How long it will be around as an authentication system will hopefully be $longtime &ndash; n.</p>
+
+<p><span class='pullquote-right' data-pullquote='These federated services that were once used for social networking, are now becoming authentication endpoints'>
+What&rsquo;s replacing email registrations is just as scary though. We now see &ldquo;Sign in with Google+&rdquo; and &ldquo;Login with your Facebook account.&rdquo; These federated services that were once used for social networking, are now becoming authentication endpoints. The future of an always-authenticated, always-attributed Internet is very close.
+</span></p>
+
+<h2>Conclusions</h2>
+
+<p>This is the current state of email and anonymity from my point of view. Your operation dicates which solution is going to work the best, no single option will unilaterally work. For long operations greater than a year, it may be worth investing some time into a stable email address where self-hosting is the right answer. For operations that last for a month, temporary email address providers might be the right choice.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lessons Burned]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/05/10/back-and-reburned/"/>
+    <updated>2014-05-10T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/05/10/back-and-reburned</id>
+    <content type="html"><![CDATA[<p><img class="center" src="http://www.b3rn3d.com/images/trainhop.jpg" title="" ></p>
+
+<p>Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &mdash; that up until that point had reliably allowed me to maintain my anonymity &mdash; suddenly requested that I verify my identity (for some random definition of identity in this case). There were a couple of ways to do this, and to be honest, it was something very easy to bypass. The point was that the provider suddenly did not enjoy my company.</p>
+
+<p>What was interesting (see distressing) was this occurred synchronously with two of my email addresses being suddenly blocked requiring that I now log in through what they considered a &ldquo;trusted IP&rdquo;. These were two email accounts that had never, ever, touched eachother (never shared contacts, never same IP, randomized timezones). They were from the same provider which could possibly reflect a change in policy for everyone.</p>
+
+<h2>Burn and Move</h2>
+
+<p>Overly paranoid, long story, short, I wiped it all and moved on. In this case it was nice that they left my old site up for me to clone off. My assumption is that it will soon be taken down. And if they&rsquo;re reading this, they can feel free to do so. :)</p>
+
+<h2>New Perspectives</h2>
+
+<p>The set back was one of the first times that I honestly felt it was 100% necessary to burn and move on. Other times it wasn&rsquo;t mandatory but made sense at that point of the operation. Uncertainty is a decent motivator to review a few of my operational decisions. In the near future, I&rsquo;d like to share my current perspectives on:</p>
+
+<ul>
+<li>Email addresses</li>
+<li>Hosting providers</li>
+<li>Anonymous messaging</li>
+</ul>
+
+
+<p>These three are for many, the building blocks of all identities and extra care (which I thought I had given) should be taken. Until then, I&rsquo;ve imported my previous posts.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CIA Operative Teaches Spycraft and Psychology]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/03/09/cia-spycraft-psychology/"/>
+    <updated>2014-03-09T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/03/09/cia-spycraft-psychology</id>
+    <content type="html"><![CDATA[<p>In two articles from Pursuit Magazine, Lindsay Moran, an Ex-CIA operative is
+interviewed about being in the CIA, explains psychology around maintaing a
+separate life, and gives a few cute stories about tradecraft. You can start
+reading <a href="http://pursuitmag.com/lindsay-moran-former-cia-agent-talks-spycraft/">them</a> <a href="http://pursuitmag.com/lindsay-moran-former-cia-operative-why-became-spy/">here</a> if for nothing else, a fun read. I think there are some OPSEC
+take-aways here in regard to psychological problems of maintaining
+compartmentalized identities, using psychological motivators to exploit humans,
+and defending yourself from surveillance &mdash; human or technical.</p>
+
+<h2>Professional Liar</h2>
+
+<p>I&rsquo;m most interested in the psychological perspective that she gives and
+the issues that appear when one is compartmentalizing their identities. You
+can&rsquo;t discuss, disclose, or share what&rsquo;s going on between your
+various identities. In her case, she was maintaining just two identities; her
+personal life, and her professional one. Having a career where everything you
+do is regarded by the U.S. Government as Top-Secret and requiring a specific
+clearance to discuss, is taxing on humans.</p>
+
+<blockquote><p>…I found that a lot of my relationships outside the Agency suffered. It becomes a chore to get together with people and have to lie to them because you feel guilty, and the result is that you kind of shut down, which is just not my nature.</p></blockquote>
+
+
+<p>The natural tendency to &ldquo;shut down,&rdquo; as she says, is common in
+groups that need to keep secrets; hackers, activists, military families.
+You&rsquo;re maintaining an index of things you can share, and things you
+can&rsquo;t. It requires discipline to keep track of these and adhere to the
+lines. This is one of the problems with compartmentalizing multiple identities,
+or even just one.</p>
+
+<h2>Living in a Bubble</h2>
+
+<p>Moran went on to describe, what I would call, a lonely sentiment when you are
+working for the CIA.</p>
+
+<blockquote><p>You tend to forget when you&#8217;re inside the CIA that there&#8217;s a whole other world out there. It&#8217;s to fall back on a cliche, a bubble.</p></blockquote>
+
+
+<p>You&rsquo;ve lost track of reality &mdash; of your personal identity &mdash;
+and you&rsquo;re more focused on maintaining your secrets and lies than having
+personal relationships. I find this may hit close to some that have decided to
+go dark and stay in the caverns of the Internet. For those, they may lean
+towards the identity that gives them the most enjoyment, not the ones that
+require the most work. You, for example, as a gun smuggler, trading on the
+Internet, would much rather have a conversation with a fellow drug smuggler,
+than your coworker at the bank. If for no other reason, you can speak more
+freely about the topic without concern about accidentally leaking the fact that
+you&rsquo;re smuggling guns.</p>
+
+<h2>Exploiting Loneliness</h2>
+
+<p>It should be noted that your adversaries realize that your life as a nomad is
+lonely. It&rsquo;s a sad fact that many or most of the people caught doing
+something illegal on the Internet are identified by LEO&rsquo;s that play into
+how lonely your life is. Moran says:</p>
+
+<blockquote><p>On the most basic level you&#8217;re acting &#8211;almost&#8211; as a clinical<br/>psychologist for your assets.</p></blockquote>
+
+
+<p>She&rsquo;s referring to using the <a href="https://en.wikipedia.org/wiki/Motives_for_spying">classic CIA definition of motivators</a>, and
+exploiting these in people to get what she wants out of the asset. As a gun
+smuggler, you may be motivated by ego, but there&rsquo;s no way you can brag
+about how good you are at smuggling guns on the Internet. But when having a
+private conversation with someone that appears to be a gun smuggler, why not
+show off how cool you are.</p>
+
+<h2>Anti-Surveillance Tactics</h2>
+
+<p>One of the more benign, but subtly interesting comments that she gives was
+referring to ways of evading surveillance. She contrasts how in the movies,
+when someone it tailing you, you speed away as fast as you can. But in all
+actuality, you are trying to lull them to sleep by acting boring.
+There&rsquo;s a bit of HUMINT craft here, that can be applied to electronic
+OPSEC. If you were under electronic surveillance, you can take actions to
+protect yourself. The movie version, of speed away and run a red light would be
+to choose to encrypt your communications. In actuality as a spy, nomad,
+activist, or whatever, your first job is to not be directly targeted. Moran, in
+her tailing example, says:</p>
+
+<blockquote><p>You&#8217;re supposed to convince anyone following you that you&#8217;re not<br/>     a spy.</p></blockquote>
+
+
+<p>We shouldn&rsquo;t speed away, we should walk into the grocery store or go to
+the movies. This is where, in my opinion, our current common consensus with-
+regard-to answering the question of &ldquo;How to defend ourselves against
+electronic surveillance&rdquo; falls flat. Depending on your threat model, and
+what you are concerned about, merely encrypting your communications is not
+enough. By doing so, you have effectively confirmed, in the eyes of the
+adversary, that you have something to hide and are therefore worthy of further
+action. This tactic has been confirmed in an old Edward Snowden release that
+states that the use of encryption, is a determiner of whether or not you will
+be further targeted.</p>
+
+<h2>Take-Aways</h2>
+
+<p>This was a light, fluffy interview that I may be over-analyzing, but it does
+highlight some ways in which the Americans view OPSEC. The psychology of the
+subject has some direct take aways.</p>
+
+<ul>
+<li>When trying to compartmentalize, make
+sure your motivators of money, ideology, coercion, and ego, and fulfilled
+internally. Do not rely on an external resource for this.</li>
+<li>A confidentiality and anonymity (or un-attributability) win over merely confidentiality in the
+face of electronic surveillance.</li>
+<li>Identify the natural tendencies to shut down, or tunnel yourself into a single identity, and compensate by building personal, trusted relationships in your other identities.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tor Country Codes]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/03/05/tor-country-codes/"/>
+    <updated>2014-03-05T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/03/05/tor-country-codes</id>
+    <content type="html"><![CDATA[<p>Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
+&ndash; either by name, fingerprint, or country code. If you have a trusted
+list of nodes you&rsquo;d like to use as a whitelist, you can use that, or if
+you have a list of nodes on a blacklist, it supports that configuration. But
+for those of us that are attempting to be someone else, specifically someone
+from a different country, we can use Tor to not only hide our identity, but
+make it appear to be from a specific geographic location.</p>
+
+<p>Our example here may be an identity where you want to appear like a Ukrainian
+dissident &mdash; when in reality you&rsquo;re a soccer Mom from Chicago, IL.
+By setting up a dedicated machine, with a specific Tor configuration, you can
+make sure that all of your traffic is routed out of an Ukrainian Exit Node.</p>
+
+<h2>TORRC</h2>
+
+<p>The configuration is simple, modify your torrc file to add the follwoing line
+to ensure Tor will only use Ukraine based exit nodes:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  ExitNodes {ua}
+</span><span class='line'>  StrictNodes 1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Please note that in all of these examples, we must enable StrictNodes. This
+example will use either Ukraine, Uganda, South Korea, or Ireland as an exit:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExitNodes {ua},{ug},{kp},{ie}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Blacklisting</h2>
+
+<p>You can also use this as a defensive measure as well. If you&rsquo;ve believe
+there is some kind of geo-centric threat in Uganda, you can configure Tor to
+never use these exit nodes.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeExitNodes {ua}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can exclude all node types for a specific country as well &ndash; exits,
+relays, entry, and bridge nodes.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeNodes {us}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You have the ability to whitelist all node types which is to say you can make
+sure that your entire Tor circuit only uses a certain country. This is NOT
+recommended of course. An ideal circuit will cross countries and legal
+jurisdictions.</p>
+
+<h2>The ?? Country</h2>
+
+<p>Tor uses Maxmind&rsquo;s Geo-ip lookup system for this functionality. Some of
+the versions of their database contain a &ldquo;??&rdquo; country code. This is
+reserved for IPs they either don&rsquo;t know, or aren&rsquo;t willing to
+share. (Tor is making some changes to compensate for this in the future.)</p>
+
+<p>Knowing this can be useful in one of two ways. First, you may think that if you
+don&rsquo;t know what country you&rsquo;re going to be using as a node, then
+you don&rsquo;t want to use it. This is probably a legitimate thought without
+having more information on what causes an IP to have &ldquo;??&rdquo;. Second,
+and more interestingly, some (poorly configured) firewalls will automatically
+drop connections from certain countries. Admins will say &ldquo;Screw it, block
+China. Hacking problem solved!&rdquo; and ask for a raise. Maxmind is a very
+popular Geo-ip lookup database and you can imagine that all of the security
+services built into those fancy enterprise firewalls will most likely be using
+it if it&rsquo;s doing geographic lookups. While many of these admins will have
+policies for how to handle &ldquo;us&rdquo;, &ldquo;cn&rdquo;, and &ldquo;de&rdquo;, I&rsquo;ve found many have issues with a country code that is &ldquo;??&rdquo;. In one case, I&rsquo;ve found a system that blocks all exit
+nodes, except those coming from a &ldquo;??&rdquo; country. I have not
+identitied why this mis-configuration occurs, but hopefully someone can
+leverage this to their advantage.</p>
+
+<h2>List of country codes for Tor</h2>
+
+<pre><code>Country                               Abbrev
+ASCENSION ISLAND                      {ac}
+AFGHANISTAN                           {af}
+ALAND                                 {ax}
+ALBANIA                               {al}
+ALGERIA                               {dz}
+ANDORRA                               {ad}
+ANGOLA                                {ao}
+ANGUILLA                              {ai}
+ANTARCTICA                            {aq}
+ANTIGUA AND BARBUDA                   {ag}
+ARGENTINA REPUBLIC                    {ar}
+ARMENIA                               {am}
+ARUBA                                 {aw}
+AUSTRALIA                             {au}
+AUSTRIA                               {at}
+AZERBAIJAN                            {az}
+BAHAMAS                               {bs}
+BAHRAIN                               {bh}
+BANGLADESH                            {bd}
+BARBADOS                              {bb}
+BELARUS                               {by}
+BELGIUM                               {be}
+BELIZE                                {bz}
+BENIN                                 {bj}
+BERMUDA                               {bm}
+BHUTAN                                {bt}
+BOLIVIA                               {bo}
+BOSNIA AND HERZEGOVINA                {ba}
+BOTSWANA                              {bw}
+BOUVET ISLAND                         {bv}
+BRAZIL                                {br}
+BRITISH INDIAN OCEAN TERR             {io}
+BRITISH VIRGIN ISLANDS                {vg}
+BRUNEI DARUSSALAM                     {bn}
+BULGARIA                              {bg}
+BURKINA FASO                          {bf}
+BURUNDI                               {bi}
+CAMBODIA                              {kh}
+CAMEROON                              {cm}
+CANADA                                {ca}
+CAPE VERDE                            {cv}
+CAYMAN ISLANDS                        {ky}
+CENTRAL AFRICAN REPUBLIC              {cf}
+CHAD                                  {td}
+CHILE                                 {cl}
+PEOPLE'S REPUBLIC OF CHINA            {cn}
+CHRISTMAS ISLANDS                     {cx}
+COCOS ISLANDS                         {cc}
+COLOMBIA                              {co}
+COMORAS                               {km}
+CONGO                                 {cg}
+CONGO (DEMOCRATIC REPUBLIC)           {cd}
+COOK ISLANDS                          {ck}
+COSTA RICA                            {cr}
+COTE D IVOIRE                         {ci}
+CROATIA                               {hr}
+CUBA                                  {cu}
+CYPRUS                                {cy}
+CZECH REPUBLIC                        {cz}
+DENMARK                               {dk}
+DJIBOUTI                              {dj}
+DOMINICA                              {dm}
+DOMINICAN REPUBLIC                    {do}
+EAST TIMOR                            {tp}
+ECUADOR                               {ec}
+EGYPT                                 {eg}
+EL SALVADOR                           {sv}
+EQUATORIAL GUINEA                     {gq}
+ESTONIA                               {ee}
+ETHIOPIA                              {et}
+FALKLAND ISLANDS                      {fk}
+FAROE ISLANDS                         {fo}
+FIJI                                  {fj}
+FINLAND                               {fi}
+FRANCE                                {fr}
+FRANCE METROPOLITAN                   {fx}
+FRENCH GUIANA                         {gf}
+FRENCH POLYNESIA                      {pf}
+FRENCH SOUTHERN TERRITORIES           {tf}
+GABON                                 {ga}
+GAMBIA                                {gm}
+GEORGIA                               {ge}
+GERMANY                               {de}
+GHANA                                 {gh}
+GIBRALTER                             {gi}
+GREECE                                {gr}
+GREENLAND                             {gl}
+GRENADA                               {gd}
+GUADELOUPE                            {gp}
+GUAM                                  {gu}
+GUATEMALA                             {gt}
+GUINEA                                {gn}
+GUINEA-BISSAU                         {gw}
+GUYANA                                {gy}
+HAITI                                 {ht}
+HEARD &amp;amp; MCDONALD ISLAND           {hm}
+HONDURAS                              {hn}
+HONG KONG                             {hk}
+HUNGARY                               {hu}
+ICELAND                               {is}
+INDIA                                 {in}
+INDONESIA                             {id}
+IRAN, ISLAMIC REPUBLIC OF             {ir}
+IRAQ                                  {iq}
+IRELAND                               {ie}
+ISLE OF MAN                           {im}
+ISRAEL                                {il}
+ITALY                                 {it}
+JAMAICA                               {jm}
+JAPAN                                 {jp}
+JORDAN                                {jo}
+KAZAKHSTAN                            {kz}
+KENYA                                 {ke}
+KIRIBATI                              {ki}
+KOREA, DEM. PEOPLES REP OF            {kp}
+KOREA, REPUBLIC OF                    {kr}
+KUWAIT                                {kw}
+KYRGYZSTAN                            {kg}
+LAO PEOPLE'S DEM. REPUBLIC            {la}
+LATVIA                                {lv}
+LEBANON                               {lb}
+LESOTHO                               {ls}
+LIBERIA                               {lr}
+LIBYAN ARAB JAMAHIRIYA                {ly}
+LIECHTENSTEIN                         {li}
+LITHUANIA                             {lt}
+LUXEMBOURG                            {lu}
+MACAO                                 {mo}
+MACEDONIA                             {mk}
+MADAGASCAR                            {mg}
+MALAWI                                {mw}
+MALAYSIA                              {my}
+MALDIVES                              {mv}
+MALI                                  {ml}
+MALTA                                 {mt}
+MARSHALL ISLANDS                      {mh}
+MARTINIQUE                            {mq}
+MAURITANIA                            {mr}
+MAURITIUS                             {mu}
+MAYOTTE                               {yt}
+MEXICO                                {mx}
+MICRONESIA                            {fm}
+MOLDAVA REPUBLIC OF                   {md}
+MONACO                                {mc}
+MONGOLIA                              {mn}
+MONTENEGRO                            {me}
+MONTSERRAT                            {ms}
+MOROCCO                               {ma}
+MOZAMBIQUE                            {mz}
+MYANMAR                               {mm}
+NAMIBIA                               {na}
+NAURU                                 {nr}
+NEPAL                                 {np}
+NETHERLANDS ANTILLES                  {an}
+NETHERLANDS, THE                      {nl}
+NEW CALEDONIA                         {nc}
+NEW ZEALAND                           {nz}
+NICARAGUA                             {ni}
+NIGER                                 {ne}
+NIGERIA                               {ng}
+NIUE                                  {nu}
+NORFOLK ISLAND                        {nf}
+NORTHERN MARIANA ISLANDS              {mp}
+NORWAY                                {no}
+OMAN                                  {om}
+PAKISTAN                              {pk}
+PALAU                                 {pw}
+PALESTINE                             {ps}
+PANAMA                                {pa}
+PAPUA NEW GUINEA                      {pg}
+PARAGUAY                              {py}
+PERU                                  {pe}
+PHILIPPINES (REPUBLIC OF THE)         {ph}
+PITCAIRN                              {pn}
+POLAND                                {pl}
+PORTUGAL                              {pt}
+PUERTO RICO                           {pr}
+QATAR                                 {qa}
+REUNION                               {re}
+ROMANIA                               {ro}
+RUSSIAN FEDERATION                    {ru}
+RWANDA                                {rw}
+SAMOA                                 {ws}
+SAN MARINO                            {sm}
+SAO TOME/PRINCIPE                     {st}
+SAUDI ARABIA                          {sa}
+SCOTLAND                              {uk}
+SENEGAL                               {sn}
+SERBIA                                {rs}
+SEYCHELLES                            {sc}
+SIERRA LEONE                          {sl}
+SINGAPORE                             {sg}
+SLOVAKIA                              {sk}
+SLOVENIA                              {si}
+SOLOMON ISLANDS                       {sb}
+SOMALIA                               {so}
+SOMOA,GILBERT,ELLICE ISLANDS          {as}
+SOUTH AFRICA                          {za}
+SOUTH GEORGIA, SOUTH SANDWICH ISLANDS {gs}
+SOVIET UNION                          {su}
+SPAIN                                 {es}
+SRI LANKA                             {lk}
+ST. HELENA                            {sh}
+ST. KITTS AND NEVIS                   {kn}
+ST. LUCIA                             {lc}
+ST. PIERRE AND MIQUELON               {pm}
+ST. VINCENT &amp;amp; THE GRENADINES      {vc}
+SUDAN                                 {sd}
+SURINAME                              {sr}
+SVALBARD AND JAN MAYEN                {sj}
+SWAZILAND                             {sz}
+SWEDEN                                {se}
+SWITZERLAND                           {ch}
+SYRIAN ARAB REPUBLIC                  {sy}
+TAIWAN                                {tw}
+TAJIKISTAN                            {tj}
+TANZANIA, UNITED REPUBLIC OF          {tz}
+THAILAND                              {th}
+TOGO                                  {tg}
+TOKELAU                               {tk}
+TONGA                                 {to}
+TRINIDAD AND TOBAGO                   {tt}
+TUNISIA                               {tn}
+TURKEY                                {tr}
+TURKMENISTAN                          {tm}
+TURKS AND CALCOS ISLANDS              {tc}
+TUVALU                                {tv}
+UGANDA                                {ug}
+UKRAINE                               {ua}
+UNITED ARAB EMIRATES                  {ae}
+UNITED KINGDOM (no new registrations) {gb}
+UNITED KINGDOM                        {uk}
+UNITED STATES                         {us}
+UNITED STATES MINOR OUTL.IS.          {um}
+URUGUAY                               {uy}
+UZBEKISTAN                            {uz}
+VANUATU                               {vu}
+VATICAN CITY STATE                    {va}
+VENEZUELA                             {ve}
+VIET NAM                              {vn}
+VIRGIN ISLANDS (USA)                  {vi}
+WALLIS AND FUTUNA ISLANDS             {wf}
+WESTERN SAHARA                        {eh}
+YEMEN                                 {ye}
+ZAMBIA                                {zm}
+ZIMBABWE                              {zw}
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Perspectives of OPSEC Models]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/02/17/perspectives-of-opsec/"/>
+    <updated>2014-02-17T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/02/17/perspectives-of-opsec</id>
+    <content type="html"><![CDATA[<p><span class='pullquote-right' data-pullquote='operational security&#8217;s primary goal is to
+mitigate risk while maintaining operational capabilities'>
+As I&rsquo;ve discussed <a href="http://www.b3rn3d.com/blog/2014/01/10/ask-him-about-his-threat-model">before</a>, threat models or risk models help you to define the adversaries you should invest the most resources being concerned about. There are a variety of different risk perspectives you can use to design a
+threat model: adversary-centric, asset-centric, or software-centric. We can
+adopt these into very similar models for OPSEC plans. Each of these models have
+a single principal that operational security&rsquo;s primary goal is to
+mitigate risk while maintaining operational capabilities.
+</span></p>
+
+<h2>Adversary-Centric OPSEC</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/adversary.png" title="" ></p>
+
+<p>In these types of plans, we&rsquo;re focused on what an attacker or adversary
+can do to us; who is coming after you, what they can do, and how you can
+defend. An adversary-cetnric policy has the advantage of being much easier to
+create and document because many people already think this way. It&rsquo;s very
+simple to come up with a list of adversaries that have the potential to affect
+what&rsquo;s important to you. The down-side of this approach is that you need
+to know your adversaries. In the case of the NSA &ldquo;revelations&rdquo;,
+many were shocked to find out that a nation-state had the type of capabilities
+that were disclosed. Prior to this, not many were able to mitigate themselves
+from these types of threats because they simply didn&rsquo;t know or fully
+appreciate an adversary of this nature.</p>
+
+<h2>Asset-Centric OPSEC</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/asset.png" title="" ></p>
+
+<p>This approach focuses on designging mitigations around your assets &mdash; the
+things you value the most. If, for example, your asset is your ability to
+privately communicate on the Internet, you&rsquo;re going to do everything you
+can to ensure no-one can affect this. You&rsquo;re not focused on specific
+adversaries per se in this approach, but you are doing everything in your power
+to protect yourself. Maybe you&rsquo;re buying a VPN service or using a botnet
+or Tor for all communications. Maybe you&rsquo;ve decided that you&rsquo;re
+going to try out one of the new <a href="https://bitmessage.org/wiki/Main_Page">decentralized</a> <a href="http://dee.su/cables">messaging</a> <a href="https://crypto.cat/">systems</a> as a way of
+keeping yourself secure.</p>
+
+<p>One of the benefits of this method is that it&rsquo;s easy to explain why a
+measure needs to take place. If you&rsquo;re operating in a group, this may be
+an important factor. You can easily make the case that your asset needs to be
+secure, therefore we are taking these steps to mitigate the risk. Contrary to
+the adversary-centric approach, this is a less passive perspective &mdash; you
+are not taking the point of view of being fearful of something happening, you
+are merely performing the proactive, required procedures to keep your assets
+safe.</p>
+
+<h2>Operation-Centric OPSEC</h2>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/boxes.png" title="" >
+This approach, my favorite, lends itself nicely to compartmentalization if
+you&rsquo;re managing multiple identities across multiple operations. An
+operation in this case could be an identitiy, a research project, an regular
+activitiy or whatever, that may require specific operational security measures.
+An operation-centreic OPSEC plan may sound recursive to you, but the gist is
+that your plans are focused on your specific operation, and that operation
+alone. The main difference between this and an asset-centric approach is that
+it is designed to have drastically different and compartmentalized procedures
+allowing for scalability without letting one operation interfere with another.</p>
+
+<p>If you&rsquo;ve ever taken a look at the security plans of a large, Fortune 500
+company compared to that of a startup, it&rsquo;s quite possible that the
+startup is able to implement simple, elegent, effective security plans while
+the Fortune 500 spends millions of dollars designing a unilateral security
+policy that severely inhibits the organizations operational capabilities. The
+reason that a small, agile startup can devise elegant OPSEC measures, is the
+same reason that compartmentalizing your OPSEC procedures in an operation-
+centric point-of-view is effective.</p>
+
+<p>The other reason that I like this is because it gives you a good balance of a
+variety of different OPSEC approaches. You are paying attention to your
+operation&rsquo;s assets while taking into account specific adversaries and
+their attacks. As you define an operation &mdash; we&rsquo;ll say buying
+illegal drugs on the internet &mdash; you will be scoped down to a specific
+task and controlled environment. It lets you define boundaries in which your
+OPSEC guidelines can define situations in which your measures/countermeasures
+no longer protect you. This keeps risks at a minimum because you are only
+defending against a subset of your activities &mdash; those associated with the
+operation. In the example of buying illegal drugs on a darknet market, your
+OPSEC guidelines can state that in the case of the darkmarket collapse (which
+seems to happen regularly <a href="http://www.deepdotweb.com/2014/02/13/silk-road-2-hacked-bitcoins-stolen-unknown-amount/">lately</a>), your operation should fold and the identity
+should be burned. You can take into accounts adversaries such as those that own
+the market, and assets you&rsquo;re concerned about such as keeping yourself
+out of jail.</p>
+
+<p>I will admit, none of those listed are perfect, nor do they make up an
+exhaustive list. They may however give you a starting point for building an
+OPSEC plan for yourself.</p>
+]]></content>
+  </entry>
+  
+</feed>

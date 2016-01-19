@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Nsa, | B3RN3D]]></title>
+  <link href="http://www.b3rn3d.com/blog/categories/nsa/atom.xml" rel="self"/>
+  <link href="http://www.b3rn3d.com/"/>
+  <updated>2015-12-23T00:35:23+00:00</updated>
+  <id>http://www.b3rn3d.com/</id>
+  <author>
+    <name><![CDATA[b3rn3d]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[XKeyScore Source Code Review]]></title>
+    <link href="http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review/"/>
+    <updated>2014-07-04T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review</id>
+    <content type="html"><![CDATA[<p>The <a href="http://boingboing.net/2014/07/03/if-you-read-boing-boing-the-n.html">recent revelations from Jake Applebaum, et all today</a>, highlight some not-to-be-understated revelations.</p>
+
+<ul>
+<li>Tor users are directly targeted</li>
+<li>TAILS users are directly targeted</li>
+<li>People searching for privacy tools are targeted</li>
+</ul>
+
+
+<p>While the conclusion by some may have been &ldquo;well of course the NSA is doing that&rdquo; the revelation and the insight it provides is direct, specific evidence that people worried about their privacy are being attacked. More-over, this provides further evidence that the NSA&rsquo;s goal is to <a href="http://www.democracynow.org/2014/5/13/collect_it_all_glenn_greenwald_on">collect it all</a>.</p>
+
+<h2>The Revelations</h2>
+
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<h2>Tracking Bridge Users</h2>
+
+<p>XKeyscore is tracking the IP addresses that are sending emails to the Tor bridge automated account. When a user is in a country that blocks Tor, they have an option to use an unlisted Tor entry node called bridges. To get an unlisted bridge IP, one of the options is to email a Tor Project email address which auto-replies with an address of a bridge. The <a href="https://en.wikipedia.org/wiki/Five_Eyes">Five Eyes</a> have been documenting each IP that makes a request to that email address.</p>
+
+<h2>Tracking Tor Directory Authorities</h2>
+
+<p>Another facet disclosed was that the NSA are targeting a specific Tor directory server run by Sebastian Hahn. I believe that this is the case only because the source of the XKeycode leak was by a node in Germany. Looking at nodes in other countries, would point to a corresponding directory authority in that region.</p>
+
+<p>Until relatively recently, the Tor Network consisted of only 9 directory servers of which all clients would first make a connection to prior to joining the Tor network. These 9 directory servers are still in place, but an additional feature lets Tor nodes act as a directory server cache. With this feature, you weren&rsquo;t automatically required to connect to one of the directory authorities during each bootup. This helps mitigate this risk.</p>
+
+<h2>Tracking Tor Entry Nodes</h2>
+
+<p>Even if your connection to the directory authorities were not caught by the program, your connections to the Tor entry nodes were. So while directory authorities were only used during boot, the connections to Tor entry nodes were used repeatedly as your client will build a circuit.</p>
+
+<p>There&rsquo;s not much you can do to defend against this one. Using a bridge would ensure that XKeyScore won&rsquo;t know which IP&rsquo;s to track, but the requests for bridges are caught as well. One may consider running their own unlisted Tor entry node, which is possible, but it severely degrades your anonymity. Users concerned with this may consider using a VPN service and then connecting over Tor. This would not fix it, but it would make it more difficult to identify the originating request to connect to Tor.</p>
+
+<h2>Tracking Torproject.org Visits</h2>
+
+<p>One of the more useless network iterations that are logged is that of users visiting www.torproject.org. The document shows what they are calling &ldquo;microplugins&rdquo; that highlight specific pieces of information that are caught in transit. Your visit to the Tor Project&rsquo;s website logged and you are now flagged as suspicious.</p>
+
+<h2>XKeyScore Code</h2>
+
+<p>The most interesting part is the code released showing how XKeyScore works. Many have already highlighted that the NSA programs are merely malicious implementations of existing technology (as opposed to custom software built from the ground up). We can see that XKeyScore&rsquo;s database uses a <a href="https://en.wikipedia.org/wiki/Mapreduce">MapReduce</a> model. One very common with NoSQL databases like Hadoop. This is hinted in the &ldquo;mapper&rdquo; and &ldquo;reducer&rdquo; functions that searches for onion addresses:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mapper&lt;onion_t>:&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>  static const std::string prefix = "anonymizer/tor/hiddenservice/address/";
+</span><span class='line'>
+</span><span class='line'>  onion_t onion;
+</span><span class='line'>  size_t matches = cur_args()-&gt;matches.size();
+</span><span class='line'>  for (size_t pos=0; pos &lt; matches; ++pos) \{
+</span><span class='line'>    const std::string &amp;value = match(pos);
+</span><span class='line'>    if (value.size() == 16)
+</span><span class='line'>      onion.set_address(value);
+</span><span class='line'>    else if(!onion.has_scheme())
+</span><span class='line'>      onion.set_scheme(value);
+</span><span class='line'>    else
+</span><span class='line'>      onion.set_port(value);
+</span><span class='line'>  \}
+</span><span class='line'>
+</span><span class='line'>  if (!onion.has_address())
+</span><span class='line'>    return false;
+</span><span class='line'>
+</span><span class='line'>  MAPPER.map(onion.address(), onion);
+</span><span class='line'>  xks::fire_fingerprint(prefix + onion.address());
+</span><span class='line'>  return true;
+</span><span class='line'>
+</span><span class='line'>reducer&lt;onion_t&gt;:
+</span><span class='line'>  for (values_t::const_iterator iter = VALUES.begin();
+</span><span class='line'>      iter != VALUES.end();
+</span><span class='line'>      ++iter) {
+</span><span class='line'>    DB["tor_onion_survey"]["onion_address"] = iter-&gt;address() + ".onion";
+</span><span class='line'>    if (iter-&gt;has_scheme())
+</span><span class='line'>      DB["tor_onion_survey"]["onion_scheme"] = iter-&gt;scheme();
+</span><span class='line'>    if (iter-&gt;has_port())
+</span><span class='line'>      DB["tor_onion_survey"]["onion_port"] = iter-&gt;port();
+</span><span class='line'>    DB["tor_onion_survey"]["onion_count"] = boost::lexical_cast&lt;std::string&gt;(TOTAL_VALUE_COUNT);
+</span><span class='line'>    DB.apply();
+</span><span class='line'>    DB.clear();
+</span><span class='line'>  }
+</span><span class='line'>  return true;
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Full Code</h2>
+
+<p>Below is the full code released:
+<a href="/assets/xkeyscorerules100.txt">xkeyscorerules100.txt</a></p>
+]]></content>
+  </entry>
+  
+</feed>
