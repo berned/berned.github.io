@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-01-19T17:27:11+00:00</updated>
+  <updated>2016-01-22T17:29:36+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OPSEC of Actor vs Drug Dealer]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/01/23/actor-drugdealer-opsec/"/>
+    <updated>2016-01-23T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/01/23/actor-drugdealer-opsec</id>
+    <content type="html"><![CDATA[<p>There&rsquo;s an <a href="https://theintercept.com/2016/01/12/sean-penn-el-chapo-opsec/">amazing story</a> talking about how the American actor Sean Penn accidentally gave away the location of El Chapo, the Mexican drug lord that has been on the run. The best part of the story is the OPSEC fails. I don&rsquo;t want to duplicate the article so go take a read if you want the full story. Let me summarize a few things though. From the information we&rsquo;ve gleaned, here&rsquo;s what he was doing for OPSEC:</p>
+
+<ul>
+<li>used &ldquo;mirroring&rdquo; to send messages</li>
+<li>sent messages via draft folders</li>
+<li>used a Blackberry Messenger, Blackphone, and burners</li>
+<li>allegedly was caught because he ordered too many tacos</li>
+</ul>
+
+
+<h2>El Chapo</h2>
+
+<p>The El Chapo story reminds you of the gangsters of old that were notoriously crooked, but everyone couldn&rsquo;t wait to see what they would do next. The Gangster Version of Kim Kardashian.</p>
+
+<h2>Mirroring</h2>
+
+<p>Enter the new OPSEC term, &ldquo;mirroring&rdquo;. At first, no one knew what this was because it&rsquo;s a made-up term for a simple OPSEC measure. It just means that communications were proxied to an intermediary party that would receive the message, and literally retype it by hand to another communication medium. The benefit here is that when El Chapo received a message, it only came from a single person which is hard to target as part of mass surveillance.</p>
+
+<h2>Drafting</h2>
+
+<p>If we&rsquo;re going to make up phrases, lets start calling using the Drafts folder to send messages, &ldquo;drafting&rdquo;. This is a now famous way of communicating that Al Qaeda used to do years ago and I&rsquo;m sure others used it before them. They would communicate via Yahoo mail and save messages in the drafts folder then have the recipient log in and just read the draft.</p>
+
+<p>It&rsquo;s adorably ineffective today but back then and in the 90&rsquo;s, it was actually practical. The issue was that all SMTP communications were sent in the clear and the US Government programs were literally reading every email sent because they could. By not sending an email and just saving the message into the drafts folder, there was no email to intercept and you would just have a dead drop.</p>
+
+<p>Things have changed and we&rsquo;ve moved beyond that but the idea of the electronic dead drop is still alive.</p>
+
+<h2>Tacoed</h2>
+
+<p>The best story, if you want to believe it, is that the Mexican authorities ultimately caught El Chapo because the number of tacos purchased was more than it should be for a place that size. Thus, he was &ldquo;Tacoed&rdquo;.</p>
+
+<h2>Lessons in OPSEC</h2>
+
+<p>While some of these stories are unlikely to be true like how El Chapo was tacoed, but if you put yourself in some of their roles, I think we can learn something</p>
+
+<ul>
+<li><strong>Tacoed or not, it&rsquo;s a real attack</strong>: You&rsquo;re unlikely to get tacoed anytime soon but if you believe you&rsquo;re under surveillance, what can you do to keep your purchasing patterns looking legitimate? Buying nothing is a red flag, but buying 50 pairs of pants in 50 different sizes is another red flag. Make purchases based on the type of person you&rsquo;re pretending to be. If you don&rsquo;t want anyone to know that you&rsquo;re there, maybe you shouldn&rsquo;t purchase anything at all, just go and pick it up.
+<span class='pullquote-right' data-pullquote='You should never need to trust that the person you’re communicating with is adhering to an OPSEC plan.'></li>
+<li><strong>Mirror mirror</strong>: If you have the resources to hire a crew of people to help you, sure, go ahead and mirror. It really does offer a defense from targeted mass surveillance. But just remember that whoever was transcribing the messages, was a trusted confidant of El Chapo.</li>
+<li><strong>Lets stop drafting</strong>: It was a good idea back in the day but now it&rsquo;s just a tribute. I&rsquo;m all for finding interesting ways of doing a electronic dead drops like online forums, Craigslist, or blogs, but using a messaging system to save a draft is just silly. Find a medium that isn&rsquo;t specifically targeted by law enforcement and use that as a dead drop.</li>
+<li><strong>Burners still good (sometimes)</strong>: We know that burners make it really hard for certain jurisdictions to track someone because it takes a few days to get a <a href="https://theintercept.com/2016/01/12/sean-penn-el-chapo-opsec/">warrant approved</a> but the NSA doesn&rsquo;t have that problem. If you can afford it, do it, but that doesn&rsquo;t mean that it&rsquo;s secure.</li>
+<li><strong>Be careful talking to the OPSEC-less</strong>: I think the real story here is the difficulties that El Chapo had in talking to Sean Penn. Penn says he didn&rsquo;t know how to use computers, was given all the electronics to use, but still it required a ton of effort that he wasn&rsquo;t willing to invest. You should never need to trust that the person you&rsquo;re communicating with is adhering to an OPSEC plan. Your measures should ensure that if the other party is turned or caught, it doesn&rsquo;t point back to you. Of course this is an ideal but it&rsquo;s something you should always be thinking about when deciding if you might be burned or not.
+</span></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dark Shipping: A Case Study]]></title>
@@ -1298,339 +1350,6 @@ face of electronic surveillance.</li>
 <li>Identify the natural tendencies to shut down, or tunnel yourself into a single identity, and compensate by building personal, trusted relationships in your other identities.</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Tor Country Codes]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/03/05/tor-country-codes/"/>
-    <updated>2014-03-05T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/03/05/tor-country-codes</id>
-    <content type="html"><![CDATA[<p>Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
-&ndash; either by name, fingerprint, or country code. If you have a trusted
-list of nodes you&rsquo;d like to use as a whitelist, you can use that, or if
-you have a list of nodes on a blacklist, it supports that configuration. But
-for those of us that are attempting to be someone else, specifically someone
-from a different country, we can use Tor to not only hide our identity, but
-make it appear to be from a specific geographic location.</p>
-
-<p>Our example here may be an identity where you want to appear like a Ukrainian
-dissident &mdash; when in reality you&rsquo;re a soccer Mom from Chicago, IL.
-By setting up a dedicated machine, with a specific Tor configuration, you can
-make sure that all of your traffic is routed out of an Ukrainian Exit Node.</p>
-
-<h2>TORRC</h2>
-
-<p>The configuration is simple, modify your torrc file to add the follwoing line
-to ensure Tor will only use Ukraine based exit nodes:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  ExitNodes {ua}
-</span><span class='line'>  StrictNodes 1</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Please note that in all of these examples, we must enable StrictNodes. This
-example will use either Ukraine, Uganda, South Korea, or Ireland as an exit:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExitNodes {ua},{ug},{kp},{ie}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Blacklisting</h2>
-
-<p>You can also use this as a defensive measure as well. If you&rsquo;ve believe
-there is some kind of geo-centric threat in Uganda, you can configure Tor to
-never use these exit nodes.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeExitNodes {ua}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can exclude all node types for a specific country as well &ndash; exits,
-relays, entry, and bridge nodes.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeNodes {us}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You have the ability to whitelist all node types which is to say you can make
-sure that your entire Tor circuit only uses a certain country. This is NOT
-recommended of course. An ideal circuit will cross countries and legal
-jurisdictions.</p>
-
-<h2>The ?? Country</h2>
-
-<p>Tor uses Maxmind&rsquo;s Geo-ip lookup system for this functionality. Some of
-the versions of their database contain a &ldquo;??&rdquo; country code. This is
-reserved for IPs they either don&rsquo;t know, or aren&rsquo;t willing to
-share. (Tor is making some changes to compensate for this in the future.)</p>
-
-<p>Knowing this can be useful in one of two ways. First, you may think that if you
-don&rsquo;t know what country you&rsquo;re going to be using as a node, then
-you don&rsquo;t want to use it. This is probably a legitimate thought without
-having more information on what causes an IP to have &ldquo;??&rdquo;. Second,
-and more interestingly, some (poorly configured) firewalls will automatically
-drop connections from certain countries. Admins will say &ldquo;Screw it, block
-China. Hacking problem solved!&rdquo; and ask for a raise. Maxmind is a very
-popular Geo-ip lookup database and you can imagine that all of the security
-services built into those fancy enterprise firewalls will most likely be using
-it if it&rsquo;s doing geographic lookups. While many of these admins will have
-policies for how to handle &ldquo;us&rdquo;, &ldquo;cn&rdquo;, and &ldquo;de&rdquo;, I&rsquo;ve found many have issues with a country code that is &ldquo;??&rdquo;. In one case, I&rsquo;ve found a system that blocks all exit
-nodes, except those coming from a &ldquo;??&rdquo; country. I have not
-identitied why this mis-configuration occurs, but hopefully someone can
-leverage this to their advantage.</p>
-
-<h2>List of country codes for Tor</h2>
-
-<pre><code>Country                               Abbrev
-ASCENSION ISLAND                      {ac}
-AFGHANISTAN                           {af}
-ALAND                                 {ax}
-ALBANIA                               {al}
-ALGERIA                               {dz}
-ANDORRA                               {ad}
-ANGOLA                                {ao}
-ANGUILLA                              {ai}
-ANTARCTICA                            {aq}
-ANTIGUA AND BARBUDA                   {ag}
-ARGENTINA REPUBLIC                    {ar}
-ARMENIA                               {am}
-ARUBA                                 {aw}
-AUSTRALIA                             {au}
-AUSTRIA                               {at}
-AZERBAIJAN                            {az}
-BAHAMAS                               {bs}
-BAHRAIN                               {bh}
-BANGLADESH                            {bd}
-BARBADOS                              {bb}
-BELARUS                               {by}
-BELGIUM                               {be}
-BELIZE                                {bz}
-BENIN                                 {bj}
-BERMUDA                               {bm}
-BHUTAN                                {bt}
-BOLIVIA                               {bo}
-BOSNIA AND HERZEGOVINA                {ba}
-BOTSWANA                              {bw}
-BOUVET ISLAND                         {bv}
-BRAZIL                                {br}
-BRITISH INDIAN OCEAN TERR             {io}
-BRITISH VIRGIN ISLANDS                {vg}
-BRUNEI DARUSSALAM                     {bn}
-BULGARIA                              {bg}
-BURKINA FASO                          {bf}
-BURUNDI                               {bi}
-CAMBODIA                              {kh}
-CAMEROON                              {cm}
-CANADA                                {ca}
-CAPE VERDE                            {cv}
-CAYMAN ISLANDS                        {ky}
-CENTRAL AFRICAN REPUBLIC              {cf}
-CHAD                                  {td}
-CHILE                                 {cl}
-PEOPLE'S REPUBLIC OF CHINA            {cn}
-CHRISTMAS ISLANDS                     {cx}
-COCOS ISLANDS                         {cc}
-COLOMBIA                              {co}
-COMORAS                               {km}
-CONGO                                 {cg}
-CONGO (DEMOCRATIC REPUBLIC)           {cd}
-COOK ISLANDS                          {ck}
-COSTA RICA                            {cr}
-COTE D IVOIRE                         {ci}
-CROATIA                               {hr}
-CUBA                                  {cu}
-CYPRUS                                {cy}
-CZECH REPUBLIC                        {cz}
-DENMARK                               {dk}
-DJIBOUTI                              {dj}
-DOMINICA                              {dm}
-DOMINICAN REPUBLIC                    {do}
-EAST TIMOR                            {tp}
-ECUADOR                               {ec}
-EGYPT                                 {eg}
-EL SALVADOR                           {sv}
-EQUATORIAL GUINEA                     {gq}
-ESTONIA                               {ee}
-ETHIOPIA                              {et}
-FALKLAND ISLANDS                      {fk}
-FAROE ISLANDS                         {fo}
-FIJI                                  {fj}
-FINLAND                               {fi}
-FRANCE                                {fr}
-FRANCE METROPOLITAN                   {fx}
-FRENCH GUIANA                         {gf}
-FRENCH POLYNESIA                      {pf}
-FRENCH SOUTHERN TERRITORIES           {tf}
-GABON                                 {ga}
-GAMBIA                                {gm}
-GEORGIA                               {ge}
-GERMANY                               {de}
-GHANA                                 {gh}
-GIBRALTER                             {gi}
-GREECE                                {gr}
-GREENLAND                             {gl}
-GRENADA                               {gd}
-GUADELOUPE                            {gp}
-GUAM                                  {gu}
-GUATEMALA                             {gt}
-GUINEA                                {gn}
-GUINEA-BISSAU                         {gw}
-GUYANA                                {gy}
-HAITI                                 {ht}
-HEARD &amp;amp; MCDONALD ISLAND           {hm}
-HONDURAS                              {hn}
-HONG KONG                             {hk}
-HUNGARY                               {hu}
-ICELAND                               {is}
-INDIA                                 {in}
-INDONESIA                             {id}
-IRAN, ISLAMIC REPUBLIC OF             {ir}
-IRAQ                                  {iq}
-IRELAND                               {ie}
-ISLE OF MAN                           {im}
-ISRAEL                                {il}
-ITALY                                 {it}
-JAMAICA                               {jm}
-JAPAN                                 {jp}
-JORDAN                                {jo}
-KAZAKHSTAN                            {kz}
-KENYA                                 {ke}
-KIRIBATI                              {ki}
-KOREA, DEM. PEOPLES REP OF            {kp}
-KOREA, REPUBLIC OF                    {kr}
-KUWAIT                                {kw}
-KYRGYZSTAN                            {kg}
-LAO PEOPLE'S DEM. REPUBLIC            {la}
-LATVIA                                {lv}
-LEBANON                               {lb}
-LESOTHO                               {ls}
-LIBERIA                               {lr}
-LIBYAN ARAB JAMAHIRIYA                {ly}
-LIECHTENSTEIN                         {li}
-LITHUANIA                             {lt}
-LUXEMBOURG                            {lu}
-MACAO                                 {mo}
-MACEDONIA                             {mk}
-MADAGASCAR                            {mg}
-MALAWI                                {mw}
-MALAYSIA                              {my}
-MALDIVES                              {mv}
-MALI                                  {ml}
-MALTA                                 {mt}
-MARSHALL ISLANDS                      {mh}
-MARTINIQUE                            {mq}
-MAURITANIA                            {mr}
-MAURITIUS                             {mu}
-MAYOTTE                               {yt}
-MEXICO                                {mx}
-MICRONESIA                            {fm}
-MOLDAVA REPUBLIC OF                   {md}
-MONACO                                {mc}
-MONGOLIA                              {mn}
-MONTENEGRO                            {me}
-MONTSERRAT                            {ms}
-MOROCCO                               {ma}
-MOZAMBIQUE                            {mz}
-MYANMAR                               {mm}
-NAMIBIA                               {na}
-NAURU                                 {nr}
-NEPAL                                 {np}
-NETHERLANDS ANTILLES                  {an}
-NETHERLANDS, THE                      {nl}
-NEW CALEDONIA                         {nc}
-NEW ZEALAND                           {nz}
-NICARAGUA                             {ni}
-NIGER                                 {ne}
-NIGERIA                               {ng}
-NIUE                                  {nu}
-NORFOLK ISLAND                        {nf}
-NORTHERN MARIANA ISLANDS              {mp}
-NORWAY                                {no}
-OMAN                                  {om}
-PAKISTAN                              {pk}
-PALAU                                 {pw}
-PALESTINE                             {ps}
-PANAMA                                {pa}
-PAPUA NEW GUINEA                      {pg}
-PARAGUAY                              {py}
-PERU                                  {pe}
-PHILIPPINES (REPUBLIC OF THE)         {ph}
-PITCAIRN                              {pn}
-POLAND                                {pl}
-PORTUGAL                              {pt}
-PUERTO RICO                           {pr}
-QATAR                                 {qa}
-REUNION                               {re}
-ROMANIA                               {ro}
-RUSSIAN FEDERATION                    {ru}
-RWANDA                                {rw}
-SAMOA                                 {ws}
-SAN MARINO                            {sm}
-SAO TOME/PRINCIPE                     {st}
-SAUDI ARABIA                          {sa}
-SCOTLAND                              {uk}
-SENEGAL                               {sn}
-SERBIA                                {rs}
-SEYCHELLES                            {sc}
-SIERRA LEONE                          {sl}
-SINGAPORE                             {sg}
-SLOVAKIA                              {sk}
-SLOVENIA                              {si}
-SOLOMON ISLANDS                       {sb}
-SOMALIA                               {so}
-SOMOA,GILBERT,ELLICE ISLANDS          {as}
-SOUTH AFRICA                          {za}
-SOUTH GEORGIA, SOUTH SANDWICH ISLANDS {gs}
-SOVIET UNION                          {su}
-SPAIN                                 {es}
-SRI LANKA                             {lk}
-ST. HELENA                            {sh}
-ST. KITTS AND NEVIS                   {kn}
-ST. LUCIA                             {lc}
-ST. PIERRE AND MIQUELON               {pm}
-ST. VINCENT &amp;amp; THE GRENADINES      {vc}
-SUDAN                                 {sd}
-SURINAME                              {sr}
-SVALBARD AND JAN MAYEN                {sj}
-SWAZILAND                             {sz}
-SWEDEN                                {se}
-SWITZERLAND                           {ch}
-SYRIAN ARAB REPUBLIC                  {sy}
-TAIWAN                                {tw}
-TAJIKISTAN                            {tj}
-TANZANIA, UNITED REPUBLIC OF          {tz}
-THAILAND                              {th}
-TOGO                                  {tg}
-TOKELAU                               {tk}
-TONGA                                 {to}
-TRINIDAD AND TOBAGO                   {tt}
-TUNISIA                               {tn}
-TURKEY                                {tr}
-TURKMENISTAN                          {tm}
-TURKS AND CALCOS ISLANDS              {tc}
-TUVALU                                {tv}
-UGANDA                                {ug}
-UKRAINE                               {ua}
-UNITED ARAB EMIRATES                  {ae}
-UNITED KINGDOM (no new registrations) {gb}
-UNITED KINGDOM                        {uk}
-UNITED STATES                         {us}
-UNITED STATES MINOR OUTL.IS.          {um}
-URUGUAY                               {uy}
-UZBEKISTAN                            {uz}
-VANUATU                               {vu}
-VATICAN CITY STATE                    {va}
-VENEZUELA                             {ve}
-VIET NAM                              {vn}
-VIRGIN ISLANDS (USA)                  {vi}
-WALLIS AND FUTUNA ISLANDS             {wf}
-WESTERN SAHARA                        {eh}
-YEMEN                                 {ye}
-ZAMBIA                                {zm}
-ZIMBABWE                              {zw}
-</code></pre>
 ]]></content>
   </entry>
   
