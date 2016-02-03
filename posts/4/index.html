@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="You&rsquo;ve found your favorite drugs on your favorite darknets but then your OPSEC buzzer goes off and you say &ldquo;How do I actually get it &hellip;">
+  <meta name="description" content="I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. A Critical &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -36,7 +36,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">B3RN3D</a></h1>
   
-    <h2>Staying in the darknet</h2>
+    <h2>Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.</h2>
   
 </hgroup>
 
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a></h1>
     
     
       <p class="meta">
@@ -85,71 +85,60 @@
   
 
 
-<time datetime="2016-01-02T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-01-20T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>You&rsquo;ve found your favorite drugs on your favorite darknets but then your OPSEC buzzer goes off and you say &ldquo;How do I actually get it shipped to me?&rdquo; Lets talk about some of the risks and likely attacks.</p>
+  <div class="entry-content"><p>I do enjoy a deeply theoretical academic paper, but even better are those papers that take effort to determine how pragmatic an attack is. <a href="https://securewww.esat.kuleuven.be/cosic/publications/article-2456.pdf">A Critical Evaluation of Website Fingerprinting Attacks</a> takes a look at some of the theoretical attacks on Tor and see how likely they would work in the real world.</p>
 
-<h2>The Fallacy Of The Drop Ship</h2>
+<p>Better than that, it gives you a break down of the most likely attacks that users need to defend themselves against.</p>
 
-<p>The first thing you might think is, just like your computer, find a way to be completely anonymous. That would mean sending to a &ldquo;drop ship&rdquo; location or someone else&rsquo;s house. You&rsquo;ll find documents online about how the best way to do this is:</p>
+<h2>Website Fingerprinting</h2>
 
-<p><img class="right" src="/images/package.png" width="400"></p>
+<p>The attack that they&rsquo;re reviewing here shouldn&rsquo;t be confused with Browser Fingerprinting or other types of fingerprinting attacks. It refers to an adversary being able to deduce what website you&rsquo;re going to.</p>
+
+<p>The premise in previous papers has been that on low-latency anonymity networks (like tor), attackers can analyze your connection and guess which page you&rsquo;re visiting. For example, when you go to <a href="https://www.google.com,">https://www.google.com,</a> you are visiting a page that has a predictable size, response time, and predictable number of secondary page requests being made.</p>
+
+<h2>The Size Correlation Fingerprint</h2>
+
+<p>One of the most rudimentary attacks is an adversary that stands between a user and Tor to see the packets being sent out and the size of the packets returned. In this simple approach, it&rsquo;s possible for an attacker that has a database of websites and their possible sizes, is able to guess which sites a user is visiting.</p>
+
+<p><strong>Defense</strong>: &ldquo;Padding&rdquo; is considered a defense against website fingerprinting because it adds arbitrary data to your request that makes it harder for an attacker to correlate your visit to the actual website in question.</p>
+
+<p>The Tor Project has made a decision not to implement padding. On purpose. They&rsquo;re now taking a look at research that might mean that adding small amounts of padding will have a major affect. It&rsquo;s yet to be concluded.</p>
+
+<p>Other defenses that the paper goes into are what happens when there are multiple tabs being opened and what about the situation where something else on the network is padding things for you. The latest TBB has a nice feature that makes a separate connection in multiple tabs.</p>
+
+<h2>The Behavioral Fingerprint</h2>
+
+<p>One of the most discussed tactic was to take a pile of University students', watch the websites that they visit over multiple days, and then watch for similar patterns sent over Tor.</p>
+
+<p>The basis of this attack is that you visit web pages in a linear order. You will go to your favorite news site, then Facebook, then your boyfriend&rsquo;s blog, and then your favorite shopping site. Often times, you will go in the cycle of visits multiple times over the course of a day.</p>
+
+<p>Attackers knowing the potential sizes of pages, the loading time of a site, and other quantifiable factors, can fingerprint your browsing behavior.</p>
+
+<p><strong>Defense</strong>: There are two options that I&rsquo;m sure you can imagine: Don&rsquo;t ever switch between dark and clear or make sure that your behavior is completely different on a dark persona.</p>
+
+<h2>Targeted vs Untargeted</h2>
+
+<p>There&rsquo;s a major different in the attack vectors between an adversary targeting you as an individual, versus what the paper calls a &ldquo;drag-net&rdquo; approach.</p>
 
 <ul>
-<li>find a house in a city that no one lives in</li>
-<li>mow the lawn once week</li>
-<li>let the neighbors know who you are</li>
-<li>send some fake packages and receive them at the location</li>
-<li>establish a pretend situation where you are there multiple times during the week.</li>
+<li>Targeted attacks have less reward but are more accurate</li>
+<li>Untargeted attacks have more reward but are more difficult to identify high value targets</li>
 </ul>
 
 
-<p>The number of people that can do this is uselessly low. If you can do this, good for you but don&rsquo;t waste your time trying to figure this situation out.</p>
+<p>Which is most likely? While the most paranoid of us believe we are being targeted (and we should), unless you are truly a high-value target, there are not many groups trying to specifically launch a targeted attack. But a mass surveillance situation is a much more likely scenario.</p>
 
-<p>Lets talks talk about some pragmatic approaches.</p>
+<p><strong>Defense</strong>: Burn, and burn often. The premise of my OPSEC model is to never give someone a chance to correlate between two different identities. If you&rsquo;re able to do that, you&rsquo;re able to defend against either of these attack scenarios.</p>
 
-<h2>Risk Calculations</h2>
+<h2>Results</h2>
 
-<p>To get something shipped, you must take a risk calculation. How much do you care about the package you&rsquo;re receiving, how often are you doing it, how likely are you to be caught, and what are the consequences of being caught.</p>
-
-<pre><code>value * frequency + caught * sentence = RISK
-</code></pre>
-
-<p>This is a fabricated calculation for the sake of discussion but you can use it to come up with an arbitrary number to assign a consistent risk score and it&rsquo;s on point.</p>
-
-<p>Lets review your situation:</p>
-
-<ul>
-<li>you plan on sending an illegal product across country, providence, or state lines</li>
-<li>you plan on using a federally funded system to do so (in the case of US Mail)</li>
-<li>You are plan on putting a name and address on the recipient of the illegal product</li>
-</ul>
-
-
-<h2>How do you do it?</h2>
-
-<p>First: Don&rsquo;t. I know that&rsquo;s a cop out but seriously reconsider. Other options are:</p>
-
-<ul>
-<li>pick it up directly from the contact</li>
-<li>agree on shipping using a private company</li>
-</ul>
-
-
-<p>Ok, you&rsquo;re not going to do that. If you need to, here are a few things to remember:</p>
-
-<ul>
-<li>Use your real name. I know, just do it. It is trivial for your delivery service to notice when a new name appears on an address. An out-of-country parcel to a name that doesn&rsquo;t exist is a big red flag.</li>
-<li>Make yourself unlikely to be caught. Ship small packages, envelopes, low quantities. Remember that law enforcement is a career path. Johnny Law isn&rsquo;t going to make captain by nabbing a dime bag.</li>
-<li>Be nice. There&rsquo;s are documents that show how delivery guys are responsible for determining if you are a sketchy person and decide that you&rsquo;re a high risk delivery.</li>
-<li>Don&rsquo;t sign for your packages. There will always be situations where you need to but don&rsquo;t use your real signature. Have you ever noticed how your mum signs for a package?</li>
-</ul>
-
+<p>Long story short, some of these academic papers talking about potential attacks, take a substantial investment. That being said, we know there are organizations interested in investing those resources, but at the same time, a targeted attack on individual computers is less likely than a mass surveillance situation. Be aware that these attacks exist and never visit your favorite websites across multiple identifies.</p>
 </div>
   
   
@@ -172,6 +161,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/02/02/what-the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/01/23/actor-drugdealer-opsec/">OPSEC of Actor vs Drug Dealer</a>
@@ -207,10 +200,6 @@
     
       <li class="post">
         <a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/09/22/lie-to-me/">Lie to Me, Please</a>
       </li>
     
   </ul>

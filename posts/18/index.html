@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email &hellip;">
+  <meta name="description" content="In Greenwald&rsquo;s book on Edward Snowden, No Place To Hide, he brings to light some of the details about how Snowden originally contacted him. The &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -36,7 +36,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">B3RN3D</a></h1>
   
-    <h2>Staying in the darknet</h2>
+    <h2>Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.</h2>
   
 </hgroup>
 
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/16/email/">The Importance of Anonymous Email Addresses</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/05/16/greenwald/">Journalist OPSEC Gap: Lessons From the Snowden Stories</a></h1>
     
     
       <p class="meta">
@@ -92,138 +92,40 @@
   </header>
 
 
-  <div class="entry-content"><p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
+  <div class="entry-content"><p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
 
-<p><img class="center" src="/images/email.png" title="" ></p>
+<h2>Greenwald&rsquo;s Reluctant OPSEC</h2>
 
-<p>Notice that we are not talking about anonymous communication here, because we know that email is the worst possible option for that at this point. We are talking about anonymously registering for an email account, so that you can also potentially register for other services anonymously.</p>
+<p>The first chapter is written in a self-deprecating way &ndash; the same way that an old man would talk about computers to a young person; &ldquo;You kids and your computers.&rdquo; In this case, it was more &ldquo;You political dissidents and your cryptography.&rdquo; Even after repeated attempts by Snowden to have Greenwald merely install GPG, he could not be convinced.</p>
 
-<p>Here&rsquo;s an example: Github. In order to create a github account, you need to give them an email address so that you can activate your account.</p>
-
-<h2>The Problem</h2>
-
-<p>The problem for anonymous privacy concerned peoples of the Internet, is that it&rsquo;s relatively difficult to get an email address while using something like Tor. Sites will block you in a variety of ways:</p>
-
-<ol>
-<li><strong>Blocking Registration</strong>: A site like Hotmail will block all access to register for a new address. You cannot use Tor to create an account.</li>
-<li><strong>Blocking Service</strong>: The site will let you register, and subsequently block access to webmail from any Tor exit node.</li>
-<li><strong>Requiring Extensive Validation</strong>: The site allows registration, and access, but will eventually require you to validate your identity through some kind of out-of-band system like an SMS.</li>
-<li><strong>The Tease</strong>: And then there are sites that seem to allow you to register, access the service, but a few months down the line, you suddenly find out that your account has been blocked or requires a special non-Tor validation mechanism.</li>
-</ol>
+<blockquote><p>"Here am I," he thought, "ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation's most secretive agency -- a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can't even be bothered to install an encryption program."</p></blockquote>
 
 
-<p><span class='pullquote-right' data-pullquote='the conclusion must be the same – these providers do not want anonymous users'>
-In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But the conclusion must be the same &ndash; these providers do not want anonymous users. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. </span></p>
+<p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
 
-<h2>The Solutions</h2>
+<p><img class="center" src="/images/greenwald.png" title="" ></p>
 
-<p>So what options do anonymous users have? Remember, our goal is to eventually register for some other service that requires an email address, but we can&rsquo;t even register to get an email address in the first place.</p>
+<p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
 
-<h3>Webmail Providers</h3>
+<h2>Laura</h2>
 
-<p>Gmail, Yahoo, Microsoft, all offer webmail. In an ideal world, you could just register with them, get an email address, and be done with it. If your operation only requires that you hide behind a VPN, this may work for you but if you&rsquo;re using something like Tor, you are going to be blocked as described above.</p>
+<p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t - iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
 
-<p>Google has an interesting blocking program right now. When a user goes to register, they create a fingerprinted definition of that user &ndash; what is the resolution of their computer, what plugins do they have installed, what fonts are supported, etc. Therefore changing IP addresses and clearing out your cookies, will not affect the registation process. Google sets a number for each user so that when you first register for an account, you do not have to activate via SMS or phone call. But your third or fourth will require it. There is a method to the madness but I&rsquo;ve yet to figure it out (or care enough).</p>
+<p><img class="center" src="/images/laurapoitras.jpg" title="" ></p>
 
-<p>Yahoo is one of those situations where they allow anonymous registration, but after a month or two they will block access with an un-usable CAPTCHA. No mater how many times you attempt to complete it, when using Tor, the result will say that you have entered the CAPTCHA incorrectly.</p>
+<p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &ndash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
 
-<p>This is a semi-plausible option, but generally not a good solution for long term operations. Its safe to say that I would almost never recommend using something like Gmail.</p>
+<p>Why does a filmmaker have better OPSEC than a journalist? It&rsquo;s not baffling, but it reflects the sad state of journalist awareness to operational security.</p>
 
-<h3>Temporary Email Services</h3>
+<h2>Journalist OPSEC</h2>
 
-<p>Sites like Mailinator provide a temporary email address. You create a random address, sign up for a service using that address and you can check that mailbox whenever you need. Email is cleared out after a certain period of time. It&rsquo;s great for spam and sites with unnecessary registrations.</p>
+<p>While frustrating, Greenwald is not an one-off situation. In fact, most journalists have no clue how to use encryption programs, or think about any kind of operational security logistics. This is the reason that sites like Wikileaks have become popular &ndash; they are on the cutting edge of technology, understand the value of providing an anonymous communication medium, and while they can&rsquo;t be regarded as having the same journalistic integrity as an institution like The Guardian, they are trusted (by some) to not accidentally or on purpose disclose their sources.</p>
 
-<p>There are a couple of problems though. one is that many (most?) service providers block registration from Mailinator addresses. Another is that anyone that knows your mailinator email address, can access your email; the concern here being someone resetting your password.</p>
-
-<p>Want an example? Why not reset the passwords for any of these Skype accounts:</p>
-
-<table>
-<thead>
-<tr>
-<th> <strong>Name</strong>          </th>
-<th> <strong>Mailinator Address</strong> </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> Merlin        </td>
-<td> <a href="http://www.mailinator.com/inbox.jsp?to=merlin">merlin@mailinator.com</a></td>
-</tr>
-<tr>
-<td> anbu.mailinator   </td>
-<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">anbu@mailinator.com</a></td>
-</tr>
-<tr>
-<td> wert          </td>
-<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">wert@mailinator.com</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-
-<p>The point is, Mailinator works, when it works, but most of the time it doesn&rsquo;t. For short operations, or something you need temporary access to, this is a good solution.</p>
-
-<p>Other alternatives to Mailinator:</p>
-
-<ul>
-<li><a href="http://www.spambog.com/">Spambog.com</a></li>
-<li><a href="http://maildrop.cc/">Maildrop.cc</a></li>
-<li><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></li>
-<li><a href="https://trashmail.com/">Trashmail</a></li>
-<li><a href="http://10minutemail.com/10MinuteMail/index.html">10 Minute Mail</a></li>
-</ul>
-
-
-<h3>Acquired Accounts</h3>
-
-<p>There are a variety of dark market sales that will give you pre-configured email addresses. These are either hacked accounts, or merely registered addresses to save you the hassle. You can buy them in packs of 100 or 1000 (and up) for a small fraction of Bitcoin. (It&rsquo;s not even worth linking to dark markets at this point but I&rsquo;m sure you&rsquo;ll find them.)</p>
-
-<p>Purchasing email accounts from a dark market is relatively legitimate compared to the alternatives of breaking into the accounts yourself. If you have the time and effort, you might be surprised at how easy this is especially when you look at the very simple password reset questions often used.</p>
-
-<h3>Self-Hosted Email</h3>
-
-<p>One of the most suggested solutions to the email problem is to host email yourself. You purchase a domain anonymously using bitcoin, gift cards, or whatever anonymous method you choose. You spoof or falsify the WHOIS lookup information so that nothing points back to your real identity. Then you purchase a hosting provider using the same anonymous methods. Finally, you run a mail service so you can give yourself an infinite number of email addresses.</p>
-
-<p>This is a viable solution for some operations. If you don&rsquo;t mind admin'ing a server and walking through the steps, this can be a good option.</p>
-
-<p>The reason I don&rsquo;t like this is that it increases your attack surface. You are now hosting a mail server that directly points to you. If this server is exploited, every email address you have ever created is now accessible.</p>
-
-<p>And for someone like me, that will compartmentalize identities, this solution doesn&rsquo;t scale. I would have to build out a new email server, new domain, new hosting provider for each identity. This is not a problem with the solution as much as it is a problem with OPSEC decisions.</p>
-
-<h3>Trusted Anonymous Email</h3>
-
-<p>The other option, is to find an email provider that you, yourself, trust. Trust is a difficult subject to cover so lets give it an operational definition of a service provider in which you believe won&rsquo;t sell your emails. (We&rsquo;ll ignore the possible nation state surveillance and potential legal jurisdiction issues.)</p>
-
-<p>Here are a few providers that are &ldquo;trusted&rdquo; in many privacy circles:</p>
-
-<ul>
-<li><a href="https://riseup.net/">Riseup.net</a>: This is a provider designed for activitists and community organizers. It is hosted in the U.S. In order to receive an email, you must know two people with an address, or try to request one from an admin on IRC.</li>
-<li><a href="www.autistici.org/">Autustici</a>: Offer a range of services with privacy and activism in mind. Webmail, web site hosting, blog host, newsgroups.</li>
-<li><a href="https://aktivix.org/">Aktivix</a>: Small site that offers free email addresses if you can convinve them you should have one&hellip;via email.</li>
-</ul>
-
-
-<p><span class='pullquote-right' data-pullquote='the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against'>
-These are a breath of fresh air compared to the other solutions where you&rsquo;ve had to trick and lie your way into getting an account. These services generally approve of anonymous users and make it a goal to provide privacy-centric services. I can&rsquo;t highlight enough, the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against.
+<p><span class='pullquote-right' data-pullquote='a cultural conflict between journalists that consider this type of software designed for “hackers” and tech savvy young people that are frustrated with the previous generation’s unwillingness to use technology.'>
+At this point we have some tools designed to protect ourselves. <a href="https://tools.ietf.org/html/rfc1991">PGP</a> has been around for a millennium in Internet years. <a href="http://www.newyorker.com/strongbox/">Strongbox</a> is an attempt at securing communications between two people that don&rsquo;t know what they&rsquo;re doing. What have is a cultural conflict between journalists that consider this type of software designed for &ldquo;hackers&rdquo; and tech savvy young people that are frustrated with the previous generation&rsquo;s unwillingness to use technology. These &ldquo;hackers&rdquo; have spent collective years building tools and documents designed for these situations, and journalists aren&rsquo;t willing to use them.
 </span></p>
 
-<p>The problem is that these are often volunteer organized services, and community driven. That is to say, each of these providers have a hoop you need to jump through in order to obtain an address. This often means you have to befriend someone online, or give them a reason about how you are improving the world and need to maintain your anonymity.</p>
-
-<h2>The Future</h2>
-
-<p>The unfortunate truth is, email will be around for a long time. How long it will be around as an authentication system will hopefully be $longtime - n.</p>
-
-<p><span class='pullquote-right' data-pullquote='These federated services that were once used for social networking, are now becoming authentication endpoints'>
-What&rsquo;s replacing email registrations is just as scary though. We now see &ldquo;Sign in with Google+&rdquo; and &ldquo;Login with your Facebook account.&rdquo; These federated services that were once used for social networking, are now becoming authentication endpoints. The future of an always-authenticated, always-attributed Internet is very close.
-</span></p>
-
-<h2>Conclusions</h2>
-
-<p>This is the current state of email and anonymity from my point of view. Your operation dicates which solution is going to work the best, no single option will unilaterally work. For long operations greater than a year, it may be worth investing some time into a stable email address where self-hosting is the right answer. For operations that last for a month, temporary email address providers might be the right choice.</p>
+<p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
 </div>
   
   
@@ -246,6 +148,10 @@ What&rsquo;s replacing email registrations is just as scary though. We now see &
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/02/02/what-the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/01/23/actor-drugdealer-opsec/">OPSEC of Actor vs Drug Dealer</a>
@@ -281,10 +187,6 @@ What&rsquo;s replacing email registrations is just as scary though. We now see &
     
       <li class="post">
         <a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/09/22/lie-to-me/">Lie to Me, Please</a>
       </li>
     
   </ul>
