@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously &hellip;">
+  <meta name="description" content="In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a></h1>
     
     
       <p class="meta">
@@ -85,99 +85,63 @@
   
 
 
-<time datetime="2015-12-04T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-15T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
+  <div class="entry-content"><p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
 
-<h1>TAILS</h1>
-
-<p><img class="right" src="/images/tails.png" width="300">
-<a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
-
-<p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n'th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
-
-<p>As stated, we are paying more attention to the secure tools that we use and this has identified some <a href="https://www.schneier.com/blog/archives/2014/07/security_vulner_4.html">fatal flaws</a> in TAILS. If you <a href="https://tails.boum.org/security/#index3h1">look back</a> at the TAILS project, the number of vulnerabilities identified and reported have are much smaller before than after Snowden disclosures.</p>
+<h2>How</h2>
 
 <ul>
-<li><strong>Development</strong>: Highly active with multiple paid developers</li>
-<li><strong>Maturity</strong>: First created in</li>
-<li><strong>Goals</strong>: Provide an easy-to-use live environment for temporary work.</li>
-<li><strong>Roadmap</strong>: Continue same model and further harden the OS.</li>
-<li><strong>Challenges</strong>:
+<li>Download <a href="https://www.torproject.org/download/download-easy.html.en">TBB</a></li>
+<li>Extract</li>
+<li><p>Cd to the following directory:</p>
 
-<ul>
-<li>Minimal support for persistence (besides files). Not designed to be installed but just run once.</li>
-<li>No mitigations for GCHQ/NSA type low level hardware attacks</li>
-<li>The focus on supporting all forms of users may affect security</li>
-</ul>
-</li>
+<pre><code>  tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default$
+</code></pre></li>
+<li>Modify <code>extensions.ini</code></li>
+<li><p>Comment out the following line:</p>
+
+<pre><code>  #Extension2=/home/death/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher@torproject.org.xpi
+</code></pre></li>
 </ul>
 
 
-<h2>Qubes OS</h2>
+<h2>Setup</h2>
 
-<p><img class="right" src="/images/qubes.png" width="300">
-I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
+<p>This assumes that you&rsquo;re running tor on port 9050 and ideally that you have your control port enabled with a password of &ldquo;secret&rdquo; to access it. That&rsquo;s only if you want to be able to control Tor via the browser extension. Maybe you don&rsquo;t.</p>
 
-<p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
+<p>If you want to set your password to &ldquo;sercret&rdquo; you can use tor to generate the hash for you:</p>
 
-<p><span class='pullquote-right' data-pullquote='it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word “identity” with “virtual object” and you have their security model'>
-Technical details aside for a moment, it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &ldquo;identity&rdquo; with &ldquo;virtual object&rdquo; and you have their security model.</p>
+<pre><code>    tor --hash-password secret
+</code></pre>
 
-<p>This is accomplished by making several virtual objects. You virtualize your firewall, you virtualize your USB controller, you virtualize the browser you&rsquo;re using for Project A, and separately, you virtualize the browser you&rsquo;re using for Project B. From here, QubesOS helps facilitate communications between those objects if necessary.
-</span></p>
+<p>Copy that into your /etc/torrc file under the HashedPassword section.</p>
 
-<p>QubesOS offers some features that no other system currently offers. The big one for me is virtualization for USB controller. So no only are you creating virtual machines, you&rsquo;re creating virtual controllers. If someone malicious is plugged into your system, even in the case of an [0-day exploiting the firmware of your USB controller], the rest of your system is not compromised.</p>
+<p>You can take a look at the other comments found in <code>start-tor-browser</code>:</p>
 
-<p>The other major feature that we know is in the GCHQ playbook is protection from WiFi driver exploits. We&rsquo;ve heard of this exploit being used in the while but have yet to have a real mitigation from it. With QubesOS, your wireless card is its own virtual object that contains the exploit into its own virtual machine.</p>
-
-<p>There is a lot more to talk about with QubesOS but it does seem the one to watch going forward.</p>
-
-<ul>
-<li><strong>Development</strong>: Active but a small group.</li>
-<li><strong>Maturity</strong>: v3.1 released is functional but not perfect.</li>
-<li><strong>Roadmap</strong>: Investing time in rebuilding the UI is a priority.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Hardware support is difficult to predict. They have an approved list but you can&rsquo;t assume it will work on all systems.</li>
-<li>Performance is relatively poor to the other systems and Qubes consumes a lot of memory for each of the virtual machines.</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>SubgraphOS</h2>
-
-<p><img class="right" src="/images/subgraph.png" width="300">
-<a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
-
-<p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
-
-<p>The problem thus far is that only a small group of people have seen SubgraphOS working. I&rsquo;m also concerned about the development of SubgraphOS by the company, Subgraph. We know that Subgraph is a <a href="https://subgraph.com/about-us/index.en.html">&ldquo;security&rdquo; company</a> that aims to provide services and products to its clients. The other two projects discussed here have been community projects and money is not the primary goal. The owner of the company comes from the secure kernel world where he was a mod of one of the most popular and dramatic bug hunting mailing lists.</p>
-
-<p>SubgraphOS had the problem of being announced way too soon. They showed off the now famous <a href="https://subgraph.com/img/sgos.png">SubgraphOS images</a> that caught everyone&rsquo;s eye before there was anything to actually look at.</p>
-
-<p>I come from the perspective of seeing tons of projects die in the past. The ones that I&rsquo;ve seen stick through are not usually (ever?) the ones released for free by a money making company.</p>
-
-<ul>
-<li><strong>Development</strong>: Probably active? Not open to the public.</li>
-<li><strong>Maturity</strong>: Immature, pre-alpha releases</li>
-<li><strong>Roadmap</strong>: Hopefully release a beta to the public soon.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Money may affect the development of the product.</li>
-<li>Closed development may deter acceptance of even a finished product.</li>
-</ul>
-</li>
-</ul>
-
+<pre><code>    # SETTING NAME                            VALUE
+    # extensions.torbutton.banned_ports       [...],&lt;SocksPort&gt;,&lt;ControlPort&gt;
+    # extensions.torbutton.block_disk         false
+    # extensions.torbutton.custom.socks_host  127.0.0.1
+    # extensions.torbutton.custom.socks_port  &lt;SocksPort&gt;
+    # extensions.torbutton.inserted_button    true
+    # extensions.torbutton.launch_warning     false
+    # extensions.torbutton.loglevel           2
+    # extensions.torbutton.logmethod          0
+    # extensions.torbutton.settings_method    custom
+    # extensions.torbutton.socks_port         &lt;SocksPort&gt;
+    # extensions.torbutton.use_privoxy        false
+    # extensions.torlauncher.control_port      &lt;ControlPort&gt;
+    # extensions.torlauncher.loglevel          2
+    # extensions.torlauncher.logmethod         0
+    # extensions.torlauncher.prompt_at_startup false
+    # extensions.torlauncher.start_tor         false
+</code></pre>
 </div>
   
   
@@ -202,7 +166,11 @@ Technical details aside for a moment, it works similar to how I write about OSPE
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2016/02/02/what-the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
+        <a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/02/the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
       </li>
     
       <li class="post">
@@ -235,10 +203,6 @@ Technical details aside for a moment, it works similar to how I write about OSPE
     
       <li class="post">
         <a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a>
       </li>
     
   </ul>

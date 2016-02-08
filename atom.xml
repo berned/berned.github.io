@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-02-03T23:03:31+00:00</updated>
+  <updated>2016-02-04T17:50:11+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -14,10 +14,94 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Using a VPN With Tor]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/02/08/vpn-and-tor/"/>
+    <updated>2016-02-08T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/02/08/vpn-and-tor</id>
+    <content type="html"><![CDATA[<p><img class="center" src="http://www.b3rn3d.com/images/torvpnsilly.png"></p>
+
+<p><span class='pullquote-right' data-pullquote='Should I use Tor to VPN into a VPN to connect to Tor via VPN… with Tor.'>
+The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to Tor?&rdquo; and &ldquo;Should I use Tor to connect to a VPN?&rdquo; and various combinations of Should I use Tor to VPN into a VPN to connect to Tor via VPN&hellip; with Tor.
+</span></p>
+
+<p>The developers at the Tor Project (whom I respect immensely and believe know what they&rsquo;re talking about) have a unilateral policy for this to never use a VPN to connect to Tor. Here&rsquo;s a snippet from a recent discussion on the <a href="http://archives.seul.org/tor/talk/">tor-talk mailing list</a>:</p>
+
+<blockquote><p>...if somebody somehow breaks the anonymity of your Tor<br/>circuit, it's nice to have another layer behind that. But if somebody guesses that you're using a particular VPN, or you pick a VPN that they're already monitoring for other reasons, then you basically let them see the beginning of your circuit when otherwise they might not have been able to.</p><footer><strong>Roger Dingledine</strong> <cite><a href='http://archives.seul.org/tor/talk/Jan-2016/msg00225.html'>Tor-talk</a></cite></footer></blockquote>
+
+
+<p>In this he&rsquo;s saying if you&rsquo;re using a VPN to connect to Tor, you&rsquo;re putting yourself at greater risk because the VPN service has a log of your information, your connection times, and the fact that you made a connection to Tor. This is supposed to be higher risk because if a nation state decided to perform passive monitoring, the place they would start is the VPNs. (He also compares this to having a consistent first hop guard node that everyone uses but I&rsquo;ll leave that debate for another day.)</p>
+
+<h2>He&rsquo;s Right&hellip; Sometimes</h2>
+
+<p>Dingledine&rsquo;s logic is sound and if one were to have a policy to share with a community, it should be this one because it puts the least amount of risk on tor users. But, as with most things related to security, a unilateral policy is not always the best one. You need to know your <a href="http://www.b3rn3d.com/blog/2014/01/10/ask-him-about-his-threat-model/">threat model</a>.</p>
+
+<h2>The Case of the Harvard Bomber</h2>
+
+<p>There is a now <a href="http://edition.cnn.com/2013/12/17/justice/massachusetts-harvard-hoax/">famous case of student at Harvard</a> who had not finished studying for his finals and decided he wanted to email a bomb threat into the school to stop tests from happening. He went back to his dorm room, fired up Tor Browser, and sent an email from Guerrilla Mail to the school.</p>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/eldo.png"></p>
+
+<p>In this case, tor protected his anonymity. The email could not be traced back through the Tor network and to his IP address. Tor did it&rsquo;s job. His downfall was that he made the connect to Tor from his dorm room. The university admins simply went back and found all the tor connections at the time of the email, and found that it was a very small segment of students. The police went to each of those students and eventually found their man.</p>
+
+<p>What if the Harvard Bomber used a VPN to first connect into Tor? Would it have saved him? Maybe, or at least it would have made it more difficult. He would connect into the VPN service used by hundreds or thousands of other people, and then connect into the Tor Network. This might mean that even when they noticed the Tor traffic, they wouldn&rsquo;t be able to attribute it to a specific student because there would be no log of them connecting to the Tor network. (That being said, Harvard could subpoena the VPN provider and try to determine which of the VPN users were from Harvard and which of them connected through Tor but I&rsquo;m trying to make a point. :) )</p>
+
+<h2>When to VPN > Tor</h2>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/vpntor.png" title="VPN > Tor" ></p>
+
+<p>Here&rsquo;s when you <em>might</em> want to use a VPN to connect into Tor:</p>
+
+<ul>
+<li><strong>Geographic fingerprinting</strong>: You are from a small village with not very many Tor users. If there was a suggestion that sketchy activity has happened, they would knock on your door first. Especially if your operation was geographically specific (like a bomb threat).</li>
+<li><strong>Untrusted ISP</strong>: You know that your ISP is monitoring, logging, and sharing your connection information (hint: they are). You could make a choice to hide your connection details from your ISP and instead give that responsibility to your VPN service which you have more trust for.</li>
+<li><strong>Plausible Deniability</strong>: You could rely on the fact that thousands of other people are using the VPN service at that same time so it&rsquo;s difficult to correlate activities to an individual.</li>
+<li><strong>Jurisdiction Diversity</strong>: It&rsquo;s easy for most organizations to issue a subpoena to a company in their same company. It&rsquo;s also easy for any of the <a href="https://en.wikipedia.org/wiki/Five_Eyes">5, 9, or 14 Eyes</a> to target services in their shared jurisdictions. If you have a VPN provider that is not in one of these jurisdictions, you can use them to make it harder to issue subpoenas to.</li>
+</ul>
+
+
+<h2>When to Tor > VPN</h2>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/torvpn.png" title="Tor > VPN" ></p>
+
+<p>This is a bit more difficult to accomplish but possible. The issues here are you have to make sure you&rsquo;ve purchased a VPN service anonymously, make sure that it allows connections via tor, and make sure it supports TCP as tor is a TCP-only protocol. The only scenario I can think of that you would need this is:</p>
+
+<ul>
+<li><strong>Tor Blocked</strong>: Less of a security issue and more about usability, if a service blocks all tor exit nodes, you can try to use tor to hide you connection into a VPN service which is unlikely blocked.</li>
+</ul>
+
+
+<p>That being said, this is a really bad idea because when you have a consistent endpoint you connect to, it could have unknown consequences to your anonymity. This is the main reason that Tor switches circuits regularly instead of using the same circuit every time.</p>
+
+<h2>When to VPN > Tor > VPN or Tor > Tor</h2>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/vpntorvpn.png" title="VPN > Tor > VPN" ></p>
+
+<p>Now we&rsquo;re getting nutty but we can think it through. You&rsquo;ve made the choice to connect to tor via VPN, why not make another hop and just connect to another VPN service via Tor. Or, if you think 1x tor is pretty good, so 2x tor must be even better! Use cases:</p>
+
+<ul>
+<li><strong>You&rsquo;re nutty:</strong> Generally if you think there is an undisclosed vulnerability in tor, that is actively being used, but you still think that tor is the best option, you want to protect yourself by layering methods on top of tor.</li>
+</ul>
+
+
+<p>Whatever your rationality, know that this method has not been tested to see if it maintains your anonymity. There are so many edge cases of mis-configuration, fingerprinting attacks on the service, and plausible statistical attacks on your connection, you shouldn&rsquo;t assume this makes any sense.</p>
+
+<h2>Further Reading</h2>
+
+<p>VPN&rsquo;s are just one example of laying protections on top of tor. You could us private VPN hosted on a VPS, or SSH service, or if don&rsquo;t understand any of this, a proxy. This debate comes up so regularly that lots of groups have posts and wiki pages about it. Check out the links below for additional information:</p>
+
+<ul>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/TorPlusVPN">https://trac.torproject.org/projects/tor/wiki/doc/TorPlusVPN</a></li>
+<li><a href="https://lists.torproject.org/pipermail/tor-talk/2012-January/022916.html">https://lists.torproject.org/pipermail/tor-talk/2012-January/022916.html</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[The Worst That Could Happen: Substantiating Their Fears]]></title>
-    <link href="http://www.b3rn3d.com/blog/2016/02/02/what-the-worst-that-could-happen/"/>
+    <link href="http://www.b3rn3d.com/blog/2016/02/02/the-worst-that-could-happen/"/>
     <updated>2016-02-02T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2016/02/02/what-the-worst-that-could-happen</id>
+    <id>http://www.b3rn3d.com/blog/2016/02/02/the-worst-that-could-happen</id>
     <content type="html"><![CDATA[<p>In the latest Snowden document released is hilariously named: <a href="https://www.documentcloud.org/documents/2699620/What-Is-the-Worst-That-Can-Happen-March-2010.txt">What&rsquo;s The Worst That Could Happen</a>. In effect, this is the Government&rsquo;s thought process involved in determining the risk associated in launching a targeted attack on someon. In theory, this served as a guide to remind UK spooks of the various risks that are involved when trying to exploit someone. (It reads like it was put together by some GCHQ intern so I would pay too much attention to it.)</p>
 
 <p>One of your main goals of your OPSEC plan is to reduce the likeliness of attack. With this document, we can see what an attacker believes to be the risks or their fears, and exploit them. As with all operation decisions, the risks outweigh their rewards. So let&rsquo;s make it risky for them to target you.</p>
@@ -1306,36 +1390,6 @@ What&rsquo;s replacing email registrations is just as scary though. We now see &
 <h2>Conclusions</h2>
 
 <p>This is the current state of email and anonymity from my point of view. Your operation dicates which solution is going to work the best, no single option will unilaterally work. For long operations greater than a year, it may be worth investing some time into a stable email address where self-hosting is the right answer. For operations that last for a month, temporary email address providers might be the right choice.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Lessons Burned]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/05/10/back-and-reburned/"/>
-    <updated>2014-05-10T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/05/10/back-and-reburned</id>
-    <content type="html"><![CDATA[<p><img class="center" src="http://www.b3rn3d.com/images/trainhop.jpg" title="" ></p>
-
-<p>Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &ndash; that up until that point had reliably allowed me to maintain my anonymity &ndash; suddenly requested that I verify my identity (for some random definition of identity in this case). There were a couple of ways to do this, and to be honest, it was something very easy to bypass. The point was that the provider suddenly did not enjoy my company.</p>
-
-<p>What was interesting (see distressing) was this occurred synchronously with two of my email addresses being suddenly blocked requiring that I now log in through what they considered a &ldquo;trusted IP&rdquo;. These were two email accounts that had never, ever, touched eachother (never shared contacts, never same IP, randomized timezones). They were from the same provider which could possibly reflect a change in policy for everyone.</p>
-
-<h2>Burn and Move</h2>
-
-<p>Overly paranoid, long story, short, I wiped it all and moved on. In this case it was nice that they left my old site up for me to clone off. My assumption is that it will soon be taken down. And if they&rsquo;re reading this, they can feel free to do so. :)</p>
-
-<h2>New Perspectives</h2>
-
-<p>The set back was one of the first times that I honestly felt it was 100% necessary to burn and move on. Other times it wasn&rsquo;t mandatory but made sense at that point of the operation. Uncertainty is a decent motivator to review a few of my operational decisions. In the near future, I&rsquo;d like to share my current perspectives on:</p>
-
-<ul>
-<li>Email addresses</li>
-<li>Hosting providers</li>
-<li>Anonymous messaging</li>
-</ul>
-
-
-<p>These three are for many, the building blocks of all identities and extra care (which I thought I had given) should be taken. Until then, I&rsquo;ve imported my previous posts.</p>
 ]]></content>
   </entry>
   

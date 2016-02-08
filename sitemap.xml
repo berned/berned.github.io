@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.b3rn3d.com/blog/2016/02/02/what-the-worst-that-could-happen/</loc>
+    <loc>http://www.b3rn3d.com/blog/2016/02/08/vpn-and-tor/</loc>
+    <lastmod>2016-02-08T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://www.b3rn3d.com/blog/2016/02/02/the-worst-that-could-happen/</loc>
     <lastmod>2016-02-02T00:00:00+00:00</lastmod>
   </url>
   <url>
