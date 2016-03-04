@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-02-04T17:50:11+00:00</updated>
+  <updated>2016-03-04T08:59:51+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mass Surveillance for the Masses]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/03/05/pratical-opsec/"/>
+    <updated>2016-03-05T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/03/05/pratical-opsec</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/nypd_camera.jpg" title="NYPD Camera" ></p>
+
+<p>I really like learning about new OPSEC tactics, especially if they&rsquo;re done
+by the non-tech savvy. Below we talk about the threat model of a Harlem
+residents and their defensive tactics.</p>
+
+<h2>Harlem: Surveillance Hipsters</h2>
+
+<p>New York City&rsquo;s, Harlem, is home to the city&rsquo;s lower income population. Not
+impoverish but, not Manhattan. Harlem has had an illustrious history being
+targeted by NYPD and other forms of law enforcement. Surveillance is part of
+every-day life. Who better to give us some perspective on dealing with mass
+surveillance on a day-to-day basis.</p>
+
+<p>Harlem residents aren&rsquo;t concerned about NSA or GCHQ. They have a local
+surveillance issues to deal with:</p>
+
+<ul>
+<li>Surveillance from their employers who install cameras to watch them work.</li>
+<li>Surveillance from the local NYPD who have installed street cameras on the
+corners that they know are not installed in Manhattan.</li>
+<li>Surveillance from ex-boyfriends on Facebook who are keeping track of who
+they talk with or what parties they go to.</li>
+</ul>
+
+
+<p><span class='pullquote-right' data-pullquote='You
+might not find their tactics useful, but it serves as a remember that
+OPSEC is dependent on the threat model.'>
+They have a different threat model compared to the nation-state dissident. You
+might not find their tactics useful, but it serves as a remember that
+OPSEC is dependent on the threat model. Someone hiding from the government
+employs different tactics than someone hiding from their ex-boyfriend. The
+threats are one in the same.
+</span></p>
+
+<h2>Family Plan Surveillance</h2>
+
+<p>The US has &ldquo;Family Plans.&rdquo; These are cell
+phone plans that you share with trusted friends and family to
+can keep your bill to a minimum. But what happens when you no longer trust
+someone on the plan? You don&rsquo;t kick them off. You ignore them. It&rsquo;s cheaper.</p>
+
+<p>For some of these sketchy carriers, a member of the plan can:</p>
+
+<ul>
+<li>Get access to a backup of the phone&rsquo;s contact lists</li>
+<li>Read text messages</li>
+<li>Get the call records for the account</li>
+<li>Track the location of a phone using a &ldquo;Find My Phone&rdquo; app</li>
+</ul>
+
+
+<p>This is their threat. On a day-to-day basis they aren&rsquo;t worried about the FBI
+cracking down on them, they&rsquo;re worried about their ex-boyfriend stalking them.</p>
+
+<h2>Social Lions</h2>
+
+<p>We know that LEO&rsquo;s will keep track of social networking in their jurisdiction.
+NYPD has invested millions to keep track of this effort. This is done in one
+of a few ways. Most common of which, NYPD will make a request to Facebook for
+access to a specific facebook account. I&rsquo;m told that 80%-90% of the time,
+Facebook does not contest these requests and as long as it&rsquo;s coming from an
+attributable law enforcement office, they&rsquo;re provided without any oversight.</p>
+
+<p>The other more nefarious <a href="http://www.theverge.com/2014/12/10/7341077/nypd-harlem-crews-social-media-rikers-prison">tactic that NYPD specifically uses</a> is to generate
+fake accounts and target individuals in the neighbor hood. Keep track of their
+friends, watch what parties they go to, see what people are talking about.</p>
+
+<p>The people in these neighborhoods know this is happening in the same way that
+they know the street cameras in the streets are keeping track of them.</p>
+
+<h2>Harlem OPSEC</h2>
+
+<p>For the non-tech savvy, their tactics are brilliant. They include:</p>
+
+<ul>
+<li><strong>Emoji-contacts</strong>: Never saving their friends names in their phone. Use emoticons instead. Smiley
+face is a new boyfriend. Cake is your friend from the club. Happy penguin is
+your pot dealer.</li>
+<li><strong>Never using iPhones</strong>: They don&rsquo;t trust these devices and their tracking
+capabilities. Instead use a cheap Android device they feel can&rsquo;t track them
+as accurately.</li>
+<li><strong>Don&rsquo;t use SMS</strong>: Use messaging apps like snapchat for messages with new boyfriends. They know
+that these are protected and don&rsquo;t show up on the records for the account.</li>
+<li><strong>Watch Out Who Friends You</strong>: They believe that the NYPD is &ldquo;Cat Fishing&rdquo;
+them to learn about their social circles and keep track of things they post
+that might be illegal.</li>
+</ul>
+
+
+<p>Look, these aren&rsquo;t tactics that a tech-savvy person would use, but they show
+real-world examples of different kinds of threats and ways to compensate for them.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using a VPN With Tor]]></title>
@@ -1250,146 +1351,6 @@ At this point we have some tools designed to protect ourselves. <a href="https:/
 </span></p>
 
 <p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Importance of Anonymous Email Addresses]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/05/16/email/"/>
-    <updated>2014-05-16T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/05/16/email</id>
-    <content type="html"><![CDATA[<p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
-
-<p><img class="center" src="http://www.b3rn3d.com/images/email.png" title="" ></p>
-
-<p>Notice that we are not talking about anonymous communication here, because we know that email is the worst possible option for that at this point. We are talking about anonymously registering for an email account, so that you can also potentially register for other services anonymously.</p>
-
-<p>Here&rsquo;s an example: Github. In order to create a github account, you need to give them an email address so that you can activate your account.</p>
-
-<h2>The Problem</h2>
-
-<p>The problem for anonymous privacy concerned peoples of the Internet, is that it&rsquo;s relatively difficult to get an email address while using something like Tor. Sites will block you in a variety of ways:</p>
-
-<ol>
-<li><strong>Blocking Registration</strong>: A site like Hotmail will block all access to register for a new address. You cannot use Tor to create an account.</li>
-<li><strong>Blocking Service</strong>: The site will let you register, and subsequently block access to webmail from any Tor exit node.</li>
-<li><strong>Requiring Extensive Validation</strong>: The site allows registration, and access, but will eventually require you to validate your identity through some kind of out-of-band system like an SMS.</li>
-<li><strong>The Tease</strong>: And then there are sites that seem to allow you to register, access the service, but a few months down the line, you suddenly find out that your account has been blocked or requires a special non-Tor validation mechanism.</li>
-</ol>
-
-
-<p><span class='pullquote-right' data-pullquote='the conclusion must be the same – these providers do not want anonymous users'>
-In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="http://www.b3rn3d.com/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But the conclusion must be the same &ndash; these providers do not want anonymous users. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. </span></p>
-
-<h2>The Solutions</h2>
-
-<p>So what options do anonymous users have? Remember, our goal is to eventually register for some other service that requires an email address, but we can&rsquo;t even register to get an email address in the first place.</p>
-
-<h3>Webmail Providers</h3>
-
-<p>Gmail, Yahoo, Microsoft, all offer webmail. In an ideal world, you could just register with them, get an email address, and be done with it. If your operation only requires that you hide behind a VPN, this may work for you but if you&rsquo;re using something like Tor, you are going to be blocked as described above.</p>
-
-<p>Google has an interesting blocking program right now. When a user goes to register, they create a fingerprinted definition of that user &ndash; what is the resolution of their computer, what plugins do they have installed, what fonts are supported, etc. Therefore changing IP addresses and clearing out your cookies, will not affect the registation process. Google sets a number for each user so that when you first register for an account, you do not have to activate via SMS or phone call. But your third or fourth will require it. There is a method to the madness but I&rsquo;ve yet to figure it out (or care enough).</p>
-
-<p>Yahoo is one of those situations where they allow anonymous registration, but after a month or two they will block access with an un-usable CAPTCHA. No mater how many times you attempt to complete it, when using Tor, the result will say that you have entered the CAPTCHA incorrectly.</p>
-
-<p>This is a semi-plausible option, but generally not a good solution for long term operations. Its safe to say that I would almost never recommend using something like Gmail.</p>
-
-<h3>Temporary Email Services</h3>
-
-<p>Sites like Mailinator provide a temporary email address. You create a random address, sign up for a service using that address and you can check that mailbox whenever you need. Email is cleared out after a certain period of time. It&rsquo;s great for spam and sites with unnecessary registrations.</p>
-
-<p>There are a couple of problems though. one is that many (most?) service providers block registration from Mailinator addresses. Another is that anyone that knows your mailinator email address, can access your email; the concern here being someone resetting your password.</p>
-
-<p>Want an example? Why not reset the passwords for any of these Skype accounts:</p>
-
-<table>
-<thead>
-<tr>
-<th> <strong>Name</strong>          </th>
-<th> <strong>Mailinator Address</strong> </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> Merlin        </td>
-<td> <a href="http://www.mailinator.com/inbox.jsp?to=merlin">merlin@mailinator.com</a></td>
-</tr>
-<tr>
-<td> anbu.mailinator   </td>
-<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">anbu@mailinator.com</a></td>
-</tr>
-<tr>
-<td> wert          </td>
-<td> <a href="http://www.mailinator.com/inbox.jsp?to=wert">wert@mailinator.com</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-
-<p>The point is, Mailinator works, when it works, but most of the time it doesn&rsquo;t. For short operations, or something you need temporary access to, this is a good solution.</p>
-
-<p>Other alternatives to Mailinator:</p>
-
-<ul>
-<li><a href="http://www.spambog.com/">Spambog.com</a></li>
-<li><a href="http://maildrop.cc/">Maildrop.cc</a></li>
-<li><a href="https://www.guerrillamail.com/">Guerrilla Mail</a></li>
-<li><a href="https://trashmail.com/">Trashmail</a></li>
-<li><a href="http://10minutemail.com/10MinuteMail/index.html">10 Minute Mail</a></li>
-</ul>
-
-
-<h3>Acquired Accounts</h3>
-
-<p>There are a variety of dark market sales that will give you pre-configured email addresses. These are either hacked accounts, or merely registered addresses to save you the hassle. You can buy them in packs of 100 or 1000 (and up) for a small fraction of Bitcoin. (It&rsquo;s not even worth linking to dark markets at this point but I&rsquo;m sure you&rsquo;ll find them.)</p>
-
-<p>Purchasing email accounts from a dark market is relatively legitimate compared to the alternatives of breaking into the accounts yourself. If you have the time and effort, you might be surprised at how easy this is especially when you look at the very simple password reset questions often used.</p>
-
-<h3>Self-Hosted Email</h3>
-
-<p>One of the most suggested solutions to the email problem is to host email yourself. You purchase a domain anonymously using bitcoin, gift cards, or whatever anonymous method you choose. You spoof or falsify the WHOIS lookup information so that nothing points back to your real identity. Then you purchase a hosting provider using the same anonymous methods. Finally, you run a mail service so you can give yourself an infinite number of email addresses.</p>
-
-<p>This is a viable solution for some operations. If you don&rsquo;t mind admin'ing a server and walking through the steps, this can be a good option.</p>
-
-<p>The reason I don&rsquo;t like this is that it increases your attack surface. You are now hosting a mail server that directly points to you. If this server is exploited, every email address you have ever created is now accessible.</p>
-
-<p>And for someone like me, that will compartmentalize identities, this solution doesn&rsquo;t scale. I would have to build out a new email server, new domain, new hosting provider for each identity. This is not a problem with the solution as much as it is a problem with OPSEC decisions.</p>
-
-<h3>Trusted Anonymous Email</h3>
-
-<p>The other option, is to find an email provider that you, yourself, trust. Trust is a difficult subject to cover so lets give it an operational definition of a service provider in which you believe won&rsquo;t sell your emails. (We&rsquo;ll ignore the possible nation state surveillance and potential legal jurisdiction issues.)</p>
-
-<p>Here are a few providers that are &ldquo;trusted&rdquo; in many privacy circles:</p>
-
-<ul>
-<li><a href="https://riseup.net/">Riseup.net</a>: This is a provider designed for activitists and community organizers. It is hosted in the U.S. In order to receive an email, you must know two people with an address, or try to request one from an admin on IRC.</li>
-<li><a href="www.autistici.org/">Autustici</a>: Offer a range of services with privacy and activism in mind. Webmail, web site hosting, blog host, newsgroups.</li>
-<li><a href="https://aktivix.org/">Aktivix</a>: Small site that offers free email addresses if you can convinve them you should have one&hellip;via email.</li>
-</ul>
-
-
-<p><span class='pullquote-right' data-pullquote='the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against'>
-These are a breath of fresh air compared to the other solutions where you&rsquo;ve had to trick and lie your way into getting an account. These services generally approve of anonymous users and make it a goal to provide privacy-centric services. I can&rsquo;t highlight enough, the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against.
-</span></p>
-
-<p>The problem is that these are often volunteer organized services, and community driven. That is to say, each of these providers have a hoop you need to jump through in order to obtain an address. This often means you have to befriend someone online, or give them a reason about how you are improving the world and need to maintain your anonymity.</p>
-
-<h2>The Future</h2>
-
-<p>The unfortunate truth is, email will be around for a long time. How long it will be around as an authentication system will hopefully be $longtime - n.</p>
-
-<p><span class='pullquote-right' data-pullquote='These federated services that were once used for social networking, are now becoming authentication endpoints'>
-What&rsquo;s replacing email registrations is just as scary though. We now see &ldquo;Sign in with Google+&rdquo; and &ldquo;Login with your Facebook account.&rdquo; These federated services that were once used for social networking, are now becoming authentication endpoints. The future of an always-authenticated, always-attributed Internet is very close.
-</span></p>
-
-<h2>Conclusions</h2>
-
-<p>This is the current state of email and anonymity from my point of view. Your operation dicates which solution is going to work the best, no single option will unilaterally work. For long operations greater than a year, it may be worth investing some time into a stable email address where self-hosting is the right answer. For operations that last for a month, temporary email address providers might be the right choice.</p>
 ]]></content>
   </entry>
   

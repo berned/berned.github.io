@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it &hellip;">
+  <meta name="description" content="There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a></h1>
     
     
       <p class="meta">
@@ -85,63 +85,71 @@
   
 
 
-<time datetime="2015-12-15T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-16T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
+  <div class="entry-content"><p>There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making a secure host and you only route traffic over tor and you&rsquo;ve employed various security protections to limit your risk, etc. So you, you say to yourself, &ldquo;I don&rsquo;t need the Tor Browser Bundle, I&rsquo;ve already installed tor.&rdquo; You would be wrong.</p>
 
-<h2>How</h2>
+<p>The Tor Browser (part of TBB) offers a lot of additional security protections that your &ldquo;raw&rdquo; browser doesn&rsquo;t. <a href="https://www.torproject.org/about/corepeople.html.en">Mike Perry</a> who manages the TBB portion of the Tor Project (among other things) has put in a lot of work.</p>
+
+<p>Here are just a few reasons:</p>
+
+<h1>Reason #1: WebRTC</h1>
+
+<p>Here&rsquo;s a quick example: Remember the <a href="https://threatpost.com/webrtc-found-leaking-local-ip-addresses/110803/">private IP disclosure</a> vulnerability that&rsquo;s possible using WebRTC? Well the <em>only</em> browser (AFAIK) that isn&rsquo;t vulnerable to this issue is the Tor Browser. You can&rsquo;t prevent it by disabling JavaScript and you can&rsquo;t block it through an extension. And we know that Chrome, Safari, IE, and Opera aren&rsquo;t any help either.</p>
+
+<p>This issue alone should scare you into reconsidering using a raw browser no matter how many extensions you have installed. By the way, if you&rsquo;re interested in seeing how you can disable WebRTC from firefox, it&rsquo;s a compiletime flag: <code>--disable-webrtc</code>.</p>
+
+<h1>Unique Identifiers</h1>
+
+<p>If I can correlate your website visit across mutiple sessions I can potentially deanonymize you in the case that you visit my site over tor and then in the clear. Even in the best case, I will still be able to watch your activities across multiple visits. What if I can correlate between when you log in as user A to those when you log in as user B.</p>
+
+<p>There are so many situations where a malicious web page could include some kind of identifying token. The ones mitigated by TB include:</p>
 
 <ul>
-<li>Download <a href="https://www.torproject.org/download/download-easy.html.en">TBB</a></li>
-<li>Extract</li>
-<li><p>Cd to the following directory:</p>
-
-<pre><code>  tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default$
-</code></pre></li>
-<li>Modify <code>extensions.ini</code></li>
-<li><p>Comment out the following line:</p>
-
-<pre><code>  #Extension2=/home/death/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher@torproject.org.xpi
-</code></pre></li>
+<li>HTTP auth headers (e.g. <code>http://{IDENTIFIER}username:password@website.com/</code>)</li>
+<li>Cache lookup (e.g. injecting an ID into the cache and check to see if it exists on next visit)</li>
+<li>Cookies (e.g. tracking cookie identified by third parties)</li>
+<li>HSTS super cookies (e.g. multi-site owners can build a unique ID based on whether a user has a cached HSTS record for a particular set of domains)</li>
 </ul>
 
 
-<h2>Setup</h2>
+<h1>Fingerprinting Defenses</h1>
 
-<p>This assumes that you&rsquo;re running tor on port 9050 and ideally that you have your control port enabled with a password of &ldquo;secret&rdquo; to access it. That&rsquo;s only if you want to be able to control Tor via the browser extension. Maybe you don&rsquo;t.</p>
+<p>Fingerprinting the browser, the hardware, the user, the location, or any kind of identifying information related to a user&rsquo;s session is a very difficult attack to completely defend against. TB does what it can though to defend against this scenario. There are some crazy attacks available including:</p>
 
-<p>If you want to set your password to &ldquo;sercret&rdquo; you can use tor to generate the hash for you:</p>
+<ul>
+<li><a href="http://www.andlabs.org/tools/jsrecon.html">port scanning via web sockets</a></li>
+<li>extracting a list of installed fonts</li>
+<li><a href="https://dvcs.w3.org/hg/gamepad/raw-file/default/gamepad.html#widl-Gamepad-id">USB device enumearation via the Gamepad API</a></li>
+</ul>
 
-<pre><code>    tor --hash-password secret
-</code></pre>
 
-<p>Copy that into your /etc/torrc file under the HashedPassword section.</p>
+<p>Maybe TB hasn&rsquo;t solved this problem but the question is, what do you think your current browser is doing?</p>
 
-<p>You can take a look at the other comments found in <code>start-tor-browser</code>:</p>
+<h1>Plugin Controls</h1>
 
-<pre><code>    # SETTING NAME                            VALUE
-    # extensions.torbutton.banned_ports       [...],&lt;SocksPort&gt;,&lt;ControlPort&gt;
-    # extensions.torbutton.block_disk         false
-    # extensions.torbutton.custom.socks_host  127.0.0.1
-    # extensions.torbutton.custom.socks_port  &lt;SocksPort&gt;
-    # extensions.torbutton.inserted_button    true
-    # extensions.torbutton.launch_warning     false
-    # extensions.torbutton.loglevel           2
-    # extensions.torbutton.logmethod          0
-    # extensions.torbutton.settings_method    custom
-    # extensions.torbutton.socks_port         &lt;SocksPort&gt;
-    # extensions.torbutton.use_privoxy        false
-    # extensions.torlauncher.control_port      &lt;ControlPort&gt;
-    # extensions.torlauncher.loglevel          2
-    # extensions.torlauncher.logmethod         0
-    # extensions.torlauncher.prompt_at_startup false
-    # extensions.torlauncher.start_tor         false
-</code></pre>
+<p>Your extensions/plugins/addons are terrifying. They can do whatever they want, not only to your browser, but to anything on your system. Because of this, TB has <a href="https://gitweb.torproject.org/tor-browser.git/commit/?h=tor-browser-31.6.0esr-4.5-1&amp;id=8c6604d2b776f0d8e33ed9130c5f5b8cf744bac8">patched the DNS service</a> to ensure that a browser extension doesn&rsquo;t accidentally leak your DNS requests. This is also done for OCSP so that certificate lookups must be done over the SOCKS proxy and tor.</p>
+
+<p>Similarly, when loading the Flash or Gnash plugin, TB uses the click-to-play control so that in order to play a Flash applet, the user must explicitally click on it before it executes. The risk of Flash or any plugin for that matter goes back to whether it always adheres to proxy settings as well as what type of information is exposed to the applet. Can they obtain your local IP? Can they access a session cookie?</p>
+
+<h1>External Event Blocking</h1>
+
+<p>On your computer right now, you&rsquo;ve likely setup default programs associated with certain types of files. In a browser, you can also setup external programs associated to a protocol. For example <code>tel://</code>, <code>skype://</code>, or <code>ssh://</code> allows a browser to automatically send data from the browser into the associated program. There&rsquo;s a risk here that it will disclose your private info to those programs and therefore compromise your anonymity.</p>
+
+<p>The defense in this case is present a <a href="https://gitweb.torproject.org/torbutton.git/tree/src/components/external-app-blocker.js">pop-up</a> whenever a request to leave the browser is made.</p>
+
+<h1>History and Storage</h1>
+
+<p>TB does everything it can to never touch your disk and never allow your browsing history to be saved to a file. There are a lot of ways <a href="https://trac.torproject.org/projects/tor/query?keywords=~tbb-disk-leak&amp;status=!closed">this is accomplished</a> but the risk has been that if the history or sensitive information is stored on disk, it may be accessible to other appliations or to a forensic investigator.</p>
+
+<h1>More information</h1>
+
+<p>There&rsquo;s <a href="https://www.torproject.org/projects/torbrowser/design/">dozens of other</a> reasons that may or may not be applicable to your plans. The point here again is, the level of effort that the Tor Browser has employed makes you question how secure your current browser configuration is.</p>
 </div>
   
   
@@ -164,6 +172,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a>
@@ -199,10 +211,6 @@
     
       <li class="post">
         <a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a>
       </li>
     
   </ul>

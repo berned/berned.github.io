@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="If you read this interesting post from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as &hellip;">
+  <meta name="description" content="The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a></h1>
     
     
       <p class="meta">
@@ -85,60 +85,99 @@
   
 
 
-<time datetime="2015-10-22T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-04T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>If you read this <a href="http://motherboard.vice.com/read/camgirl-opsec-how-the-worlds-newest-porn-stars-protect-their-privacy-online">interesting post</a> from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as part of your threat model.</p>
+  <div class="entry-content"><p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
 
-<h2>Low Tech But High Investment</h2>
+<h1>TAILS</h1>
 
-<p><img class="right" src="/images/badgirl.jpg" width="300"></p>
+<p><img class="right" src="/images/tails.png" width="300">
+<a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
 
-<p>You don&rsquo;t expect that an overzealous camgirl fan to be able to do facial recognition, but we know that services like Google and Facebook can offer <a href="http://www.facesearch.com/">this service</a> for free! Doing a reverse image lookup or trying to look at a photo&rsquo;s metadata are really simple things that just about any low life can figure out.</p>
+<p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n'th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
 
-<p>The more serious weapon that they have is not technology, but commitment and drive. They will do anything in their power to try and find out information about you.</p>
-
-<h2>Recommendations</h2>
-
-<p><strong>Buy Burner Everything</strong>: We&rsquo;ve heard about burner phones but don&rsquo;t forget about a dedicated cam girl laptop, and more importantly camgirl camera used only for your online business.</p>
-
-<p>Your camera can tell a lot about you. The optics, resolution, capabilities are all fingerprintable metrics. If a perv is able to find another photo series using the same expensive equipment, it may be be possible for them to find that you&rsquo;re cross-posting dirty pictures on other sites like Facebook.</p>
-
-<p><strong>Do Your Homework On The Service:</strong> The article mentions using a VPN of course. This is important as a fall back but it&rsquo;s important that the camgirl service being used does everything it can to protect your IP from being leaked. Ask questions to the service about whether IPs are logged and who has access to that information. How do you create accounts and how do you recover your password if it&rsquo;s lost? Which brings us to a reminder about account security.</p>
-
-<p><strong>Secure Your Accounts:</strong> Does the cam service let you reset your password by answering a few personal questions? Are these questions that someone that is a super-fan would know by chatting with you? Find a cam service that provides two-factor security so that you enter in a user name, a password, and then you have to enter in a One-Time-Password. This will help ensure that no one is able to get in even if they guess what your password is. In my &ldquo;research&rdquo; I have found only once service that provides this type of security. And of course, choose a strong password.</p>
-
-<p><strong>Build a List Of Lies:</strong> There is no good defense against someone that is going to do everything they can to try and get you to leak information about yourself. As I&rsquo;ve discussed before, don&rsquo;t tell them what you don&rsquo;t want them to know. Lie to them.</p>
-
-<p>If someone asks you about your coffee table and you realize it was made two streets down from your current location, don&rsquo;t say &ldquo;Sorry I can&rsquo;t tell you.&rdquo; You&rsquo;ve confirmed to the adversary a piece of sensitive information that they will likely target at another time. Lie to them. Tell them it&rsquo;s a popular brand purchased from a popular store that is popular in your entire country.</p>
-
-<p>Come up with a list of lies so that you can remember to maintain them. This could include:</p>
+<p>As stated, we are paying more attention to the secure tools that we use and this has identified some <a href="https://www.schneier.com/blog/archives/2014/07/security_vulner_4.html">fatal flaws</a> in TAILS. If you <a href="https://tails.boum.org/security/#index3h1">look back</a> at the TAILS project, the number of vulnerabilities identified and reported have are much smaller before than after Snowden disclosures.</p>
 
 <ul>
-<li>Name</li>
-<li>Country of origin</li>
-<li>Age of your house</li>
-<li>Brothers, sisters, family members and their names</li>
-<li>Previous relationships</li>
-<li>Favorite band, music, politician, TV show, movie, book, etc.</li>
-<li>University and expertise</li>
-<li>Professional employment</li>
+<li><strong>Development</strong>: Highly active with multiple paid developers</li>
+<li><strong>Maturity</strong>: First created in</li>
+<li><strong>Goals</strong>: Provide an easy-to-use live environment for temporary work.</li>
+<li><strong>Roadmap</strong>: Continue same model and further harden the OS.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Minimal support for persistence (besides files). Not designed to be installed but just run once.</li>
+<li>No mitigations for GCHQ/NSA type low level hardware attacks</li>
+<li>The focus on supporting all forms of users may affect security</li>
+</ul>
+</li>
 </ul>
 
 
-<p><strong>Hide In The Darkness:</strong> If you live cam at 17:00 every day, and you do it by a window, they not only will be able to deduce what timezone you&rsquo;re in, but also how far North you live. Those camgirls that live in the Scottish Highlands will have a lot less daylight towards Winter, something that an attacker would notice.</p>
+<h2>Qubes OS</h2>
 
-<p><strong>Tell Your Friends About Your Policy:</strong> You might be embarrassed about being a cam'er and telling your friends about it is the worst idea. But consider this, if someone finds out that you are a cam girl, are you sure that friend won&rsquo;t leak your information.</p>
+<p><img class="right" src="/images/qubes.png" width="300">
+I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
 
-<p>When someone finds out that you are friends with someone else, their gears will automatically shift to finding out about them. Do they have the same OPSEC policy as you? Do they have an open Facebook account? Do they have any other pictures of you that they&rsquo;re willing to sell?</p>
+<p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
 
-<p><span class='pullquote-right' data-pullquote='It’s always better to confide in someone a secret, than risk they find out on their own.'>
-It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s always better to confide in someone a secret, than risk they find out on their own. By letting them in on the secret, and showing them how serious the secret is to you, you are asking them to join in to protect that secret. Without doing so ahead of time, there is no social contract that would imply this.
+<p><span class='pullquote-right' data-pullquote='it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word “identity” with “virtual object” and you have their security model'>
+Technical details aside for a moment, it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &ldquo;identity&rdquo; with &ldquo;virtual object&rdquo; and you have their security model.</p>
+
+<p>This is accomplished by making several virtual objects. You virtualize your firewall, you virtualize your USB controller, you virtualize the browser you&rsquo;re using for Project A, and separately, you virtualize the browser you&rsquo;re using for Project B. From here, QubesOS helps facilitate communications between those objects if necessary.
 </span></p>
+
+<p>QubesOS offers some features that no other system currently offers. The big one for me is virtualization for USB controller. So no only are you creating virtual machines, you&rsquo;re creating virtual controllers. If someone malicious is plugged into your system, even in the case of an [0-day exploiting the firmware of your USB controller], the rest of your system is not compromised.</p>
+
+<p>The other major feature that we know is in the GCHQ playbook is protection from WiFi driver exploits. We&rsquo;ve heard of this exploit being used in the while but have yet to have a real mitigation from it. With QubesOS, your wireless card is its own virtual object that contains the exploit into its own virtual machine.</p>
+
+<p>There is a lot more to talk about with QubesOS but it does seem the one to watch going forward.</p>
+
+<ul>
+<li><strong>Development</strong>: Active but a small group.</li>
+<li><strong>Maturity</strong>: v3.1 released is functional but not perfect.</li>
+<li><strong>Roadmap</strong>: Investing time in rebuilding the UI is a priority.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Hardware support is difficult to predict. They have an approved list but you can&rsquo;t assume it will work on all systems.</li>
+<li>Performance is relatively poor to the other systems and Qubes consumes a lot of memory for each of the virtual machines.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>SubgraphOS</h2>
+
+<p><img class="right" src="/images/subgraph.png" width="300">
+<a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
+
+<p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
+
+<p>The problem thus far is that only a small group of people have seen SubgraphOS working. I&rsquo;m also concerned about the development of SubgraphOS by the company, Subgraph. We know that Subgraph is a <a href="https://subgraph.com/about-us/index.en.html">&ldquo;security&rdquo; company</a> that aims to provide services and products to its clients. The other two projects discussed here have been community projects and money is not the primary goal. The owner of the company comes from the secure kernel world where he was a mod of one of the most popular and dramatic bug hunting mailing lists.</p>
+
+<p>SubgraphOS had the problem of being announced way too soon. They showed off the now famous <a href="https://subgraph.com/img/sgos.png">SubgraphOS images</a> that caught everyone&rsquo;s eye before there was anything to actually look at.</p>
+
+<p>I come from the perspective of seeing tons of projects die in the past. The ones that I&rsquo;ve seen stick through are not usually (ever?) the ones released for free by a money making company.</p>
+
+<ul>
+<li><strong>Development</strong>: Probably active? Not open to the public.</li>
+<li><strong>Maturity</strong>: Immature, pre-alpha releases</li>
+<li><strong>Roadmap</strong>: Hopefully release a beta to the public soon.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Money may affect the development of the product.</li>
+<li>Closed development may deter acceptance of even a finished product.</li>
+</ul>
+</li>
+</ul>
+
 </div>
   
   
@@ -161,6 +200,10 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a>
@@ -196,10 +239,6 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
     
       <li class="post">
         <a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a>
       </li>
     
   </ul>
