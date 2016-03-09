@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Anonymity | B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/blog/categories/anonymity/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-03-04T08:59:51+00:00</updated>
+  <updated>2016-03-09T11:23:30+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
     <updated>2014-05-29T00:00:00+00:00</updated>
     <id>http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
+    <content type="html"><![CDATA[<p>{% img right /images/fingerprint.png 200 %}Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
 
 <p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
 
@@ -44,12 +44,11 @@
 <p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
 
 <p>Here&rsquo;s a simple Javascript example that does that
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
-</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
-</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure></p>
+{% codeblock %}
+<a href="javascript:alert
+('Your resolution is '+screen.width+'x'+screen.height);">
+Screen Resolution Example</A>
+{% endcodeblock %}</p>
 
 <p>Demo: <a href="javascript:alert
 ('Your resolution is '+screen.width+'x'+screen.height);">
@@ -94,7 +93,7 @@ Screen Resolution Detection Example</A></p>
     <id>http://www.b3rn3d.com/blog/2014/05/16/email</id>
     <content type="html"><![CDATA[<p>Email is dead, so why do we keep having to register for services using an email address? Think of a cloud service that doesn&rsquo;t use an email address as your identifier. Email has moved from being a communication tool, to an authentication system.</p>
 
-<p><img class="center" src="/images/email.png" title="" ></p>
+<p>{% img center /images/email.png  %}</p>
 
 <p>Notice that we are not talking about anonymous communication here, because we know that email is the worst possible option for that at this point. We are talking about anonymously registering for an email account, so that you can also potentially register for other services anonymously.</p>
 
@@ -112,7 +111,8 @@ Screen Resolution Detection Example</A></p>
 </ol>
 
 
-<p>Surround your pullquote like this {" text to be quoted "}</p>
+<p>{% pullquote %}
+In each of these cases, there are probably ways to evade these restrictions. For phone activation, we can use a <a href="/blog/2014/01/22/burnerphone/">burner phone</a>. In the case of registration just being blocked, you could probably find an un-attributable computer to borrow just for the registration process. But {&ldquo;the conclusion must be the same &ndash; these providers do not want anonymous users&rdquo;}. This is a network policy as much as it is a political statement. Because of this, even if you&rsquo;ve &ldquo;tricked&rdquo; the mail provider into allowing you to register, you should eventually expect to be blocked from access without notice. {% endpullquote %}</p>
 
 <h2>The Solutions</h2>
 
@@ -206,7 +206,9 @@ Screen Resolution Detection Example</A></p>
 </ul>
 
 
-<p>Surround your pullquote like this {" text to be quoted "}</p>
+<p>{% pullquote %}
+These are a breath of fresh air compared to the other solutions where you&rsquo;ve had to trick and lie your way into getting an account. These services generally approve of anonymous users and make it a goal to provide privacy-centric services. I can&rsquo;t highlight enough, {&ldquo;the importance of a service provider that respects your privacy, compared to a provider in which you defend your privacy against&rdquo;}.
+{% endpullquote %}</p>
 
 <p>The problem is that these are often volunteer organized services, and community driven. That is to say, each of these providers have a hoop you need to jump through in order to obtain an address. This often means you have to befriend someone online, or give them a reason about how you are improving the world and need to maintain your anonymity.</p>
 
@@ -214,7 +216,9 @@ Screen Resolution Detection Example</A></p>
 
 <p>The unfortunate truth is, email will be around for a long time. How long it will be around as an authentication system will hopefully be $longtime - n.</p>
 
-<p>Surround your pullquote like this {" text to be quoted "}</p>
+<p>{% pullquote %}
+What&rsquo;s replacing email registrations is just as scary though. We now see &ldquo;Sign in with Google+&rdquo; and &ldquo;Login with your Facebook account.&rdquo; {&ldquo;These federated services that were once used for social networking, are now becoming authentication endpoints&rdquo;}. The future of an always-authenticated, always-attributed Internet is very close.
+{% endpullquote %}</p>
 
 <h2>Conclusions</h2>
 

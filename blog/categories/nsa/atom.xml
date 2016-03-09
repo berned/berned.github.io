@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Nsa, | B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/blog/categories/nsa/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-03-04T08:59:51+00:00</updated>
+  <updated>2016-03-09T11:23:30+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -31,7 +31,9 @@
 
 <h2>The Revelations</h2>
 
-<p>Surround your pullquote like this {" text to be quoted "}</p>
+<p>{% pullquote %}
+To summarize, the source code to the NSA program, <a href="https://en.wikipedia.org/wiki/XKeyscore">XKeyscore</a> (known since the early days of the Snowden disclosures) has been leaked. It sounds like the program&rsquo;s entire source code is in the hands of another party and it shows what the code does, how it works and who it&rsquo;s targeting. We now know that {&ldquo;privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services &rdquo;}. Each of these are considered suspicious activities and flagged as the IP&rsquo;s of suspects by NSA&rsquo;s network monitoring machine.  This is further a reminder that if you look like you are privacy conscious, you are going to be a targeted as an &ldquo;extremist&rdquo; in the eyes of the United States and it&rsquo;s allies.
+{% endpullquote %}</p>
 
 <h2>Tracking Bridge Users</h2>
 
@@ -57,84 +59,46 @@
 
 <p>The most interesting part is the code released showing how XKeyScore works. Many have already highlighted that the NSA programs are merely malicious implementations of existing technology (as opposed to custom software built from the ground up). We can see that XKeyScore&rsquo;s database uses a <a href="https://en.wikipedia.org/wiki/Mapreduce">MapReduce</a> model. One very common with NoSQL databases like Hadoop. This is hinted in the &ldquo;mapper&rdquo; and &ldquo;reducer&rdquo; functions that searches for onion addresses:</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mapper&lt;onion_t>:
-</span><span class='line'>      static const std::string prefix = &ldquo;anonymizer/tor/hiddenservice/address/&rdquo;;&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>  onion_t onion;
-</span><span class='line'>  size_t matches = cur_args()-&gt;matches.size();
-</span><span class='line'>  for (size_t pos=0; pos &lt; matches; ++pos) \{
-</span><span class='line'>    const std::string &amp;value = match(pos);
-</span><span class='line'>    if (value.size() == 16)
-</span><span class='line'>      onion.set_address(value);
-</span><span class='line'>    else if(!onion.has_scheme())
-</span><span class='line'>      onion.set_scheme(value);
-</span><span class='line'>    else
-</span><span class='line'>      onion.set_port(value);
-</span><span class='line'>  \}
-</span><span class='line'>
-</span><span class='line'>  if (!onion.has_address())
-</span><span class='line'>    return false;
-</span><span class='line'>
-</span><span class='line'>  MAPPER.map(onion.address(), onion);
-</span><span class='line'>  xks::fire_fingerprint(prefix + onion.address());
-</span><span class='line'>  return true;
-</span><span class='line'>
-</span><span class='line'>reducer&lt;onion_t&gt;:
-</span><span class='line'>  for (values_t::const_iterator iter = VALUES.begin();
-</span><span class='line'>      iter != VALUES.end();
-</span><span class='line'>      ++iter) {
-</span><span class='line'>    DB["tor_onion_survey"]["onion_address"] = iter-&gt;address() + ".onion";
-</span><span class='line'>    if (iter-&gt;has_scheme())
-</span><span class='line'>      DB["tor_onion_survey"]["onion_scheme"] = iter-&gt;scheme();
-</span><span class='line'>    if (iter-&gt;has_port())
-</span><span class='line'>      DB["tor_onion_survey"]["onion_port"] = iter-&gt;port();
-</span><span class='line'>    DB["tor_onion_survey"]["onion_count"] = boost::lexical_cast&lt;std::string&gt;(TOTAL_VALUE_COUNT);
-</span><span class='line'>    DB.apply();
-</span><span class='line'>    DB.clear();
-</span><span class='line'>  }
-</span><span class='line'>  return true;
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock %}
+ mapper<onion_t>:
+      static const std::string prefix = &ldquo;anonymizer/tor/hiddenservice/address/&rdquo;;</p>
+
+<pre><code>  onion_t onion;
+  size_t matches = cur_args()-&gt;matches.size();
+  for (size_t pos=0; pos &lt; matches; ++pos) \{
+    const std::string &amp;value = match(pos);
+    if (value.size() == 16)
+      onion.set_address(value);
+    else if(!onion.has_scheme())
+      onion.set_scheme(value);
+    else
+      onion.set_port(value);
+  \}
+
+  if (!onion.has_address())
+    return false;
+
+  MAPPER.map(onion.address(), onion);
+  xks::fire_fingerprint(prefix + onion.address());
+  return true;
+
+reducer&lt;onion_t&gt;:
+  for (values_t::const_iterator iter = VALUES.begin();
+      iter != VALUES.end();
+      ++iter) {
+    DB["tor_onion_survey"]["onion_address"] = iter-&gt;address() + ".onion";
+    if (iter-&gt;has_scheme())
+      DB["tor_onion_survey"]["onion_scheme"] = iter-&gt;scheme();
+    if (iter-&gt;has_port())
+      DB["tor_onion_survey"]["onion_port"] = iter-&gt;port();
+    DB["tor_onion_survey"]["onion_count"] = boost::lexical_cast&lt;std::string&gt;(TOTAL_VALUE_COUNT);
+    DB.apply();
+    DB.clear();
+  }
+  return true;
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <h2>Full Code</h2>
 

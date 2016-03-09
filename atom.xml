@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-03-04T08:59:51+00:00</updated>
+  <updated>2016-03-09T11:08:43+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,94 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Growing a Flower in the Dark]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/03/11/opsec-and-ego/"/>
+    <updated>2016-03-11T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/03/11/opsec-and-ego</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/dark_flower.jpg" width="200" title="Dark Flower" ></p>
+
+<p>I like to use the metaphor of growing a flower to discuss the issues of OPSEC. It works on a couple of levels and I hope it can help delver my points. You can&rsquo;t use the same tools to grow a flower in the dark that you might normally: sunlight, access to water, fertilizer. You are human. You have needs. You need to eat, you need to sleep, you need to have a reason to do things that you do. Like the flower in the dark, our OPSEC may restrict our ability to feed our human needs.</p>
+
+<p>Psychological human needs often get in the way of your operation.</p>
+
+<ul>
+<li>Loneliness</li>
+<li>Self worth</li>
+<li>Motivation</li>
+</ul>
+
+
+<p>The first step is recognizing that these are real, useful needs, and they should not be denied. Next we should figure out how to feed them. There are really two ways of looking at the situation to help you deal with them: Plan to ensure these feelings never happen or plan how to deal with these feelings <em>when</em> they happen.</p>
+
+<p><span class='pullquote-right' data-pullquote='feeding these needs may negatively impact your OPSEC policy, but not feeding these needs could have much more serious consequences.'>
+I&rsquo;ll discuss some of the issues as well as some recommendations but as you&rsquo;ll see, my recommendations are in direct contrast to a good OPSEC plan. The first concession you need to make is that feeding these needs may negatively impact your OPSEC policy, but not feeding these needs could have much more serious consequences.
+</span></p>
+
+<h2>The Drought of Loneliness</h2>
+
+<p>Depending on your OPSEC and operation, you are lonely. You sit in your cheap flat, with your secure computer, and nobody knows that you exist.</p>
+
+<p>Let me feed my ego a little bit and disclose an anecdote. I&rsquo;ve spent weeks in locations not being able to communicate with anyone. If I am able to communicate, it is high latency and multiple days before a response. The lonleiness creeps in and as any tech savvy person in this decade does, they reach online for contact. A chat on IRC, darknet forums, whatever.</p>
+
+<p>For me, the loneliness breeds different feelings; depression, laziness as well as a myopic focus on the task at hand. When you have nothing else to do, you go to work. Take care of the operation. Plan, review, and plan some more. There&rsquo;s nothing else to do.</p>
+
+<p><span class='pullquote-right' data-pullquote='you can’t be constantly watering your dark flower.'>
+If your operation takes up a lot of your time, that&rsquo;s a good way of keeping your mind busy but if your plans have lots of periods of inactivity, and you must wait for things before you can continue; you can&rsquo;t be constantly watering your dark flower. This is when the lonliness creeps in and its best to recognize that this will happen and think of ways of fixing it.
+</span></p>
+
+<p>Here are some suggestions that work for me and hopefully you:</p>
+
+<ul>
+<li>Meet people in an agnostic setting such as a book club, pub, or sporting event. Be weary of topics and information that are discussed but if you need human interaction, this is a good way of doing it.</li>
+<li>Find an out-of-band low latency communication network. Connect to IRC or Twitter from an Internet cafe. Ensure you&rsquo;ve compartmentalized everything properly and you&rsquo;re not using the same network connection as your main operation, but if you need to talk to someone.</li>
+<li>Make a friend. Yes this sounds simple or scary depending on the person but meeting a friend or partner you can confide in helps a lot. They might not be able to come over and visit you and you might seem like you&rsquo;re a very private person to them, but sometimes having a short conversation about the weather is all you need to remind you that you&rsquo;re connected to the rest of the world.</li>
+<li>Attend a public event. I&rsquo;ve found that even if I&rsquo;m not interacting with people, being a fly on the wall at a very large event makes me feel less lonely. Even a bit of eye contact helps make you feel better.</li>
+<li>Phone hotlines. I&rsquo;ll be honest, I&rsquo;ve never done this but a friend suggested it and swears by it. They suggested a suicide hotline but I feel that&rsquo;s a bit crazy especially as these services are designed to track your location. Phone sex services are usually expensive too. If you can find some kind of free hotline service that lets you use your burner phone, maybe this is something for you.</li>
+</ul>
+
+
+<h2>The Sunlight of Self Worth</h2>
+
+<p>We know that <a href="blog/2015/02/04/ego-and-opsec/">your ego can get in the way of your OPSEC</a> and all you can do is recognize that, be as disciplined as possible, compensate for what&rsquo;s missing, and continue on. Your self worth is an inner conversation that defines you as a person. What are you good at? What are your best traits? Do you have a place in the world where you can deliver these skills?</p>
+
+<p>You&rsquo;ve likely met someone that has an inflated sense of self worth. They&rsquo;re pompous about every thing they do and they aren&rsquo;t afraid of sharing it. Understand that these people are trying to feed their self worth and the more obnoxious they seem, the more starving they are for external validation. It may not need to be said, but your OPSEC may deter you from being one of these types.</p>
+
+<p>As your flower tries to grow in the shade, it will miss the warmth of the sun. You can&rsquo;t just show off your operations in the light of the day or on a clearnet site. You can&rsquo;t post on Reddit and read through the comments]to see if people like you.</p>
+
+<p><a href="https://www.reddit.com/r/onions/comments/28tpxg/liberte_tor_distro_forces_screen_resolution/">Maybe you can</a>. But let me say that in my experience, if you start questioning the value of your operation or your own personal self worth, you will start making concessions about what you&rsquo;re willing to do or share to try and feed it. You&rsquo;ll start thinking about chatting about it on IRC or Twitter and looking for something. Understand that searching for external validation is normal but make sure you stay vigilant about your OPSEC.</p>
+
+<p>It&rsquo;s hard to provide generalized recommendations for you. This is a question about your own personal feelings, motivation, and operation. Here&rsquo;s again, IMHO, some things you can try:</p>
+
+<ul>
+<li>Make a blog! A bit tongue-in-cheek but if I&rsquo;m honest, the entire purpose of this blog is to help me stay vigilant with my operations. The positive feedback is what keeps this going and at least makes me feel like I&rsquo;m useful. I am in fact at this moment, attempting to feed my self worth. :)</li>
+<li>Meet like-minded peers. The term &ldquo;community&rdquo; is often nothing more than a circle of like-minded people aimed at validating each others' sense of worth. Join a community. Find people that do what you do and make some responsible disclosures while maintaining your pseudonymity.</li>
+<li>Share your results with the world. If you have an operation with an output that could improve the world, share it. Watch how good it feels to see that other people appreciate the effort you&rsquo;ve put in.</li>
+<li>Be honest about your operation and if you really have come to the conclusion that it&rsquo;s not worth your effort, shut it down. Do so in a controlled way.</li>
+</ul>
+
+
+<h2>Feeding Your Motivation</h2>
+
+<p>Don&rsquo;t underestimate the need for motivation. At the beginning of your operation you will be very motivated. You&rsquo;ll have goals and aspirations and you&rsquo;ll be truly excited to accomplish your tasks. Without proper maintenance, these feelings fade.</p>
+
+<p>In the best case, the result is that the operation expires. You don&rsquo;t continue. It atrophies and you let it die but there are no real risks in you doing this. Some operations aren&rsquo;t as lucky. If you don&rsquo;t maintain the operation or shut it down cleanly, you put yourself at risk. What happens if someone finds out your ran the operation years later? Is there anything that might identify you?</p>
+
+<p>Motivation is what feeds your dark flower. Without enough motivation, you will simply not grow, become stale, and eventually wilt away. How can we stay motivated:</p>
+
+<ul>
+<li>Start an operation, and write down exactly why you are doing this in the most detail possible. Yes this is a risky proposition but if you can keep it secure, it can serve as an affirmation on the days when you&rsquo;re questioning whether you should be doing what you do.</li>
+<li>If your operation is related to some moral or ethical motivation, review the reasons you chose to do this. Read articles and papers about what made you want to do this in the first place. If you&rsquo;re a hactivist, remind yourself of the bad things and why you&rsquo;re trying to be on the good side.</li>
+<li>Limit outside influence. In contrast to the last suggestion, don&rsquo;t read anything. Don&rsquo;t let articles, comments, or TV shows suck out your motivation.</li>
+</ul>
+
+
+<p><span class='pullquote-right' data-pullquote='spend a few hours thinking about the meat bag that’s actually running your operation.'>
+If you think all of these suggestions and discussion does not apply to you, let us at least agree that our physical and psychological needs are paramount. If you&rsquo;ve spent hours on securing your laptop, network connection, and built an OPSEC policy, spend a few hours thinking about the meat bag that&rsquo;s actually running your operation. I hope that this serves as a reminder to not only plan for the technical details, but also find ways to grow your flower in the dark.
+</span></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mass Surveillance for the Masses]]></title>
@@ -1309,48 +1397,6 @@ Screen Resolution Detection Example</A></p>
 <h2>Conclusions</h2>
 
 <p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Journalist OPSEC Gap: Lessons From the Snowden Stories]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/05/16/greenwald/"/>
-    <updated>2014-05-16T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/05/16/greenwald</id>
-    <content type="html"><![CDATA[<p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
-
-<h2>Greenwald&rsquo;s Reluctant OPSEC</h2>
-
-<p>The first chapter is written in a self-deprecating way &ndash; the same way that an old man would talk about computers to a young person; &ldquo;You kids and your computers.&rdquo; In this case, it was more &ldquo;You political dissidents and your cryptography.&rdquo; Even after repeated attempts by Snowden to have Greenwald merely install GPG, he could not be convinced.</p>
-
-<blockquote><p>"Here am I," he thought, "ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation's most secretive agency -- a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can't even be bothered to install an encryption program."</p></blockquote>
-
-
-<p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
-
-<p><img class="center" src="http://www.b3rn3d.com/images/greenwald.png" title="" ></p>
-
-<p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
-
-<h2>Laura</h2>
-
-<p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t - iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
-
-<p><img class="center" src="http://www.b3rn3d.com/images/laurapoitras.jpg" title="" ></p>
-
-<p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &ndash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
-
-<p>Why does a filmmaker have better OPSEC than a journalist? It&rsquo;s not baffling, but it reflects the sad state of journalist awareness to operational security.</p>
-
-<h2>Journalist OPSEC</h2>
-
-<p>While frustrating, Greenwald is not an one-off situation. In fact, most journalists have no clue how to use encryption programs, or think about any kind of operational security logistics. This is the reason that sites like Wikileaks have become popular &ndash; they are on the cutting edge of technology, understand the value of providing an anonymous communication medium, and while they can&rsquo;t be regarded as having the same journalistic integrity as an institution like The Guardian, they are trusted (by some) to not accidentally or on purpose disclose their sources.</p>
-
-<p><span class='pullquote-right' data-pullquote='a cultural conflict between journalists that consider this type of software designed for “hackers” and tech savvy young people that are frustrated with the previous generation’s unwillingness to use technology.'>
-At this point we have some tools designed to protect ourselves. <a href="https://tools.ietf.org/html/rfc1991">PGP</a> has been around for a millennium in Internet years. <a href="http://www.newyorker.com/strongbox/">Strongbox</a> is an attempt at securing communications between two people that don&rsquo;t know what they&rsquo;re doing. What have is a cultural conflict between journalists that consider this type of software designed for &ldquo;hackers&rdquo; and tech savvy young people that are frustrated with the previous generation&rsquo;s unwillingness to use technology. These &ldquo;hackers&rdquo; have spent collective years building tools and documents designed for these situations, and journalists aren&rsquo;t willing to use them.
-</span></p>
-
-<p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
 ]]></content>
   </entry>
   
