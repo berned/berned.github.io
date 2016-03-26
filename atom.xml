@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-03-09T11:08:43+00:00</updated>
+  <updated>2016-03-26T19:02:40+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Internet of Threats]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/04/08/internet-of-threats/"/>
+    <updated>2016-04-08T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/04/08/internet-of-threats</id>
+    <content type="html"><![CDATA[<p>The FBiOS stories have reminded me about how many concessions we make to our OPSEC when we buy consumer products. I&rsquo;ll not turn this into a diatribe about Consumerism but I thought it might be a good reminder to us all (myself included) that we should be weary of the products we purchase and their implications. We know about the threats of a mobile phone being able to track your location, read your text messages, and all kinds of scary &ldquo;features&rdquo; but the new consumer devices with network access may be the next scary beast.</p>
+
+<h2>Fear Your Toys</h2>
+
+<p>All of those products that are installing IP&rsquo;s into your otherwise benign devices are a super high risk. Yes you&rsquo;ve heard this before, yes you know about it, but how many have you purchased and what do they do? If you are someone that is at least privacy conscious, think about making privacy conscious decisions.</p>
+
+<p><img class="right" src="http://www.b3rn3d.com/images/hackerbarbie.jpg" title="Hacker Barbie" ></p>
+
+<p>In the security industry people like to call any security research related to them &ldquo;RubbishSEC&rdquo; referring to the idea that whenever someone talks about hacking one of these devices, they&rsquo;re hacking a pile of trash that has no real security protections. And this is my point. It&rsquo;s true that your Nest doesn&rsquo;t have a lot of security protections but we accept this because &ldquo;it&rsquo;s a consumer device.&rdquo;</p>
+
+<p>Manufacturers see consumers as people that do not care about security. They don&rsquo;t care about privacy or OPSEC or what types of threats their product introduces into the consumers' environment.</p>
+
+<p><span class='pullquote-right' data-pullquote='owning a Barbie Doll is analogous to running telnet'>
+Our flashy new consumer devices that have access to the Internet are not just toys, they are risk factors. Use for example the <a href="http://www.theguardian.com/technology/2015/nov/26/hackers-can-hijack-wi-fi-hello-barbie-to-spy-on-your-children">childrens doll security issue</a>. You might now think that owning a Barbie Doll is analogous to running telnet. In the same way that we wouldn&rsquo;t run unnecessary services on our computers, we shouldn&rsquo;t use hackable consumer devices in our homes. Think of your home or apartment right now. What do you have that has network access and what does it provide you?
+</span></p>
+
+<h2>Defending Against Your Barbie</h2>
+
+<p>You have options to defend against the Toy Robot Uprising. You can take the activist stance and say &ldquo;I am not buying these products!&rdquo; and good for you if you can. Some of us that are weaker cannot do this and have become addicted to some of these consumer products. What then?</p>
+
+<p>Just like QubesOS and Subgraph OS have created compartments for high risk processes, do the same for for you toys. There&rsquo;s a new technology called a &ldquo;toy box&rdquo; that is designed to be a container for all of your IoT devices. :) That&rsquo;s only half a joke. As I&rsquo;ve said over and over, if you want to live two lives in the dark and in the light, you have to compartmentalize.</p>
+
+<ul>
+<li>Put your Barbie on her own wireless network.</li>
+<li>Make sure that your refrigerator cannot connect to your laptop.</li>
+<li>Lock your toys away when you&rsquo;re not playing with them</li>
+<li>Unplug and disable devices when they&rsquo;re not in use</li>
+<li>Learn as much as you can about how they work.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Growing a Flower in the Dark]]></title>
@@ -64,9 +102,11 @@ If your operation takes up a lot of your time, that&rsquo;s a good way of keepin
 
 <p>We know that <a href="blog/2015/02/04/ego-and-opsec/">your ego can get in the way of your OPSEC</a> and all you can do is recognize that, be as disciplined as possible, compensate for what&rsquo;s missing, and continue on. Your self worth is an inner conversation that defines you as a person. What are you good at? What are your best traits? Do you have a place in the world where you can deliver these skills?</p>
 
-<p>You&rsquo;ve likely met someone that has an inflated sense of self worth. They&rsquo;re pompous about every thing they do and they aren&rsquo;t afraid of sharing it. Understand that these people are trying to feed their self worth and the more obnoxious they seem, the more starving they are for external validation. It may not need to be said, but your OPSEC may deter you from being one of these types.</p>
+<p><span class='pullquote-right' data-pullquote='these people are trying to feed their self worth and the more obnoxious they seem, the more starving they are for external validation.'>
+You&rsquo;ve likely met someone that has an inflated sense of self worth. They&rsquo;re pompous about every thing they do and they aren&rsquo;t afraid of sharing it. Understand that these people are trying to feed their self worth and the more obnoxious they seem, the more starving they are for external validation.
+</span></p>
 
-<p>As your flower tries to grow in the shade, it will miss the warmth of the sun. You can&rsquo;t just show off your operations in the light of the day or on a clearnet site. You can&rsquo;t post on Reddit and read through the comments]to see if people like you.</p>
+<p>You may not be one of these people now but as your flower tries to grow in the shade, it will miss the warmth of the sun. You can&rsquo;t just show off your operations in the light of the day or on a clearnet site. You can&rsquo;t post on Reddit and read through the comments]to see if people like you.</p>
 
 <p><a href="https://www.reddit.com/r/onions/comments/28tpxg/liberte_tor_distro_forces_screen_resolution/">Maybe you can</a>. But let me say that in my experience, if you start questioning the value of your operation or your own personal self worth, you will start making concessions about what you&rsquo;re willing to do or share to try and feed it. You&rsquo;ll start thinking about chatting about it on IRC or Twitter and looking for something. Understand that searching for external validation is normal but make sure you stay vigilant about your OPSEC.</p>
 
@@ -1321,82 +1361,6 @@ To summarize, the source code to the NSA program, <a href="https://en.wikipedia.
 <li>Being aware of phrases that could make you a target. Check out <a href="http://pastebin.com/yDicWqb2">the list of NSA keywords</a> to see the types of words they key in on.</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fingerprinting Attacks on Screen Resolution]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
-    <updated>2014-05-29T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
-
-<p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
-
-<p>This is even more dangerous on mobile devices such as Android. Each manufacturer releases new phones and tablets with different resolution, these are often very odd screen resolutions, making them very unique to that phone time. There are dozens of sites that provide this information for you:</p>
-
-<ul>
-<li><a href="http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density">http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density</a></li>
-<li><a href="https://deviceatlas.com/">https://deviceatlas.com/</a></li>
-<li><a href="http://wurfl.sourceforge.net/">http://wurfl.sourceforge.net/</a></li>
-</ul>
-
-
-<h2>Background</h2>
-
-<p>There are two types of fingerprinting; passive and active. Active fingerprinting attacks are usually reserved to those that are collecting information about your network traffic, and do a secondary correlation. For example, if an adversary were running multiple exit nodes, they collect the list of sites each circuit connects to, and tries correlates that to a specific user.</p>
-
-<p>Active attacks will manipulate or inject an identifier into your traffic &ndash; an identifying cookie or malicious JavaScript that when executed tries to collect identifying information about your browsing environment.</p>
-
-<p>This is not a new revelation, the EFF has highlighted this problem by making the <a href="https://panopticlick.eff.org/">Panopticlick</a> project. This simulates attacks that aim at fingerprinting your browser, its plugins, fonts installed, etc. This is similar to the <a href="http://browserspy.dk/">BrowserSpy</a> project.</p>
-
-<h2>Screen Resolution</h2>
-
-<p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
-
-<p>Here&rsquo;s a simple Javascript example that does that</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
-</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
-</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure>
-
-
-<p>Demo: <a href="javascript:alert
-('Your resolution is '+screen.width+'x'+screen.height);">
-Screen Resolution Detection Example</A></p>
-
-<p>EDIT: <a href="www.reddit.com/user/lugh">lugh</a> points out that this example is inconsistent and depends on your OS and browser.</p>
-
-<h2>Defense Measures</h2>
-
-<p>There are a couple of ways of defending, let me go over some possibilities:</p>
-
-<ul>
-<li><strong>disabling Javascript</strong>: CSS (AFAIK) does not have a way of detecting your screen resolution</li>
-<li><strong>resizing your browser window</strong>: Sometimes attacks do not read screen resolution, but just window size.</li>
-<li><strong>changing your screen resolution</strong>: This is often difficult but by choosing a screen resolution that many other users may have, would help defend against fingerprinting. The <a href="http://dee.su/liberte-security">Liberte Linux</a> distribution is the only system I&rsquo;ve seen that automatically does this by forcing the screen resolution of 800x600.</li>
-<li><strong>external monitors</strong>: If you are on a laptop, and have an external monitor around, it might be possible to have its resolution provide instead of your laptop screen. Note here that different operating systems handle this value in different ways. Some append the width and height of both screens to eachother.</li>
-<li><strong>modifying the JavaScript engine</strong>: This solution has not been done very often and is considered a security risk, but there is a possibility that a new custom JavaScript engine could return a different value than your actual resolution.</li>
-<li><strong>virtualization</strong>: If you are running your anonymous environment inside of a virtual machine, you can dynamically change the resolution very easily by resizing the window of the VM.</li>
-</ul>
-
-
-<p>There are different situations that heed different defense. If you run into a site you need access to that requires JavaScript, you&rsquo;re not going to be able to disable it. Same applies for the browser window trick if the service is detecting Screen.height as opposed to Window.height. Going into your screen settings and changing your screen resolution might work, but it&rsquo;s pretty cumbersome. The virtualization option is very plausible but requires that you are running virtualization software like Virtual Box.</p>
-
-<h2>Real-World Attacks</h2>
-
-<p>One example of software designed for fingerprinting is <a href="http://www.juniper.net/us/en/products-services/security/webapp-secure/">Juniper&rsquo;s Webapp Secure</a>. It is a tool that will fingerprint a web site&rsquo;s users based on a variety of metrics; one of which is your computer&rsquo;s resolution. By doing so, they are able to track their browsing experience across multiple sessions without any cookies.</p>
-
-<h2>Applying to Registration</h2>
-
-<p>Screen resolution is just a single attribute that can be keyed on but I find that it is relied upon the most often during web provider registration processes. This may be because the providers don&rsquo;t believe that anyone would go through the steps of changing their screen resolution &ndash; I&rsquo;m not sure. In any event, by merely changing your screen resolution, you are able to easily register without the stigma of anything you have done in a previous sessions possibly fingerprinting you. This along with clearing your cookies, connecting with a different IP address, and possibly manipulating the fonts that are installed on your computer will let you bypass the registration process&hellip;. sometimes.</p>
-
-<h2>Conclusions</h2>
-
-<p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Poitras | B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/blog/categories/poitras/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-03-09T11:23:30+00:00</updated>
+  <updated>2016-03-26T19:02:40+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -24,13 +24,11 @@
 
 <p>The first chapter is written in a self-deprecating way &ndash; the same way that an old man would talk about computers to a young person; &ldquo;You kids and your computers.&rdquo; In this case, it was more &ldquo;You political dissidents and your cryptography.&rdquo; Even after repeated attempts by Snowden to have Greenwald merely install GPG, he could not be convinced.</p>
 
-<p>{% blockquote %}
-&ldquo;Here am I,&rdquo; he thought, &ldquo;ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation&rsquo;s most secretive agency &ndash; a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can&rsquo;t even be bothered to install an encryption program.&rdquo;
-{% endblockquote %}</p>
+<p><blockquote><p>&ldquo;Here am I,&rdquo; he thought, &ldquo;ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation&rsquo;s most secretive agency &ndash; a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can&rsquo;t even be bothered to install an encryption program.&rdquo;</p></blockquote></p>
 
 <p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
 
-<p>{% img center /images/greenwald.png  %}</p>
+<p><img class="center" src="/images/greenwald.png" title="" ></p>
 
 <p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
 
@@ -38,7 +36,7 @@
 
 <p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t - iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
 
-<p>{% img center /images/laurapoitras.jpg  %}</p>
+<p><img class="center" src="/images/laurapoitras.jpg" title="" ></p>
 
 <p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &ndash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
 
@@ -48,9 +46,7 @@
 
 <p>While frustrating, Greenwald is not an one-off situation. In fact, most journalists have no clue how to use encryption programs, or think about any kind of operational security logistics. This is the reason that sites like Wikileaks have become popular &ndash; they are on the cutting edge of technology, understand the value of providing an anonymous communication medium, and while they can&rsquo;t be regarded as having the same journalistic integrity as an institution like The Guardian, they are trusted (by some) to not accidentally or on purpose disclose their sources.</p>
 
-<p>{% pullquote %}
-At this point we have some tools designed to protect ourselves. <a href="https://tools.ietf.org/html/rfc1991">PGP</a> has been around for a millennium in Internet years. <a href="http://www.newyorker.com/strongbox/">Strongbox</a> is an attempt at securing communications between two people that don&rsquo;t know what they&rsquo;re doing. What have is {&ldquo; a cultural conflict between journalists that consider this type of software designed for "hackers&rdquo; and tech savvy young people that are frustrated with the previous generation&rsquo;s unwillingness to use technology. &ldquo;} These "hackers&rdquo; have spent collective years building tools and documents designed for these situations, and journalists aren&rsquo;t willing to use them.
-{% endpullquote %}</p>
+<p>Surround your pullquote like this {" text to be quoted "}</p>
 
 <p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
 ]]></content>

@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="You can always tell how important a secret is to you by how many people you tell and the way you keep the secret. That is to say, when hiding whether &hellip;">
+  <meta name="description" content="We&rsquo;ve discussed the concerns of stylometric attacks and how good adversaries are at it today. There are only a few tools that attempt to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/09/22/lie-to-me/">Lie to Me, Please</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a></h1>
     
     
       <p class="meta">
@@ -93,27 +93,129 @@
   </header>
 
 
-  <div class="entry-content"><p>You can always tell how important a secret is to you by how many people you tell and the way you keep the secret. That is to say, when hiding whether or not you were dating So-and-So, you might coyly smirk &ndash; a simple tell for anyone to determine you&rsquo;re lying and that&rsquo;s exactly your intention: to gain more attention. But when you killed someone in a hit-and-run for example, there&rsquo;s no coy smirk on your face when you adamantly deny it. These two types of lies are an important differentiation to realize when protecting yourself.</p>
+  <div class="entry-content"><p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
 
-<p>If you have an interesting project that needs to be kept secret, it may be hard to maintain the discipline of keeping it a secret. Often, the vanity of your project will tempt you to share the details with someone else even though you know it is safer to keep them a secret. In hindsight, you&rsquo;ll come to realize that you&rsquo;ve created a liability but for those few moments of discussion, you will irrationally determine it was worth it.</p>
+<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
 
-<p><img class="right" src="/images/conversation.png" width="400"></p>
+<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
 
-<p>In hacker OPSEC the first rule is of course we don&rsquo;t talk about OPSEC. And that, just like in Fight Club, is the first rule that is broken. We have friends that we&rsquo;d like to share information with, or we disclose a small portion of a secret that leads to questions about that secret. If this doesn&rsquo;t make sense, let me present you a conversation:</p>
+<h2>VIM</h2>
 
-<p>A: I wonder what $Company does for their physical security system.
-B: Well&hellip; they actually do X, Y, and Z.
-A: How do you know that?</p>
+<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings' grammar, as well as help you find which words to add.</p>
 
-<p><span class='pullquote-right' data-pullquote='People feel more comfortable being blatantly lied to as opposed to telling them that they can’t find out the truth.'>
-Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo; with an all-knowing smirk, or if that truly was information you&rsquo;re protecting, you lie. And this is my point: People feel more comfortable being blatantly lied to as opposed to telling them that they can&rsquo;t find out the truth.
-</span></p>
+<ul>
+<li>Enable spell check in your .vimrc file by adding the following line:</li>
+</ul>
 
-<p>I bring this up because this should be remembered from two points of view. The first from your own perspective: you should never break the first rule of opsec and hopefully never lead someone into asking you these types of questions. The second reason is to bring attention to those that talk this way and how they are leaking intel.</p>
 
-<p>In most cases, those people that say they are hiding something, are usually not. The coy smiles are a way of appearing interesting without the threat of actually requiring to be interesting. In these cases, you can easily define whether the person could become a resource or should discarded.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
 
-<p>In summary, make sure you lie to people. Ideally it should be a well thought through lie but if you don&rsquo;t have that, say something&hellip; anything. A stupid lie is much better than saying nothing or that you can&rsquo;t tell them because it makes the other party more interested. This type of attention is not something you usually want.</p>
+
+<ul>
+<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
+</ul>
+
+
+<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
+
+<h2>Grammar</h2>
+
+<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
+
+<h2>UPDATE</h2>
+
+<p>If you want to at least do a frequency analysis of the words in your text, it&rsquo;s pretty easy to do. The following is an example in python. If you run this and provide an argument of your text file, it will give you a break down of your most common words, hopefully to help you determine what words you could be attributed to using most often.</p>
+
+<figure class='code'><figcaption><span>stemmer.py </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
+</span><span class='line'><span class="c"># Author: b3rn3d</span>
+</span><span class='line'><span class="c"># Based on: http://www.nltk.org/api/nltk.stem.html</span>
+</span><span class='line'><span class="c"># Usage: ./stemmer.py filename.txt</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'>  <span class="kn">from</span> <span class="nn">Stemmer</span> <span class="kn">import</span> <span class="n">Stemmer</span> <span class="k">as</span> <span class="n">SS</span>
+</span><span class='line'><span class="k">except</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;Stemmer/Snowball not installed. Please install it via apt-get install python-stemmer&quot;</span>
+</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;FAIL: Supply test file to analyze.&quot;</span>
+</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span class='line'><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#extract words</span>
+</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;\w+&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">stemmer</span> <span class="o">=</span> <span class="n">SS</span><span class="p">(</span><span class="s">&#39;english&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#count stems and extract shortest words possible</span>
+</span><span class='line'><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">stem</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stemWord</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">stem</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">shortest</span><span class="p">,</span><span class="n">count</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span>
+</span><span class='line'>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">shortest</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">shortest</span> <span class="o">=</span> <span class="n">word</span>
+</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">shortest</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#convert {key: (word, count)} to [(word, count, key)] for convenient sort and print</span>
+</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">wordcount</span> <span class="o">+</span> <span class="p">(</span><span class="n">root</span><span class="p">,)</span> <span class="k">for</span> <span class="n">root</span><span class="p">,</span><span class="n">wordcount</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+</span><span class='line'><span class="c">#trick to sort output by count (descending) &amp; word (alphabetically)</span>
+</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</span><span class='line'><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s"> (Root: </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">item</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
   
   
@@ -136,6 +238,10 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
@@ -171,10 +277,6 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
     
       <li class="post">
         <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a>
       </li>
     
   </ul>
