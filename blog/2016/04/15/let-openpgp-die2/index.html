@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Reasons to Let PGP Die #2: Web-of-Trust - B3RN3D</title>
+  <meta name="author" content="b3rn3d">
+
+  
+  <meta name="description" content="In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example. History of the WoT PGP was invented &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2016/04/15/let-openpgp-die2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">B3RN3D</a></h1>
+  
+    <h2>Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.b3rn3d.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/contact">Contact</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Reasons to Let PGP Die #2: Web-of-Trust</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-04-15T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example.</p>
+
+<h2>History of the WoT</h2>
+
+<p>PGP was invented in the 90&rsquo;s as a way of bolting on security on top of the ultra insecure SMTP spec. The web-of-trust was designed similarly to how we designed DNS back then &ndash; distribute trust across multiple sources. But unlike DNS that had a hierarchy of trust, PGP&rsquo;s young idealist authors thought that we could decentralize trust and let everyone on the client side build up trust networks themselves.</p>
+
+<h2>Social Graph</h2>
+
+<p>Surround your pullquote like this {&ldquo; text to be quoted &rdquo;}</p>
+
+<p>Here&rsquo;s a graph of all the people that have been in contact with each other:</p>
+
+<h2>Kill The Keyservers</h2>
+
+<p>For people that are sharing their information on Facebook, this is in-line with their OPSEC. Share everything, and don&rsquo;t worry about privacy. But for those of us that actually would like to maintain their privacy and ideally some sorts of pseudonymity, this is a deal breaker.</p>
+
+<p>Not only is this a graph of all the people you&rsquo;ve met, the keyserver will maintain a log of all people that have downloaded your particular key. Even if the person isn&rsquo;t contributing to the WoT, if they use the keyserver, it can be assumed that you mean to communicate with that person.</p>
+
+<h2>Fixes?</h2>
+
+<p>This is the one of the primary reasons PGP should die. If you say that you aren&rsquo;t going to use a keyserver such as MIT&rsquo;s, there-by evading the WoT, you have no place to put your PGP key and you have no way of checking to see if someone else&rsquo;s key server exists. Keyservers are a crucial element in the OpenPGP standard.</p>
+
+<p>You can however decide not to use keyserers if you already have an established band of communication outside of email. If you have a website, business card, or some other form of anonymous communication, you can dump your public key in that location.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-04-15T00:00:00+00:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.b3rn3d.com/blog/2016/04/15/let-openpgp-die2/" data-via="" data-counturl="http://www.b3rn3d.com/blog/2016/04/15/let-openpgp-die2/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/04/11/let-openpgp-die/" title="Previous Post: Reasons to let PGP die #1: Metadata">&laquo; Reasons to let PGP die #1: Metadata</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/04/17/let-openpgp-die3/" title="Next Post: Reasons to let PGP die #3: Outdated Crypto">Reasons to let PGP die #3: Outdated Crypto &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/02/the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/23/actor-drugdealer-opsec/">OPSEC of Actor vs Drug Dealer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - b3rn3d -
+</p>
+<iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="If you read this interesting post from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as &hellip;">
+  <meta name="description" content="There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a></h1>
     
     
       <p class="meta">
@@ -86,60 +86,71 @@
   
 
 
-<time datetime="2015-10-22T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-16T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>If you read this <a href="http://motherboard.vice.com/read/camgirl-opsec-how-the-worlds-newest-porn-stars-protect-their-privacy-online">interesting post</a> from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as part of your threat model.</p>
+  <div class="entry-content"><p>There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making a secure host and you only route traffic over tor and you&rsquo;ve employed various security protections to limit your risk, etc. So you, you say to yourself, &ldquo;I don&rsquo;t need the Tor Browser Bundle, I&rsquo;ve already installed tor.&rdquo; You would be wrong.</p>
 
-<h2>Low Tech But High Investment</h2>
+<p>The Tor Browser (part of TBB) offers a lot of additional security protections that your &ldquo;raw&rdquo; browser doesn&rsquo;t. <a href="https://www.torproject.org/about/corepeople.html.en">Mike Perry</a> who manages the TBB portion of the Tor Project (among other things) has put in a lot of work.</p>
 
-<p><img class="right" src="/images/badgirl.jpg" width="300"></p>
+<p>Here are just a few reasons:</p>
 
-<p>You don&rsquo;t expect that an overzealous camgirl fan to be able to do facial recognition, but we know that services like Google and Facebook can offer <a href="http://www.facesearch.com/">this service</a> for free! Doing a reverse image lookup or trying to look at a photo&rsquo;s metadata are really simple things that just about any low life can figure out.</p>
+<h1>Reason #1: WebRTC</h1>
 
-<p>The more serious weapon that they have is not technology, but commitment and drive. They will do anything in their power to try and find out information about you.</p>
+<p>Here&rsquo;s a quick example: Remember the <a href="https://threatpost.com/webrtc-found-leaking-local-ip-addresses/110803/">private IP disclosure</a> vulnerability that&rsquo;s possible using WebRTC? Well the <em>only</em> browser (AFAIK) that isn&rsquo;t vulnerable to this issue is the Tor Browser. You can&rsquo;t prevent it by disabling JavaScript and you can&rsquo;t block it through an extension. And we know that Chrome, Safari, IE, and Opera aren&rsquo;t any help either.</p>
 
-<h2>Recommendations</h2>
+<p>This issue alone should scare you into reconsidering using a raw browser no matter how many extensions you have installed. By the way, if you&rsquo;re interested in seeing how you can disable WebRTC from firefox, it&rsquo;s a compiletime flag: <code>--disable-webrtc</code>.</p>
 
-<p><strong>Buy Burner Everything</strong>: We&rsquo;ve heard about burner phones but don&rsquo;t forget about a dedicated cam girl laptop, and more importantly camgirl camera used only for your online business.</p>
+<h1>Unique Identifiers</h1>
 
-<p>Your camera can tell a lot about you. The optics, resolution, capabilities are all fingerprintable metrics. If a perv is able to find another photo series using the same expensive equipment, it may be be possible for them to find that you&rsquo;re cross-posting dirty pictures on other sites like Facebook.</p>
+<p>If I can correlate your website visit across mutiple sessions I can potentially deanonymize you in the case that you visit my site over tor and then in the clear. Even in the best case, I will still be able to watch your activities across multiple visits. What if I can correlate between when you log in as user A to those when you log in as user B.</p>
 
-<p><strong>Do Your Homework On The Service:</strong> The article mentions using a VPN of course. This is important as a fall back but it&rsquo;s important that the camgirl service being used does everything it can to protect your IP from being leaked. Ask questions to the service about whether IPs are logged and who has access to that information. How do you create accounts and how do you recover your password if it&rsquo;s lost? Which brings us to a reminder about account security.</p>
-
-<p><strong>Secure Your Accounts:</strong> Does the cam service let you reset your password by answering a few personal questions? Are these questions that someone that is a super-fan would know by chatting with you? Find a cam service that provides two-factor security so that you enter in a user name, a password, and then you have to enter in a One-Time-Password. This will help ensure that no one is able to get in even if they guess what your password is. In my &ldquo;research&rdquo; I have found only once service that provides this type of security. And of course, choose a strong password.</p>
-
-<p><strong>Build a List Of Lies:</strong> There is no good defense against someone that is going to do everything they can to try and get you to leak information about yourself. As I&rsquo;ve discussed before, don&rsquo;t tell them what you don&rsquo;t want them to know. Lie to them.</p>
-
-<p>If someone asks you about your coffee table and you realize it was made two streets down from your current location, don&rsquo;t say &ldquo;Sorry I can&rsquo;t tell you.&rdquo; You&rsquo;ve confirmed to the adversary a piece of sensitive information that they will likely target at another time. Lie to them. Tell them it&rsquo;s a popular brand purchased from a popular store that is popular in your entire country.</p>
-
-<p>Come up with a list of lies so that you can remember to maintain them. This could include:</p>
+<p>There are so many situations where a malicious web page could include some kind of identifying token. The ones mitigated by TB include:</p>
 
 <ul>
-<li>Name</li>
-<li>Country of origin</li>
-<li>Age of your house</li>
-<li>Brothers, sisters, family members and their names</li>
-<li>Previous relationships</li>
-<li>Favorite band, music, politician, TV show, movie, book, etc.</li>
-<li>University and expertise</li>
-<li>Professional employment</li>
+<li>HTTP auth headers (e.g. <code>http://{IDENTIFIER}username:password@website.com/</code>)</li>
+<li>Cache lookup (e.g. injecting an ID into the cache and check to see if it exists on next visit)</li>
+<li>Cookies (e.g. tracking cookie identified by third parties)</li>
+<li>HSTS super cookies (e.g. multi-site owners can build a unique ID based on whether a user has a cached HSTS record for a particular set of domains)</li>
 </ul>
 
 
-<p><strong>Hide In The Darkness:</strong> If you live cam at 17:00 every day, and you do it by a window, they not only will be able to deduce what timezone you&rsquo;re in, but also how far North you live. Those camgirls that live in the Scottish Highlands will have a lot less daylight towards Winter, something that an attacker would notice.</p>
+<h1>Fingerprinting Defenses</h1>
 
-<p><strong>Tell Your Friends About Your Policy:</strong> You might be embarrassed about being a cam'er and telling your friends about it is the worst idea. But consider this, if someone finds out that you are a cam girl, are you sure that friend won&rsquo;t leak your information.</p>
+<p>Fingerprinting the browser, the hardware, the user, the location, or any kind of identifying information related to a user&rsquo;s session is a very difficult attack to completely defend against. TB does what it can though to defend against this scenario. There are some crazy attacks available including:</p>
 
-<p>When someone finds out that you are friends with someone else, their gears will automatically shift to finding out about them. Do they have the same OPSEC policy as you? Do they have an open Facebook account? Do they have any other pictures of you that they&rsquo;re willing to sell?</p>
+<ul>
+<li><a href="http://www.andlabs.org/tools/jsrecon.html">port scanning via web sockets</a></li>
+<li>extracting a list of installed fonts</li>
+<li><a href="https://dvcs.w3.org/hg/gamepad/raw-file/default/gamepad.html#widl-Gamepad-id">USB device enumearation via the Gamepad API</a></li>
+</ul>
 
-<p><span class='pullquote-right' data-pullquote='It’s always better to confide in someone a secret, than risk they find out on their own.'>
-It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s always better to confide in someone a secret, than risk they find out on their own. By letting them in on the secret, and showing them how serious the secret is to you, you are asking them to join in to protect that secret. Without doing so ahead of time, there is no social contract that would imply this.
-</span></p>
+
+<p>Maybe TB hasn&rsquo;t solved this problem but the question is, what do you think your current browser is doing?</p>
+
+<h1>Plugin Controls</h1>
+
+<p>Your extensions/plugins/addons are terrifying. They can do whatever they want, not only to your browser, but to anything on your system. Because of this, TB has <a href="https://gitweb.torproject.org/tor-browser.git/commit/?h=tor-browser-31.6.0esr-4.5-1&amp;id=8c6604d2b776f0d8e33ed9130c5f5b8cf744bac8">patched the DNS service</a> to ensure that a browser extension doesn&rsquo;t accidentally leak your DNS requests. This is also done for OCSP so that certificate lookups must be done over the SOCKS proxy and tor.</p>
+
+<p>Similarly, when loading the Flash or Gnash plugin, TB uses the click-to-play control so that in order to play a Flash applet, the user must explicitally click on it before it executes. The risk of Flash or any plugin for that matter goes back to whether it always adheres to proxy settings as well as what type of information is exposed to the applet. Can they obtain your local IP? Can they access a session cookie?</p>
+
+<h1>External Event Blocking</h1>
+
+<p>On your computer right now, you&rsquo;ve likely setup default programs associated with certain types of files. In a browser, you can also setup external programs associated to a protocol. For example <code>tel://</code>, <code>skype://</code>, or <code>ssh://</code> allows a browser to automatically send data from the browser into the associated program. There&rsquo;s a risk here that it will disclose your private info to those programs and therefore compromise your anonymity.</p>
+
+<p>The defense in this case is present a <a href="https://gitweb.torproject.org/torbutton.git/tree/src/components/external-app-blocker.js">pop-up</a> whenever a request to leave the browser is made.</p>
+
+<h1>History and Storage</h1>
+
+<p>TB does everything it can to never touch your disk and never allow your browsing history to be saved to a file. There are a lot of ways <a href="https://trac.torproject.org/projects/tor/query?keywords=~tbb-disk-leak&amp;status=!closed">this is accomplished</a> but the risk has been that if the history or sensitive information is stored on disk, it may be accessible to other appliations or to a forensic investigator.</p>
+
+<h1>More information</h1>
+
+<p>There&rsquo;s <a href="https://www.torproject.org/projects/torbrowser/design/">dozens of other</a> reasons that may or may not be applicable to your plans. The point here again is, the level of effort that the Tor Browser has employed makes you question how secure your current browser configuration is.</p>
 </div>
   
   
@@ -162,6 +173,18 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -189,18 +212,6 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

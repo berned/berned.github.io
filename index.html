@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="The FBiOS stories have reminded me about how many concessions we make to our OPSEC when we buy consumer products. I&rsquo;ll not turn this into a &hellip;">
+  <meta name="description" content="There are some crypto problems with PGP. And at first you might go &ldquo;Yeah right, I use 4096bit RSA keys&rdquo; but let me explain. No Perfect &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a></h1>
     
     
       <p class="meta">
@@ -86,43 +86,38 @@
   
 
 
-<time datetime="2016-04-08T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-04-17T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The FBiOS stories have reminded me about how many concessions we make to our OPSEC when we buy consumer products. I&rsquo;ll not turn this into a diatribe about Consumerism but I thought it might be a good reminder to us all (myself included) that we should be weary of the products we purchase and their implications. We know about the threats of a mobile phone being able to track your location, read your text messages, and all kinds of scary &ldquo;features&rdquo; but the new consumer devices with network access may be the next scary beast.</p>
+  <div class="entry-content"><p>There are some crypto problems with PGP. And at first you might go &ldquo;Yeah right, I use 4096bit RSA keys&rdquo; but let me explain.</p>
 
-<h2>Fear Your Toys</h2>
+<h2>No Perfect Forward Secrecy</h2>
 
-<p>All of those products that are installing IP&rsquo;s into your otherwise benign devices are a super high risk. Yes you&rsquo;ve heard this before, yes you know about it, but how many have you purchased and what do they do? If you are someone that is at least privacy conscious, think about making privacy conscious decisions.</p>
+<p>Forward secrecy is the idea even if you lose your encryption keys and the attacker is able to intercept the communications between you and another party, they still would be unable to see what you sent them. This is normally accomplished by using a long term key, to negotiate two short term, session keys. This is the basis of what Diffie-Hellman provides.</p>
 
-<p><img class="right" src="/images/hackerbarbie.jpg" title="Hacker Barbie" ></p>
+<p>Sounds cool right? You want that right? If you use PGP, it&rsquo;s not possible. The risk here is that when you generate your key, and your key is compromised, this is an ultimate loss. There&rsquo;s nothing you can do to prevent an attacker from being able to decrypt something that was previously encrypted.</p>
 
-<p>In the security industry people like to call any security research related to them &ldquo;RubbishSEC&rdquo; referring to the idea that whenever someone talks about hacking one of these devices, they&rsquo;re hacking a pile of trash that has no real security protections. And this is my point. It&rsquo;s true that your Nest doesn&rsquo;t have a lot of security protections but we accept this because &ldquo;it&rsquo;s a consumer device.&rdquo;</p>
+<p>Let me give you an example of how bad this is. Let&rsquo;s say that you realized you were undersurveillance and that you decided that you were going to encrypt your communications with PGP. You knew full well that the surveillance continued but without your private PGP key, there was nothing they could do. The people surveilling you would record every email you sent and just keep them. Flash forward 2 years when there is an Adobe Flash 0'day and someone uses it to compromise your GPG key. Upon compromise, they can use your keys to decrypt all of the old emails. Everything. There&rsquo;s nothing you can do.</p>
 
-<p>Manufacturers see consumers as people that do not care about security. They don&rsquo;t care about privacy or OPSEC or what types of threats their product introduces into the consumers' environment.</p>
+<h2>Crypto Weakness</h2>
 
-<p><span class='pullquote-right' data-pullquote='owning a Barbie Doll is analogous to running telnet'>
-Our flashy new consumer devices that have access to the Internet are not just toys, they are risk factors. Use for example the <a href="http://www.theguardian.com/technology/2015/nov/26/hackers-can-hijack-wi-fi-hello-barbie-to-spy-on-your-children">childrens doll security issue</a>. You might now think that owning a Barbie Doll is analogous to running telnet. In the same way that we wouldn&rsquo;t run unnecessary services on our computers, we shouldn&rsquo;t use hackable consumer devices in our homes. Think of your home or apartment right now. What do you have that has network access and what does it provide you?
-</span></p>
+<p>When PGP first came out, they recommended using a 1024 RSA certificate to protect the messages. You should now know that 1024 is not considered strong by any means and should not be used. Look into the future and imagine what the cryptographic standards might be in 5 years, 10 years, or 20 years. You must assume there will be cryptographic advances to make it easier to crack RSA or even ECC certificates.</p>
 
-<h2>Defending Against Your Barbie</h2>
+<p>The problem is that if someone was watching your communications, storing them, and hoping to decrypt them later, this will eventually become easier. If they took your PGP encrypted messages you used in the 90&rsquo;s, it&rsquo;s likely they can easily crack them with enough power.</p>
 
-<p>You have options to defend against the Toy Robot Uprising. You can take the activist stance and say &ldquo;I am not buying these products!&rdquo; and good for you if you can. Some of us that are weaker cannot do this and have become addicted to some of these consumer products. What then?</p>
+<p>Even if you might say, &ldquo;No big deal, I&rsquo;ve revoked those certificates and I use a new one&rdquo; the issue is all of your previous communications are done and you can&rsquo;t re-encrypt them.</p>
 
-<p>Just like QubesOS and Subgraph OS have created compartments for high risk processes, do the same for for you toys. There&rsquo;s a new technology called a &ldquo;toy box&rdquo; that is designed to be a container for all of your IoT devices. :) That&rsquo;s only half a joke. As I&rsquo;ve said over and over, if you want to live two lives in the dark and in the light, you have to compartmentalize.</p>
+<p>They just started adding support for ECC in the 2.1 branch of GPG but they are still far away from Quantum resistent algithm support. You should expect that your ultra secure software should invest time to at least be up-to-date in which cryptographic primitives it uses.</p>
 
-<ul>
-<li>Put your Barbie on her own wireless network.</li>
-<li>Make sure that your refrigerator cannot connect to your laptop.</li>
-<li>Lock your toys away when you&rsquo;re not playing with them</li>
-<li>Unplug and disable devices when they&rsquo;re not in use</li>
-<li>Learn as much as you can about how they work.</li>
-</ul>
+<h2>Fixes?</h2>
 
+<p>This is one of those ultimate killers. There&rsquo;s no fix to flaws in cryptography in this case. You could somehow bolt-on a system that builds short-term session keys for encrypting messages which would help in both issues above. Maybe come up with a way of layering encryption to reduce the liklihood of it being cracked. But that&rsquo;s now how PGP works and we&rsquo;re talking about a completely different, two-way negotiation based system that isn&rsquo;t possible over PGP or SMTP.</p>
+
+<p>If you must use PGP, you should ask yourself, in 5 years, will I be in trouble if anyone reads this? What about in 10? What if your kids and grandkids are able to read this message. That may help you decide when and how to use PGP.</p>
 </div>
   
   
@@ -143,6 +138,18 @@ Our flashy new consumer devices that have access to the Internet are not just to
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -170,18 +177,6 @@ Our flashy new consumer devices that have access to the Internet are not just to
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

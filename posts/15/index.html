@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="You can always tell how important a secret is to you by how many people you tell and the way you keep the secret. That is to say, when hiding whether &hellip;">
+  <meta name="description" content="The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/09/22/lie-to-me/">Lie to Me, Please</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/04/qubes-opsec/">Arms Race to the Most Secure OS</a></h1>
     
     
       <p class="meta">
@@ -86,34 +86,99 @@
   
 
 
-<time datetime="2015-09-22T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-04T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>You can always tell how important a secret is to you by how many people you tell and the way you keep the secret. That is to say, when hiding whether or not you were dating So-and-So, you might coyly smirk &ndash; a simple tell for anyone to determine you&rsquo;re lying and that&rsquo;s exactly your intention: to gain more attention. But when you killed someone in a hit-and-run for example, there&rsquo;s no coy smirk on your face when you adamantly deny it. These two types of lies are an important differentiation to realize when protecting yourself.</p>
+  <div class="entry-content"><p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
 
-<p>If you have an interesting project that needs to be kept secret, it may be hard to maintain the discipline of keeping it a secret. Often, the vanity of your project will tempt you to share the details with someone else even though you know it is safer to keep them a secret. In hindsight, you&rsquo;ll come to realize that you&rsquo;ve created a liability but for those few moments of discussion, you will irrationally determine it was worth it.</p>
+<h1>TAILS</h1>
 
-<p><img class="right" src="/images/conversation.png" width="400"></p>
+<p><img class="right" src="/images/tails.png" width="300">
+<a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
 
-<p>In hacker OPSEC the first rule is of course we don&rsquo;t talk about OPSEC. And that, just like in Fight Club, is the first rule that is broken. We have friends that we&rsquo;d like to share information with, or we disclose a small portion of a secret that leads to questions about that secret. If this doesn&rsquo;t make sense, let me present you a conversation:</p>
+<p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n'th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
 
-<p>A: I wonder what $Company does for their physical security system.
-B: Well&hellip; they actually do X, Y, and Z.
-A: How do you know that?</p>
+<p>As stated, we are paying more attention to the secure tools that we use and this has identified some <a href="https://www.schneier.com/blog/archives/2014/07/security_vulner_4.html">fatal flaws</a> in TAILS. If you <a href="https://tails.boum.org/security/#index3h1">look back</a> at the TAILS project, the number of vulnerabilities identified and reported have are much smaller before than after Snowden disclosures.</p>
 
-<p><span class='pullquote-right' data-pullquote='People feel more comfortable being blatantly lied to as opposed to telling them that they can’t find out the truth.'>
-Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo; with an all-knowing smirk, or if that truly was information you&rsquo;re protecting, you lie. And this is my point: People feel more comfortable being blatantly lied to as opposed to telling them that they can&rsquo;t find out the truth.
+<ul>
+<li><strong>Development</strong>: Highly active with multiple paid developers</li>
+<li><strong>Maturity</strong>: First created in</li>
+<li><strong>Goals</strong>: Provide an easy-to-use live environment for temporary work.</li>
+<li><strong>Roadmap</strong>: Continue same model and further harden the OS.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Minimal support for persistence (besides files). Not designed to be installed but just run once.</li>
+<li>No mitigations for GCHQ/NSA type low level hardware attacks</li>
+<li>The focus on supporting all forms of users may affect security</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Qubes OS</h2>
+
+<p><img class="right" src="/images/qubes.png" width="300">
+I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
+
+<p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
+
+<p><span class='pullquote-right' data-pullquote='it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word “identity” with “virtual object” and you have their security model'>
+Technical details aside for a moment, it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &ldquo;identity&rdquo; with &ldquo;virtual object&rdquo; and you have their security model.</p>
+
+<p>This is accomplished by making several virtual objects. You virtualize your firewall, you virtualize your USB controller, you virtualize the browser you&rsquo;re using for Project A, and separately, you virtualize the browser you&rsquo;re using for Project B. From here, QubesOS helps facilitate communications between those objects if necessary.
 </span></p>
 
-<p>I bring this up because this should be remembered from two points of view. The first from your own perspective: you should never break the first rule of opsec and hopefully never lead someone into asking you these types of questions. The second reason is to bring attention to those that talk this way and how they are leaking intel.</p>
+<p>QubesOS offers some features that no other system currently offers. The big one for me is virtualization for USB controller. So no only are you creating virtual machines, you&rsquo;re creating virtual controllers. If someone malicious is plugged into your system, even in the case of an [0-day exploiting the firmware of your USB controller], the rest of your system is not compromised.</p>
 
-<p>In most cases, those people that say they are hiding something, are usually not. The coy smiles are a way of appearing interesting without the threat of actually requiring to be interesting. In these cases, you can easily define whether the person could become a resource or should discarded.</p>
+<p>The other major feature that we know is in the GCHQ playbook is protection from WiFi driver exploits. We&rsquo;ve heard of this exploit being used in the while but have yet to have a real mitigation from it. With QubesOS, your wireless card is its own virtual object that contains the exploit into its own virtual machine.</p>
 
-<p>In summary, make sure you lie to people. Ideally it should be a well thought through lie but if you don&rsquo;t have that, say something&hellip; anything. A stupid lie is much better than saying nothing or that you can&rsquo;t tell them because it makes the other party more interested. This type of attention is not something you usually want.</p>
+<p>There is a lot more to talk about with QubesOS but it does seem the one to watch going forward.</p>
+
+<ul>
+<li><strong>Development</strong>: Active but a small group.</li>
+<li><strong>Maturity</strong>: v3.1 released is functional but not perfect.</li>
+<li><strong>Roadmap</strong>: Investing time in rebuilding the UI is a priority.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Hardware support is difficult to predict. They have an approved list but you can&rsquo;t assume it will work on all systems.</li>
+<li>Performance is relatively poor to the other systems and Qubes consumes a lot of memory for each of the virtual machines.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>SubgraphOS</h2>
+
+<p><img class="right" src="/images/subgraph.png" width="300">
+<a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
+
+<p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
+
+<p>The problem thus far is that only a small group of people have seen SubgraphOS working. I&rsquo;m also concerned about the development of SubgraphOS by the company, Subgraph. We know that Subgraph is a <a href="https://subgraph.com/about-us/index.en.html">&ldquo;security&rdquo; company</a> that aims to provide services and products to its clients. The other two projects discussed here have been community projects and money is not the primary goal. The owner of the company comes from the secure kernel world where he was a mod of one of the most popular and dramatic bug hunting mailing lists.</p>
+
+<p>SubgraphOS had the problem of being announced way too soon. They showed off the now famous <a href="https://subgraph.com/img/sgos.png">SubgraphOS images</a> that caught everyone&rsquo;s eye before there was anything to actually look at.</p>
+
+<p>I come from the perspective of seeing tons of projects die in the past. The ones that I&rsquo;ve seen stick through are not usually (ever?) the ones released for free by a money making company.</p>
+
+<ul>
+<li><strong>Development</strong>: Probably active? Not open to the public.</li>
+<li><strong>Maturity</strong>: Immature, pre-alpha releases</li>
+<li><strong>Roadmap</strong>: Hopefully release a beta to the public soon.</li>
+<li><strong>Challenges</strong>:
+
+<ul>
+<li>Money may affect the development of the product.</li>
+<li>Closed development may deter acceptance of even a finished product.</li>
+</ul>
+</li>
+</ul>
+
 </div>
   
   
@@ -136,6 +201,18 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -163,18 +240,6 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

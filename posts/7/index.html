@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="I wrote recently about the risks of shipping using your country&rsquo;s shipping service and had a lot of interesting feedback. One individual which &hellip;">
+  <meta name="description" content="The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to Tor?&rdquo; and &ldquo;Should I use Tor to connect to a VPN?&rdquo; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a></h1>
     
     
       <p class="meta">
@@ -86,50 +86,89 @@
   
 
 
-<time datetime="2016-01-22T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-02-08T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I <a href="/blog/2016/01/02/how-to-ship-drugs/">wrote recently</a> about the risks of shipping using your country&rsquo;s shipping service and had a lot of interesting feedback. One individual which I believe has the experience raised an interesting suggestion so I thought a few case studies might be useful to discuss.</p>
+  <div class="entry-content"><p><img class="center" src="/images/torvpnsilly.png"></p>
 
-<p>While not a shining example of solid OPSEC, Dread Pirate Roberts gives us a real-world perspective on what people are willing to do to ship things, illegally. Let&rsquo;s review a few of the things we know about his attempts to be dark.</p>
+<p><span class='pullquote-right' data-pullquote='Should I use Tor to VPN into a VPN to connect to Tor via VPN… with Tor.'>
+The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to Tor?&rdquo; and &ldquo;Should I use Tor to connect to a VPN?&rdquo; and various combinations of Should I use Tor to VPN into a VPN to connect to Tor via VPN&hellip; with Tor.
+</span></p>
 
-<h2>Case Study: DPR Is Your Roomate</h2>
+<p>The developers at the Tor Project (whom I respect immensely and believe know what they&rsquo;re talking about) have a unilateral policy for this to never use a VPN to connect to Tor. Here&rsquo;s a snippet from a recent discussion on the <a href="http://archives.seul.org/tor/talk/">tor-talk mailing list</a>:</p>
 
-<p>Ulbricht/DPR was known as <a href="http://www.forbes.com/sites/ryanmac/2013/10/09/living-with-ross-ulbricht-housemates-say-they-saw-no-clues-of-silk-road-or-the-dread-pirate-roberts/" title="">&ldquo;Josh&rdquo;</a> to his roomates that he met on Craigslist. He paid in cash to sublet a summer apartment in San Francisco. He arranges to pay in cash, he has no cell phone, and his current residence is a hotel near the airport. He made this seem less sketchy because he told the owners he was returning from a trip from Australia and wasn&rsquo;t on his feet yet.</p>
+<blockquote><p>...if somebody somehow breaks the anonymity of your Tor<br/>circuit, it's nice to have another layer behind that. But if somebody guesses that you're using a particular VPN, or you pick a VPN that they're already monitoring for other reasons, then you basically let them see the beginning of your circuit when otherwise they might not have been able to.</p><footer><strong>Roger Dingledine</strong> <cite><a href='http://archives.seul.org/tor/talk/Jan-2016/msg00225.html'>Tor-talk</a></cite></footer></blockquote>
 
-<p>This is a near-perfect situation. There&rsquo;s no legal record that &ldquo;Josh&rdquo; exists in this apartement but it&rsquo;s plausible that someone would want to rent it out. Josh could buy a new shirt and some jeans online to have a clean shipping record and then wait to ship his sensitive package.</p>
+
+<p>In this he&rsquo;s saying if you&rsquo;re using a VPN to connect to Tor, you&rsquo;re putting yourself at greater risk because the VPN service has a log of your information, your connection times, and the fact that you made a connection to Tor. This is supposed to be higher risk because if a nation state decided to perform passive monitoring, the place they would start is the VPNs. (He also compares this to having a consistent first hop guard node that everyone uses but I&rsquo;ll leave that debate for another day.)</p>
+
+<h2>He&rsquo;s Right&hellip; Sometimes</h2>
+
+<p>Dingledine&rsquo;s logic is sound and if one were to have a policy to share with a community, it should be this one because it puts the least amount of risk on tor users. But, as with most things related to security, a unilateral policy is not always the best one. You need to know your <a href="/blog/2014/01/10/ask-him-about-his-threat-model/">threat model</a>.</p>
+
+<h2>The Case of the Harvard Bomber</h2>
+
+<p>There is a now <a href="http://edition.cnn.com/2013/12/17/justice/massachusetts-harvard-hoax/">famous case of student at Harvard</a> who had not finished studying for his finals and decided he wanted to email a bomb threat into the school to stop tests from happening. He went back to his dorm room, fired up Tor Browser, and sent an email from Guerrilla Mail to the school.</p>
+
+<p><img class="right" src="/images/eldo.png"></p>
+
+<p>In this case, tor protected his anonymity. The email could not be traced back through the Tor network and to his IP address. Tor did it&rsquo;s job. His downfall was that he made the connect to Tor from his dorm room. The university admins simply went back and found all the tor connections at the time of the email, and found that it was a very small segment of students. The police went to each of those students and eventually found their man.</p>
+
+<p>What if the Harvard Bomber used a VPN to first connect into Tor? Would it have saved him? Maybe, or at least it would have made it more difficult. He would connect into the VPN service used by hundreds or thousands of other people, and then connect into the Tor Network. This might mean that even when they noticed the Tor traffic, they wouldn&rsquo;t be able to attribute it to a specific student because there would be no log of them connecting to the Tor network. (That being said, Harvard could subpoena the VPN provider and try to determine which of the VPN users were from Harvard and which of them connected through Tor but I&rsquo;m trying to make a point. :) )</p>
+
+<h2>When to VPN > Tor</h2>
+
+<p><img class="center" src="/images/vpntor.png" title="VPN > Tor" ></p>
+
+<p>Here&rsquo;s when you <em>might</em> want to use a VPN to connect into Tor:</p>
 
 <ul>
-<li>Good: Finding a shared location under a fake name.</li>
-<li>Pretty Good: Paying in cash. This is often a red flag.</li>
-<li>Bad: Not having a cell phone makes you look suspicious to normal people.</li>
-<li>Bad: Craigslist is difficult to use completely anonymously. Law enforcement invest a lot of time into watching what happens on Craigslist now.</li>
+<li><strong>Geographic fingerprinting</strong>: You are from a small village with not very many Tor users. If there was a suggestion that sketchy activity has happened, they would knock on your door first. Especially if your operation was geographically specific (like a bomb threat).</li>
+<li><strong>Untrusted ISP</strong>: You know that your ISP is monitoring, logging, and sharing your connection information (hint: they are). You could make a choice to hide your connection details from your ISP and instead give that responsibility to your VPN service which you have more trust for.</li>
+<li><strong>Plausible Deniability</strong>: You could rely on the fact that thousands of other people are using the VPN service at that same time so it&rsquo;s difficult to correlate activities to an individual.</li>
+<li><strong>Jurisdiction Diversity</strong>: It&rsquo;s easy for most organizations to issue a subpoena to a company in their same company. It&rsquo;s also easy for any of the <a href="https://en.wikipedia.org/wiki/Five_Eyes">5, 9, or 14 Eyes</a> to target services in their shared jurisdictions. If you have a VPN provider that is not in one of these jurisdictions, you can use them to make it harder to issue subpoenas to.</li>
 </ul>
 
 
-<h2>Case Study: DPR Tries To Use UPS</h2>
+<h2>When to Tor > VPN</h2>
 
-<p>One of the many OPSEC failures of DPR was when he went on his Google+ profile and asked if any of his contacts worked at <a href="http://www.theguardian.com/technology/2013/oct/03/five-stupid-things-dread-pirate-roberts-did-to-get-arrested">UPS, FEDEX or other private companies</a>. I believe his plan was to collect some intel on what private companies do to prevent illicit shipments or get a local hookup to pay off so that his packages weren&rsquo;t flagged.</p>
+<p><img class="center" src="/images/torvpn.png" title="Tor > VPN" ></p>
 
-<p>The fact is there are several mandates that require private parcel companies to comply with U.S. federal laws. If for whatever reason they do not seem to adhere to these standards, the company will be fined and the business could be suspended. For publically traded companies, that&rsquo;s a very big incentive to try to catch illegal packages.</p>
-
-<p>On the other hand, some of the very private parcel movers exist because of an expectation of privacy for their clients. Normaly this would be sending company secrets or plans for the big firm&rsquo;s merger, but the same would go for illicit deliveries. More often than not, these services are very expensive, and will not even consider taking any kind of untraceable payment.</p>
+<p>This is a bit more difficult to accomplish but possible. The issues here are you have to make sure you&rsquo;ve purchased a VPN service anonymously, make sure that it allows connections via tor, and make sure it supports TCP as tor is a TCP-only protocol. The only scenario I can think of that you would need this is:</p>
 
 <ul>
-<li>Good: Gathering intel about shipping methods.</li>
-<li>Bad: Posting the request on Google+.</li>
-<li>OK: Thinking about hiring a private group to ship things</li>
-<li>Bad: It&rsquo;s unlikely you&rsquo;ll find a company that can ship across borders for cash or bitcoin.</li>
+<li><strong>Tor Blocked</strong>: Less of a security issue and more about usability, if a service blocks all tor exit nodes, you can try to use tor to hide you connection into a VPN service which is unlikely blocked.</li>
 </ul>
 
 
-<h2>Did we learn anything?</h2>
+<p>That being said, this is a really bad idea because when you have a consistent endpoint you connect to, it could have unknown consequences to your anonymity. This is the main reason that Tor switches circuits regularly instead of using the same circuit every time.</p>
 
-<p>Some people say they have the perfect solution and others believe it&rsquo;s not possible. I still believe that if it&rsquo;s important enough to you, you&rsquo;ll find a way to ship it. In that case, all you can do is limit your risk by not being an obvious target. You&rsquo;ll also have to decide how commited you are in terms of a time and money investment. Some of the things that DPR did require a lot of effort. He gave up his social life, his identity, and in the end, his freedom to be able to do what he wanted. Are you prepared to do theh same?</p>
+<h2>When to VPN > Tor > VPN or Tor > Tor</h2>
+
+<p><img class="center" src="/images/vpntorvpn.png" title="VPN > Tor > VPN" ></p>
+
+<p>Now we&rsquo;re getting nutty but we can think it through. You&rsquo;ve made the choice to connect to tor via VPN, why not make another hop and just connect to another VPN service via Tor. Or, if you think 1x tor is pretty good, so 2x tor must be even better! Use cases:</p>
+
+<ul>
+<li><strong>You&rsquo;re nutty:</strong> Generally if you think there is an undisclosed vulnerability in tor, that is actively being used, but you still think that tor is the best option, you want to protect yourself by layering methods on top of tor.</li>
+</ul>
+
+
+<p>Whatever your rationality, know that this method has not been tested to see if it maintains your anonymity. There are so many edge cases of mis-configuration, fingerprinting attacks on the service, and plausible statistical attacks on your connection, you shouldn&rsquo;t assume this makes any sense.</p>
+
+<h2>Further Reading</h2>
+
+<p>VPN&rsquo;s are just one example of laying protections on top of tor. You could us private VPN hosted on a VPS, or SSH service, or if don&rsquo;t understand any of this, a proxy. This debate comes up so regularly that lots of groups have posts and wiki pages about it. Check out the links below for additional information:</p>
+
+<ul>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/TorPlusVPN">https://trac.torproject.org/projects/tor/wiki/doc/TorPlusVPN</a></li>
+<li><a href="https://lists.torproject.org/pipermail/tor-talk/2012-January/022916.html">https://lists.torproject.org/pipermail/tor-talk/2012-January/022916.html</a></li>
+</ul>
+
 </div>
   
   
@@ -152,6 +191,18 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -179,18 +230,6 @@
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

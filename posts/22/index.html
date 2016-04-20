@@ -9,7 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In Greenwald&rsquo;s book on Edward Snowden, No Place To Hide, he brings to light some of the details about how Snowden originally contacted him. The &hellip;">
+  <meta name="description" content="The recent revelations from Jake Applebaum, et all today, highlight some not-to-be-understated revelations. Tor users are directly targeted
+TAILS &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +71,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/16/greenwald/">Journalist OPSEC Gap: Lessons From the Snowden Stories</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/07/04/xkeyscore-source-code-review/">XKeyScore Source Code Review</a></h1>
     
     
       <p class="meta">
@@ -86,47 +87,132 @@
   
 
 
-<time datetime="2014-05-16T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2014-07-04T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
+  <div class="entry-content"><p>The <a href="http://boingboing.net/2014/07/03/if-you-read-boing-boing-the-n.html">recent revelations from Jake Applebaum, et all today</a>, highlight some not-to-be-understated revelations.</p>
 
-<h2>Greenwald&rsquo;s Reluctant OPSEC</h2>
+<ul>
+<li>Tor users are directly targeted</li>
+<li>TAILS users are directly targeted</li>
+<li>People searching for privacy tools are targeted</li>
+</ul>
 
-<p>The first chapter is written in a self-deprecating way &ndash; the same way that an old man would talk about computers to a young person; &ldquo;You kids and your computers.&rdquo; In this case, it was more &ldquo;You political dissidents and your cryptography.&rdquo; Even after repeated attempts by Snowden to have Greenwald merely install GPG, he could not be convinced.</p>
 
-<blockquote><p>"Here am I," he thought, "ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation's most secretive agency -- a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can't even be bothered to install an encryption program."</p></blockquote>
+<p>While the conclusion by some may have been &ldquo;well of course the NSA is doing that&rdquo; the revelation and the insight it provides is direct, specific evidence that people worried about their privacy are being attacked. More-over, this provides further evidence that the NSA&rsquo;s goal is to <a href="http://www.democracynow.org/2014/5/13/collect_it_all_glenn_greenwald_on">collect it all</a>.</p>
 
+<h2>The Revelations</h2>
 
-<p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
-
-<p><img class="center" src="/images/greenwald.png" title="" ></p>
-
-<p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
-
-<h2>Laura</h2>
-
-<p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t - iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
-
-<p><img class="center" src="/images/laurapoitras.jpg" title="" ></p>
-
-<p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &ndash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
-
-<p>Why does a filmmaker have better OPSEC than a journalist? It&rsquo;s not baffling, but it reflects the sad state of journalist awareness to operational security.</p>
-
-<h2>Journalist OPSEC</h2>
-
-<p>While frustrating, Greenwald is not an one-off situation. In fact, most journalists have no clue how to use encryption programs, or think about any kind of operational security logistics. This is the reason that sites like Wikileaks have become popular &ndash; they are on the cutting edge of technology, understand the value of providing an anonymous communication medium, and while they can&rsquo;t be regarded as having the same journalistic integrity as an institution like The Guardian, they are trusted (by some) to not accidentally or on purpose disclose their sources.</p>
-
-<p><span class='pullquote-right' data-pullquote='a cultural conflict between journalists that consider this type of software designed for “hackers” and tech savvy young people that are frustrated with the previous generation’s unwillingness to use technology.'>
-At this point we have some tools designed to protect ourselves. <a href="https://tools.ietf.org/html/rfc1991">PGP</a> has been around for a millennium in Internet years. <a href="http://www.newyorker.com/strongbox/">Strongbox</a> is an attempt at securing communications between two people that don&rsquo;t know what they&rsquo;re doing. What have is a cultural conflict between journalists that consider this type of software designed for &ldquo;hackers&rdquo; and tech savvy young people that are frustrated with the previous generation&rsquo;s unwillingness to use technology. These &ldquo;hackers&rdquo; have spent collective years building tools and documents designed for these situations, and journalists aren&rsquo;t willing to use them.
+<p><span class='pullquote-right' data-pullquote='privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services'>
+To summarize, the source code to the NSA program, <a href="https://en.wikipedia.org/wiki/XKeyscore">XKeyscore</a> (known since the early days of the Snowden disclosures) has been leaked. It sounds like the program&rsquo;s entire source code is in the hands of another party and it shows what the code does, how it works and who it&rsquo;s targeting. We now know that privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services. Each of these are considered suspicious activities and flagged as the IP&rsquo;s of suspects by NSA&rsquo;s network monitoring machine.  This is further a reminder that if you look like you are privacy conscious, you are going to be a targeted as an &ldquo;extremist&rdquo; in the eyes of the United States and it&rsquo;s allies.
 </span></p>
 
-<p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
+<h2>Tracking Bridge Users</h2>
+
+<p>XKeyscore is tracking the IP addresses that are sending emails to the Tor bridge automated account. When a user is in a country that blocks Tor, they have an option to use an unlisted Tor entry node called bridges. To get an unlisted bridge IP, one of the options is to email a Tor Project email address which auto-replies with an address of a bridge. The <a href="https://en.wikipedia.org/wiki/Five_Eyes">Five Eyes</a> have been documenting each IP that makes a request to that email address.</p>
+
+<h2>Tracking Tor Directory Authorities</h2>
+
+<p>Another facet disclosed was that the NSA are targeting a specific Tor directory server run by Sebastian Hahn. I believe that this is the case only because the source of the XKeycode leak was by a node in Germany. Looking at nodes in other countries, would point to a corresponding directory authority in that region.</p>
+
+<p>Until relatively recently, the Tor Network consisted of only 9 directory servers of which all clients would first make a connection to prior to joining the Tor network. These 9 directory servers are still in place, but an additional feature lets Tor nodes act as a directory server cache. With this feature, you weren&rsquo;t automatically required to connect to one of the directory authorities during each bootup. This helps mitigate this risk.</p>
+
+<h2>Tracking Tor Entry Nodes</h2>
+
+<p>Even if your connection to the directory authorities were not caught by the program, your connections to the Tor entry nodes were. So while directory authorities were only used during boot, the connections to Tor entry nodes were used repeatedly as your client will build a circuit.</p>
+
+<p>There&rsquo;s not much you can do to defend against this one. Using a bridge would ensure that XKeyScore won&rsquo;t know which IP&rsquo;s to track, but the requests for bridges are caught as well. One may consider running their own unlisted Tor entry node, which is possible, but it severely degrades your anonymity. Users concerned with this may consider using a VPN service and then connecting over Tor. This would not fix it, but it would make it more difficult to identify the originating request to connect to Tor.</p>
+
+<h2>Tracking Torproject.org Visits</h2>
+
+<p>One of the more useless network iterations that are logged is that of users visiting www.torproject.org. The document shows what they are calling &ldquo;microplugins&rdquo; that highlight specific pieces of information that are caught in transit. Your visit to the Tor Project&rsquo;s website logged and you are now flagged as suspicious.</p>
+
+<h2>XKeyScore Code</h2>
+
+<p>The most interesting part is the code released showing how XKeyScore works. Many have already highlighted that the NSA programs are merely malicious implementations of existing technology (as opposed to custom software built from the ground up). We can see that XKeyScore&rsquo;s database uses a <a href="https://en.wikipedia.org/wiki/Mapreduce">MapReduce</a> model. One very common with NoSQL databases like Hadoop. This is hinted in the &ldquo;mapper&rdquo; and &ldquo;reducer&rdquo; functions that searches for onion addresses:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mapper&lt;onion_t>: 
+</span><span class='line'>      static const std::string prefix = "anonymizer/tor/hiddenservice/address/";
+</span><span class='line'>
+</span><span class='line'>      onion_t onion;
+</span><span class='line'>      size_t matches = cur_args()->matches.size();
+</span><span class='line'>      for (size_t pos=0; pos &lt; matches; ++pos) \{
+</span><span class='line'>        const std::string &value = match(pos);
+</span><span class='line'>        if (value.size() == 16)
+</span><span class='line'>          onion.set_address(value);
+</span><span class='line'>        else if(!onion.has_scheme())
+</span><span class='line'>          onion.set_scheme(value);
+</span><span class='line'>        else
+</span><span class='line'>          onion.set_port(value);
+</span><span class='line'>      \}
+</span><span class='line'>
+</span><span class='line'>      if (!onion.has_address())
+</span><span class='line'>        return false;
+</span><span class='line'>
+</span><span class='line'>      MAPPER.map(onion.address(), onion);
+</span><span class='line'>      xks::fire_fingerprint(prefix + onion.address());
+</span><span class='line'>      return true;
+</span><span class='line'>  
+</span><span class='line'>    reducer&lt;onion_t>:
+</span><span class='line'>      for (values_t::const_iterator iter = VALUES.begin();
+</span><span class='line'>          iter != VALUES.end();
+</span><span class='line'>          ++iter) {
+</span><span class='line'>        DB["tor_onion_survey"]["onion_address"] = iter->address() + ".onion";
+</span><span class='line'>        if (iter->has_scheme())
+</span><span class='line'>          DB["tor_onion_survey"]["onion_scheme"] = iter->scheme();
+</span><span class='line'>        if (iter->has_port())
+</span><span class='line'>          DB["tor_onion_survey"]["onion_port"] = iter->port();
+</span><span class='line'>        DB["tor_onion_survey"]["onion_count"] = boost::lexical_cast&lt;std::string>(TOTAL_VALUE_COUNT);
+</span><span class='line'>        DB.apply();
+</span><span class='line'>        DB.clear();
+</span><span class='line'>      }
+</span><span class='line'>      return true;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Full Code</h2>
+
+<p>Below is the full code released:
+<a href="/assets/xkeyscorerules100.txt">xkeyscorerules100.txt</a></p>
 </div>
   
   
@@ -149,6 +235,18 @@ At this point we have some tools designed to protect ourselves. <a href="https:/
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -176,18 +274,6 @@ At this point we have some tools designed to protect ourselves. <a href="https:/
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making &hellip;">
+  <meta name="description" content="I wrote recently about the risks of shipping using your country&rsquo;s shipping service and had a lot of interesting feedback. One individual which &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a></h1>
     
     
       <p class="meta">
@@ -86,71 +86,50 @@
   
 
 
-<time datetime="2015-12-16T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-01-22T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>There are two main choices to use tor: Use the Tor Browser Bundle(TBB), or manually setup a computer to run tor. Maybe you&rsquo;ve spent time making a secure host and you only route traffic over tor and you&rsquo;ve employed various security protections to limit your risk, etc. So you, you say to yourself, &ldquo;I don&rsquo;t need the Tor Browser Bundle, I&rsquo;ve already installed tor.&rdquo; You would be wrong.</p>
+  <div class="entry-content"><p>I <a href="/blog/2016/01/02/how-to-ship-drugs/">wrote recently</a> about the risks of shipping using your country&rsquo;s shipping service and had a lot of interesting feedback. One individual which I believe has the experience raised an interesting suggestion so I thought a few case studies might be useful to discuss.</p>
 
-<p>The Tor Browser (part of TBB) offers a lot of additional security protections that your &ldquo;raw&rdquo; browser doesn&rsquo;t. <a href="https://www.torproject.org/about/corepeople.html.en">Mike Perry</a> who manages the TBB portion of the Tor Project (among other things) has put in a lot of work.</p>
+<p>While not a shining example of solid OPSEC, Dread Pirate Roberts gives us a real-world perspective on what people are willing to do to ship things, illegally. Let&rsquo;s review a few of the things we know about his attempts to be dark.</p>
 
-<p>Here are just a few reasons:</p>
+<h2>Case Study: DPR Is Your Roomate</h2>
 
-<h1>Reason #1: WebRTC</h1>
+<p>Ulbricht/DPR was known as <a href="http://www.forbes.com/sites/ryanmac/2013/10/09/living-with-ross-ulbricht-housemates-say-they-saw-no-clues-of-silk-road-or-the-dread-pirate-roberts/" title="">&ldquo;Josh&rdquo;</a> to his roomates that he met on Craigslist. He paid in cash to sublet a summer apartment in San Francisco. He arranges to pay in cash, he has no cell phone, and his current residence is a hotel near the airport. He made this seem less sketchy because he told the owners he was returning from a trip from Australia and wasn&rsquo;t on his feet yet.</p>
 
-<p>Here&rsquo;s a quick example: Remember the <a href="https://threatpost.com/webrtc-found-leaking-local-ip-addresses/110803/">private IP disclosure</a> vulnerability that&rsquo;s possible using WebRTC? Well the <em>only</em> browser (AFAIK) that isn&rsquo;t vulnerable to this issue is the Tor Browser. You can&rsquo;t prevent it by disabling JavaScript and you can&rsquo;t block it through an extension. And we know that Chrome, Safari, IE, and Opera aren&rsquo;t any help either.</p>
-
-<p>This issue alone should scare you into reconsidering using a raw browser no matter how many extensions you have installed. By the way, if you&rsquo;re interested in seeing how you can disable WebRTC from firefox, it&rsquo;s a compiletime flag: <code>--disable-webrtc</code>.</p>
-
-<h1>Unique Identifiers</h1>
-
-<p>If I can correlate your website visit across mutiple sessions I can potentially deanonymize you in the case that you visit my site over tor and then in the clear. Even in the best case, I will still be able to watch your activities across multiple visits. What if I can correlate between when you log in as user A to those when you log in as user B.</p>
-
-<p>There are so many situations where a malicious web page could include some kind of identifying token. The ones mitigated by TB include:</p>
+<p>This is a near-perfect situation. There&rsquo;s no legal record that &ldquo;Josh&rdquo; exists in this apartement but it&rsquo;s plausible that someone would want to rent it out. Josh could buy a new shirt and some jeans online to have a clean shipping record and then wait to ship his sensitive package.</p>
 
 <ul>
-<li>HTTP auth headers (e.g. <code>http://{IDENTIFIER}username:password@website.com/</code>)</li>
-<li>Cache lookup (e.g. injecting an ID into the cache and check to see if it exists on next visit)</li>
-<li>Cookies (e.g. tracking cookie identified by third parties)</li>
-<li>HSTS super cookies (e.g. multi-site owners can build a unique ID based on whether a user has a cached HSTS record for a particular set of domains)</li>
+<li>Good: Finding a shared location under a fake name.</li>
+<li>Pretty Good: Paying in cash. This is often a red flag.</li>
+<li>Bad: Not having a cell phone makes you look suspicious to normal people.</li>
+<li>Bad: Craigslist is difficult to use completely anonymously. Law enforcement invest a lot of time into watching what happens on Craigslist now.</li>
 </ul>
 
 
-<h1>Fingerprinting Defenses</h1>
+<h2>Case Study: DPR Tries To Use UPS</h2>
 
-<p>Fingerprinting the browser, the hardware, the user, the location, or any kind of identifying information related to a user&rsquo;s session is a very difficult attack to completely defend against. TB does what it can though to defend against this scenario. There are some crazy attacks available including:</p>
+<p>One of the many OPSEC failures of DPR was when he went on his Google+ profile and asked if any of his contacts worked at <a href="http://www.theguardian.com/technology/2013/oct/03/five-stupid-things-dread-pirate-roberts-did-to-get-arrested">UPS, FEDEX or other private companies</a>. I believe his plan was to collect some intel on what private companies do to prevent illicit shipments or get a local hookup to pay off so that his packages weren&rsquo;t flagged.</p>
+
+<p>The fact is there are several mandates that require private parcel companies to comply with U.S. federal laws. If for whatever reason they do not seem to adhere to these standards, the company will be fined and the business could be suspended. For publically traded companies, that&rsquo;s a very big incentive to try to catch illegal packages.</p>
+
+<p>On the other hand, some of the very private parcel movers exist because of an expectation of privacy for their clients. Normaly this would be sending company secrets or plans for the big firm&rsquo;s merger, but the same would go for illicit deliveries. More often than not, these services are very expensive, and will not even consider taking any kind of untraceable payment.</p>
 
 <ul>
-<li><a href="http://www.andlabs.org/tools/jsrecon.html">port scanning via web sockets</a></li>
-<li>extracting a list of installed fonts</li>
-<li><a href="https://dvcs.w3.org/hg/gamepad/raw-file/default/gamepad.html#widl-Gamepad-id">USB device enumearation via the Gamepad API</a></li>
+<li>Good: Gathering intel about shipping methods.</li>
+<li>Bad: Posting the request on Google+.</li>
+<li>OK: Thinking about hiring a private group to ship things</li>
+<li>Bad: It&rsquo;s unlikely you&rsquo;ll find a company that can ship across borders for cash or bitcoin.</li>
 </ul>
 
 
-<p>Maybe TB hasn&rsquo;t solved this problem but the question is, what do you think your current browser is doing?</p>
+<h2>Did we learn anything?</h2>
 
-<h1>Plugin Controls</h1>
-
-<p>Your extensions/plugins/addons are terrifying. They can do whatever they want, not only to your browser, but to anything on your system. Because of this, TB has <a href="https://gitweb.torproject.org/tor-browser.git/commit/?h=tor-browser-31.6.0esr-4.5-1&amp;id=8c6604d2b776f0d8e33ed9130c5f5b8cf744bac8">patched the DNS service</a> to ensure that a browser extension doesn&rsquo;t accidentally leak your DNS requests. This is also done for OCSP so that certificate lookups must be done over the SOCKS proxy and tor.</p>
-
-<p>Similarly, when loading the Flash or Gnash plugin, TB uses the click-to-play control so that in order to play a Flash applet, the user must explicitally click on it before it executes. The risk of Flash or any plugin for that matter goes back to whether it always adheres to proxy settings as well as what type of information is exposed to the applet. Can they obtain your local IP? Can they access a session cookie?</p>
-
-<h1>External Event Blocking</h1>
-
-<p>On your computer right now, you&rsquo;ve likely setup default programs associated with certain types of files. In a browser, you can also setup external programs associated to a protocol. For example <code>tel://</code>, <code>skype://</code>, or <code>ssh://</code> allows a browser to automatically send data from the browser into the associated program. There&rsquo;s a risk here that it will disclose your private info to those programs and therefore compromise your anonymity.</p>
-
-<p>The defense in this case is present a <a href="https://gitweb.torproject.org/torbutton.git/tree/src/components/external-app-blocker.js">pop-up</a> whenever a request to leave the browser is made.</p>
-
-<h1>History and Storage</h1>
-
-<p>TB does everything it can to never touch your disk and never allow your browsing history to be saved to a file. There are a lot of ways <a href="https://trac.torproject.org/projects/tor/query?keywords=~tbb-disk-leak&amp;status=!closed">this is accomplished</a> but the risk has been that if the history or sensitive information is stored on disk, it may be accessible to other appliations or to a forensic investigator.</p>
-
-<h1>More information</h1>
-
-<p>There&rsquo;s <a href="https://www.torproject.org/projects/torbrowser/design/">dozens of other</a> reasons that may or may not be applicable to your plans. The point here again is, the level of effort that the Tor Browser has employed makes you question how secure your current browser configuration is.</p>
+<p>Some people say they have the perfect solution and others believe it&rsquo;s not possible. I still believe that if it&rsquo;s important enough to you, you&rsquo;ll find a way to ship it. In that case, all you can do is limit your risk by not being an obvious target. You&rsquo;ll also have to decide how commited you are in terms of a time and money investment. Some of the things that DPR did require a lot of effort. He gave up his social life, his identity, and in the end, his freedom to be able to do what he wanted. Are you prepared to do theh same?</p>
 </div>
   
   
@@ -173,6 +152,18 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -200,18 +191,6 @@
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

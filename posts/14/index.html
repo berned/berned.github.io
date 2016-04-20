@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="We&rsquo;ve discussed the concerns of stylometric attacks and how good adversaries are at it today. There are only a few tools that attempt to &hellip;">
+  <meta name="description" content="In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/12/15/tor-browser-bundle-without-bundle/">Running Tor Browser Without the Bundle</a></h1>
     
     
       <p class="meta">
@@ -86,136 +86,63 @@
   
 
 
-<time datetime="2015-09-22T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-15T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
+  <div class="entry-content"><p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
 
-<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
-
-<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
-
-<h2>VIM</h2>
-
-<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings' grammar, as well as help you find which words to add.</p>
+<h2>How</h2>
 
 <ul>
-<li>Enable spell check in your .vimrc file by adding the following line:</li>
+<li>Download <a href="https://www.torproject.org/download/download-easy.html.en">TBB</a></li>
+<li>Extract</li>
+<li><p>Cd to the following directory:</p>
+
+<pre><code>  tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default$
+</code></pre></li>
+<li>Modify <code>extensions.ini</code></li>
+<li><p>Comment out the following line:</p>
+
+<pre><code>  #Extension2=/home/death/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher@torproject.org.xpi
+</code></pre></li>
 </ul>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
+<h2>Setup</h2>
 
+<p>This assumes that you&rsquo;re running tor on port 9050 and ideally that you have your control port enabled with a password of &ldquo;secret&rdquo; to access it. That&rsquo;s only if you want to be able to control Tor via the browser extension. Maybe you don&rsquo;t.</p>
 
-<ul>
-<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
-</ul>
+<p>If you want to set your password to &ldquo;sercret&rdquo; you can use tor to generate the hash for you:</p>
 
+<pre><code>    tor --hash-password secret
+</code></pre>
 
-<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
+<p>Copy that into your /etc/torrc file under the HashedPassword section.</p>
 
-<h2>Grammar</h2>
+<p>You can take a look at the other comments found in <code>start-tor-browser</code>:</p>
 
-<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
-
-<h2>UPDATE</h2>
-
-<p>If you want to at least do a frequency analysis of the words in your text, it&rsquo;s pretty easy to do. The following is an example in python. If you run this and provide an argument of your text file, it will give you a break down of your most common words, hopefully to help you determine what words you could be attributed to using most often.</p>
-
-<figure class='code'><figcaption><span>stemmer.py </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
-</span><span class='line'><span class="c"># Author: b3rn3d</span>
-</span><span class='line'><span class="c"># Based on: http://www.nltk.org/api/nltk.stem.html</span>
-</span><span class='line'><span class="c"># Usage: ./stemmer.py filename.txt</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'><span class="k">try</span><span class="p">:</span>
-</span><span class='line'>  <span class="kn">from</span> <span class="nn">Stemmer</span> <span class="kn">import</span> <span class="n">Stemmer</span> <span class="k">as</span> <span class="n">SS</span>
-</span><span class='line'><span class="k">except</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;Stemmer/Snowball not installed. Please install it via apt-get install python-stemmer&quot;</span>
-</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;FAIL: Supply test file to analyze.&quot;</span>
-</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span class='line'><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#extract words</span>
-</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;\w+&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">stemmer</span> <span class="o">=</span> <span class="n">SS</span><span class="p">(</span><span class="s">&#39;english&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#count stems and extract shortest words possible</span>
-</span><span class='line'><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">stem</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stemWord</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">stem</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">shortest</span><span class="p">,</span><span class="n">count</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span>
-</span><span class='line'>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">shortest</span><span class="p">):</span>
-</span><span class='line'>            <span class="n">shortest</span> <span class="o">=</span> <span class="n">word</span>
-</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">shortest</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#convert {key: (word, count)} to [(word, count, key)] for convenient sort and print</span>
-</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">wordcount</span> <span class="o">+</span> <span class="p">(</span><span class="n">root</span><span class="p">,)</span> <span class="k">for</span> <span class="n">root</span><span class="p">,</span><span class="n">wordcount</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-</span><span class='line'><span class="c">#trick to sort output by count (descending) &amp; word (alphabetically)</span>
-</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-</span><span class='line'><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
-</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s"> (Root: </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">item</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<pre><code>    # SETTING NAME                            VALUE
+    # extensions.torbutton.banned_ports       [...],&lt;SocksPort&gt;,&lt;ControlPort&gt;
+    # extensions.torbutton.block_disk         false
+    # extensions.torbutton.custom.socks_host  127.0.0.1
+    # extensions.torbutton.custom.socks_port  &lt;SocksPort&gt;
+    # extensions.torbutton.inserted_button    true
+    # extensions.torbutton.launch_warning     false
+    # extensions.torbutton.loglevel           2
+    # extensions.torbutton.logmethod          0
+    # extensions.torbutton.settings_method    custom
+    # extensions.torbutton.socks_port         &lt;SocksPort&gt;
+    # extensions.torbutton.use_privoxy        false
+    # extensions.torlauncher.control_port      &lt;ControlPort&gt;
+    # extensions.torlauncher.loglevel          2
+    # extensions.torlauncher.logmethod         0
+    # extensions.torlauncher.prompt_at_startup false
+    # extensions.torlauncher.start_tor         false
+</code></pre>
 </div>
   
   
@@ -238,6 +165,18 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -265,18 +204,6 @@
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

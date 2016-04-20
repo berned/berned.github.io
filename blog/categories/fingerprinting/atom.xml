@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Fingerprinting | B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/blog/categories/fingerprinting/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-03-26T19:02:40+00:00</updated>
+  <updated>2016-04-20T14:57:13+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution/"/>
     <updated>2014-05-29T00:00:00+00:00</updated>
     <id>http://www.b3rn3d.com/blog/2014/05/29/fingerprinting-resolution</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
+    <content type="html"><![CDATA[<p>{% img right /images/fingerprint.png 200 %}Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
 
 <p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
 
@@ -44,12 +44,11 @@
 <p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
 
 <p>Here&rsquo;s a simple Javascript example that does that
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
-</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
-</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure></p>
+{% codeblock %}
+<a href="javascript:alert
+('Your resolution is '+screen.width+'x'+screen.height);">
+Screen Resolution Example</A>
+{% endcodeblock %}</p>
 
 <p>Demo: <a href="javascript:alert
 ('Your resolution is '+screen.width+'x'+screen.height);">

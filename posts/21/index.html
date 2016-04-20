@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks &hellip;">
+  <meta name="description" content="If you&rsquo;ve been following the DPR story you&rsquo;ll notice that the prosecution paints DPR as an ego-maniac willing to do anything to gain more &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/29/fingerprinting-resolution/">Fingerprinting Attacks on Screen Resolution</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/04/ego-and-opsec/">Ego and OPSEC</a></h1>
     
     
       <p class="meta">
@@ -86,81 +86,40 @@
   
 
 
-<time datetime="2014-05-29T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-04T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
+  <div class="entry-content"><p>If you&rsquo;ve been <a href="http://www.htxt.co.za/2015/02/04/silk-road-trial-closes-would-dread-pirate-roberts-do-that/">following the DPR story</a> you&rsquo;ll notice that the prosecution paints DPR as an ego-maniac willing to do anything to gain more and more power and money. It doesn&rsquo;t matter if a lawyer is right, but the picture that it paints highlights a challenge that humans have with OPSEC, their ego.</p>
 
-<p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
+<p><img class="right" src="/images/ego.jpg" width="400"></p>
 
-<p>This is even more dangerous on mobile devices such as Android. Each manufacturer releases new phones and tablets with different resolution, these are often very odd screen resolutions, making them very unique to that phone time. There are dozens of sites that provide this information for you:</p>
+<p>As you go dark, moving away from what would be your normal life (or fractioning off from it) has a novelty to it. It feels fun, and exciting, and you feel like you&rsquo;re doing something interesting. This is your ego kicking you in the back of the head and if you feel it at first, you&rsquo;ll know it&rsquo;s going to be a problem going forward. As the novelty wears off, your OPSEC becomes more of a discipline than a game. You follow your procedures and lock yourself down, but you sigh at how it&rsquo;s arduous compared to the everyday consumer.</p>
 
-<ul>
-<li><a href="http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density">http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density</a></li>
-<li><a href="https://deviceatlas.com/">https://deviceatlas.com/</a></li>
-<li><a href="http://wurfl.sourceforge.net/">http://wurfl.sourceforge.net/</a></li>
-</ul>
+<p>If you&rsquo;ve continued this far, and you haven&rsquo;t broken protocol, the feeling of isolation and loneliness creeps in. Similar to what U.S. and U.K soldiers deal with when given high clearances. You can&rsquo;t talk about what you did, are doing, or will be doing otherwise the results will be devastating.</p>
 
+<p><span class='pullquote-right' data-pullquote='Without this feeling of success fueling your ego, your self-esteem begins to deteriorate, and your motivation turns into self-discipline.'>
+Even if your natural tendency is not to be an outwardly confident person, your mind automatically has a need to feel pride for the work that it&rsquo;s doing. Similar to how a school janitor is proud of her job, and takes it as serious as the medical doctor, your brain will automatically rationalize your success relative to your surroundings. Without this feeling of success fueling your ego, your self-esteem begins to deteriorate, and your motivation turns into self-discipline.
+</span></p>
 
-<h2>Background</h2>
+<h2>DPR Ego Mistakes</h2>
 
-<p>There are two types of fingerprinting; passive and active. Active fingerprinting attacks are usually reserved to those that are collecting information about your network traffic, and do a secondary correlation. For example, if an adversary were running multiple exit nodes, they collect the list of sites each circuit connects to, and tries correlates that to a specific user.</p>
+<p>The DPR case is a perfect reminder. Thus far, the story goes that DPR was caught at a library because he walked away from his computer while it was still running. He kept a backup copy of the Silk Road software on his nightstand. He originally created Silk Road as a clearnet domain, silkroad.org and then took that down. He kept a journal of all of his activities while he was dark and even referenced personal details like travel plans and medical issues.</p>
 
-<p>Active attacks will manipulate or inject an identifier into your traffic &ndash; an identifying cookie or malicious JavaScript that when executed tries to collect identifying information about your browsing environment.</p>
+<p>It&rsquo;s easy to conclude that DPR is a young, naive kid without any plans to truly defend against the type of surveillance that he was put under. That may be true but I would like to suggest that he succumb to the natural human tendency to share with someone the fame and power that he had created. To let people in on how accomplished (in his own mind) he had become. As the fame of Silk Road increased, so did his need to take a little credit.</p>
 
-<p>This is not a new revelation, the EFF has highlighted this problem by making the <a href="https://panopticlick.eff.org/">Panopticlick</a> project. This simulates attacks that aim at fingerprinting your browser, its plugins, fonts installed, etc. This is similar to the <a href="http://browserspy.dk/">BrowserSpy</a> project.</p>
+<h2>Alter ego</h2>
 
-<h2>Screen Resolution</h2>
+<p>The alter ego is supposed to be a split off of your personality, have different motivators, different skills, different temperament. In many ways this is a powerful asset as an OPSEC expert, yet difficult to achieve. Even up achieving, you will continue to be a slave to feeding that alter ego&rsquo;s, ego, so don&rsquo;t ignore it.</p>
 
-<p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
+<h2>Lessons Learned</h2>
 
-<p>Here&rsquo;s a simple Javascript example that does that</p>
+<p>It might be easy to say &ldquo;I&rsquo;ll just not pay attention to my ego&rdquo; but this would be a challenge that Eastern Religions have tried teach individuals for years and years. Your ego plays an important part of your psyche and there may be tricks to ignore it, but it&rsquo;s easier to accept it and learn how to feed it. If your operations have an outcome, ensure that you take the time to appreciate that you have achieved your goals. You can even take some of the motivators out of a weight-loss book and set a celebratory event based on the success of your operation.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
-</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
-</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure>
-
-
-<p>Demo: <a href="javascript:alert
-('Your resolution is '+screen.width+'x'+screen.height);">
-Screen Resolution Detection Example</A></p>
-
-<p>EDIT: <a href="www.reddit.com/user/lugh">lugh</a> points out that this example is inconsistent and depends on your OS and browser.</p>
-
-<h2>Defense Measures</h2>
-
-<p>There are a couple of ways of defending, let me go over some possibilities:</p>
-
-<ul>
-<li><strong>disabling Javascript</strong>: CSS (AFAIK) does not have a way of detecting your screen resolution</li>
-<li><strong>resizing your browser window</strong>: Sometimes attacks do not read screen resolution, but just window size.</li>
-<li><strong>changing your screen resolution</strong>: This is often difficult but by choosing a screen resolution that many other users may have, would help defend against fingerprinting. The <a href="http://dee.su/liberte-security">Liberte Linux</a> distribution is the only system I&rsquo;ve seen that automatically does this by forcing the screen resolution of 800x600.</li>
-<li><strong>external monitors</strong>: If you are on a laptop, and have an external monitor around, it might be possible to have its resolution provide instead of your laptop screen. Note here that different operating systems handle this value in different ways. Some append the width and height of both screens to eachother.</li>
-<li><strong>modifying the JavaScript engine</strong>: This solution has not been done very often and is considered a security risk, but there is a possibility that a new custom JavaScript engine could return a different value than your actual resolution.</li>
-<li><strong>virtualization</strong>: If you are running your anonymous environment inside of a virtual machine, you can dynamically change the resolution very easily by resizing the window of the VM.</li>
-</ul>
-
-
-<p>There are different situations that heed different defense. If you run into a site you need access to that requires JavaScript, you&rsquo;re not going to be able to disable it. Same applies for the browser window trick if the service is detecting Screen.height as opposed to Window.height. Going into your screen settings and changing your screen resolution might work, but it&rsquo;s pretty cumbersome. The virtualization option is very plausible but requires that you are running virtualization software like Virtual Box.</p>
-
-<h2>Real-World Attacks</h2>
-
-<p>One example of software designed for fingerprinting is <a href="http://www.juniper.net/us/en/products-services/security/webapp-secure/">Juniper&rsquo;s Webapp Secure</a>. It is a tool that will fingerprint a web site&rsquo;s users based on a variety of metrics; one of which is your computer&rsquo;s resolution. By doing so, they are able to track their browsing experience across multiple sessions without any cookies.</p>
-
-<h2>Applying to Registration</h2>
-
-<p>Screen resolution is just a single attribute that can be keyed on but I find that it is relied upon the most often during web provider registration processes. This may be because the providers don&rsquo;t believe that anyone would go through the steps of changing their screen resolution &ndash; I&rsquo;m not sure. In any event, by merely changing your screen resolution, you are able to easily register without the stigma of anything you have done in a previous sessions possibly fingerprinting you. This along with clearing your cookies, connecting with a different IP address, and possibly manipulating the fonts that are installed on your computer will let you bypass the registration process&hellip;. sometimes.</p>
-
-<h2>Conclusions</h2>
-
-<p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
+<p>Buy yourself that cake. You deserve it. Just remember to eat it in the darkness. :)</p>
 </div>
   
   
@@ -183,6 +142,18 @@ Screen Resolution Detection Example</A></p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -210,18 +181,6 @@ Screen Resolution Detection Example</A></p>
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

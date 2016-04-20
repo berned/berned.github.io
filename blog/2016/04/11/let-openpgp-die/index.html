@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Reasons to Let PGP Die #1: Metadata - B3RN3D</title>
+  <meta name="author" content="b3rn3d">
+
+  
+  <meta name="description" content="PGP is a 90&rsquo;s protocol that should have died along with SMTP. I&rsquo;m tired of it and how we&rsquo;re still trying very hard to use it. I& &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2016/04/11/let-openpgp-die">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">B3RN3D</a></h1>
+  
+    <h2>Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.b3rn3d.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/contact">Contact</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Reasons to Let PGP Die #1: Metadata</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-04-11T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>PGP is a 90&rsquo;s protocol that should have died along with SMTP. I&rsquo;m tired of it and how we&rsquo;re still trying very hard to use it. I&rsquo;m going to start reminding us about the various reasons PGP should die.</p>
+
+<h2>Metadata</h2>
+
+<p>Lets cover metadata first. Things that are leaked outside of your normal message. We already know that metadata is easy to extract from a plaintext SMTP message, but its actually even easier from a PGP encrypted message.</p>
+
+<h2>Example</h2>
+
+<p>Here&rsquo;s a interesting experiment. First run</p>
+
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x63;&#105;&#110;&#99;&#105;&#x6e;&#110;&#97;&#116;&#117;&#x73;&#64;&#108;&#x61;&#x76;&#97;&#x62;&#105;&#116;&#x2e;&#99;&#111;&#109;">&#x63;&#105;&#110;&#x63;&#105;&#x6e;&#110;&#x61;&#116;&#117;&#x73;&#x40;&#108;&#x61;&#x76;&#97;&#x62;&#105;&#x74;&#46;&#99;&#111;&#x6d;</a></p></blockquote>
+
+<p>You will get something like this:</p>
+
+<pre><code>-----BEGIN PGP MESSAGE-----
+
+hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
+...
+</code></pre>
+
+<p>Then on that file, do a</p>
+
+<blockquote><p>gpg &ndash;list-only</p></blockquote>
+
+<p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
+    gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
+      &ldquo;Cincinnatus (Tor) <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x63;&#x69;&#x6e;&#99;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#x73;&#64;&#108;&#x61;&#x76;&#97;&#x62;&#x69;&#116;&#46;&#x63;&#111;&#109;">&#99;&#105;&#110;&#99;&#x69;&#x6e;&#110;&#97;&#116;&#117;&#x73;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#x69;&#x74;&#46;&#x63;&#111;&#109;</a>&rdquo;</p>
+
+<p>But look at this:</p>
+
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x63;&#105;&#110;&#x63;&#x69;&#x6e;&#110;&#x61;&#116;&#x75;&#x73;&#x40;&#x6c;&#97;&#118;&#x61;&#98;&#105;&#116;&#x2e;&#x63;&#x6f;&#x6d;">&#x63;&#x69;&#110;&#99;&#105;&#x6e;&#110;&#97;&#x74;&#117;&#115;&#64;&#x6c;&#x61;&#x76;&#x61;&#x62;&#105;&#116;&#x2e;&#x63;&#x6f;&#x6d;</a></p></blockquote>
+
+<pre><code>-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+hQQMAwAAAAAAAAAAAR/+O7sldU8CMp7xZE9aPaOoIgb3i7GumO0mGlkhCZ3JDLhB
+...
+</code></pre>
+
+<p>Notice the A&rsquo;s in the beginning. What you&rsquo;ve done is 0&rsquo;d out the key ID of the intended recipient.</p>
+
+<h2>What does this mean</h2>
+
+<p>If you are a normal PGP user, the first block in your message is a list of the keyids that it is encrypted to. If you were someone with the ability to intercept communications, you had better believe that PGP encrypted messages are going to be a high value find.</p>
+
+<p>Those people that are using PGP to protect their communications and not using something like HTTPS or SMTPS will be subject to very simple graphing of who and when you are talking to other recipients.</p>
+
+<h2>Can it be fixed</h2>
+
+<p>You can use <code>--hidden-recipient</code> as a drop in replacement for the <code>-r</code> flag. Even better, Enigmail, the PGP plugin for Thunderbird, will automaticaly do this for you when you send messages to people via BCC.</p>
+
+<p>You should note that when you use this switch, gpg has no idea how to decrypt incoming messages so it just tries every single one of your private keys.</p>
+
+<p>Lets let PGP die.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-04-11T00:00:00+00:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.b3rn3d.com/blog/2016/04/11/let-openpgp-die/" data-via="" data-counturl="http://www.b3rn3d.com/blog/2016/04/11/let-openpgp-die/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/04/08/internet-of-threats/" title="Previous Post: The Internet Of Threats">&laquo; The Internet Of Threats</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/04/15/let-openpgp-die2/" title="Next Post: Reasons to let PGP die #2: Web-of-Trust">Reasons to let PGP die #2: Web-of-Trust &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/02/the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/23/actor-drugdealer-opsec/">OPSEC of Actor vs Drug Dealer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - b3rn3d -
+</p>
+<iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

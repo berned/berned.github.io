@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="As I&rsquo;ve discussed before, threat models or risk models help you to define the adversaries you should invest the most resources being concerned &hellip;">
+  <meta name="description" content="Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &ndash; that up &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/17/perspectives-of-opsec/">Perspectives of OPSEC Models</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/05/10/back-and-reburned/">Lessons Burned</a></h1>
     
     
       <p class="meta">
@@ -86,102 +86,35 @@
   
 
 
-<time datetime="2014-02-17T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2014-05-10T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><span class='pullquote-right' data-pullquote='operational security’s primary goal is to
-mitigate risk while maintaining operational capabilities'>
-As I&rsquo;ve discussed <a href="/blog/2014/01/10/ask-him-about-his-threat-model">before</a>, threat models or risk models help you to define the adversaries you should invest the most resources being concerned about. There are a variety of different risk perspectives you can use to design a
-threat model: adversary-centric, asset-centric, or software-centric. We can
-adopt these into very similar models for OPSEC plans. Each of these models have
-a single principal that operational security&rsquo;s primary goal is to
-mitigate risk while maintaining operational capabilities.
-</span></p>
+  <div class="entry-content"><p><img class="center" src="/images/trainhop.jpg" title="" ></p>
 
-<h2>Adversary-Centric OPSEC</h2>
+<p>Three months ago I found myself at another impasse where you need decide to just let it all go and move on. My hosting provider &ndash; that up until that point had reliably allowed me to maintain my anonymity &ndash; suddenly requested that I verify my identity (for some random definition of identity in this case). There were a couple of ways to do this, and to be honest, it was something very easy to bypass. The point was that the provider suddenly did not enjoy my company.</p>
 
-<p><img class="right" src="/images/adversary.png" title="" ></p>
+<p>What was interesting (see distressing) was this occurred synchronously with two of my email addresses being suddenly blocked requiring that I now log in through what they considered a &ldquo;trusted IP&rdquo;. These were two email accounts that had never, ever, touched eachother (never shared contacts, never same IP, randomized timezones). They were from the same provider which could possibly reflect a change in policy for everyone.</p>
 
-<p>In these types of plans, we&rsquo;re focused on what an attacker or adversary
-can do to us; who is coming after you, what they can do, and how you can
-defend. An adversary-cetnric policy has the advantage of being much easier to
-create and document because many people already think this way. It&rsquo;s very
-simple to come up with a list of adversaries that have the potential to affect
-what&rsquo;s important to you. The down-side of this approach is that you need
-to know your adversaries. In the case of the NSA &ldquo;revelations&rdquo;,
-many were shocked to find out that a nation-state had the type of capabilities
-that were disclosed. Prior to this, not many were able to mitigate themselves
-from these types of threats because they simply didn&rsquo;t know or fully
-appreciate an adversary of this nature.</p>
+<h2>Burn and Move</h2>
 
-<h2>Asset-Centric OPSEC</h2>
+<p>Overly paranoid, long story, short, I wiped it all and moved on. In this case it was nice that they left my old site up for me to clone off. My assumption is that it will soon be taken down. And if they&rsquo;re reading this, they can feel free to do so. :)</p>
 
-<p><img class="right" src="/images/asset.png" title="" ></p>
+<h2>New Perspectives</h2>
 
-<p>This approach focuses on designging mitigations around your assets &ndash; the
-things you value the most. If, for example, your asset is your ability to
-privately communicate on the Internet, you&rsquo;re going to do everything you
-can to ensure no-one can affect this. You&rsquo;re not focused on specific
-adversaries per se in this approach, but you are doing everything in your power
-to protect yourself. Maybe you&rsquo;re buying a VPN service or using a botnet
-or Tor for all communications. Maybe you&rsquo;ve decided that you&rsquo;re
-going to try out one of the new <a href="https://bitmessage.org/wiki/Main_Page">decentralized</a> <a href="http://dee.su/cables">messaging</a> <a href="https://crypto.cat/">systems</a> as a way of
-keeping yourself secure.</p>
+<p>The set back was one of the first times that I honestly felt it was 100% necessary to burn and move on. Other times it wasn&rsquo;t mandatory but made sense at that point of the operation. Uncertainty is a decent motivator to review a few of my operational decisions. In the near future, I&rsquo;d like to share my current perspectives on:</p>
 
-<p>One of the benefits of this method is that it&rsquo;s easy to explain why a
-measure needs to take place. If you&rsquo;re operating in a group, this may be
-an important factor. You can easily make the case that your asset needs to be
-secure, therefore we are taking these steps to mitigate the risk. Contrary to
-the adversary-centric approach, this is a less passive perspective &ndash; you
-are not taking the point of view of being fearful of something happening, you
-are merely performing the proactive, required procedures to keep your assets
-safe.</p>
+<ul>
+<li>Email addresses</li>
+<li>Hosting providers</li>
+<li>Anonymous messaging</li>
+</ul>
 
-<h2>Operation-Centric OPSEC</h2>
 
-<p><img class="right" src="/images/boxes.png" title="" >
-This approach, my favorite, lends itself nicely to compartmentalization if
-you&rsquo;re managing multiple identities across multiple operations. An
-operation in this case could be an identitiy, a research project, an regular
-activitiy or whatever, that may require specific operational security measures.
-An operation-centreic OPSEC plan may sound recursive to you, but the gist is
-that your plans are focused on your specific operation, and that operation
-alone. The main difference between this and an asset-centric approach is that
-it is designed to have drastically different and compartmentalized procedures
-allowing for scalability without letting one operation interfere with another.</p>
-
-<p>If you&rsquo;ve ever taken a look at the security plans of a large, Fortune 500
-company compared to that of a startup, it&rsquo;s quite possible that the
-startup is able to implement simple, elegent, effective security plans while
-the Fortune 500 spends millions of dollars designing a unilateral security
-policy that severely inhibits the organizations operational capabilities. The
-reason that a small, agile startup can devise elegant OPSEC measures, is the
-same reason that compartmentalizing your OPSEC procedures in an operation-
-centric point-of-view is effective.</p>
-
-<p>The other reason that I like this is because it gives you a good balance of a
-variety of different OPSEC approaches. You are paying attention to your
-operation&rsquo;s assets while taking into account specific adversaries and
-their attacks. As you define an operation &ndash; we&rsquo;ll say buying
-illegal drugs on the internet &ndash; you will be scoped down to a specific
-task and controlled environment. It lets you define boundaries in which your
-OPSEC guidelines can define situations in which your measures/countermeasures
-no longer protect you. This keeps risks at a minimum because you are only
-defending against a subset of your activities &ndash; those associated with the
-operation. In the example of buying illegal drugs on a darknet market, your
-OPSEC guidelines can state that in the case of the darkmarket collapse (which
-seems to happen regularly <a href="http://www.deepdotweb.com/2014/02/13/silk-road-2-hacked-bitcoins-stolen-unknown-amount/">lately</a>), your operation should fold and the identity
-should be burned. You can take into accounts adversaries such as those that own
-the market, and assets you&rsquo;re concerned about such as keeping yourself
-out of jail.</p>
-
-<p>I will admit, none of those listed are perfect, nor do they make up an
-exhaustive list. They may however give you a starting point for building an
-OPSEC plan for yourself.</p>
+<p>These three are for many, the building blocks of all identities and extra care (which I thought I had given) should be taken. Until then, I&rsquo;ve imported my previous posts.</p>
 </div>
   
   
@@ -204,6 +137,18 @@ OPSEC plan for yourself.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -231,18 +176,6 @@ OPSEC plan for yourself.</p>
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

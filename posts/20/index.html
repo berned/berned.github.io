@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Privacy conscious websites and applications often give you privacy controls like &ldquo;opt'ing-out&rdquo; of using your browsing habits for &hellip;">
+  <meta name="description" content="I don&rsquo;t often write about myself but for examples purposes, I will disclose that I&rsquo;ve recently entered into a relationship with a person &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/06/22/privacy-controls-for-fingerprinting/">Privacy Controls as a Fingerprinting Attack</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/07/04/opsec-relationships/">Risks of Relationships</a></h1>
     
     
       <p class="meta">
@@ -86,57 +86,26 @@
   
 
 
-<time datetime="2014-06-22T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-07-04T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Privacy conscious websites and applications often give you privacy controls like &ldquo;opt'ing-out&rdquo; of using your browsing habits for statistics, or setting whether or not to share your profile information. If you&rsquo;ve already done your job to ensure that you are not sharing any sensitive information, these pseudo-privacy controls may put you at a high risk of being labeled a suspicious account.</p>
+  <div class="entry-content"><p>I don&rsquo;t often write about myself but for examples purposes, I will disclose that I&rsquo;ve recently entered into a relationship with a person for the first time in a long time. While this is exciting for me and also sad, the idea of how to handle relationships while maintaining OPSEC is a minefield.</p>
 
-<h2>How Privacy Controls Actually Work</h2>
+<h2>Trust</h2>
 
-<p>Lets take, for example, a forum where you can make changes to your settings to not include your information in the anonymized statistics gathering. Does that mean that your activities will not be tracked now that you have clicked the opt-out check box? In most cases, all this means is that your activities will not be used for statistics and reporting, but your activities will continue be logged.</p>
+<p>The first thing you&rsquo;re told in any relationship be it with a signifigant other, a family member, or a friend, is that trust is key. You should be able to confid in the other person about your darkest secrets.</p>
 
-<p>In many cases, what happens in the backend is there will be an &ldquo;opt-out&rdquo; value assigned to your user account. A database contains your account information, your settings, and then a single True or False value dictating whether you&rsquo;ve opt-out. A simple query of this database will return all users in the system that have decided to opt-out.</p>
+<p>For some of us, our darkest secrets are not things to disclose to the SO. Not because you&rsquo;re selfish or don&rsquo;t trust the other, but because some disclosures make the other liable (a legal term).</p>
 
-<p>One specific example is the popular <a href="http://www.simplemachines.org/">Simple Machines Forum</a> which retains a value in the database named &ldquo;private.&rdquo; This is just an integer that controls the various levels of privacy control on your forum profile.</p>
+<h2>Identity Division</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>if (isset($modSettings['smfVersion']) && $modSettings['smfVersion'] &lt;= '2.0 Beta 1')
-</span><span class='line'>{
-</span><span class='line'>  upgrade_query("
-</span><span class='line'>  UPDATE {$db_prefix}custom_fields
-</span><span class='line'>  SET private = 2
-</span><span class='line'>  WHERE private = 1");
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<p>In other cases, you&rsquo;ve created a new identity that has nothing to do with your IRL identity in which case, these secrets have nothing to do with the other person. If you&rsquo;ve created an OPSEC campaign where you&rsquo;ve properly divided all of your personal relationships from your online identity, you are no longer that person.</p>
 
-
-<h2>Enabling the Privacy Zealot Flag</h2>
-
-<p>The problem, as you can see, is that you are vulnerable to a type of fingerprinting attack. If law enforcement wanted find the highest risk accounts on a system, they would not want to weed through thousands of accounts or use expensive <a href="http://www.palantir.com">analytical software</a>. They they will partition the accounts in the simplest means necessary, one of which being users who have decided to opt-out or have enabled the various privacy features.</p>
-
-<h2>Target Selection</h2>
-
-<p>The concept of specifically targeting users concerned about privacy, and labeling them potential subjects, is nothing new. We&rsquo;ve heard it happen with journalists, activists, and especially pregnant women. If you haven&rsquo;t read it yet, check out the article, <a href="http://time.com/83200/privacy-internet-big-data-opt-out/">Here&rsquo;s what happened when I tried to hide my pregnancy from the Internet and marketing companies</a> about what happens when you actually go through all the steps to protect your privacy.</p>
-
-<h2>Defense</h2>
-
-<p>Why opt-out? Ask yourself &ldquo;what does this privacy feature actually do?&rdquo; In most cases, the anonymous statistics that a web application collects, are less of a risk to your privacy than the possibility that an account be given the &ldquo;privacy zealot&rdquo; flag. Your first goal when trying to maintain your anonymity and defend against similar attacks, is to do everything you can to not become a target of interest. This includes:</p>
-
-<ul>
-<li>Not enabling any settings on your account that may make you look concerned about your privacy</li>
-<li>Keeping your browser configuration similar to other users of that system (e.g. JavaScript enabled, commong UserAgent)</li>
-<li>Being aware of phrases that could make you a target. Check out <a href="http://pastebin.com/yDicWqb2">the list of NSA keywords</a> to see the types of words they key in on.</li>
-</ul>
-
+<p>This, admittedly, is a rationalization of a complicated issue that I have not, nor plan to in the near future, discuss with my SO. I suggest that you do the same.</p>
 </div>
   
   
@@ -159,6 +128,18 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -186,18 +167,6 @@
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

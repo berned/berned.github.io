@@ -9,9 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="I wrote_previously wrote previously about using your brain to help
-compartmentalize you various identities. This is still a common thread of
-research &hellip;">
+  <meta name="description" content="Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
+&ndash; either by name, fingerprint, or country code. If you have a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +71,7 @@ research &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/04/event-boundaries-helping-to-compartmentalize-your-operations/">Event Boundaries: Helping to Compartmentalize Your Operations</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/03/05/tor-country-codes/">Tor Country Codes</a></h1>
     
     
       <p class="meta">
@@ -88,85 +87,338 @@ research &hellip;">
   
 
 
-<time datetime="2014-02-04T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2014-03-05T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I <a href="/blog/2014/01/13/braintricks-opsec/">wrote_previously</a> wrote previously about using your brain to help
-compartmentalize you various identities. This is still a common thread of
-research I&rsquo;m working on and wanted to further expand on the idea. The
-short version of my previous post was that if you can create a completely
-different operating environment for each of your operations/activities,
-you&rsquo;ll be able to more easily maintain whatever OPSEC measures
-you&rsquo;ve employed.</p>
+  <div class="entry-content"><p>Tor has the ability to let you choose which exit nodes you&rsquo;d like to use
+&ndash; either by name, fingerprint, or country code. If you have a trusted
+list of nodes you&rsquo;d like to use as a whitelist, you can use that, or if
+you have a list of nodes on a blacklist, it supports that configuration. But
+for those of us that are attempting to be someone else, specifically someone
+from a different country, we can use Tor to not only hide our identity, but
+make it appear to be from a specific geographic location.</p>
 
-<h2>Event Boundaries</h2>
+<p>Our example here may be an identity where you want to appear like a Ukrainian
+dissident &mdash; when in reality you&rsquo;re a soccer Mom from Chicago, IL.
+By setting up a dedicated machine, with a specific Tor configuration, you can
+make sure that all of your traffic is routed out of an Ukrainian Exit Node.</p>
 
-<p>Event Boundaries is a theory that has come to my <a href="http://www.memory-key.com/blog/event-boundaries-and-working-memory-capacity">attention</a> recently. The
-concept is simple &ndash; when you walk through a boundary such as a door,
-gate, or different space, your brain automatically switches from its previous
-mode of operation, to a new one. This is the reason that when you walk into a
-room, you sometimes completely forget why you&rsquo;re there. The point to
-focus on here is that the boundary defines a beginning and an end of an
-environment.</p>
+<h2>TORRC</h2>
 
-<p><span class='pullquote-right' data-pullquote='When your brain knows there is a beginning and an end, studies show that this
-helps to create a compartment for those memories.'>
-When your brain knows there is a beginning and an end, studies show that this
-helps to create a compartment for those memories. We can use this to our
-advantage. In a perfect world, we could make physical barriers for each of our
-identities so that when we switch to another operation, we switch operating
-environments. Some realistic examples could be that Identity A always operates
-in Starbucks coffee shops, while Identity B always operates in the local
-library.
-</span></p>
+<p>The configuration is simple, modify your torrc file to add the follwoing line
+to ensure Tor will only use Ukraine based exit nodes:</p>
 
-<h2>Logical Event Boundaries</h2>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  ExitNodes {ua}
+</span><span class='line'>  StrictNodes 1</span></code></pre></td></tr></table></div></figure>
 
-<p>If you&rsquo;re confined to your own apartment, or have a static operating
-environment, you&rsquo;re going to be left to tricking your brain into creating
-logical event boundaries instead. One way to do this is to create an induction
-procedure for that operation. Before you being working in that operating
-environment, you must follow the same exact steps you&rsquo;ve done previously.
-This should take into account as many senses as you can.</p>
 
-<p><img class="center" src="/images/eventboundaries.png" title="" ></p>
+<p>Please note that in all of these examples, we must enable StrictNodes. This
+example will use either Ukraine, Uganda, South Korea, or Ireland as an exit:</p>
 
-<p>For example, you can create a video that is a compilation of various images; a
-river, a mountain, an urban scene, and a zoo &ndash; it doesn&rsquo;t matter
-the scense, but they need to all be in the same &ldquo;mood&rdquo; if you will
-(ie. a gun fight is not the same mood as a running river). Specific sounds or
-music are set in the background of the video. Whenever it&rsquo;s time to
-assume that identity, you adjust the lights in the room to be very bright, you
-put on your headphones, fire up that identities computer, and watch that video.
-Following these steps, while you haven&rsquo;t physically entered a room, you
-have logically created an event boundary that helps your brain to process and
-recall that identity&rsquo;s operating environment.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExitNodes {ua},{ug},{kp},{ie}</span></code></pre></td></tr></table></div></figure>
 
-<p>When exiting, you must do something similar, but it cannot be the same process
-as the way you entered. (Because you&rsquo;re creating the event of leaving the
-room which has a much different feeling than entering.) Create a new video
-consisting of a different mood and different music. I would suggest something
-drastically different than your operating environment. If you normally work
-quiet, create a loud video with lots of action. Finally, adjust the lights in
-the room so that are at their previous state.</p>
 
-<p>Even as I write this, I feel that this may seem over-the-top or ridiculous. I
-might not disagree with over-the-top for what you&rsquo;re doing, but the
-results are tangible. The point of all this is, if you work to maintain
-multiple operations or multiple identities with different operating
-requirements, this process can help (at least for me) to:</p>
+<h2>Blacklisting</h2>
 
-<ul>
-<li>compartmentalize each operation so that it does not interfere with your
-personal life</li>
-<li>maintain consistency for whatever OPSEC measures you employ</li>
-<li>recall how that identity is supposed to act online</li>
-</ul>
+<p>You can also use this as a defensive measure as well. If you&rsquo;ve believe
+there is some kind of geo-centric threat in Uganda, you can configure Tor to
+never use these exit nodes.</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeExitNodes {ua}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can exclude all node types for a specific country as well &ndash; exits,
+relays, entry, and bridge nodes.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   ExcludeNodes {us}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You have the ability to whitelist all node types which is to say you can make
+sure that your entire Tor circuit only uses a certain country. This is NOT
+recommended of course. An ideal circuit will cross countries and legal
+jurisdictions.</p>
+
+<h2>The ?? Country</h2>
+
+<p>Tor uses Maxmind&rsquo;s Geo-ip lookup system for this functionality. Some of
+the versions of their database contain a &ldquo;??&rdquo; country code. This is
+reserved for IPs they either don&rsquo;t know, or aren&rsquo;t willing to
+share. (Tor is making some changes to compensate for this in the future.)</p>
+
+<p>Knowing this can be useful in one of two ways. First, you may think that if you
+don&rsquo;t know what country you&rsquo;re going to be using as a node, then
+you don&rsquo;t want to use it. This is probably a legitimate thought without
+having more information on what causes an IP to have &ldquo;??&rdquo;. Second,
+and more interestingly, some (poorly configured) firewalls will automatically
+drop connections from certain countries. Admins will say &ldquo;Screw it, block
+China. Hacking problem solved!&rdquo; and ask for a raise. Maxmind is a very
+popular Geo-ip lookup database and you can imagine that all of the security
+services built into those fancy enterprise firewalls will most likely be using
+it if it&rsquo;s doing geographic lookups. While many of these admins will have
+policies for how to handle &ldquo;us&rdquo;, &ldquo;cn&rdquo;, and &ldquo;de&rdquo;, I&rsquo;ve found many have issues with a country code that is &ldquo;??&rdquo;. In one case, I&rsquo;ve found a system that blocks all exit
+nodes, except those coming from a &ldquo;??&rdquo; country. I have not
+identitied why this mis-configuration occurs, but hopefully someone can
+leverage this to their advantage.</p>
+
+<h2>List of country codes for Tor</h2>
+
+<pre><code>Country                               Abbrev
+ASCENSION ISLAND                      {ac}
+AFGHANISTAN                           {af}
+ALAND                                 {ax}
+ALBANIA                               {al}
+ALGERIA                               {dz}
+ANDORRA                               {ad}
+ANGOLA                                {ao}
+ANGUILLA                              {ai}
+ANTARCTICA                            {aq}
+ANTIGUA AND BARBUDA                   {ag}
+ARGENTINA REPUBLIC                    {ar}
+ARMENIA                               {am}
+ARUBA                                 {aw}
+AUSTRALIA                             {au}
+AUSTRIA                               {at}
+AZERBAIJAN                            {az}
+BAHAMAS                               {bs}
+BAHRAIN                               {bh}
+BANGLADESH                            {bd}
+BARBADOS                              {bb}
+BELARUS                               {by}
+BELGIUM                               {be}
+BELIZE                                {bz}
+BENIN                                 {bj}
+BERMUDA                               {bm}
+BHUTAN                                {bt}
+BOLIVIA                               {bo}
+BOSNIA AND HERZEGOVINA                {ba}
+BOTSWANA                              {bw}
+BOUVET ISLAND                         {bv}
+BRAZIL                                {br}
+BRITISH INDIAN OCEAN TERR             {io}
+BRITISH VIRGIN ISLANDS                {vg}
+BRUNEI DARUSSALAM                     {bn}
+BULGARIA                              {bg}
+BURKINA FASO                          {bf}
+BURUNDI                               {bi}
+CAMBODIA                              {kh}
+CAMEROON                              {cm}
+CANADA                                {ca}
+CAPE VERDE                            {cv}
+CAYMAN ISLANDS                        {ky}
+CENTRAL AFRICAN REPUBLIC              {cf}
+CHAD                                  {td}
+CHILE                                 {cl}
+PEOPLE'S REPUBLIC OF CHINA            {cn}
+CHRISTMAS ISLANDS                     {cx}
+COCOS ISLANDS                         {cc}
+COLOMBIA                              {co}
+COMORAS                               {km}
+CONGO                                 {cg}
+CONGO (DEMOCRATIC REPUBLIC)           {cd}
+COOK ISLANDS                          {ck}
+COSTA RICA                            {cr}
+COTE D IVOIRE                         {ci}
+CROATIA                               {hr}
+CUBA                                  {cu}
+CYPRUS                                {cy}
+CZECH REPUBLIC                        {cz}
+DENMARK                               {dk}
+DJIBOUTI                              {dj}
+DOMINICA                              {dm}
+DOMINICAN REPUBLIC                    {do}
+EAST TIMOR                            {tp}
+ECUADOR                               {ec}
+EGYPT                                 {eg}
+EL SALVADOR                           {sv}
+EQUATORIAL GUINEA                     {gq}
+ESTONIA                               {ee}
+ETHIOPIA                              {et}
+FALKLAND ISLANDS                      {fk}
+FAROE ISLANDS                         {fo}
+FIJI                                  {fj}
+FINLAND                               {fi}
+FRANCE                                {fr}
+FRANCE METROPOLITAN                   {fx}
+FRENCH GUIANA                         {gf}
+FRENCH POLYNESIA                      {pf}
+FRENCH SOUTHERN TERRITORIES           {tf}
+GABON                                 {ga}
+GAMBIA                                {gm}
+GEORGIA                               {ge}
+GERMANY                               {de}
+GHANA                                 {gh}
+GIBRALTER                             {gi}
+GREECE                                {gr}
+GREENLAND                             {gl}
+GRENADA                               {gd}
+GUADELOUPE                            {gp}
+GUAM                                  {gu}
+GUATEMALA                             {gt}
+GUINEA                                {gn}
+GUINEA-BISSAU                         {gw}
+GUYANA                                {gy}
+HAITI                                 {ht}
+HEARD &amp;amp; MCDONALD ISLAND           {hm}
+HONDURAS                              {hn}
+HONG KONG                             {hk}
+HUNGARY                               {hu}
+ICELAND                               {is}
+INDIA                                 {in}
+INDONESIA                             {id}
+IRAN, ISLAMIC REPUBLIC OF             {ir}
+IRAQ                                  {iq}
+IRELAND                               {ie}
+ISLE OF MAN                           {im}
+ISRAEL                                {il}
+ITALY                                 {it}
+JAMAICA                               {jm}
+JAPAN                                 {jp}
+JORDAN                                {jo}
+KAZAKHSTAN                            {kz}
+KENYA                                 {ke}
+KIRIBATI                              {ki}
+KOREA, DEM. PEOPLES REP OF            {kp}
+KOREA, REPUBLIC OF                    {kr}
+KUWAIT                                {kw}
+KYRGYZSTAN                            {kg}
+LAO PEOPLE'S DEM. REPUBLIC            {la}
+LATVIA                                {lv}
+LEBANON                               {lb}
+LESOTHO                               {ls}
+LIBERIA                               {lr}
+LIBYAN ARAB JAMAHIRIYA                {ly}
+LIECHTENSTEIN                         {li}
+LITHUANIA                             {lt}
+LUXEMBOURG                            {lu}
+MACAO                                 {mo}
+MACEDONIA                             {mk}
+MADAGASCAR                            {mg}
+MALAWI                                {mw}
+MALAYSIA                              {my}
+MALDIVES                              {mv}
+MALI                                  {ml}
+MALTA                                 {mt}
+MARSHALL ISLANDS                      {mh}
+MARTINIQUE                            {mq}
+MAURITANIA                            {mr}
+MAURITIUS                             {mu}
+MAYOTTE                               {yt}
+MEXICO                                {mx}
+MICRONESIA                            {fm}
+MOLDAVA REPUBLIC OF                   {md}
+MONACO                                {mc}
+MONGOLIA                              {mn}
+MONTENEGRO                            {me}
+MONTSERRAT                            {ms}
+MOROCCO                               {ma}
+MOZAMBIQUE                            {mz}
+MYANMAR                               {mm}
+NAMIBIA                               {na}
+NAURU                                 {nr}
+NEPAL                                 {np}
+NETHERLANDS ANTILLES                  {an}
+NETHERLANDS, THE                      {nl}
+NEW CALEDONIA                         {nc}
+NEW ZEALAND                           {nz}
+NICARAGUA                             {ni}
+NIGER                                 {ne}
+NIGERIA                               {ng}
+NIUE                                  {nu}
+NORFOLK ISLAND                        {nf}
+NORTHERN MARIANA ISLANDS              {mp}
+NORWAY                                {no}
+OMAN                                  {om}
+PAKISTAN                              {pk}
+PALAU                                 {pw}
+PALESTINE                             {ps}
+PANAMA                                {pa}
+PAPUA NEW GUINEA                      {pg}
+PARAGUAY                              {py}
+PERU                                  {pe}
+PHILIPPINES (REPUBLIC OF THE)         {ph}
+PITCAIRN                              {pn}
+POLAND                                {pl}
+PORTUGAL                              {pt}
+PUERTO RICO                           {pr}
+QATAR                                 {qa}
+REUNION                               {re}
+ROMANIA                               {ro}
+RUSSIAN FEDERATION                    {ru}
+RWANDA                                {rw}
+SAMOA                                 {ws}
+SAN MARINO                            {sm}
+SAO TOME/PRINCIPE                     {st}
+SAUDI ARABIA                          {sa}
+SCOTLAND                              {uk}
+SENEGAL                               {sn}
+SERBIA                                {rs}
+SEYCHELLES                            {sc}
+SIERRA LEONE                          {sl}
+SINGAPORE                             {sg}
+SLOVAKIA                              {sk}
+SLOVENIA                              {si}
+SOLOMON ISLANDS                       {sb}
+SOMALIA                               {so}
+SOMOA,GILBERT,ELLICE ISLANDS          {as}
+SOUTH AFRICA                          {za}
+SOUTH GEORGIA, SOUTH SANDWICH ISLANDS {gs}
+SOVIET UNION                          {su}
+SPAIN                                 {es}
+SRI LANKA                             {lk}
+ST. HELENA                            {sh}
+ST. KITTS AND NEVIS                   {kn}
+ST. LUCIA                             {lc}
+ST. PIERRE AND MIQUELON               {pm}
+ST. VINCENT &amp;amp; THE GRENADINES      {vc}
+SUDAN                                 {sd}
+SURINAME                              {sr}
+SVALBARD AND JAN MAYEN                {sj}
+SWAZILAND                             {sz}
+SWEDEN                                {se}
+SWITZERLAND                           {ch}
+SYRIAN ARAB REPUBLIC                  {sy}
+TAIWAN                                {tw}
+TAJIKISTAN                            {tj}
+TANZANIA, UNITED REPUBLIC OF          {tz}
+THAILAND                              {th}
+TOGO                                  {tg}
+TOKELAU                               {tk}
+TONGA                                 {to}
+TRINIDAD AND TOBAGO                   {tt}
+TUNISIA                               {tn}
+TURKEY                                {tr}
+TURKMENISTAN                          {tm}
+TURKS AND CALCOS ISLANDS              {tc}
+TUVALU                                {tv}
+UGANDA                                {ug}
+UKRAINE                               {ua}
+UNITED ARAB EMIRATES                  {ae}
+UNITED KINGDOM (no new registrations) {gb}
+UNITED KINGDOM                        {uk}
+UNITED STATES                         {us}
+UNITED STATES MINOR OUTL.IS.          {um}
+URUGUAY                               {uy}
+UZBEKISTAN                            {uz}
+VANUATU                               {vu}
+VATICAN CITY STATE                    {va}
+VENEZUELA                             {ve}
+VIET NAM                              {vn}
+VIRGIN ISLANDS (USA)                  {vi}
+WALLIS AND FUTUNA ISLANDS             {wf}
+WESTERN SAHARA                        {eh}
+YEMEN                                 {ye}
+ZAMBIA                                {zm}
+ZIMBABWE                              {zw}
+</code></pre>
 </div>
   
   
@@ -189,6 +441,18 @@ personal life</li>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
@@ -216,18 +480,6 @@ personal life</li>
     
       <li class="post">
         <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/20/behavior-fingerprinting/">Website Fingerprinting Attacks and Defense</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/how-to-ship-drugs/">How to Ship Drugs to Your House</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/12/16/tor-browser-vs-your-browser/">Tor Browser vs Your Browser</a>
       </li>
     
   </ul>

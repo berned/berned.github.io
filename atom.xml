@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-03-26T19:02:40+00:00</updated>
+  <updated>2016-04-20T14:53:34+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,132 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reasons to Let PGP Die #3: Outdated Crypto]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/04/17/let-openpgp-die3/"/>
+    <updated>2016-04-17T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/04/17/let-openpgp-die3</id>
+    <content type="html"><![CDATA[<p>There are some crypto problems with PGP. And at first you might go &ldquo;Yeah right, I use 4096bit RSA keys&rdquo; but let me explain.</p>
+
+<h2>No Perfect Forward Secrecy</h2>
+
+<p>Forward secrecy is the idea even if you lose your encryption keys and the attacker is able to intercept the communications between you and another party, they still would be unable to see what you sent them. This is normally accomplished by using a long term key, to negotiate two short term, session keys. This is the basis of what Diffie-Hellman provides.</p>
+
+<p>Sounds cool right? You want that right? If you use PGP, it&rsquo;s not possible. The risk here is that when you generate your key, and your key is compromised, this is an ultimate loss. There&rsquo;s nothing you can do to prevent an attacker from being able to decrypt something that was previously encrypted.</p>
+
+<p>Let me give you an example of how bad this is. Let&rsquo;s say that you realized you were undersurveillance and that you decided that you were going to encrypt your communications with PGP. You knew full well that the surveillance continued but without your private PGP key, there was nothing they could do. The people surveilling you would record every email you sent and just keep them. Flash forward 2 years when there is an Adobe Flash 0'day and someone uses it to compromise your GPG key. Upon compromise, they can use your keys to decrypt all of the old emails. Everything. There&rsquo;s nothing you can do.</p>
+
+<h2>Crypto Weakness</h2>
+
+<p>When PGP first came out, they recommended using a 1024 RSA certificate to protect the messages. You should now know that 1024 is not considered strong by any means and should not be used. Look into the future and imagine what the cryptographic standards might be in 5 years, 10 years, or 20 years. You must assume there will be cryptographic advances to make it easier to crack RSA or even ECC certificates.</p>
+
+<p>The problem is that if someone was watching your communications, storing them, and hoping to decrypt them later, this will eventually become easier. If they took your PGP encrypted messages you used in the 90&rsquo;s, it&rsquo;s likely they can easily crack them with enough power.</p>
+
+<p>Even if you might say, &ldquo;No big deal, I&rsquo;ve revoked those certificates and I use a new one&rdquo; the issue is all of your previous communications are done and you can&rsquo;t re-encrypt them.</p>
+
+<p>They just started adding support for ECC in the 2.1 branch of GPG but they are still far away from Quantum resistent algithm support. You should expect that your ultra secure software should invest time to at least be up-to-date in which cryptographic primitives it uses.</p>
+
+<h2>Fixes?</h2>
+
+<p>This is one of those ultimate killers. There&rsquo;s no fix to flaws in cryptography in this case. You could somehow bolt-on a system that builds short-term session keys for encrypting messages which would help in both issues above. Maybe come up with a way of layering encryption to reduce the liklihood of it being cracked. But that&rsquo;s now how PGP works and we&rsquo;re talking about a completely different, two-way negotiation based system that isn&rsquo;t possible over PGP or SMTP.</p>
+
+<p>If you must use PGP, you should ask yourself, in 5 years, will I be in trouble if anyone reads this? What about in 10? What if your kids and grandkids are able to read this message. That may help you decide when and how to use PGP.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Reasons to Let PGP Die #2: Web-of-Trust]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/04/15/let-openpgp-die2/"/>
+    <updated>2016-04-15T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/04/15/let-openpgp-die2</id>
+    <content type="html"><![CDATA[<p>In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example.</p>
+
+<h2>History of the WoT</h2>
+
+<p>PGP was invented in the 90&rsquo;s as a way of bolting on security on top of the ultra insecure SMTP spec. The web-of-trust was designed similarly to how we designed DNS back then &ndash; distribute trust across multiple sources. But unlike DNS that had a hierarchy of trust, PGP&rsquo;s young idealist authors thought that we could decentralize trust and let everyone on the client side build up trust networks themselves.</p>
+
+<h2>Social Graph</h2>
+
+<p>Surround your pullquote like this {&ldquo; text to be quoted &rdquo;}</p>
+
+<p>Here&rsquo;s a graph of all the people that have been in contact with each other:</p>
+
+<h2>Kill The Keyservers</h2>
+
+<p>For people that are sharing their information on Facebook, this is in-line with their OPSEC. Share everything, and don&rsquo;t worry about privacy. But for those of us that actually would like to maintain their privacy and ideally some sorts of pseudonymity, this is a deal breaker.</p>
+
+<p>Not only is this a graph of all the people you&rsquo;ve met, the keyserver will maintain a log of all people that have downloaded your particular key. Even if the person isn&rsquo;t contributing to the WoT, if they use the keyserver, it can be assumed that you mean to communicate with that person.</p>
+
+<h2>Fixes?</h2>
+
+<p>This is the one of the primary reasons PGP should die. If you say that you aren&rsquo;t going to use a keyserver such as MIT&rsquo;s, there-by evading the WoT, you have no place to put your PGP key and you have no way of checking to see if someone else&rsquo;s key server exists. Keyservers are a crucial element in the OpenPGP standard.</p>
+
+<p>You can however decide not to use keyserers if you already have an established band of communication outside of email. If you have a website, business card, or some other form of anonymous communication, you can dump your public key in that location.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Reasons to Let PGP Die #1: Metadata]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/04/11/let-openpgp-die/"/>
+    <updated>2016-04-11T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/04/11/let-openpgp-die</id>
+    <content type="html"><![CDATA[<p>PGP is a 90&rsquo;s protocol that should have died along with SMTP. I&rsquo;m tired of it and how we&rsquo;re still trying very hard to use it. I&rsquo;m going to start reminding us about the various reasons PGP should die.</p>
+
+<h2>Metadata</h2>
+
+<p>Lets cover metadata first. Things that are leaked outside of your normal message. We already know that metadata is easy to extract from a plaintext SMTP message, but its actually even easier from a PGP encrypted message.</p>
+
+<h2>Example</h2>
+
+<p>Here&rsquo;s a interesting experiment. First run</p>
+
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x63;&#105;&#110;&#99;&#105;&#x6e;&#110;&#97;&#116;&#117;&#x73;&#64;&#108;&#x61;&#x76;&#97;&#x62;&#105;&#116;&#x2e;&#99;&#111;&#109;">&#x63;&#105;&#110;&#x63;&#105;&#x6e;&#110;&#x61;&#116;&#117;&#x73;&#x40;&#108;&#x61;&#x76;&#97;&#x62;&#105;&#x74;&#46;&#99;&#111;&#x6d;</a></p></blockquote>
+
+<p>You will get something like this:</p>
+
+<pre><code>-----BEGIN PGP MESSAGE-----
+
+hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
+...
+</code></pre>
+
+<p>Then on that file, do a</p>
+
+<blockquote><p>gpg &ndash;list-only</p></blockquote>
+
+<p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
+    gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
+      &ldquo;Cincinnatus (Tor) <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x63;&#x69;&#x6e;&#99;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#x73;&#64;&#108;&#x61;&#x76;&#97;&#x62;&#x69;&#116;&#46;&#x63;&#111;&#109;">&#99;&#105;&#110;&#99;&#x69;&#x6e;&#110;&#97;&#116;&#117;&#x73;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#x69;&#x74;&#46;&#x63;&#111;&#109;</a>&rdquo;</p>
+
+<p>But look at this:</p>
+
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x63;&#105;&#110;&#x63;&#x69;&#x6e;&#110;&#x61;&#116;&#x75;&#x73;&#x40;&#x6c;&#97;&#118;&#x61;&#98;&#105;&#116;&#x2e;&#x63;&#x6f;&#x6d;">&#x63;&#x69;&#110;&#99;&#105;&#x6e;&#110;&#97;&#x74;&#117;&#115;&#64;&#x6c;&#x61;&#x76;&#x61;&#x62;&#105;&#116;&#x2e;&#x63;&#x6f;&#x6d;</a></p></blockquote>
+
+<pre><code>-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+hQQMAwAAAAAAAAAAAR/+O7sldU8CMp7xZE9aPaOoIgb3i7GumO0mGlkhCZ3JDLhB
+...
+</code></pre>
+
+<p>Notice the A&rsquo;s in the beginning. What you&rsquo;ve done is 0&rsquo;d out the key ID of the intended recipient.</p>
+
+<h2>What does this mean</h2>
+
+<p>If you are a normal PGP user, the first block in your message is a list of the keyids that it is encrypted to. If you were someone with the ability to intercept communications, you had better believe that PGP encrypted messages are going to be a high value find.</p>
+
+<p>Those people that are using PGP to protect their communications and not using something like HTTPS or SMTPS will be subject to very simple graphing of who and when you are talking to other recipients.</p>
+
+<h2>Can it be fixed</h2>
+
+<p>You can use <code>--hidden-recipient</code> as a drop in replacement for the <code>-r</code> flag. Even better, Enigmail, the PGP plugin for Thunderbird, will automaticaly do this for you when you send messages to people via BCC.</p>
+
+<p>You should note that when you use this switch, gpg has no idea how to decrypt incoming messages so it just tries every single one of your private keys.</p>
+
+<p>Lets let PGP die.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Internet of Threats]]></title>
@@ -1147,220 +1273,6 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
 <p>In other cases, you&rsquo;ve created a new identity that has nothing to do with your IRL identity in which case, these secrets have nothing to do with the other person. If you&rsquo;ve created an OPSEC campaign where you&rsquo;ve properly divided all of your personal relationships from your online identity, you are no longer that person.</p>
 
 <p>This, admittedly, is a rationalization of a complicated issue that I have not, nor plan to in the near future, discuss with my SO. I suggest that you do the same.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ego and OPSEC]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/02/04/ego-and-opsec/"/>
-    <updated>2015-02-04T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/02/04/ego-and-opsec</id>
-    <content type="html"><![CDATA[<p>If you&rsquo;ve been <a href="http://www.htxt.co.za/2015/02/04/silk-road-trial-closes-would-dread-pirate-roberts-do-that/">following the DPR story</a> you&rsquo;ll notice that the prosecution paints DPR as an ego-maniac willing to do anything to gain more and more power and money. It doesn&rsquo;t matter if a lawyer is right, but the picture that it paints highlights a challenge that humans have with OPSEC, their ego.</p>
-
-<p><img class="right" src="http://www.b3rn3d.com/images/ego.jpg" width="400"></p>
-
-<p>As you go dark, moving away from what would be your normal life (or fractioning off from it) has a novelty to it. It feels fun, and exciting, and you feel like you&rsquo;re doing something interesting. This is your ego kicking you in the back of the head and if you feel it at first, you&rsquo;ll know it&rsquo;s going to be a problem going forward. As the novelty wears off, your OPSEC becomes more of a discipline than a game. You follow your procedures and lock yourself down, but you sigh at how it&rsquo;s arduous compared to the everyday consumer.</p>
-
-<p>If you&rsquo;ve continued this far, and you haven&rsquo;t broken protocol, the feeling of isolation and loneliness creeps in. Similar to what U.S. and U.K soldiers deal with when given high clearances. You can&rsquo;t talk about what you did, are doing, or will be doing otherwise the results will be devastating.</p>
-
-<p><span class='pullquote-right' data-pullquote='Without this feeling of success fueling your ego, your self-esteem begins to deteriorate, and your motivation turns into self-discipline.'>
-Even if your natural tendency is not to be an outwardly confident person, your mind automatically has a need to feel pride for the work that it&rsquo;s doing. Similar to how a school janitor is proud of her job, and takes it as serious as the medical doctor, your brain will automatically rationalize your success relative to your surroundings. Without this feeling of success fueling your ego, your self-esteem begins to deteriorate, and your motivation turns into self-discipline.
-</span></p>
-
-<h2>DPR Ego Mistakes</h2>
-
-<p>The DPR case is a perfect reminder. Thus far, the story goes that DPR was caught at a library because he walked away from his computer while it was still running. He kept a backup copy of the Silk Road software on his nightstand. He originally created Silk Road as a clearnet domain, silkroad.org and then took that down. He kept a journal of all of his activities while he was dark and even referenced personal details like travel plans and medical issues.</p>
-
-<p>It&rsquo;s easy to conclude that DPR is a young, naive kid without any plans to truly defend against the type of surveillance that he was put under. That may be true but I would like to suggest that he succumb to the natural human tendency to share with someone the fame and power that he had created. To let people in on how accomplished (in his own mind) he had become. As the fame of Silk Road increased, so did his need to take a little credit.</p>
-
-<h2>Alter ego</h2>
-
-<p>The alter ego is supposed to be a split off of your personality, have different motivators, different skills, different temperament. In many ways this is a powerful asset as an OPSEC expert, yet difficult to achieve. Even up achieving, you will continue to be a slave to feeding that alter ego&rsquo;s, ego, so don&rsquo;t ignore it.</p>
-
-<h2>Lessons Learned</h2>
-
-<p>It might be easy to say &ldquo;I&rsquo;ll just not pay attention to my ego&rdquo; but this would be a challenge that Eastern Religions have tried teach individuals for years and years. Your ego plays an important part of your psyche and there may be tricks to ignore it, but it&rsquo;s easier to accept it and learn how to feed it. If your operations have an outcome, ensure that you take the time to appreciate that you have achieved your goals. You can even take some of the motivators out of a weight-loss book and set a celebratory event based on the success of your operation.</p>
-
-<p>Buy yourself that cake. You deserve it. Just remember to eat it in the darkness. :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[XKeyScore Source Code Review]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review/"/>
-    <updated>2014-07-04T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/07/04/xkeyscore-source-code-review</id>
-    <content type="html"><![CDATA[<p>The <a href="http://boingboing.net/2014/07/03/if-you-read-boing-boing-the-n.html">recent revelations from Jake Applebaum, et all today</a>, highlight some not-to-be-understated revelations.</p>
-
-<ul>
-<li>Tor users are directly targeted</li>
-<li>TAILS users are directly targeted</li>
-<li>People searching for privacy tools are targeted</li>
-</ul>
-
-
-<p>While the conclusion by some may have been &ldquo;well of course the NSA is doing that&rdquo; the revelation and the insight it provides is direct, specific evidence that people worried about their privacy are being attacked. More-over, this provides further evidence that the NSA&rsquo;s goal is to <a href="http://www.democracynow.org/2014/5/13/collect_it_all_glenn_greenwald_on">collect it all</a>.</p>
-
-<h2>The Revelations</h2>
-
-<p><span class='pullquote-right' data-pullquote='privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services'>
-To summarize, the source code to the NSA program, <a href="https://en.wikipedia.org/wiki/XKeyscore">XKeyscore</a> (known since the early days of the Snowden disclosures) has been leaked. It sounds like the program&rsquo;s entire source code is in the hands of another party and it shows what the code does, how it works and who it&rsquo;s targeting. We now know that privacy-conscious bystanders are targeted: Tor users, people that visit the Tor website, people that use TAILS, or try to view hidden services. Each of these are considered suspicious activities and flagged as the IP&rsquo;s of suspects by NSA&rsquo;s network monitoring machine.  This is further a reminder that if you look like you are privacy conscious, you are going to be a targeted as an &ldquo;extremist&rdquo; in the eyes of the United States and it&rsquo;s allies.
-</span></p>
-
-<h2>Tracking Bridge Users</h2>
-
-<p>XKeyscore is tracking the IP addresses that are sending emails to the Tor bridge automated account. When a user is in a country that blocks Tor, they have an option to use an unlisted Tor entry node called bridges. To get an unlisted bridge IP, one of the options is to email a Tor Project email address which auto-replies with an address of a bridge. The <a href="https://en.wikipedia.org/wiki/Five_Eyes">Five Eyes</a> have been documenting each IP that makes a request to that email address.</p>
-
-<h2>Tracking Tor Directory Authorities</h2>
-
-<p>Another facet disclosed was that the NSA are targeting a specific Tor directory server run by Sebastian Hahn. I believe that this is the case only because the source of the XKeycode leak was by a node in Germany. Looking at nodes in other countries, would point to a corresponding directory authority in that region.</p>
-
-<p>Until relatively recently, the Tor Network consisted of only 9 directory servers of which all clients would first make a connection to prior to joining the Tor network. These 9 directory servers are still in place, but an additional feature lets Tor nodes act as a directory server cache. With this feature, you weren&rsquo;t automatically required to connect to one of the directory authorities during each bootup. This helps mitigate this risk.</p>
-
-<h2>Tracking Tor Entry Nodes</h2>
-
-<p>Even if your connection to the directory authorities were not caught by the program, your connections to the Tor entry nodes were. So while directory authorities were only used during boot, the connections to Tor entry nodes were used repeatedly as your client will build a circuit.</p>
-
-<p>There&rsquo;s not much you can do to defend against this one. Using a bridge would ensure that XKeyScore won&rsquo;t know which IP&rsquo;s to track, but the requests for bridges are caught as well. One may consider running their own unlisted Tor entry node, which is possible, but it severely degrades your anonymity. Users concerned with this may consider using a VPN service and then connecting over Tor. This would not fix it, but it would make it more difficult to identify the originating request to connect to Tor.</p>
-
-<h2>Tracking Torproject.org Visits</h2>
-
-<p>One of the more useless network iterations that are logged is that of users visiting www.torproject.org. The document shows what they are calling &ldquo;microplugins&rdquo; that highlight specific pieces of information that are caught in transit. Your visit to the Tor Project&rsquo;s website logged and you are now flagged as suspicious.</p>
-
-<h2>XKeyScore Code</h2>
-
-<p>The most interesting part is the code released showing how XKeyScore works. Many have already highlighted that the NSA programs are merely malicious implementations of existing technology (as opposed to custom software built from the ground up). We can see that XKeyScore&rsquo;s database uses a <a href="https://en.wikipedia.org/wiki/Mapreduce">MapReduce</a> model. One very common with NoSQL databases like Hadoop. This is hinted in the &ldquo;mapper&rdquo; and &ldquo;reducer&rdquo; functions that searches for onion addresses:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mapper&lt;onion_t>: 
-</span><span class='line'>      static const std::string prefix = "anonymizer/tor/hiddenservice/address/";
-</span><span class='line'>
-</span><span class='line'>      onion_t onion;
-</span><span class='line'>      size_t matches = cur_args()->matches.size();
-</span><span class='line'>      for (size_t pos=0; pos &lt; matches; ++pos) \{
-</span><span class='line'>        const std::string &value = match(pos);
-</span><span class='line'>        if (value.size() == 16)
-</span><span class='line'>          onion.set_address(value);
-</span><span class='line'>        else if(!onion.has_scheme())
-</span><span class='line'>          onion.set_scheme(value);
-</span><span class='line'>        else
-</span><span class='line'>          onion.set_port(value);
-</span><span class='line'>      \}
-</span><span class='line'>
-</span><span class='line'>      if (!onion.has_address())
-</span><span class='line'>        return false;
-</span><span class='line'>
-</span><span class='line'>      MAPPER.map(onion.address(), onion);
-</span><span class='line'>      xks::fire_fingerprint(prefix + onion.address());
-</span><span class='line'>      return true;
-</span><span class='line'>  
-</span><span class='line'>    reducer&lt;onion_t>:
-</span><span class='line'>      for (values_t::const_iterator iter = VALUES.begin();
-</span><span class='line'>          iter != VALUES.end();
-</span><span class='line'>          ++iter) {
-</span><span class='line'>        DB["tor_onion_survey"]["onion_address"] = iter->address() + ".onion";
-</span><span class='line'>        if (iter->has_scheme())
-</span><span class='line'>          DB["tor_onion_survey"]["onion_scheme"] = iter->scheme();
-</span><span class='line'>        if (iter->has_port())
-</span><span class='line'>          DB["tor_onion_survey"]["onion_port"] = iter->port();
-</span><span class='line'>        DB["tor_onion_survey"]["onion_count"] = boost::lexical_cast&lt;std::string>(TOTAL_VALUE_COUNT);
-</span><span class='line'>        DB.apply();
-</span><span class='line'>        DB.clear();
-</span><span class='line'>      }
-</span><span class='line'>      return true;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Full Code</h2>
-
-<p>Below is the full code released:
-<a href="http://www.b3rn3d.com/assets/xkeyscorerules100.txt">xkeyscorerules100.txt</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Privacy Controls as a Fingerprinting Attack]]></title>
-    <link href="http://www.b3rn3d.com/blog/2014/06/22/privacy-controls-for-fingerprinting/"/>
-    <updated>2014-06-22T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2014/06/22/privacy-controls-for-fingerprinting</id>
-    <content type="html"><![CDATA[<p>Privacy conscious websites and applications often give you privacy controls like &ldquo;opt'ing-out&rdquo; of using your browsing habits for statistics, or setting whether or not to share your profile information. If you&rsquo;ve already done your job to ensure that you are not sharing any sensitive information, these pseudo-privacy controls may put you at a high risk of being labeled a suspicious account.</p>
-
-<h2>How Privacy Controls Actually Work</h2>
-
-<p>Lets take, for example, a forum where you can make changes to your settings to not include your information in the anonymized statistics gathering. Does that mean that your activities will not be tracked now that you have clicked the opt-out check box? In most cases, all this means is that your activities will not be used for statistics and reporting, but your activities will continue be logged.</p>
-
-<p>In many cases, what happens in the backend is there will be an &ldquo;opt-out&rdquo; value assigned to your user account. A database contains your account information, your settings, and then a single True or False value dictating whether you&rsquo;ve opt-out. A simple query of this database will return all users in the system that have decided to opt-out.</p>
-
-<p>One specific example is the popular <a href="http://www.simplemachines.org/">Simple Machines Forum</a> which retains a value in the database named &ldquo;private.&rdquo; This is just an integer that controls the various levels of privacy control on your forum profile.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>if (isset($modSettings['smfVersion']) && $modSettings['smfVersion'] &lt;= '2.0 Beta 1')
-</span><span class='line'>{
-</span><span class='line'>  upgrade_query("
-</span><span class='line'>  UPDATE {$db_prefix}custom_fields
-</span><span class='line'>  SET private = 2
-</span><span class='line'>  WHERE private = 1");
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Enabling the Privacy Zealot Flag</h2>
-
-<p>The problem, as you can see, is that you are vulnerable to a type of fingerprinting attack. If law enforcement wanted find the highest risk accounts on a system, they would not want to weed through thousands of accounts or use expensive <a href="http://www.palantir.com">analytical software</a>. They they will partition the accounts in the simplest means necessary, one of which being users who have decided to opt-out or have enabled the various privacy features.</p>
-
-<h2>Target Selection</h2>
-
-<p>The concept of specifically targeting users concerned about privacy, and labeling them potential subjects, is nothing new. We&rsquo;ve heard it happen with journalists, activists, and especially pregnant women. If you haven&rsquo;t read it yet, check out the article, <a href="http://time.com/83200/privacy-internet-big-data-opt-out/">Here&rsquo;s what happened when I tried to hide my pregnancy from the Internet and marketing companies</a> about what happens when you actually go through all the steps to protect your privacy.</p>
-
-<h2>Defense</h2>
-
-<p>Why opt-out? Ask yourself &ldquo;what does this privacy feature actually do?&rdquo; In most cases, the anonymous statistics that a web application collects, are less of a risk to your privacy than the possibility that an account be given the &ldquo;privacy zealot&rdquo; flag. Your first goal when trying to maintain your anonymity and defend against similar attacks, is to do everything you can to not become a target of interest. This includes:</p>
-
-<ul>
-<li>Not enabling any settings on your account that may make you look concerned about your privacy</li>
-<li>Keeping your browser configuration similar to other users of that system (e.g. JavaScript enabled, commong UserAgent)</li>
-<li>Being aware of phrases that could make you a target. Check out <a href="http://pastebin.com/yDicWqb2">the list of NSA keywords</a> to see the types of words they key in on.</li>
-</ul>
-
 ]]></content>
   </entry>
   
