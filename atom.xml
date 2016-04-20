@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-04-20T14:53:34+00:00</updated>
+  <updated>2016-04-20T16:07:25+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,102 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OPSEC for New Police Tools]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/04/17/opsec-for-new-police/"/>
+    <updated>2016-04-17T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/04/17/opsec-for-new-police</id>
+    <content type="html"><![CDATA[<p>There&rsquo;s a <a href="http://www.independent.co.uk/life-style/gadgets-and-tech/texting-gun-could-help-law-enforcement-spot-drivers-using-their-phones-behind-the-wheel-9748065.html">news report</a> recently about how a company named ComSonics
+plans to release a tool called Sniffer Sleuth that will be able to detect when
+a driver is sending a text message by sniffing the RF of the cell phone. The secondary
+use of this type of technology could completely irradicate the use of burner phones.</p>
+
+<p>First of all, let me begin by saying this is all vaporware. This doesn&rsquo;t exist
+and what they&rsquo;re calling &ldquo;<a href="http://www.comsonics.com/assets/product-assets/SleuthDataSheet.pdf">Sniffer Sleuth II</a>&rdquo; is just a way for cable TV providers
+to detect leakage. If I had to guess, I would say that ComSonics truly is working
+on such a solution, but they need government funding which is why they did a
+press release.</p>
+
+<p>Lets look ahead at this stupid device and the implications.</p>
+
+<h2>The Advertised Purpose</h2>
+
+<p><span class='pullquote-right' data-pullquote='it would make it reasonable enough to issue a
+search warrant to access that phone'>
+What such a device is advertised to do, is say that police can point a device at a car
+and determine whether or not the RF usage it collects is related to texting. This would correlate to whether the
+driver is texting while driving. It is possible to determine if data is
+being sent or received by sniffing various radio bands. It is questionably possible to
+determine if someone is sending a text message let alone that it originated from
+the driver, or a passenger, or a car next to that person.
+In practice, such a technology could not be easily used to definitively determine if
+someone was texting while driving, but it would make it reasonable enough to issue a
+search warrant to access that phone.
+</span></p>
+
+<p>If we take that for what it is, it&rsquo;s very easy to protect ourselves. Don&rsquo;t text and drive.</p>
+
+<p>And if you&rsquo;ve met Police officers, you may have met one that will slant the truth a bit
+in order to drive home a point. They may tell you blatant lies with altruistic intentions.
+This I believe is what this news article is. They&rsquo;re planting FUD about Police
+capabilities to help stop people from texting while driving.</p>
+
+<p>Let&rsquo;s get on to the scary part.</p>
+
+<h2>The Real Purpose</h2>
+
+<p>Let&rsquo;s say, for the sake of discussion, that this device does exist, or some attempt at it exists.
+We should not be overly concerned about Police somehow finding us texting and driving.
+What you should be concerned about is that this technology will be used just like the
+license plate scanners.</p>
+
+<p>In the US, all police cars from the State Police down to the local Sheriffs are outfitted
+with a license plate scanner. These scanners are never turned off and will constantly be
+on the hunt for license plates.</p>
+
+<p>The worse part is that these scanners are hooked into the federal network of scanners
+so the FBI at any given point in time, purportedly can do a search for various license
+plates across the whole country.</p>
+
+<p><span class='pullquote-right' data-pullquote='This would effectively kill the idea of burner
+phones'>
+Now imagine taking a license plate scanner and attaching it to a device that can determine the
+phone number (or IMEI/IMSI) of the device. This would effectively kill the idea of burner
+phones. Police would be able to correlate a mobile device, to a car and because cars
+are much more difficult/expensive to hide your personal information from it would mean
+that a burner phone, no matter how often you switch them, would be easily attributed to
+a name and an address.
+</span></p>
+
+<p>Notice that these capabilities theoretically exist and things like Sting Rays are already
+designed to capture and track cell phone data. The system that I&rsquo;m talking about
+would correlate the two data points which AFAIK does not exist at the local level.</p>
+
+<h2>OPSEC</h2>
+
+<p>So how would one defend against this? And this is the reason for this post:
+There isn&rsquo;t much you can do.</p>
+
+<ul>
+<li><strong>Ditch the phone</strong>: You of course could not use a phone completely
+and we know there are already existing attacks on the baseband that might suggest
+this s the best move.</li>
+<li><strong>Faraday Cage</strong>: You could start thinking about how to hide the RF that is leaking
+from your phone by putting it in a Faraday cage.</li>
+<li><strong>License Plate Obfuscation</strong>: You can take your burner phone, and try to turn your
+automobile into a burner car by hiding your license plate or changing the number. This is
+a whole separate subject but if effective, would mean that LEO&rsquo;s would not be able to
+correlate your car to your phone.</li>
+</ul>
+
+
+<p>I&rsquo;ll keep watching this company but like I said this is all just in discussion. You can see
+how little details exist if you do a news search for &ldquo;Sniffer Sleuth.&rdquo; Not only will you
+find similar articles, you&rsquo;ll find articles with the exact same text copied and pasted
+out of the original news feed.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reasons to Let PGP Die #3: Outdated Crypto]]></title>
@@ -92,7 +188,7 @@
 
 <p>Here&rsquo;s a interesting experiment. First run</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x63;&#105;&#110;&#99;&#105;&#x6e;&#110;&#97;&#116;&#117;&#x73;&#64;&#108;&#x61;&#x76;&#97;&#x62;&#105;&#116;&#x2e;&#99;&#111;&#109;">&#x63;&#105;&#110;&#x63;&#105;&#x6e;&#110;&#x61;&#116;&#117;&#x73;&#x40;&#108;&#x61;&#x76;&#97;&#x62;&#105;&#x74;&#46;&#99;&#111;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#99;&#x69;&#110;&#x63;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#115;&#x40;&#108;&#x61;&#118;&#x61;&#x62;&#x69;&#x74;&#46;&#99;&#x6f;&#x6d;">&#99;&#x69;&#110;&#99;&#105;&#110;&#110;&#x61;&#x74;&#117;&#x73;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#105;&#116;&#x2e;&#99;&#111;&#x6d;</a></p></blockquote>
 
 <p>You will get something like this:</p>
 
@@ -108,11 +204,11 @@ hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
 
 <p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
     gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
-      &ldquo;Cincinnatus (Tor) <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x63;&#x69;&#x6e;&#99;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#x73;&#64;&#108;&#x61;&#x76;&#97;&#x62;&#x69;&#116;&#46;&#x63;&#111;&#109;">&#99;&#105;&#110;&#99;&#x69;&#x6e;&#110;&#97;&#116;&#117;&#x73;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#x69;&#x74;&#46;&#x63;&#111;&#109;</a>&rdquo;</p>
+      &ldquo;Cincinnatus (Tor) <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#99;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#97;&#x74;&#117;&#115;&#64;&#x6c;&#x61;&#x76;&#97;&#x62;&#x69;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#x63;&#x69;&#110;&#99;&#x69;&#x6e;&#x6e;&#x61;&#116;&#117;&#x73;&#x40;&#x6c;&#x61;&#118;&#x61;&#98;&#x69;&#x74;&#46;&#99;&#111;&#109;</a>&rdquo;</p>
 
 <p>But look at this:</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x63;&#105;&#110;&#x63;&#x69;&#x6e;&#110;&#x61;&#116;&#x75;&#x73;&#x40;&#x6c;&#97;&#118;&#x61;&#98;&#105;&#116;&#x2e;&#x63;&#x6f;&#x6d;">&#x63;&#x69;&#110;&#99;&#105;&#x6e;&#110;&#97;&#x74;&#117;&#115;&#64;&#x6c;&#x61;&#x76;&#x61;&#x62;&#105;&#116;&#x2e;&#x63;&#x6f;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#99;&#x69;&#110;&#x63;&#x69;&#x6e;&#110;&#97;&#x74;&#117;&#115;&#64;&#x6c;&#97;&#x76;&#97;&#x62;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#x6d;">&#x63;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#97;&#116;&#117;&#115;&#x40;&#108;&#97;&#118;&#97;&#x62;&#105;&#x74;&#x2e;&#99;&#x6f;&#109;</a></p></blockquote>
 
 <pre><code>-----BEGIN PGP MESSAGE-----
 Version: GnuPG v1
@@ -1252,27 +1348,6 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
 <p>The last option is not a disclosure at all but maintains a zero knowledge relationship going forward. In terms of OPSEC, you can consider this a firewall rule that blocks all by default. In this scenario you get no reward, no commonality in the relationship, and no benefit besides the fact that you can keep in your pocket that you have a secret in-depth knowledge of a subject that may be of interest to the subject. Because remember, knowledge is power and knowledge of someone’s knowledge is a power you may not want to concede.</p>
 
 <p>Be disciplined. Be in control. Make active decisions about your disclosures and your relationships.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Risks of Relationships]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/07/04/opsec-relationships/"/>
-    <updated>2015-07-04T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/07/04/opsec-relationships</id>
-    <content type="html"><![CDATA[<p>I don&rsquo;t often write about myself but for examples purposes, I will disclose that I&rsquo;ve recently entered into a relationship with a person for the first time in a long time. While this is exciting for me and also sad, the idea of how to handle relationships while maintaining OPSEC is a minefield.</p>
-
-<h2>Trust</h2>
-
-<p>The first thing you&rsquo;re told in any relationship be it with a signifigant other, a family member, or a friend, is that trust is key. You should be able to confid in the other person about your darkest secrets.</p>
-
-<p>For some of us, our darkest secrets are not things to disclose to the SO. Not because you&rsquo;re selfish or don&rsquo;t trust the other, but because some disclosures make the other liable (a legal term).</p>
-
-<h2>Identity Division</h2>
-
-<p>In other cases, you&rsquo;ve created a new identity that has nothing to do with your IRL identity in which case, these secrets have nothing to do with the other person. If you&rsquo;ve created an OPSEC campaign where you&rsquo;ve properly divided all of your personal relationships from your online identity, you are no longer that person.</p>
-
-<p>This, admittedly, is a rationalization of a complicated issue that I have not, nor plan to in the near future, discuss with my SO. I suggest that you do the same.</p>
 ]]></content>
   </entry>
   

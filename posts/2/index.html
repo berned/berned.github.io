@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example. History of the WoT PGP was invented &hellip;">
+  <meta name="description" content="There are some crypto problems with PGP. And at first you might go &ldquo;Yeah right, I use 4096bit RSA keys&rdquo; but let me explain. No Perfect &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a></h1>
     
     
       <p class="meta">
@@ -86,36 +86,38 @@
   
 
 
-<time datetime="2016-04-15T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-04-17T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example.</p>
+  <div class="entry-content"><p>There are some crypto problems with PGP. And at first you might go &ldquo;Yeah right, I use 4096bit RSA keys&rdquo; but let me explain.</p>
 
-<h2>History of the WoT</h2>
+<h2>No Perfect Forward Secrecy</h2>
 
-<p>PGP was invented in the 90&rsquo;s as a way of bolting on security on top of the ultra insecure SMTP spec. The web-of-trust was designed similarly to how we designed DNS back then &ndash; distribute trust across multiple sources. But unlike DNS that had a hierarchy of trust, PGP&rsquo;s young idealist authors thought that we could decentralize trust and let everyone on the client side build up trust networks themselves.</p>
+<p>Forward secrecy is the idea even if you lose your encryption keys and the attacker is able to intercept the communications between you and another party, they still would be unable to see what you sent them. This is normally accomplished by using a long term key, to negotiate two short term, session keys. This is the basis of what Diffie-Hellman provides.</p>
 
-<h2>Social Graph</h2>
+<p>Sounds cool right? You want that right? If you use PGP, it&rsquo;s not possible. The risk here is that when you generate your key, and your key is compromised, this is an ultimate loss. There&rsquo;s nothing you can do to prevent an attacker from being able to decrypt something that was previously encrypted.</p>
 
-<p>Surround your pullquote like this {&ldquo; text to be quoted &rdquo;}</p>
+<p>Let me give you an example of how bad this is. Let&rsquo;s say that you realized you were undersurveillance and that you decided that you were going to encrypt your communications with PGP. You knew full well that the surveillance continued but without your private PGP key, there was nothing they could do. The people surveilling you would record every email you sent and just keep them. Flash forward 2 years when there is an Adobe Flash 0'day and someone uses it to compromise your GPG key. Upon compromise, they can use your keys to decrypt all of the old emails. Everything. There&rsquo;s nothing you can do.</p>
 
-<p>Here&rsquo;s a graph of all the people that have been in contact with each other:</p>
+<h2>Crypto Weakness</h2>
 
-<h2>Kill The Keyservers</h2>
+<p>When PGP first came out, they recommended using a 1024 RSA certificate to protect the messages. You should now know that 1024 is not considered strong by any means and should not be used. Look into the future and imagine what the cryptographic standards might be in 5 years, 10 years, or 20 years. You must assume there will be cryptographic advances to make it easier to crack RSA or even ECC certificates.</p>
 
-<p>For people that are sharing their information on Facebook, this is in-line with their OPSEC. Share everything, and don&rsquo;t worry about privacy. But for those of us that actually would like to maintain their privacy and ideally some sorts of pseudonymity, this is a deal breaker.</p>
+<p>The problem is that if someone was watching your communications, storing them, and hoping to decrypt them later, this will eventually become easier. If they took your PGP encrypted messages you used in the 90&rsquo;s, it&rsquo;s likely they can easily crack them with enough power.</p>
 
-<p>Not only is this a graph of all the people you&rsquo;ve met, the keyserver will maintain a log of all people that have downloaded your particular key. Even if the person isn&rsquo;t contributing to the WoT, if they use the keyserver, it can be assumed that you mean to communicate with that person.</p>
+<p>Even if you might say, &ldquo;No big deal, I&rsquo;ve revoked those certificates and I use a new one&rdquo; the issue is all of your previous communications are done and you can&rsquo;t re-encrypt them.</p>
+
+<p>They just started adding support for ECC in the 2.1 branch of GPG but they are still far away from Quantum resistent algithm support. You should expect that your ultra secure software should invest time to at least be up-to-date in which cryptographic primitives it uses.</p>
 
 <h2>Fixes?</h2>
 
-<p>This is the one of the primary reasons PGP should die. If you say that you aren&rsquo;t going to use a keyserver such as MIT&rsquo;s, there-by evading the WoT, you have no place to put your PGP key and you have no way of checking to see if someone else&rsquo;s key server exists. Keyservers are a crucial element in the OpenPGP standard.</p>
+<p>This is one of those ultimate killers. There&rsquo;s no fix to flaws in cryptography in this case. You could somehow bolt-on a system that builds short-term session keys for encrypting messages which would help in both issues above. Maybe come up with a way of layering encryption to reduce the liklihood of it being cracked. But that&rsquo;s now how PGP works and we&rsquo;re talking about a completely different, two-way negotiation based system that isn&rsquo;t possible over PGP or SMTP.</p>
 
-<p>You can however decide not to use keyserers if you already have an established band of communication outside of email. If you have a website, business card, or some other form of anonymous communication, you can dump your public key in that location.</p>
+<p>If you must use PGP, you should ask yourself, in 5 years, will I be in trouble if anyone reads this? What about in 10? What if your kids and grandkids are able to read this message. That may help you decide when and how to use PGP.</p>
 </div>
   
   
@@ -138,6 +140,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/opsec-for-new-police/">OPSEC for New Police Tools</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
@@ -173,10 +179,6 @@
     
       <li class="post">
         <a href="/blog/2016/01/23/actor-drugdealer-opsec/">OPSEC of Actor vs Drug Dealer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/22/shipping-case-studies/">Dark Shipping: A Case Study</a>
       </li>
     
   </ul>
