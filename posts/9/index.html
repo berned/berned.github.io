@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In the latest Snowden document released is hilariously named: What&rsquo;s The Worst That Could Happen. In effect, this is the Government&rsquo;s &hellip;">
+  <meta name="description" content="The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to Tor?&rdquo; and &ldquo;Should I use Tor to connect to a VPN?&rdquo; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/02/02/the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a></h1>
     
     
       <p class="meta">
@@ -86,105 +86,89 @@
   
 
 
-<time datetime="2016-02-02T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-02-08T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In the latest Snowden document released is hilariously named: <a href="https://www.documentcloud.org/documents/2699620/What-Is-the-Worst-That-Can-Happen-March-2010.txt">What&rsquo;s The Worst That Could Happen</a>. In effect, this is the Government&rsquo;s thought process involved in determining the risk associated in launching a targeted attack on someon. In theory, this served as a guide to remind UK spooks of the various risks that are involved when trying to exploit someone. (It reads like it was put together by some GCHQ intern so I would pay too much attention to it.)</p>
+  <div class="entry-content"><p><img class="center" src="/images/torvpnsilly.png"></p>
 
-<p>One of your main goals of your OPSEC plan is to reduce the likeliness of attack. With this document, we can see what an attacker believes to be the risks or their fears, and exploit them. As with all operation decisions, the risks outweigh their rewards. So let&rsquo;s make it risky for them to target you.</p>
+<p><span class='pullquote-right' data-pullquote='Should I use Tor to VPN into a VPN to connect to Tor via VPN… with Tor.'>
+The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to Tor?&rdquo; and &ldquo;Should I use Tor to connect to a VPN?&rdquo; and various combinations of Should I use Tor to VPN into a VPN to connect to Tor via VPN&hellip; with Tor.
+</span></p>
 
-<h2>Fears of Discovery</h2>
+<p>The developers at the Tor Project (whom I respect immensely and believe know what they&rsquo;re talking about) have a unilateral policy for this to never use a VPN to connect to Tor. Here&rsquo;s a snippet from a recent discussion on the <a href="http://archives.seul.org/tor/talk/">tor-talk mailing list</a>:</p>
 
-<p>Most of the document makes up a list of various different <em>results</em> of being discovered like if I catch someone in my bed room, the result would be that I could identify the person and punch them in the face. But the discovery section is where it gets interesting. This is a list of all the various ways they&rsquo;re concerned about being discovered. Their job, prior to deciding if an operation should be launched, is to identify the risk of your discovering them. Lets substantiate their fears by building some OPSEC plans.</p>
+<blockquote><p>...if somebody somehow breaks the anonymity of your Tor<br/>circuit, it's nice to have another layer behind that. But if somebody guesses that you're using a particular VPN, or you pick a VPN that they're already monitoring for other reasons, then you basically let them see the beginning of your circuit when otherwise they might not have been able to.</p><footer><strong>Roger Dingledine</strong> <cite><a href='http://archives.seul.org/tor/talk/Jan-2016/msg00225.html'>Tor-talk</a></cite></footer></blockquote>
 
-<p>Here&rsquo;s the list:</p>
+
+<p>In this he&rsquo;s saying if you&rsquo;re using a VPN to connect to Tor, you&rsquo;re putting yourself at greater risk because the VPN service has a log of your information, your connection times, and the fact that you made a connection to Tor. This is supposed to be higher risk because if a nation state decided to perform passive monitoring, the place they would start is the VPNs. (He also compares this to having a consistent first hop guard node that everyone uses but I&rsquo;ll leave that debate for another day.)</p>
+
+<h2>He&rsquo;s Right&hellip; Sometimes</h2>
+
+<p>Dingledine&rsquo;s logic is sound and if one were to have a policy to share with a community, it should be this one because it puts the least amount of risk on tor users. But, as with most things related to security, a unilateral policy is not always the best one. You need to know your <a href="/blog/2014/01/10/ask-him-about-his-threat-model/">threat model</a>.</p>
+
+<h2>The Case of the Harvard Bomber</h2>
+
+<p>There is a now <a href="http://edition.cnn.com/2013/12/17/justice/massachusetts-harvard-hoax/">famous case of student at Harvard</a> who had not finished studying for his finals and decided he wanted to email a bomb threat into the school to stop tests from happening. He went back to his dorm room, fired up Tor Browser, and sent an email from Guerrilla Mail to the school.</p>
+
+<p><img class="right" src="/images/eldo.png"></p>
+
+<p>In this case, tor protected his anonymity. The email could not be traced back through the Tor network and to his IP address. Tor did it&rsquo;s job. His downfall was that he made the connect to Tor from his dorm room. The university admins simply went back and found all the tor connections at the time of the email, and found that it was a very small segment of students. The police went to each of those students and eventually found their man.</p>
+
+<p>What if the Harvard Bomber used a VPN to first connect into Tor? Would it have saved him? Maybe, or at least it would have made it more difficult. He would connect into the VPN service used by hundreds or thousands of other people, and then connect into the Tor Network. This might mean that even when they noticed the Tor traffic, they wouldn&rsquo;t be able to attribute it to a specific student because there would be no log of them connecting to the Tor network. (That being said, Harvard could subpoena the VPN provider and try to determine which of the VPN users were from Harvard and which of them connected through Tor but I&rsquo;m trying to make a point. :) )</p>
+
+<h2>When to VPN > Tor</h2>
+
+<p><img class="center" src="/images/vpntor.png" title="VPN > Tor" ></p>
+
+<p>Here&rsquo;s when you <em>might</em> want to use a VPN to connect into Tor:</p>
 
 <ul>
-<li>Compromise of operation during installation</li>
-<li>Inadequate personnel security controls and subsequent information leak</li>
-<li>Discover of installed hardware (including post-operation)</li>
-<li>Forensic discovery of installed software</li>
-<li>Discovery of a suspicious audit trail/logs/registry</li>
-<li>Discovery of suspicious RF energy</li>
-<li>Suspicious profile caused by hardware/software malfunction</li>
-<li>Discovery of egressed traffic</li>
-<li>Discovery through other IT leakage</li>
-<li>Vulnerability to HIS or other monitoring</li>
-<li>Inadequate monitoring of profile generated by operation</li>
-<li>Inadequate review of risks during the lifetime of the operation</li>
-<li>Reliance on an uncertain supply chain or other risky dependencies</li>
-<li>Failure by operators to cover tracks, including clearing logs/changing read statusof emails</li>
-<li>Novel capabilities and techniques having unknown effects outside of lab testing conditions</li>
-<li>Unforeseen changes to hardware or software leading to compromise of techniques or installation</li>
-<li>Hardware/software malfunctions leading change in target behaviour, potentially including forensic investigation (and potential discovery) and/or loss of target access</li>
+<li><strong>Geographic fingerprinting</strong>: You are from a small village with not very many Tor users. If there was a suggestion that sketchy activity has happened, they would knock on your door first. Especially if your operation was geographically specific (like a bomb threat).</li>
+<li><strong>Untrusted ISP</strong>: You know that your ISP is monitoring, logging, and sharing your connection information (hint: they are). You could make a choice to hide your connection details from your ISP and instead give that responsibility to your VPN service which you have more trust for.</li>
+<li><strong>Plausible Deniability</strong>: You could rely on the fact that thousands of other people are using the VPN service at that same time so it&rsquo;s difficult to correlate activities to an individual.</li>
+<li><strong>Jurisdiction Diversity</strong>: It&rsquo;s easy for most organizations to issue a subpoena to a company in their same company. It&rsquo;s also easy for any of the <a href="https://en.wikipedia.org/wiki/Five_Eyes">5, 9, or 14 Eyes</a> to target services in their shared jurisdictions. If you have a VPN provider that is not in one of these jurisdictions, you can use them to make it harder to issue subpoenas to.</li>
 </ul>
 
 
-<h2>Compromise During Installation</h2>
+<h2>When to Tor > VPN</h2>
 
-<p>A relatively easy fear to substantiate is the detetion of an exploit device installation. This could be an application or hardware installation a device you own as well as physical security threats like microphones or cameras. Suggestions might be:</p>
+<p><img class="center" src="/images/torvpn.png" title="Tor > VPN" ></p>
+
+<p>This is a bit more difficult to accomplish but possible. The issues here are you have to make sure you&rsquo;ve purchased a VPN service anonymously, make sure that it allows connections via tor, and make sure it supports TCP as tor is a TCP-only protocol. The only scenario I can think of that you would need this is:</p>
 
 <ul>
-<li>Security cameras to monitor your workspace.</li>
-<li>Custom log that detects when unknown USB devices are installed.</li>
-<li>Tools like tripwire that detect modifications to your OS and prevent installation.</li>
+<li><strong>Tor Blocked</strong>: Less of a security issue and more about usability, if a service blocks all tor exit nodes, you can try to use tor to hide you connection into a VPN service which is unlikely blocked.</li>
 </ul>
 
 
-<h2>Catching Them In The Act</h2>
+<p>That being said, this is a really bad idea because when you have a consistent endpoint you connect to, it could have unknown consequences to your anonymity. This is the main reason that Tor switches circuits regularly instead of using the same circuit every time.</p>
 
-<p>This  refers to catching a person in the middle of their operation. Examples would be sketchy vans parked outside of your flat, cars tailing you over long distances, or people following you on the streets. There are some fun OPSEC tactics we can apply here:</p>
+<h2>When to VPN > Tor > VPN or Tor > Tor</h2>
+
+<p><img class="center" src="/images/vpntorvpn.png" title="VPN > Tor > VPN" ></p>
+
+<p>Now we&rsquo;re getting nutty but we can think it through. You&rsquo;ve made the choice to connect to tor via VPN, why not make another hop and just connect to another VPN service via Tor. Or, if you think 1x tor is pretty good, so 2x tor must be even better! Use cases:</p>
 
 <ul>
-<li>Take illogical paths (circle around the block).</li>
-<li>Don&rsquo;t have a predictable pattern of activities.</li>
-<li>Use security cameras to keep a log of people around your</li>
+<li><strong>You&rsquo;re nutty:</strong> Generally if you think there is an undisclosed vulnerability in tor, that is actively being used, but you still think that tor is the best option, you want to protect yourself by layering methods on top of tor.</li>
 </ul>
 
 
-<h2>RF Detection</h2>
+<p>Whatever your rationality, know that this method has not been tested to see if it maintains your anonymity. There are so many edge cases of mis-configuration, fingerprinting attacks on the service, and plausible statistical attacks on your connection, you shouldn&rsquo;t assume this makes any sense.</p>
 
-<p>Some of the &ldquo;bugs&rdquo; used by these types of people communicate by radio frequency. If you can show that you know about radio and that you know how to detect signals being relayed, you make yourself a risk of catching them.</p>
+<h2>Further Reading</h2>
 
-<ul>
-<li>Use a software defined radio (<a href="https://greatscottgadgets.com/hackrf/">HackRF</a> or <a href="https://nuand.com/">BladeRF</a>#) to monitor normal radio signals around your facility. Regularly monitor for changes and send alerts.</li>
-<li>Use bug detection tools (usually pretty expensive) to sweep your living space.</li>
-</ul>
-
-
-<h2>Malfunctions and Crashes</h2>
-
-<p>The NSA&rsquo;s TAO program has a variety zero-days at their disposal. Most often, these exploits will cause some kind of crash on your system. When a crash happens, don&rsquo;t react by saying &ldquo;Oh, it does that sometimes.&rdquo; Make sure you have a way of detecting crashes and logging them somewhere to determine what occurred.</p>
+<p>VPN&rsquo;s are just one example of laying protections on top of tor. You could us private VPN hosted on a VPS, or SSH service, or if don&rsquo;t understand any of this, a proxy. This debate comes up so regularly that lots of groups have posts and wiki pages about it. Check out the links below for additional information:</p>
 
 <ul>
-<li>Review all your logs after a crash. This seems simple but if you don&rsquo;t have time to debug a crash, at least store them for review later</li>
-<li>Use tools like <a href="http://www.mcelog.org/">mce-log</a> that not only keep logs of hardware events but help predict when a crash is going to occur again.</li>
+<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/TorPlusVPN">https://trac.torproject.org/projects/tor/wiki/doc/TorPlusVPN</a></li>
+<li><a href="https://lists.torproject.org/pipermail/tor-talk/2012-January/022916.html">https://lists.torproject.org/pipermail/tor-talk/2012-January/022916.html</a></li>
 </ul>
 
-
-<h2>Exfiltration Detection</h2>
-
-<p>If something is installed on one of your devices, it alone can only collect information. Eventually it will need to exfiltrate it back to the attacker. There are some simple things you can do to try and detect when unauthorized connections are being made on your network.</p>
-
-<ul>
-<li>Use strict egress filtering on your operation&rsquo;s network segment. Only allow access to hosts you trust, via protocols you expect, over ports you know.</li>
-<li>Alert yourself on unexpected network traffic such as outbound connections to other countries.</li>
-</ul>
-
-
-<h2>Missing From The List</h2>
-
-<p>The list of course is not exhaustive. They don&rsquo;t go very deep into the various different discovery tactics. For example, you may consider building an extremely public system that everyone knows about and likes. In the case that something is attacked or exploited, a canary could go off that destroys that service. This would be the idea of collateral damage which could affect their public perception, share what country originated the attack, or just causes some political turmoil which makes it not worth the effort. In some ways, Edward Snowden can be an example of this.</p>
-
-<h2>Conclusions</h2>
-
-<p>Don&rsquo;t forget, each of these examples isn&rsquo;t talking about what you do <em>after</em> you&rsquo;ve been targeted, it&rsquo;s about a show of capabilities <em>before</em> you&rsquo;re targeted. If it looks like you follow tight OPSEC, make it very difficult/expensive to target, or just seem like you&rsquo;re not worth the effort, you&rsquo;re less likely to be targeted. Again, it&rsquo;s a simple question of risk vs reward.</p>
-
-<p>An unfortunate side note should be mentioned: Performing all of these tactics may make you appear to be hiding something of higher reward to them than you truly are. We know that those of us that use things like GPG are specifically targeted <a href="http://www.wired.com/2014/07/nsa-targets-users-of-privacy-services/">solely because we encrypt a message</a>. Put another way, in order to quantify the reward of targeting you, they would first need to know what you&rsquo;re doing and they likely can&rsquo;t. This will lead them to deduce whatever you&rsquo;re doing is of high value to them based on the level of OPSEC you&rsquo;ve built. Defending against being targeted makes you a target. That circle is for another day.</p>
 </div>
   
   
@@ -207,6 +191,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/06/17/tor-entry-guards/">Threats of Tor Entry Guards</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/17/opsec-for-new-police/">OPSEC for New Police Tools</a>
@@ -242,10 +230,6 @@
     
       <li class="post">
         <a href="/blog/2016/02/02/the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/23/actor-drugdealer-opsec/">OPSEC of Actor vs Drug Dealer</a>
       </li>
     
   </ul>

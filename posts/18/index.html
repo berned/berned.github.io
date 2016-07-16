@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="We&rsquo;ve discussed the concerns of stylometric attacks and how good adversaries are at it today. There are only a few tools that attempt to &hellip;">
+  <meta name="description" content="If you read this interesting post from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/09/22/stylometric-evasions-with-spellcheck/">Evading Stylometry Attacks Using VIM Spellcheck</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/10/22/bad-camgirl-opsec/">Camgirl OPSEC</a></h1>
     
     
       <p class="meta">
@@ -86,136 +86,60 @@
   
 
 
-<time datetime="2015-09-22T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2015-10-22T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
+  <div class="entry-content"><p>If you read this <a href="http://motherboard.vice.com/read/camgirl-opsec-how-the-worlds-newest-porn-stars-protect-their-privacy-online">interesting post</a> from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as part of your threat model.</p>
 
-<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
+<h2>Low Tech But High Investment</h2>
 
-<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
+<p><img class="right" src="/images/badgirl.jpg" width="300"></p>
 
-<h2>VIM</h2>
+<p>You don&rsquo;t expect that an overzealous camgirl fan to be able to do facial recognition, but we know that services like Google and Facebook can offer <a href="http://www.facesearch.com/">this service</a> for free! Doing a reverse image lookup or trying to look at a photo&rsquo;s metadata are really simple things that just about any low life can figure out.</p>
 
-<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings' grammar, as well as help you find which words to add.</p>
+<p>The more serious weapon that they have is not technology, but commitment and drive. They will do anything in their power to try and find out information about you.</p>
+
+<h2>Recommendations</h2>
+
+<p><strong>Buy Burner Everything</strong>: We&rsquo;ve heard about burner phones but don&rsquo;t forget about a dedicated cam girl laptop, and more importantly camgirl camera used only for your online business.</p>
+
+<p>Your camera can tell a lot about you. The optics, resolution, capabilities are all fingerprintable metrics. If a perv is able to find another photo series using the same expensive equipment, it may be be possible for them to find that you&rsquo;re cross-posting dirty pictures on other sites like Facebook.</p>
+
+<p><strong>Do Your Homework On The Service:</strong> The article mentions using a VPN of course. This is important as a fall back but it&rsquo;s important that the camgirl service being used does everything it can to protect your IP from being leaked. Ask questions to the service about whether IPs are logged and who has access to that information. How do you create accounts and how do you recover your password if it&rsquo;s lost? Which brings us to a reminder about account security.</p>
+
+<p><strong>Secure Your Accounts:</strong> Does the cam service let you reset your password by answering a few personal questions? Are these questions that someone that is a super-fan would know by chatting with you? Find a cam service that provides two-factor security so that you enter in a user name, a password, and then you have to enter in a One-Time-Password. This will help ensure that no one is able to get in even if they guess what your password is. In my &ldquo;research&rdquo; I have found only once service that provides this type of security. And of course, choose a strong password.</p>
+
+<p><strong>Build a List Of Lies:</strong> There is no good defense against someone that is going to do everything they can to try and get you to leak information about yourself. As I&rsquo;ve discussed before, don&rsquo;t tell them what you don&rsquo;t want them to know. Lie to them.</p>
+
+<p>If someone asks you about your coffee table and you realize it was made two streets down from your current location, don&rsquo;t say &ldquo;Sorry I can&rsquo;t tell you.&rdquo; You&rsquo;ve confirmed to the adversary a piece of sensitive information that they will likely target at another time. Lie to them. Tell them it&rsquo;s a popular brand purchased from a popular store that is popular in your entire country.</p>
+
+<p>Come up with a list of lies so that you can remember to maintain them. This could include:</p>
 
 <ul>
-<li>Enable spell check in your .vimrc file by adding the following line:</li>
+<li>Name</li>
+<li>Country of origin</li>
+<li>Age of your house</li>
+<li>Brothers, sisters, family members and their names</li>
+<li>Previous relationships</li>
+<li>Favorite band, music, politician, TV show, movie, book, etc.</li>
+<li>University and expertise</li>
+<li>Professional employment</li>
 </ul>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
+<p><strong>Hide In The Darkness:</strong> If you live cam at 17:00 every day, and you do it by a window, they not only will be able to deduce what timezone you&rsquo;re in, but also how far North you live. Those camgirls that live in the Scottish Highlands will have a lot less daylight towards Winter, something that an attacker would notice.</p>
 
+<p><strong>Tell Your Friends About Your Policy:</strong> You might be embarrassed about being a cam'er and telling your friends about it is the worst idea. But consider this, if someone finds out that you are a cam girl, are you sure that friend won&rsquo;t leak your information.</p>
 
-<ul>
-<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
-</ul>
+<p>When someone finds out that you are friends with someone else, their gears will automatically shift to finding out about them. Do they have the same OPSEC policy as you? Do they have an open Facebook account? Do they have any other pictures of you that they&rsquo;re willing to sell?</p>
 
-
-<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
-
-<h2>Grammar</h2>
-
-<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
-
-<h2>UPDATE</h2>
-
-<p>If you want to at least do a frequency analysis of the words in your text, it&rsquo;s pretty easy to do. The following is an example in python. If you run this and provide an argument of your text file, it will give you a break down of your most common words, hopefully to help you determine what words you could be attributed to using most often.</p>
-
-<figure class='code'><figcaption><span>stemmer.py </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
-</span><span class='line'><span class="c"># Author: b3rn3d</span>
-</span><span class='line'><span class="c"># Based on: http://www.nltk.org/api/nltk.stem.html</span>
-</span><span class='line'><span class="c"># Usage: ./stemmer.py filename.txt</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'><span class="k">try</span><span class="p">:</span>
-</span><span class='line'>  <span class="kn">from</span> <span class="nn">Stemmer</span> <span class="kn">import</span> <span class="n">Stemmer</span> <span class="k">as</span> <span class="n">SS</span>
-</span><span class='line'><span class="k">except</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;Stemmer/Snowball not installed. Please install it via apt-get install python-stemmer&quot;</span>
-</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;FAIL: Supply test file to analyze.&quot;</span>
-</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span class='line'><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#extract words</span>
-</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;\w+&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">stemmer</span> <span class="o">=</span> <span class="n">SS</span><span class="p">(</span><span class="s">&#39;english&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#count stems and extract shortest words possible</span>
-</span><span class='line'><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">stem</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stemWord</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">stem</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">shortest</span><span class="p">,</span><span class="n">count</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span>
-</span><span class='line'>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">shortest</span><span class="p">):</span>
-</span><span class='line'>            <span class="n">shortest</span> <span class="o">=</span> <span class="n">word</span>
-</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">shortest</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#convert {key: (word, count)} to [(word, count, key)] for convenient sort and print</span>
-</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">wordcount</span> <span class="o">+</span> <span class="p">(</span><span class="n">root</span><span class="p">,)</span> <span class="k">for</span> <span class="n">root</span><span class="p">,</span><span class="n">wordcount</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-</span><span class='line'><span class="c">#trick to sort output by count (descending) &amp; word (alphabetically)</span>
-</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-</span><span class='line'><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
-</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s"> (Root: </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">item</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><span class='pullquote-right' data-pullquote='It’s always better to confide in someone a secret, than risk they find out on their own.'>
+It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s always better to confide in someone a secret, than risk they find out on their own. By letting them in on the secret, and showing them how serious the secret is to you, you are asking them to join in to protect that secret. Without doing so ahead of time, there is no social contract that would imply this.
+</span></p>
 </div>
   
   
@@ -238,6 +162,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/06/17/tor-entry-guards/">Threats of Tor Entry Guards</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/04/17/opsec-for-new-police/">OPSEC for New Police Tools</a>
@@ -273,10 +201,6 @@
     
       <li class="post">
         <a href="/blog/2016/02/02/the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/01/23/actor-drugdealer-opsec/">OPSEC of Actor vs Drug Dealer</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-04-20T16:07:25+00:00</updated>
+  <updated>2016-07-16T19:49:24+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,99 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Threats of Tor Entry Guards]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/06/17/tor-entry-guards/"/>
+    <updated>2016-06-17T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/06/17/tor-entry-guards</id>
+    <content type="html"><![CDATA[<p>In recent time, Tor has made the decision to use semi-persistent entry nodes which they call this feature &ldquo;Entry Guards.&rdquo; &ldquo;Entry Nodes&rdquo; are simply the first node you connect with to join the Tor Network, but an <a href="https://www.torproject.org/docs/faq#EntryGuards">Entry Guard</a> refers to the feature of pinning the entry nodes across sessions. The Tor Project asked the question &ldquo;Is it safer to constantly change the first node you connect to or should that remain the same.&rdquo; The conclusion was by choosing a static entry node, you statistically have a much lower risk of one your circuits being compromised in the case of resourceful state actors.</p>
+
+<p>I&rsquo;ll skip over the whole debate about why they did this. If you&rsquo;d like to read more information about why they did this, you can <a href="https://blog.torproject.org/blog/improving-tors-anonymity-changing-guard-parameters">read the article here</a>. For the sake of discussion, lets just accept this as truth and use this to highlight a situation that it creates:</p>
+
+<h2>1. Instance Leakage</h2>
+
+<p>In the case that you are running multiple instances of Tor, because each instance uses a static guard, that means that passive adversaries are able to identify exactly the number of tor nodes you&rsquo;re running in your network.</p>
+
+<p>For example, you have a laptop, a relay, and some arm device that are all running Tor. In every instance, the tor binary is making a choice about its guard nodes to use. In every instance it will (probably) make a different decision. This means that passive adversaries (ISP or the like) can take known guards, and watch your connections to them, and deduce how many tor instances are on your network.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/guard_static.jpg" title="Entry Guards" ></p>
+
+<p>One of the risks I&rsquo;ve talked about in the past was the issues with the Harvard Bomb Threat where the campus network simply attributed the user because they built a list of all the people on campus using Tor. I think we should be sensitive to this attack because it&rsquo;s very low resource even for local law enforcement. In the case that your ISP is logging your actions, and a event happened in your area, the first people they are going to start tracking are the people using tor. If they can see that you&rsquo;re not only running Tor at a given point in time but 7 instances all the time, they might be knocking on your door first.</p>
+
+<p>This issue alone is not as big as the bigger threat when you talk about traffic correlation attacks.</p>
+
+<h2>2. Traffic Correlation Weaknesses</h2>
+
+<p><span class='pullquote-right' data-pullquote='This recommendation is now wrong.'>
+In the past, <a href="https://www.torproject.org/docs/faq.html.en#BetterAnonymity">Tor Project has recommended that you run relay alongside of a client to increase your protection against traffic analysis</a>. This recommendation is now wrong. The idea at the time was it would be hard to differentiate your traffic from relay traffic because you would be jumping around across circuits.
+</span></p>
+
+<p>Because of the static guard nodes, it is much easier to differentiate between the traffic of each different instance. The relay that you&rsquo;re running will connect to Guard A and the tor client that you&rsquo;re running will connect to Guard B. From a traffic correlation perspective, it&rsquo;s very easy to associate traffic of an individual tor instance to its traffic.</p>
+
+<p>Here&rsquo;s an attack example: You run a tor relay that uses Guard A. You have a tor client that uses  guard B. Your adversary is able to watch traffic at your ISP and at the website you visit, www.nsa.gov, that you frequently visit with your client. If we did not use entry guards, the passive adversary would see lots of traffic going out over the tor network all the time including the traffic sent out by the client. It&rsquo;s nearly impossible to differentiate between your client traffic and your relay.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/guard_dynamic.jpg" title="No Entry Guards" ></p>
+
+<p>But now that we have entry guards, a passive adversary watches the traffic of relay connecting to Guard A and sees that it&rsquo;s a lot of consistent traffic. It then watches the traffic connecting to Guard B which is infrequent, burst of traffic. It&rsquo;s easy to tell that this is in fact a tor client. When you visit www.nsa.gov with your client, the passive adversary can easily correlate the time and size of the request with the one on the website.</p>
+
+<p><img class="center" src="http://www.b3rn3d.com/images/guard_correlation.jpg" title="Size Correlation" ></p>
+
+<h2>What can we do?</h2>
+
+<p>My point is, for every network you use, you should be using the same guard nodes. If you are at a home network with 10 instances of tor, they should all be configured to use the same one.</p>
+
+<h2>Option 1: EntryNode in Torrc</h2>
+
+<p>If you want to specifically set what your guard nodes are, you can use the <code>EntryNodes</code> configuration option in your torrc file. Simple edit /etc/torrc with something like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>EntryNodes FFFFINGERPRINTOFNODE1, FFFFFFFFINGERPRINTOFNODE2, FFFFFFFFFFFFINGERPRINTNODE3</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This unfortunately has some costs. When you do it this way, you stop using tor&rsquo;s intelligent guard selection algorithm that will choose guards for you based on a lot of properties of the Tor Network as a whole. You might want to change this on a regular basis or just have a long list of entry nodes that you use.</p>
+
+<h2>Option 2: Whonix</h2>
+
+<p><a href="https://www.whonix.org/">Whonix</a> is a distro designed to be a tor gateway. It will manage a single instance of tor at the edge of your network and rather than have multiple instances of tor. Simply running a Whonix Gateway and routing your other clients connect into (ideally with the Whonix Client) will alleviate this issue. (You&rsquo;ll have to choose if you trust the Whonix disto as a whole though.)</p>
+
+<h2>Option 3: Tor Proxy Server</h2>
+
+<p>Don&rsquo;t forget that tor runs as a SOCKS5 proxy. Although you&rsquo;ve probably configured it to only listen on localhost, you can also configure it to be accessible on your internal network. When you setup all of the other instances of tor on your network, configure them to use the proxy server instead of 127.0.0.1:9050.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SOCKSPort 0.0.0.0:9050</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I wouldn&rsquo;t really do this for a variety of reasons. If you want to actually do this and put some protection on this service, see the <a href="https://www.torproject.org/docs/tor-manual.html.en#SOCKSPort">TORRC details about SOSKPort flags</a> so you don&rsquo;t get yourself in trouble. Don&rsquo;t forget, SOCKS is a cleartext protocol.</p>
+
+<h2>Option 4: Bridges</h2>
+
+<p>If you aren&rsquo;t running a Relay, and you&rsquo;re simply concerned about your standard traffic analysis attacks or counting tor instances you have on your network, you can configure your tor clients to use a <a href="https://www.torproject.org/docs/bridges">bridge service</a>. This will make it more difficult to detect that you&rsquo;re using tor in the first place and skip around the issue completely.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>185.100.84.187:57092 158A7DD6EDCA9041D7FA6ED7593E7BB43F82BD84
+</span><span class='line'>88.198.74.99:9001 3D6269A43BB28423D1127008A182EB07DBB39C00
+</span><span class='line'>199.231.94.203:443 0872E07DE33BEE2EB5D6A9941EBF30885A5D80D7</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Option 5: Disable Entry Guards</h2>
+
+<p>The tor configuration file allows you to not use entry guards at all. If for some reason you&rsquo;ve come to the conclusion that using a guard makes you less secure in your environment, dump them completely. This means that whenever a circuit is built, it will likely have a completely different entry node.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UseEntryGuard 0</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Warnings</h2>
+
+<p>All of this being said, let me add the warning that making these configuration changes may cause more damage than when you started. It&rsquo;s important to understand what the threats are and you can determine if this is important to your operation. If you are a standalone tor client user, there&rsquo;s probably no reason for you to make customizations.</p>
+
+<p>You should also note that if you somehow make your entry nodes static and you are on a mobile device, this could be a way of tracking you across sessions. If you take your laptop from your apartment to a coffee shop and there is somehow a way of collecting the traffic of both of them, they could correlate your entry guard usage across connections.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OPSEC for New Police Tools]]></title>
@@ -188,7 +281,7 @@ out of the original news feed.</p>
 
 <p>Here&rsquo;s a interesting experiment. First run</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#99;&#x69;&#110;&#x63;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#115;&#x40;&#108;&#x61;&#118;&#x61;&#x62;&#x69;&#x74;&#46;&#99;&#x6f;&#x6d;">&#99;&#x69;&#110;&#99;&#105;&#110;&#110;&#x61;&#x74;&#117;&#x73;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#105;&#116;&#x2e;&#99;&#111;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#x63;&#105;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#116;&#117;&#115;&#x40;&#x6c;&#x61;&#x76;&#x61;&#x62;&#x69;&#116;&#x2e;&#x63;&#x6f;&#109;">&#99;&#x69;&#x6e;&#99;&#105;&#110;&#x6e;&#97;&#x74;&#117;&#x73;&#x40;&#108;&#97;&#118;&#x61;&#98;&#105;&#116;&#46;&#99;&#x6f;&#x6d;</a></p></blockquote>
 
 <p>You will get something like this:</p>
 
@@ -204,11 +297,11 @@ hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
 
 <p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
     gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
-      &ldquo;Cincinnatus (Tor) <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#99;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#97;&#x74;&#117;&#115;&#64;&#x6c;&#x61;&#x76;&#97;&#x62;&#x69;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#x63;&#x69;&#110;&#99;&#x69;&#x6e;&#x6e;&#x61;&#116;&#117;&#x73;&#x40;&#x6c;&#x61;&#118;&#x61;&#98;&#x69;&#x74;&#46;&#99;&#111;&#109;</a>&rdquo;</p>
+      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#99;&#x69;&#110;&#x63;&#x69;&#110;&#x6e;&#x61;&#116;&#117;&#x73;&#64;&#x6c;&#x61;&#118;&#x61;&#98;&#105;&#116;&#46;&#99;&#111;&#x6d;">&#x63;&#x69;&#110;&#x63;&#x69;&#110;&#110;&#x61;&#116;&#x75;&#x73;&#x40;&#x6c;&#97;&#118;&#97;&#98;&#105;&#x74;&#46;&#99;&#111;&#109;</a>&rdquo;</p>
 
 <p>But look at this:</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#99;&#x69;&#110;&#x63;&#x69;&#x6e;&#110;&#97;&#x74;&#117;&#115;&#64;&#x6c;&#97;&#x76;&#97;&#x62;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#x6d;">&#x63;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#97;&#116;&#117;&#115;&#x40;&#108;&#97;&#118;&#97;&#x62;&#105;&#x74;&#x2e;&#99;&#x6f;&#109;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#99;&#x69;&#x6e;&#99;&#105;&#110;&#110;&#x61;&#x74;&#117;&#115;&#x40;&#x6c;&#x61;&#x76;&#x61;&#x62;&#x69;&#116;&#46;&#99;&#111;&#109;">&#99;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#97;&#116;&#117;&#x73;&#x40;&#108;&#97;&#x76;&#x61;&#x62;&#105;&#116;&#46;&#x63;&#x6f;&#x6d;</a></p></blockquote>
 
 <pre><code>-----BEGIN PGP MESSAGE-----
 Version: GnuPG v1
@@ -1296,58 +1389,6 @@ Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo
 <p>In most cases, those people that say they are hiding something, are usually not. The coy smiles are a way of appearing interesting without the threat of actually requiring to be interesting. In these cases, you can easily define whether the person could become a resource or should discarded.</p>
 
 <p>In summary, make sure you lie to people. Ideally it should be a well thought through lie but if you don&rsquo;t have that, say something&hellip; anything. A stupid lie is much better than saying nothing or that you can&rsquo;t tell them because it makes the other party more interested. This type of attention is not something you usually want.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Analyzing Trust and Secret Disclosure]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/08/22/secret-disclosures/"/>
-    <updated>2015-08-22T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/08/22/secret-disclosures</id>
-    <content type="html"><![CDATA[<p>OPSEC and relationships are often opposing forces. You’ve spent months perfecting your OPSEC for a campaign when your friend walks in and says “Ooh what’s that.” Or you signifigant other finds a file marked “Super juicy secret.” I do believe that humans are social beings no matter how hard we try. Even nerds that stay home will end up yearning for personal  contact in some way. How do you determine if you should share a secret with another person and build a relationship with that person at the risk of compromising your campaign?</p>
-
-<p><img class="right" src="http://www.b3rn3d.com/images/relationships.jpg" width="400"></p>
-
-<p>Look at the OPSEC measures that the members of lulzsec used. They all trusted eachother and everyone knew other peoples names, and in some cases addresses. This relationship of trust ended up being their downfall.</p>
-
-<h2>Example</h2>
-
-<p>Let us start with a secret for sake of discussion: I have a laptop riddled with Taylor Swift songs.</p>
-
-<p>My OPSEC campaign includes that I’ve encrypted my laptop so that even with access, the songs would be difficult to find. I hide my laptop in a broom closet. The broom closet for some reason has a lock on it. But still there are days when I really want to listen to my favorite Swift jam and because I live with my mother, she catches me rocking out.</p>
-
-<p>In this case, its straight forward. Your mother is the adversary, she can never know about Taylor Swift songs and you’ve likely done a better job at hiding.</p>
-
-<p>But what about the situation where you are hanging out with a friend and notice that she is an avid Taylor Swift fan and if you share this commonality with her, you might establish a deeper relationship.</p>
-
-<h2>The Three Disclosure Tactics</h2>
-
-<p>I’ve found that people handle this in three potential tactics when disclosing a secret:</p>
-
-<ol>
-<li>You decide that you can trust this person and privately disclose that you are a Taylor Swift fan.</li>
-<li>You drop hints that you may or may know something about Taylor but you’re unwilling to disclose it out-right to just anyone but secretly hope that the other person will ask you about it.</li>
-<li>You don’t let on that you’re into TS at all.</li>
-</ol>
-
-
-<p>These are stupid situations but these are how most people handle secrets.</p>
-
-<h2>Trusted Disclosure</h2>
-
-<p>Option 1, trusted disclosure is where you analyze the relationship with the other person, look at the risk involved in disclosing, and the potential reward that exists if you do share. This is what some may call “normal” in terms of relationships. You decide that you will disclose a secret to a trusted person and expect that the trusted person does not use this information against you. If for example, you know that the other party has worthwhile knowledge related to your secret, the reward may outweigh the risk that the disclosure is used to exploit you.</p>
-
-<h2>Plausibly Deniable Disclosure</h2>
-
-<p>In option 2, plausibly deniable disclosure, you hint that you might have a secret but you can still plausibly deny that the secret exists. There is less analysis of risk vs reward or analysis of the trust of the person so you’ll often hear people leak this in public. “I might know something about X but I can’t tell you”. If you go to DEFCON, you will hear this just about every day.</p>
-
-<p>This is the most common tactic with people missing social contact/relationships and let their ego get in the way. This either means that the secret being kept is not that risky of a secret, or the person is not disciplined enough to follow opsec. In either case, frowned upon in terms of OPSEC.</p>
-
-<h2>Zero Knowledge</h2>
-
-<p>The last option is not a disclosure at all but maintains a zero knowledge relationship going forward. In terms of OPSEC, you can consider this a firewall rule that blocks all by default. In this scenario you get no reward, no commonality in the relationship, and no benefit besides the fact that you can keep in your pocket that you have a secret in-depth knowledge of a subject that may be of interest to the subject. Because remember, knowledge is power and knowledge of someone’s knowledge is a power you may not want to concede.</p>
-
-<p>Be disciplined. Be in control. Make active decisions about your disclosures and your relationships.</p>
 ]]></content>
   </entry>
   

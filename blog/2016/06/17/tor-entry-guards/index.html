@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Threats of Tor Entry Guards - B3RN3D</title>
+  <meta name="author" content="b3rn3d">
+
+  
+  <meta name="description" content="In recent time, Tor has made the decision to use semi-persistent entry nodes which they call this feature &ldquo;Entry Guards.&rdquo; &ldquo;Entry &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2016/06/17/tor-entry-guards">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">B3RN3D</a></h1>
+  
+    <h2>Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.b3rn3d.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/contact">Contact</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Threats of Tor Entry Guards</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-06-17T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In recent time, Tor has made the decision to use semi-persistent entry nodes which they call this feature &ldquo;Entry Guards.&rdquo; &ldquo;Entry Nodes&rdquo; are simply the first node you connect with to join the Tor Network, but an <a href="https://www.torproject.org/docs/faq#EntryGuards">Entry Guard</a> refers to the feature of pinning the entry nodes across sessions. The Tor Project asked the question &ldquo;Is it safer to constantly change the first node you connect to or should that remain the same.&rdquo; The conclusion was by choosing a static entry node, you statistically have a much lower risk of one your circuits being compromised in the case of resourceful state actors.</p>
+
+<p>I&rsquo;ll skip over the whole debate about why they did this. If you&rsquo;d like to read more information about why they did this, you can <a href="https://blog.torproject.org/blog/improving-tors-anonymity-changing-guard-parameters">read the article here</a>. For the sake of discussion, lets just accept this as truth and use this to highlight a situation that it creates:</p>
+
+<h2>1. Instance Leakage</h2>
+
+<p>In the case that you are running multiple instances of Tor, because each instance uses a static guard, that means that passive adversaries are able to identify exactly the number of tor nodes you&rsquo;re running in your network.</p>
+
+<p>For example, you have a laptop, a relay, and some arm device that are all running Tor. In every instance, the tor binary is making a choice about its guard nodes to use. In every instance it will (probably) make a different decision. This means that passive adversaries (ISP or the like) can take known guards, and watch your connections to them, and deduce how many tor instances are on your network.</p>
+
+<p><img class="center" src="/images/guard_static.jpg" title="Entry Guards" ></p>
+
+<p>One of the risks I&rsquo;ve talked about in the past was the issues with the Harvard Bomb Threat where the campus network simply attributed the user because they built a list of all the people on campus using Tor. I think we should be sensitive to this attack because it&rsquo;s very low resource even for local law enforcement. In the case that your ISP is logging your actions, and a event happened in your area, the first people they are going to start tracking are the people using tor. If they can see that you&rsquo;re not only running Tor at a given point in time but 7 instances all the time, they might be knocking on your door first.</p>
+
+<p>This issue alone is not as big as the bigger threat when you talk about traffic correlation attacks.</p>
+
+<h2>2. Traffic Correlation Weaknesses</h2>
+
+<p><span class='pullquote-right' data-pullquote='This recommendation is now wrong.'>
+In the past, <a href="https://www.torproject.org/docs/faq.html.en#BetterAnonymity">Tor Project has recommended that you run relay alongside of a client to increase your protection against traffic analysis</a>. This recommendation is now wrong. The idea at the time was it would be hard to differentiate your traffic from relay traffic because you would be jumping around across circuits.
+</span></p>
+
+<p>Because of the static guard nodes, it is much easier to differentiate between the traffic of each different instance. The relay that you&rsquo;re running will connect to Guard A and the tor client that you&rsquo;re running will connect to Guard B. From a traffic correlation perspective, it&rsquo;s very easy to associate traffic of an individual tor instance to its traffic.</p>
+
+<p>Here&rsquo;s an attack example: You run a tor relay that uses Guard A. You have a tor client that uses  guard B. Your adversary is able to watch traffic at your ISP and at the website you visit, www.nsa.gov, that you frequently visit with your client. If we did not use entry guards, the passive adversary would see lots of traffic going out over the tor network all the time including the traffic sent out by the client. It&rsquo;s nearly impossible to differentiate between your client traffic and your relay.</p>
+
+<p><img class="center" src="/images/guard_dynamic.jpg" title="No Entry Guards" ></p>
+
+<p>But now that we have entry guards, a passive adversary watches the traffic of relay connecting to Guard A and sees that it&rsquo;s a lot of consistent traffic. It then watches the traffic connecting to Guard B which is infrequent, burst of traffic. It&rsquo;s easy to tell that this is in fact a tor client. When you visit www.nsa.gov with your client, the passive adversary can easily correlate the time and size of the request with the one on the website.</p>
+
+<p><img class="center" src="/images/guard_correlation.jpg" title="Size Correlation" ></p>
+
+<h2>What can we do?</h2>
+
+<p>My point is, for every network you use, you should be using the same guard nodes. If you are at a home network with 10 instances of tor, they should all be configured to use the same one.</p>
+
+<h2>Option 1: EntryNode in Torrc</h2>
+
+<p>If you want to specifically set what your guard nodes are, you can use the <code>EntryNodes</code> configuration option in your torrc file. Simple edit /etc/torrc with something like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>EntryNodes FFFFINGERPRINTOFNODE1, FFFFFFFFINGERPRINTOFNODE2, FFFFFFFFFFFFINGERPRINTNODE3</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This unfortunately has some costs. When you do it this way, you stop using tor&rsquo;s intelligent guard selection algorithm that will choose guards for you based on a lot of properties of the Tor Network as a whole. You might want to change this on a regular basis or just have a long list of entry nodes that you use.</p>
+
+<h2>Option 2: Whonix</h2>
+
+<p><a href="https://www.whonix.org/">Whonix</a> is a distro designed to be a tor gateway. It will manage a single instance of tor at the edge of your network and rather than have multiple instances of tor. Simply running a Whonix Gateway and routing your other clients connect into (ideally with the Whonix Client) will alleviate this issue. (You&rsquo;ll have to choose if you trust the Whonix disto as a whole though.)</p>
+
+<h2>Option 3: Tor Proxy Server</h2>
+
+<p>Don&rsquo;t forget that tor runs as a SOCKS5 proxy. Although you&rsquo;ve probably configured it to only listen on localhost, you can also configure it to be accessible on your internal network. When you setup all of the other instances of tor on your network, configure them to use the proxy server instead of 127.0.0.1:9050.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SOCKSPort 0.0.0.0:9050</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I wouldn&rsquo;t really do this for a variety of reasons. If you want to actually do this and put some protection on this service, see the <a href="https://www.torproject.org/docs/tor-manual.html.en#SOCKSPort">TORRC details about SOSKPort flags</a> so you don&rsquo;t get yourself in trouble. Don&rsquo;t forget, SOCKS is a cleartext protocol.</p>
+
+<h2>Option 4: Bridges</h2>
+
+<p>If you aren&rsquo;t running a Relay, and you&rsquo;re simply concerned about your standard traffic analysis attacks or counting tor instances you have on your network, you can configure your tor clients to use a <a href="https://www.torproject.org/docs/bridges">bridge service</a>. This will make it more difficult to detect that you&rsquo;re using tor in the first place and skip around the issue completely.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>185.100.84.187:57092 158A7DD6EDCA9041D7FA6ED7593E7BB43F82BD84
+</span><span class='line'>88.198.74.99:9001 3D6269A43BB28423D1127008A182EB07DBB39C00
+</span><span class='line'>199.231.94.203:443 0872E07DE33BEE2EB5D6A9941EBF30885A5D80D7</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Option 5: Disable Entry Guards</h2>
+
+<p>The tor configuration file allows you to not use entry guards at all. If for some reason you&rsquo;ve come to the conclusion that using a guard makes you less secure in your environment, dump them completely. This means that whenever a circuit is built, it will likely have a completely different entry node.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UseEntryGuard 0</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Warnings</h2>
+
+<p>All of this being said, let me add the warning that making these configuration changes may cause more damage than when you started. It&rsquo;s important to understand what the threats are and you can determine if this is important to your operation. If you are a standalone tor client user, there&rsquo;s probably no reason for you to make customizations.</p>
+
+<p>You should also note that if you somehow make your entry nodes static and you are on a mobile device, this could be a way of tracking you across sessions. If you take your laptop from your apartment to a coffee shop and there is somehow a way of collecting the traffic of both of them, they could correlate your entry guard usage across connections.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-06-17T00:00:00+00:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.b3rn3d.com/blog/2016/06/17/tor-entry-guards/" data-via="" data-counturl="http://www.b3rn3d.com/blog/2016/06/17/tor-entry-guards/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/04/17/opsec-for-new-police/" title="Previous Post: OPSEC For New Police Tools">&laquo; OPSEC For New Police Tools</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/06/17/tor-entry-guards/">Threats of Tor Entry Guards</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/opsec-for-new-police/">OPSEC for New Police Tools</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/02/the-worst-that-could-happen/">The Worst That Could Happen: Substantiating Their Fears</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - b3rn3d -
+</p>
+<iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
