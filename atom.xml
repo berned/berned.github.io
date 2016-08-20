@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-07-16T19:49:24+00:00</updated>
+  <updated>2016-08-20T23:40:48+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Death to OpenPGP and GPG]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/08/17/death-to-pgp/"/>
+    <updated>2016-08-17T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/08/17/death-to-pgp</id>
+    <content type="html"><![CDATA[<p>Another set of death blows for OpenPGP came out this week. The first being a vulnerability in GPG which caused a weakening of 4096 bit keys. The second being researchers that have been able to attribute the source of RSA keys used by OpenPGP and others. I&rsquo;ve talked about my opinion (shared by many others) that <a href="http://www.b3rn3d.com/blog/2016/04/17/let-openpgp-die3/">we should let PGP die</a>. This additional cannon fodder.</p>
+
+<p>The take away is that in the first case, I&rsquo;m going to make the case that we should all move away from using GPG and in the second case I describe how doing so becomes an attack vector. Damned on both sides.</p>
+
+<h2>Weak in the keys</h2>
+
+<p>A <a href="https://lists.gnupg.org/pipermail/gnupg-users/2016-August/056472.html">recent vulnerability in GPG</a> showed that if you chose the non-standard 4096 bit key size when generating your GPG keys, you are actually less secure than if you used 2048. This is caused by a vulnerability in the RNG that libgcrypt uses so that in some cases, 160bytes are predictable if the first 4640 bytes are known. In practice, the attack would mean that an attacker has access to your RNG, you generate a 4096bit key, and the attack is lucky enough to snag a portion of the 512 random bytes that are used to help generate the 4096 bit keys &ndash; a task that is not performed for the default 2048 key size.</p>
+
+<p>You should read the original <a href="http://www.b3rn3d.com/files/libgcrypt-cve-2016-6313.pdf">white paper</a> and make your own conclusions. The researchers specifically state that they are not making any conclusions about weaknesses of RSA keys in GPG, but then on the other hand, people are talking about the <a href="https://archive.is/lYEB5#selection-245.35-245.68">comments in the patch</a> that discuss the impact on 4096 bit keys.</p>
+
+<p>This may seem theoretical and something easy to patch but when you lump this information and the <a href="https://www.schneier.com/blog/archives/2015/02/gpg_financial_d.html">dire future that GPG has in front of it</a>, one may conclude that it&rsquo;s time to give up on GPG software completely. Ask yourself, what is an alternative OpenPGP implementation that you could use that isn&rsquo;t GPG? The answer should scare you when you consider the impact of a nation state targetting this software.</p>
+
+<h2>Key Attribution</h2>
+
+<p>Besides my normal gripes with OpenPGP, we have a new attack that is able to hurt those people that are trying to remain anonymous while using OpenPGP. Imagine if you will that you are off the grid, generating your GPG keys from a secure location, and completely compartmentalizing your OPSEC efforts. But you publish your keys so that others can communicate with you. And then you wake up and find an attack that is able to deduce the source of your keys.</p>
+
+<p>The reasearch from Petr Svenda called <a href="http://www.b3rn3d.com/files/sec16_paper_svenda.pdf">The Million Key Question … Origins of RSA Public Keys</a> the premise was that there are dozens of libraries that let you generate RSA keys and each of these libraries have subtle differences in how they generate these keys. These differences can be identified based on the properties of your public key.</p>
+
+<p>This results in being able to take anyone&rsquo;s public OpenPGP key, analyze it, and potentially determining the operating system and software used to generate that key pair. With this information attackers may be able to launch targeted attacks on your system or at least know what kind of software you&rsquo;re running. In the past, when there are fingerprinting attacks like this (e.g. Tor Browser), the best you can do is to try and get everyone to use the same software. There is obscurity in numbers. So should we recommend everyone just use GPG for all of their keys? This is in contrast to my suggestion above and may put you at an even greater risk because the alternatives will be relatively untested compared to GnuPG.</p>
+
+<p>If you want to try the analysis tool out yourself, you can use the online tool to classify someone&rsquo;s keys here:</p>
+
+<p><a href="https://www.fi.muni.cz/~xsekan/">https://www.fi.muni.cz/~xsekan/</a></p>
+
+<p>For example, watch what happens what you use <a href="https://pgp.mit.edu/pks/lookup?op=get&amp;search=0xFA7F0E44D487F03F">Jacob Applebaum&rsquo;s</a> key in the above tool.</p>
+
+<h2>What&rsquo;s Left</h2>
+
+<p>So should we get rid of GPG and make yourself fingerprintable? Keep using GPG but let attackers know which version you&rsquo;re running? Give up on OpenPGP completely? It&rsquo;s your accepted risk in the end. I will admit that these are difficult attacks to pull of that isn&rsquo;t going to happen from any skiddy, but it depends on your threat model. I&rsquo;m less concerned about these specific issues than I am with using crappy software for security purposes. If you&rsquo;re interested in drama, there are many people that believe that GPG&rsquo;s developer is a shill for NSA interests. Do your own research and check out a <a href="http://trilema.com/2016/werner-koch-confirmed-usg-stooge/">few of the examples</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Threats of Tor Entry Guards]]></title>
@@ -281,7 +318,7 @@ out of the original news feed.</p>
 
 <p>Here&rsquo;s a interesting experiment. First run</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#x63;&#105;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#116;&#117;&#115;&#x40;&#x6c;&#x61;&#x76;&#x61;&#x62;&#x69;&#116;&#x2e;&#x63;&#x6f;&#109;">&#99;&#x69;&#x6e;&#99;&#105;&#110;&#x6e;&#97;&#x74;&#117;&#x73;&#x40;&#108;&#97;&#118;&#x61;&#98;&#105;&#116;&#46;&#99;&#x6f;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x63;&#105;&#110;&#99;&#x69;&#x6e;&#x6e;&#97;&#x74;&#117;&#115;&#x40;&#108;&#97;&#x76;&#x61;&#x62;&#105;&#x74;&#x2e;&#99;&#111;&#x6d;">&#99;&#105;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#x74;&#x75;&#115;&#64;&#108;&#x61;&#x76;&#97;&#98;&#x69;&#116;&#x2e;&#x63;&#111;&#x6d;</a></p></blockquote>
 
 <p>You will get something like this:</p>
 
@@ -297,11 +334,11 @@ hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
 
 <p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
     gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
-      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#99;&#x69;&#110;&#x63;&#x69;&#110;&#x6e;&#x61;&#116;&#117;&#x73;&#64;&#x6c;&#x61;&#118;&#x61;&#98;&#105;&#116;&#46;&#99;&#111;&#x6d;">&#x63;&#x69;&#110;&#x63;&#x69;&#110;&#110;&#x61;&#116;&#x75;&#x73;&#x40;&#x6c;&#97;&#118;&#97;&#98;&#105;&#x74;&#46;&#99;&#111;&#109;</a>&rdquo;</p>
+      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#99;&#x69;&#110;&#x63;&#105;&#110;&#110;&#x61;&#116;&#x75;&#115;&#64;&#x6c;&#97;&#x76;&#97;&#98;&#x69;&#116;&#x2e;&#99;&#x6f;&#x6d;">&#x63;&#105;&#x6e;&#99;&#105;&#110;&#x6e;&#97;&#116;&#117;&#115;&#64;&#108;&#x61;&#118;&#x61;&#x62;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#109;</a>&rdquo;</p>
 
 <p>But look at this:</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#99;&#x69;&#x6e;&#99;&#105;&#110;&#110;&#x61;&#x74;&#117;&#115;&#x40;&#x6c;&#x61;&#x76;&#x61;&#x62;&#x69;&#116;&#46;&#99;&#111;&#109;">&#99;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#97;&#116;&#117;&#x73;&#x40;&#108;&#97;&#x76;&#x61;&#x62;&#105;&#116;&#46;&#x63;&#x6f;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#99;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#x61;&#116;&#117;&#x73;&#x40;&#108;&#97;&#118;&#97;&#x62;&#x69;&#x74;&#x2e;&#99;&#111;&#109;">&#99;&#105;&#110;&#x63;&#x69;&#x6e;&#110;&#97;&#116;&#x75;&#115;&#x40;&#x6c;&#97;&#x76;&#97;&#98;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></p></blockquote>
 
 <pre><code>-----BEGIN PGP MESSAGE-----
 Version: GnuPG v1
@@ -1360,35 +1397,6 @@ It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s a
 </span><span class='line'>    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s"> (Root: </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">item</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Lie to Me, Please]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/09/22/lie-to-me/"/>
-    <updated>2015-09-22T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/09/22/lie-to-me</id>
-    <content type="html"><![CDATA[<p>You can always tell how important a secret is to you by how many people you tell and the way you keep the secret. That is to say, when hiding whether or not you were dating So-and-So, you might coyly smirk &ndash; a simple tell for anyone to determine you&rsquo;re lying and that&rsquo;s exactly your intention: to gain more attention. But when you killed someone in a hit-and-run for example, there&rsquo;s no coy smirk on your face when you adamantly deny it. These two types of lies are an important differentiation to realize when protecting yourself.</p>
-
-<p>If you have an interesting project that needs to be kept secret, it may be hard to maintain the discipline of keeping it a secret. Often, the vanity of your project will tempt you to share the details with someone else even though you know it is safer to keep them a secret. In hindsight, you&rsquo;ll come to realize that you&rsquo;ve created a liability but for those few moments of discussion, you will irrationally determine it was worth it.</p>
-
-<p><img class="right" src="http://www.b3rn3d.com/images/conversation.png" width="400"></p>
-
-<p>In hacker OPSEC the first rule is of course we don&rsquo;t talk about OPSEC. And that, just like in Fight Club, is the first rule that is broken. We have friends that we&rsquo;d like to share information with, or we disclose a small portion of a secret that leads to questions about that secret. If this doesn&rsquo;t make sense, let me present you a conversation:</p>
-
-<p>A: I wonder what $Company does for their physical security system.
-B: Well&hellip; they actually do X, Y, and Z.
-A: How do you know that?</p>
-
-<p><span class='pullquote-right' data-pullquote='People feel more comfortable being blatantly lied to as opposed to telling them that they can’t find out the truth.'>
-Now you may coyly reply with &ldquo;I&rsquo;m sorry I can&rsquo;t tell you&rdquo; with an all-knowing smirk, or if that truly was information you&rsquo;re protecting, you lie. And this is my point: People feel more comfortable being blatantly lied to as opposed to telling them that they can&rsquo;t find out the truth.
-</span></p>
-
-<p>I bring this up because this should be remembered from two points of view. The first from your own perspective: you should never break the first rule of opsec and hopefully never lead someone into asking you these types of questions. The second reason is to bring attention to those that talk this way and how they are leaking intel.</p>
-
-<p>In most cases, those people that say they are hiding something, are usually not. The coy smiles are a way of appearing interesting without the threat of actually requiring to be interesting. In these cases, you can easily define whether the person could become a resource or should discarded.</p>
-
-<p>In summary, make sure you lie to people. Ideally it should be a well thought through lie but if you don&rsquo;t have that, say something&hellip; anything. A stupid lie is much better than saying nothing or that you can&rsquo;t tell them because it makes the other party more interested. This type of attention is not something you usually want.</p>
 ]]></content>
   </entry>
   
