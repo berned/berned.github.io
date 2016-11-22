@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="PGP is a 90&rsquo;s protocol that should have died along with SMTP. I&rsquo;m tired of it and how we&rsquo;re still trying very hard to use it. I& &hellip;">
+  <meta name="description" content="In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example. History of the WoT PGP was invented &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a></h1>
     
     
       <p class="meta">
@@ -86,67 +86,36 @@
   
 
 
-<time datetime="2016-04-11T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-04-15T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>PGP is a 90&rsquo;s protocol that should have died along with SMTP. I&rsquo;m tired of it and how we&rsquo;re still trying very hard to use it. I&rsquo;m going to start reminding us about the various reasons PGP should die.</p>
+  <div class="entry-content"><p>In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example.</p>
 
-<h2>Metadata</h2>
+<h2>History of the WoT</h2>
 
-<p>Lets cover metadata first. Things that are leaked outside of your normal message. We already know that metadata is easy to extract from a plaintext SMTP message, but its actually even easier from a PGP encrypted message.</p>
+<p>PGP was invented in the 90&rsquo;s as a way of bolting on security on top of the ultra insecure SMTP spec. The web-of-trust was designed similarly to how we designed DNS back then &ndash; distribute trust across multiple sources. But unlike DNS that had a hierarchy of trust, PGP&rsquo;s young idealist authors thought that we could decentralize trust and let everyone on the client side build up trust networks themselves.</p>
 
-<h2>Example</h2>
+<h2>Social Graph</h2>
 
-<p>Here&rsquo;s a interesting experiment. First run</p>
+<p>Surround your pullquote like this {&ldquo; text to be quoted &rdquo;}</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x63;&#105;&#110;&#99;&#x69;&#x6e;&#x6e;&#97;&#x74;&#117;&#115;&#x40;&#108;&#97;&#x76;&#x61;&#x62;&#105;&#x74;&#x2e;&#99;&#111;&#x6d;">&#99;&#105;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#x74;&#x75;&#115;&#64;&#108;&#x61;&#x76;&#97;&#98;&#x69;&#116;&#x2e;&#x63;&#111;&#x6d;</a></p></blockquote>
+<p>Here&rsquo;s a graph of all the people that have been in contact with each other:</p>
 
-<p>You will get something like this:</p>
+<h2>Kill The Keyservers</h2>
 
-<pre><code>-----BEGIN PGP MESSAGE-----
+<p>For people that are sharing their information on Facebook, this is in-line with their OPSEC. Share everything, and don&rsquo;t worry about privacy. But for those of us that actually would like to maintain their privacy and ideally some sorts of pseudonymity, this is a deal breaker.</p>
 
-hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
-...
-</code></pre>
+<p>Not only is this a graph of all the people you&rsquo;ve met, the keyserver will maintain a log of all people that have downloaded your particular key. Even if the person isn&rsquo;t contributing to the WoT, if they use the keyserver, it can be assumed that you mean to communicate with that person.</p>
 
-<p>Then on that file, do a</p>
+<h2>Fixes?</h2>
 
-<blockquote><p>gpg &ndash;list-only</p></blockquote>
+<p>This is the one of the primary reasons PGP should die. If you say that you aren&rsquo;t going to use a keyserver such as MIT&rsquo;s, there-by evading the WoT, you have no place to put your PGP key and you have no way of checking to see if someone else&rsquo;s key server exists. Keyservers are a crucial element in the OpenPGP standard.</p>
 
-<p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
-    gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
-      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#99;&#x69;&#110;&#x63;&#105;&#110;&#110;&#x61;&#116;&#x75;&#115;&#64;&#x6c;&#97;&#x76;&#97;&#98;&#x69;&#116;&#x2e;&#99;&#x6f;&#x6d;">&#x63;&#105;&#x6e;&#99;&#105;&#110;&#x6e;&#97;&#116;&#117;&#115;&#64;&#108;&#x61;&#118;&#x61;&#x62;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#109;</a>&rdquo;</p>
-
-<p>But look at this:</p>
-
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#99;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#x61;&#116;&#117;&#x73;&#x40;&#108;&#97;&#118;&#97;&#x62;&#x69;&#x74;&#x2e;&#99;&#111;&#109;">&#99;&#105;&#110;&#x63;&#x69;&#x6e;&#110;&#97;&#116;&#x75;&#115;&#x40;&#x6c;&#97;&#x76;&#97;&#98;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></p></blockquote>
-
-<pre><code>-----BEGIN PGP MESSAGE-----
-Version: GnuPG v1
-
-hQQMAwAAAAAAAAAAAR/+O7sldU8CMp7xZE9aPaOoIgb3i7GumO0mGlkhCZ3JDLhB
-...
-</code></pre>
-
-<p>Notice the A&rsquo;s in the beginning. What you&rsquo;ve done is 0&rsquo;d out the key ID of the intended recipient.</p>
-
-<h2>What does this mean</h2>
-
-<p>If you are a normal PGP user, the first block in your message is a list of the keyids that it is encrypted to. If you were someone with the ability to intercept communications, you had better believe that PGP encrypted messages are going to be a high value find.</p>
-
-<p>Those people that are using PGP to protect their communications and not using something like HTTPS or SMTPS will be subject to very simple graphing of who and when you are talking to other recipients.</p>
-
-<h2>Can it be fixed</h2>
-
-<p>You can use <code>--hidden-recipient</code> as a drop in replacement for the <code>-r</code> flag. Even better, Enigmail, the PGP plugin for Thunderbird, will automaticaly do this for you when you send messages to people via BCC.</p>
-
-<p>You should note that when you use this switch, gpg has no idea how to decrypt incoming messages so it just tries every single one of your private keys.</p>
-
-<p>Lets let PGP die.</p>
+<p>You can however decide not to use keyserers if you already have an established band of communication outside of email. If you have a website, business card, or some other form of anonymous communication, you can dump your public key in that location.</p>
 </div>
   
   
@@ -169,6 +138,10 @@ hQQMAwAAAAAAAAAAAR/+O7sldU8CMp7xZE9aPaOoIgb3i7GumO0mGlkhCZ3JDLhB
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/11/17/opsec-mobile/">Mobile Security and OPSEC</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/08/17/death-to-pgp/">Death to OpenPGP and GPG</a>
@@ -204,10 +177,6 @@ hQQMAwAAAAAAAAAAAR/+O7sldU8CMp7xZE9aPaOoIgb3i7GumO0mGlkhCZ3JDLhB
     
       <li class="post">
         <a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a>
       </li>
     
   </ul>

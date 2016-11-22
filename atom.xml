@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-08-20T23:40:48+00:00</updated>
+  <updated>2016-11-22T01:15:26+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mobile Security and OPSEC]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/11/17/opsec-mobile/"/>
+    <updated>2016-11-17T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/11/17/opsec-mobile</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/mobile.png" width="300">
+One of the Tor Project developers, Mike Perry, has documented the difficulties in securing a mobile device. If you haven&rsquo;t thought this through, here&rsquo;s likely how it would go:</p>
+
+<ul>
+<li>You don&rsquo;t use iOS. Apple has backdoors installed by design and don&rsquo;t listen to press releases that tell you otherwise</li>
+<li>You could use a cryptophone. This was a great idea for a time when nothing else existed but unless you have a friend with another cryptophone, and a large wallet, it&rsquo;s not happening.</li>
+<li>You could use a Neo900. This is not a bad idea but it&rsquo;s just not keeping up with the times.</li>
+<li>Well I&rsquo;ll just lock down Android or a Linux device and make it ultra secure. Ok. Now you&rsquo;re on the same page but here&rsquo;s why that&rsquo;s so hard:</li>
+</ul>
+
+
+<p>If you go back to 2014, <a href="https://blog.torproject.org/blog/mission-impossible-hardening-android-security-and-privacy">Tor Project&rsquo;s blog post</a> first documented the dire state of mobile security. In short, Android has a lot of fantastic security features maligned with a variety of horrific privacy deal-breakers.</p>
+
+<h2>Why do we need a mobile device</h2>
+
+<p><span class='pullquote-right' data-pullquote='This dichotomy of liberation technology and privacy abandonment is a perfect example of the OPSEC struggle.'>
+OPSEC is not just restricting what you do and how you act, it&rsquo;s also coming up with solutions to figure out how to do things securely. We can&rsquo;t apply a unilateral security policy on other people or simply say &ldquo;Nope. You can&rsquo;t do that.&rdquo; There simply are people that need to be able to do things that may be risky. It&rsquo;s our job to learn about technology so that we can figure out ways to do what we need to do while taking OPSEC into account.</p>
+
+<p>Mobile is the best example of this problem. Mobile devices give us a powerful way of staying connected but we all know that a mobile device is basically a tracking device you willingly put in your pocket (and even worse than that). This dichotomy of liberation technology and privacy abandonment is a perfect example of the OPSEC struggle.
+</span></p>
+
+<h2>What can Android offer</h2>
+
+<p>Android is not just a Linux computer in your pocket like many recite. Android is the most secure Linux environment whether or not it&rsquo;s in your pocket&hellip; but is also backdoored. Consider whether your Linux distro of choice supports these features:</p>
+
+<ul>
+<li>Sandboxed isolation for every running application</li>
+<li>Hardware backed, forensic-resistant storage location for keys and passwords.</li>
+<li>Verification for all system partitions at boot</li>
+<li>Controlled application inter-process communication mechanism</li>
+<li>Egress firewall controls and alerts</li>
+<li>Controls over what an application can have access to</li>
+</ul>
+
+
+<p>This checklist outlines many of the goals for <a href="https://subgraph.com/sgos/index.en.html">Subgraph OS</a>.</p>
+
+<h2>What are Android&rsquo;s problems</h2>
+
+<p>This is much harder to list. There are a ton of problems built into Android&rsquo;s core that need to be addressed.</p>
+
+<ul>
+<li><em>Baseband</em>: all cellular devices have a baseband and no one knows what it does. This baseband can transmit your location and, even worse, has the ability to be a complete backdoor into the system.</li>
+<li><em>Network controls</em>: Android&rsquo;s base OS has no egress filtering. Any application that has received the appropriate permissions can access any remote host.</li>
+<li><em>Authentication controls</em>: Having a strong password on a laptop is easier than on a touch screen interface. So users will end up choosing numeric pins to protect sensitive data.</li>
+<li><em>Google</em>: Just the fact that in the end Google controls all of the code and the devices but promises to release it in itself is a risk.</li>
+<li><em>Others</em>: Google Play Store, WiFi scanning, binary blobs, vulnerable Linux kernels, &hellip; the list goes on.</li>
+</ul>
+
+
+<h2>What&rsquo;s the answer</h2>
+
+<p>Mike Perry outlines the problems and provides a less bleak perspective on the state of mobile thanks to <a href="https://copperhead.co/android">Copperhead OS</a>, the secure from-the-ground-up Android OS. Copperhead addresses many of the items above in itself. If you have a supported device, I suggest you take a look at flashing Copperhead today.</p>
+
+<p>The result is a phone:</p>
+
+<ul>
+<li>Anonymously routed through tor and enforced at the firewall/Netfilter level</li>
+<li>Modern Linux kernel with GRSEC PAX protections built in</li>
+<li>Firewall that grants users control over what an application can connect to</li>
+<li>OS Source built with modern hardening methods that the base Android OS never cared to implementation</li>
+</ul>
+
+
+<p>But what Tor Project is doing is the same as what they did to Firefox. They didn&rsquo;t fork the code, they cloned it to make the Tor Browser Bundle. The process that they outline for their super secure phone requires that you build from source and execute a variety of scripts but all do-able. They can&rsquo;t fix everything but this is major step in the right direction or at least a short term fix to make something that we can use today.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Death to OpenPGP and GPG]]></title>
@@ -318,7 +391,7 @@ out of the original news feed.</p>
 
 <p>Here&rsquo;s a interesting experiment. First run</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x63;&#105;&#110;&#99;&#x69;&#x6e;&#x6e;&#97;&#x74;&#117;&#115;&#x40;&#108;&#97;&#x76;&#x61;&#x62;&#105;&#x74;&#x2e;&#99;&#111;&#x6d;">&#99;&#105;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#x74;&#x75;&#115;&#64;&#108;&#x61;&#x76;&#97;&#98;&#x69;&#116;&#x2e;&#x63;&#111;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x63;&#x69;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#116;&#117;&#x73;&#64;&#108;&#97;&#118;&#97;&#98;&#105;&#116;&#46;&#99;&#x6f;&#x6d;">&#99;&#105;&#x6e;&#x63;&#105;&#110;&#x6e;&#97;&#x74;&#117;&#115;&#x40;&#108;&#97;&#118;&#x61;&#98;&#105;&#116;&#46;&#99;&#x6f;&#109;</a></p></blockquote>
 
 <p>You will get something like this:</p>
 
@@ -334,11 +407,11 @@ hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
 
 <p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
     gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
-      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#99;&#x69;&#110;&#x63;&#105;&#110;&#110;&#x61;&#116;&#x75;&#115;&#64;&#x6c;&#97;&#x76;&#97;&#98;&#x69;&#116;&#x2e;&#99;&#x6f;&#x6d;">&#x63;&#105;&#x6e;&#99;&#105;&#110;&#x6e;&#97;&#116;&#117;&#115;&#64;&#108;&#x61;&#118;&#x61;&#x62;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#109;</a>&rdquo;</p>
+      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#99;&#105;&#x6e;&#x63;&#105;&#x6e;&#110;&#x61;&#116;&#x75;&#x73;&#64;&#108;&#x61;&#118;&#97;&#x62;&#105;&#x74;&#x2e;&#99;&#x6f;&#109;">&#99;&#105;&#x6e;&#99;&#x69;&#110;&#110;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#x61;&#98;&#105;&#116;&#46;&#99;&#111;&#109;</a>&rdquo;</p>
 
 <p>But look at this:</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#99;&#x69;&#x6e;&#x63;&#x69;&#110;&#x6e;&#x61;&#116;&#117;&#x73;&#x40;&#108;&#97;&#118;&#97;&#x62;&#x69;&#x74;&#x2e;&#99;&#111;&#109;">&#99;&#105;&#110;&#x63;&#x69;&#x6e;&#110;&#97;&#116;&#x75;&#115;&#x40;&#x6c;&#97;&#x76;&#97;&#98;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#x63;&#105;&#110;&#99;&#105;&#x6e;&#x6e;&#97;&#x74;&#117;&#x73;&#64;&#108;&#x61;&#x76;&#x61;&#x62;&#x69;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#99;&#105;&#110;&#x63;&#105;&#x6e;&#x6e;&#97;&#116;&#117;&#115;&#64;&#108;&#x61;&#x76;&#x61;&#x62;&#x69;&#116;&#x2e;&#99;&#x6f;&#109;</a></p></blockquote>
 
 <pre><code>-----BEGIN PGP MESSAGE-----
 Version: GnuPG v1
@@ -1266,137 +1339,6 @@ Technical details aside for a moment, it works similar to how I write about OSPE
 <p><span class='pullquote-right' data-pullquote='It’s always better to confide in someone a secret, than risk they find out on their own.'>
 It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s always better to confide in someone a secret, than risk they find out on their own. By letting them in on the secret, and showing them how serious the secret is to you, you are asking them to join in to protect that secret. Without doing so ahead of time, there is no social contract that would imply this.
 </span></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Evading Stylometry Attacks Using VIM Spellcheck]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck/"/>
-    <updated>2015-09-22T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/09/22/stylometric-evasions-with-spellcheck</id>
-    <content type="html"><![CDATA[<p>We&rsquo;ve discussed the concerns of <a href="http://www.b3rn3d.com/blog/2014/01/31/tools-styometrics/">stylometric attacks</a> and how good adversaries are at it today. There are only a few tools that attempt to anonymize your writing style and none so far can do it inline. But there&rsquo;s help.</p>
-
-<p>If you are concerned about these types of attacks you can start customizing your favorite writing application (VIM, Kate, etc) to leverage syntax highlighting as a way of pointing out when you&rsquo;re stylometrically leaking information.</p>
-
-<p>For example, when I write, I often say &ldquo;for example&rdquo; and while this is a common phrase, it can be used to begin to help fingerprinting your writing style across multiple sources of text. In VIM, you can use custom spell check to highlight certain syntax or just use the spell checker to highlight the fact that you&rsquo;re using buzz phrases like &ldquo;the fact that&rdquo;.</p>
-
-<h2>VIM</h2>
-
-<p>Here&rsquo;s a way to add your favorite words to the VIM spell check list as a bad word. Whenever you use that word, VIM will prompt you in red that it&rsquo;s been misspelled. By definition, everyone&rsquo;s common words are different so you&rsquo;ll need to review some of your recent writings' grammar, as well as help you find which words to add.</p>
-
-<ul>
-<li>Enable spell check in your .vimrc file by adding the following line:</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>set spell spelllang=en_gb</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Add &ldquo;bad words&rdquo; in VIM by putting the cursor over a word and sending &ldquo;zW&rdquo;. This will add it to VIM&rsquo;s internal bad word list.</li>
-</ul>
-
-
-<p>Now whenever you type that word, VIM will automatically red-flag it to remind you that you may not want to use it.</p>
-
-<h2>Grammar</h2>
-
-<p>This is a poor mans way of defending against stylometric attacks and I would recommend attempting to use tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> to help you anonymize your writings, but sometimes you just need a reminder that you use a phrase too often.</p>
-
-<h2>UPDATE</h2>
-
-<p>If you want to at least do a frequency analysis of the words in your text, it&rsquo;s pretty easy to do. The following is an example in python. If you run this and provide an argument of your text file, it will give you a break down of your most common words, hopefully to help you determine what words you could be attributed to using most often.</p>
-
-<figure class='code'><figcaption><span>stemmer.py </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
-</span><span class='line'><span class="c"># Author: b3rn3d</span>
-</span><span class='line'><span class="c"># Based on: http://www.nltk.org/api/nltk.stem.html</span>
-</span><span class='line'><span class="c"># Usage: ./stemmer.py filename.txt</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'><span class="k">try</span><span class="p">:</span>
-</span><span class='line'>  <span class="kn">from</span> <span class="nn">Stemmer</span> <span class="kn">import</span> <span class="n">Stemmer</span> <span class="k">as</span> <span class="n">SS</span>
-</span><span class='line'><span class="k">except</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;Stemmer/Snowball not installed. Please install it via apt-get install python-stemmer&quot;</span>
-</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;FAIL: Supply test file to analyze.&quot;</span>
-</span><span class='line'>  <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span class='line'><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#extract words</span>
-</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;\w+&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">stemmer</span> <span class="o">=</span> <span class="n">SS</span><span class="p">(</span><span class="s">&#39;english&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#count stems and extract shortest words possible</span>
-</span><span class='line'><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">stem</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stemWord</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">stem</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">shortest</span><span class="p">,</span><span class="n">count</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span>
-</span><span class='line'>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">shortest</span><span class="p">):</span>
-</span><span class='line'>            <span class="n">shortest</span> <span class="o">=</span> <span class="n">word</span>
-</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">shortest</span><span class="p">,</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">else</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">counts</span><span class="p">[</span><span class="n">stem</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">#convert {key: (word, count)} to [(word, count, key)] for convenient sort and print</span>
-</span><span class='line'><span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">wordcount</span> <span class="o">+</span> <span class="p">(</span><span class="n">root</span><span class="p">,)</span> <span class="k">for</span> <span class="n">root</span><span class="p">,</span><span class="n">wordcount</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-</span><span class='line'><span class="c">#trick to sort output by count (descending) &amp; word (alphabetically)</span>
-</span><span class='line'><span class="n">output</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-</span><span class='line'><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
-</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%d</span><span class="s"> (Root: </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">item</span>
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
