@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>B3RN3D</title>
+  <title>Burning Tor Support - B3RN3D</title>
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example. History of the WoT PGP was invented &hellip;">
+  <meta name="description" content="You may be someone that is interested in supporting the Tor Network and planned to do so by running an exit node or bridge or whatever. The logical &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.b3rn3d.com/posts/7">
+  <link rel="canonical" href="http://www.b3rn3d.com/blog/2016/12/31/tor-support">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
@@ -62,15 +62,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a></h1>
+      <h1 class="entry-title">Burning Tor Support</h1>
     
     
       <p class="meta">
@@ -86,53 +83,82 @@
   
 
 
-<time datetime="2016-04-15T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-12-31T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example.</p>
+<div class="entry-content"><p><img class="right" src="/images/angry.jpeg" width="300"></p>
 
-<h2>History of the WoT</h2>
+<p>You may be someone that is interested in supporting the Tor Network and planned to do so by running an exit node or bridge or whatever. The logical plan in many countries is to host the server on a VPS and bonus points for if that VPS is in a region that improves the geographic diversity of the Tor Network. So you set your sites on finding a good VPS provider that other nodes are not currently using but also supports exit nodes.</p>
 
-<p>PGP was invented in the 90&rsquo;s as a way of bolting on security on top of the ultra insecure SMTP spec. The web-of-trust was designed similarly to how we designed DNS back then &ndash; distribute trust across multiple sources. But unlike DNS that had a hierarchy of trust, PGP&rsquo;s young idealist authors thought that we could decentralize trust and let everyone on the client side build up trust networks themselves.</p>
+<p>The next step, and the crucial one, is to try a <a href="http://www.cheapvpslist.com/">few VPS providers</a> and see if they&rsquo;re going to allow you to run an exit. They may not have a policy about it or the policy is ambiguous so you give it a shot. Maybe you do this with multiple providers with a plan to figure out which one you like the best.Up to now, you&rsquo;re doing a great job, it&rsquo;s the next step that is causing a lot of problems.</p>
 
-<h2>Social Graph</h2>
+<h2>The Problem</h2>
 
-<p>Surround your pullquote like this {&ldquo; text to be quoted &rdquo;}</p>
+<p>What&rsquo;s been happening for years is that people do this and they want to learn how to run an exit and all the fun involved, but they end up pissing off the VPS provider. There&rsquo;s a lot of ways these ISP&rsquo;s could get pissed off:</p>
 
-<p>Here&rsquo;s a graph of all the people that have been in contact with each other:</p>
+<ul>
+<li>You&rsquo;re running an unrestricted exit policy and you are at the top of the abuse complaint list for that provider</li>
+<li>You don&rsquo;t respond to abuse complaints in a timely manner</li>
+<li>You don&rsquo;t pay your bills on time because you don&rsquo;t care</li>
+<li>You issue lots of support requests that are time consuming (e.g. SWIP transfer)</li>
+</ul>
 
-<h2>Kill The Keyservers</h2>
 
-<p>For people that are sharing their information on Facebook, this is in-line with their OPSEC. Share everything, and don&rsquo;t worry about privacy. But for those of us that actually would like to maintain their privacy and ideally some sorts of pseudonymity, this is a deal breaker.</p>
+<p>The big problem is that when this realtionship is burned, the Tor Project &ldquo;Supporter&rdquo; can simply walk away without consequence but what they don&rsquo;t see is these providers now have a bad taste in their mouth about tor in general. The next time someone comes to them and says they&rsquo;d like to run a tor exit, they&rsquo;re going to roll their eyes and think twice. This is happening at a large-enough scale that multiple ISP&rsquo;s to have given me the same exact story.</p>
 
-<p>Not only is this a graph of all the people you&rsquo;ve met, the keyserver will maintain a log of all people that have downloaded your particular key. Even if the person isn&rsquo;t contributing to the WoT, if they use the keyserver, it can be assumed that you mean to communicate with that person.</p>
-
-<h2>Fixes?</h2>
-
-<p>This is the one of the primary reasons PGP should die. If you say that you aren&rsquo;t going to use a keyserver such as MIT&rsquo;s, there-by evading the WoT, you have no place to put your PGP key and you have no way of checking to see if someone else&rsquo;s key server exists. Keyservers are a crucial element in the OpenPGP standard.</p>
-
-<p>You can however decide not to use keyserers if you already have an established band of communication outside of email. If you have a website, business card, or some other form of anonymous communication, you can dump your public key in that location.</p>
+<p>If you want to run an exit, bridge, relay, whatever, don&rsquo;t forget that you are also being an advocate and representative of the rest of the tor network.</p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">b3rn3d</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2016-12-31T00:00:00+00:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
   
-  <div class="pagination">
-    
-      <a class="prev" href="8">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="6">Newer &rarr;</a>
-    
-  </div>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.b3rn3d.com/blog/2016/12/31/tor-support/" data-via="" data-counturl="http://www.b3rn3d.com/blog/2016/12/31/tor-support/" >Tweet</a>
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/11/17/opsec-mobile/" title="Previous Post: Mobile Security and OPSEC">&laquo; Mobile Security and OPSEC</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -188,6 +214,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

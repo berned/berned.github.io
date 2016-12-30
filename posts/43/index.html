@@ -9,7 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example. History of the WoT PGP was invented &hellip;">
+  <meta name="description" content="If you are compartmentalizing accounts, making multiple identities, and keeping
+them separated, you run into a few problems. One of which is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.b3rn3d.com/posts/7">
+  <link rel="canonical" href="http://www.b3rn3d.com/posts/43">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="B3RN3D" type="application/atom+xml">
@@ -70,7 +71,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/15/let-openpgp-die2/">Reasons to Let PGP Die #2: Web-of-Trust</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/01/05/levels-of-opsec/">Defining Levels of Opsec to Your Identities</a></h1>
     
     
       <p class="meta">
@@ -86,36 +87,80 @@
   
 
 
-<time datetime="2016-04-15T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2014-01-05T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In my continued series hate on PGP, I wanted to cover why PGP should die by using the web-of-trust as an example.</p>
+  <div class="entry-content"><p>If you are compartmentalizing accounts, making multiple identities, and keeping
+them separated, you run into a few problems. One of which is remembering the
+OPSEC measures you&rsquo;ve decided to employ for each account.</p>
 
-<h2>History of the WoT</h2>
+<ul>
+<li>Political Dissident
 
-<p>PGP was invented in the 90&rsquo;s as a way of bolting on security on top of the ultra insecure SMTP spec. The web-of-trust was designed similarly to how we designed DNS back then &ndash; distribute trust across multiple sources. But unlike DNS that had a hierarchy of trust, PGP&rsquo;s young idealist authors thought that we could decentralize trust and let everyone on the client side build up trust networks themselves.</p>
+<ul>
+<li>Goal: Leak information about a local dirty politician</li>
+<li>OPSEC: Work laptop but using a VPN service to access Twitter</li>
+<li>Risks: Politician will come after you and your familiy</li>
+</ul>
+</li>
+<li>Human Body Part Trafficer
 
-<h2>Social Graph</h2>
+<ul>
+<li>Goal: Buy and sell kidneys, livers, and various body parts to the highest
+bidder on the black market</li>
+<li>OPSEC: Dedicated laptop running an anonymized OS. Do not access any other
+services besides the black market forum. Never gets on the Clearnet.</li>
+<li>Risks: Law enforcement may find you and throw you in jail for a long time</li>
+</ul>
+</li>
+</ul>
 
-<p>Surround your pullquote like this {&ldquo; text to be quoted &rdquo;}</p>
 
-<p>Here&rsquo;s a graph of all the people that have been in contact with each other:</p>
+<p>In each of these examples you have completely different activities and
+completely different risks. The political dissident has decided she only needs
+to minimally protect herself as the local politician she&rsquo;s messing with
+doesn&rsquo;t have the means to figure out who would be leaking the
+information. The body part trafficer though knows that he is a target and has
+chosen to protect himself.</p>
 
-<h2>Kill The Keyservers</h2>
+<p>What happens when you scale even further: One identity runs a black market
+forum, one identity likes to chat with people on twitter, one identity hangs
+out in the Anon IRC channels. It&rsquo;s easy to lose track of which identities
+are used for what and what kind of OPSEC measures you&rsquo;ve chosen to use.</p>
 
-<p>For people that are sharing their information on Facebook, this is in-line with their OPSEC. Share everything, and don&rsquo;t worry about privacy. But for those of us that actually would like to maintain their privacy and ideally some sorts of pseudonymity, this is a deal breaker.</p>
+<p>ne solution to this is to categorize your identities into levels where each
+level has its own decided upon OPSEC measure. For instance:</p>
 
-<p>Not only is this a graph of all the people you&rsquo;ve met, the keyserver will maintain a log of all people that have downloaded your particular key. Even if the person isn&rsquo;t contributing to the WoT, if they use the keyserver, it can be assumed that you mean to communicate with that person.</p>
+<ul>
+<li>Level 0 &ndash; No protections. You don&rsquo;t care about privacy and are
+not concerned with other people attributing your online activities to
+yourself.</li>
+<li>Level 1 &ndash; Minimal: You are concerned about privacy, but choose simple,
+minimalist tactics to protect yourself. For example, you are using a VPN
+service for everyday browsing, but being caught is inconsequential.</li>
+<li>Level 2 &ndash; Medium: You are concerned with your privacy and take action
+to ensure that you are safe. It is likely that if someone finds out what you
+are doing, you&rsquo;ll have to pay a price, but it is not a life-and-death
+situation. For example, journalists working with a source use the TAILS
+LiveCD.</li>
+<li>Level 3 &ndash; High: Those users that are likely to be targeted, and likely
+to have heavy consequences if caught. They have done everything in their
+power to maintain their pseudonymity, but still try to lead some semblance of
+a personal life.</li>
+<li>Level 4 &ndash; Extreme: These are reserved for those people doing high risk
+activities where the result of an adversary outing you is a matter of life
+and death. You&rsquo;re prepared to forgo personal relationships, worldly
+goods, and just about anything to maintain your anonymity.</li>
+</ul>
 
-<h2>Fixes?</h2>
 
-<p>This is the one of the primary reasons PGP should die. If you say that you aren&rsquo;t going to use a keyserver such as MIT&rsquo;s, there-by evading the WoT, you have no place to put your PGP key and you have no way of checking to see if someone else&rsquo;s key server exists. Keyservers are a crucial element in the OpenPGP standard.</p>
-
-<p>You can however decide not to use keyserers if you already have an established band of communication outside of email. If you have a website, business card, or some other form of anonymous communication, you can dump your public key in that location.</p>
+<p>Knowing your likely threats, and defining your level of pseudonymity will help
+keep management of your OPSEC measures consistent. Something that recent
+arrests seem to have failed at.</p>
 </div>
   
   
@@ -125,11 +170,9 @@
   
   <div class="pagination">
     
-      <a class="prev" href="8">&larr; Older</a>
-    
     <a href="/blog/archives">Blog Archives</a>
     
-    <a class="next" href="6">Newer &rarr;</a>
+    <a class="next" href="42">Newer &rarr;</a>
     
   </div>
 </div>

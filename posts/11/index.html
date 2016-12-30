@@ -9,7 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to Tor?&rdquo; and &ldquo;Should I use Tor to connect to a VPN?&rdquo; &hellip;">
+  <meta name="description" content="I really like learning about new OPSEC tactics, especially if they&rsquo;re done
+by the non-tech savvy. Below we talk about the threat model of a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +71,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/02/08/vpn-and-tor/">Using a VPN With Tor</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a></h1>
     
     
       <p class="meta">
@@ -86,89 +87,106 @@
   
 
 
-<time datetime="2016-02-08T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-03-05T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img class="center" src="/images/torvpnsilly.png"></p>
+  <div class="entry-content"><p><img class="right" src="/images/nypd_camera.jpg" title="NYPD Camera" ></p>
 
-<p><span class='pullquote-right' data-pullquote='Should I use Tor to VPN into a VPN to connect to Tor via VPN… with Tor.'>
-The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to Tor?&rdquo; and &ldquo;Should I use Tor to connect to a VPN?&rdquo; and various combinations of Should I use Tor to VPN into a VPN to connect to Tor via VPN&hellip; with Tor.
+<p>I really like learning about new OPSEC tactics, especially if they&rsquo;re done
+by the non-tech savvy. Below we talk about the threat model of a Harlem
+residents and their defensive tactics.</p>
+
+<h2>Harlem: Surveillance Hipsters</h2>
+
+<p>New York City&rsquo;s, Harlem, is home to the city&rsquo;s lower income population. Not
+impoverish but, not Manhattan. Harlem has had an illustrious history being
+targeted by NYPD and other forms of law enforcement. Surveillance is part of
+every-day life. Who better to give us some perspective on dealing with mass
+surveillance on a day-to-day basis.</p>
+
+<p>Harlem residents aren&rsquo;t concerned about NSA or GCHQ. They have a local
+surveillance issues to deal with:</p>
+
+<ul>
+<li>Surveillance from their employers who install cameras to watch them work.</li>
+<li>Surveillance from the local NYPD who have installed street cameras on the
+corners that they know are not installed in Manhattan.</li>
+<li>Surveillance from ex-boyfriends on Facebook who are keeping track of who
+they talk with or what parties they go to.</li>
+</ul>
+
+
+<p><span class='pullquote-right' data-pullquote='You
+might not find their tactics useful, but it serves as a remember that
+OPSEC is dependent on the threat model.'>
+They have a different threat model compared to the nation-state dissident. You
+might not find their tactics useful, but it serves as a remember that
+OPSEC is dependent on the threat model. Someone hiding from the government
+employs different tactics than someone hiding from their ex-boyfriend. The
+threats are one in the same.
 </span></p>
 
-<p>The developers at the Tor Project (whom I respect immensely and believe know what they&rsquo;re talking about) have a unilateral policy for this to never use a VPN to connect to Tor. Here&rsquo;s a snippet from a recent discussion on the <a href="http://archives.seul.org/tor/talk/">tor-talk mailing list</a>:</p>
+<h2>Family Plan Surveillance</h2>
 
-<blockquote><p>...if somebody somehow breaks the anonymity of your Tor<br/>circuit, it's nice to have another layer behind that. But if somebody guesses that you're using a particular VPN, or you pick a VPN that they're already monitoring for other reasons, then you basically let them see the beginning of your circuit when otherwise they might not have been able to.</p><footer><strong>Roger Dingledine</strong> <cite><a href='http://archives.seul.org/tor/talk/Jan-2016/msg00225.html'>Tor-talk</a></cite></footer></blockquote>
+<p>The US has &ldquo;Family Plans.&rdquo; These are cell
+phone plans that you share with trusted friends and family to
+can keep your bill to a minimum. But what happens when you no longer trust
+someone on the plan? You don&rsquo;t kick them off. You ignore them. It&rsquo;s cheaper.</p>
 
-
-<p>In this he&rsquo;s saying if you&rsquo;re using a VPN to connect to Tor, you&rsquo;re putting yourself at greater risk because the VPN service has a log of your information, your connection times, and the fact that you made a connection to Tor. This is supposed to be higher risk because if a nation state decided to perform passive monitoring, the place they would start is the VPNs. (He also compares this to having a consistent first hop guard node that everyone uses but I&rsquo;ll leave that debate for another day.)</p>
-
-<h2>He&rsquo;s Right&hellip; Sometimes</h2>
-
-<p>Dingledine&rsquo;s logic is sound and if one were to have a policy to share with a community, it should be this one because it puts the least amount of risk on tor users. But, as with most things related to security, a unilateral policy is not always the best one. You need to know your <a href="/blog/2014/01/10/ask-him-about-his-threat-model/">threat model</a>.</p>
-
-<h2>The Case of the Harvard Bomber</h2>
-
-<p>There is a now <a href="http://edition.cnn.com/2013/12/17/justice/massachusetts-harvard-hoax/">famous case of student at Harvard</a> who had not finished studying for his finals and decided he wanted to email a bomb threat into the school to stop tests from happening. He went back to his dorm room, fired up Tor Browser, and sent an email from Guerrilla Mail to the school.</p>
-
-<p><img class="right" src="/images/eldo.png"></p>
-
-<p>In this case, tor protected his anonymity. The email could not be traced back through the Tor network and to his IP address. Tor did it&rsquo;s job. His downfall was that he made the connect to Tor from his dorm room. The university admins simply went back and found all the tor connections at the time of the email, and found that it was a very small segment of students. The police went to each of those students and eventually found their man.</p>
-
-<p>What if the Harvard Bomber used a VPN to first connect into Tor? Would it have saved him? Maybe, or at least it would have made it more difficult. He would connect into the VPN service used by hundreds or thousands of other people, and then connect into the Tor Network. This might mean that even when they noticed the Tor traffic, they wouldn&rsquo;t be able to attribute it to a specific student because there would be no log of them connecting to the Tor network. (That being said, Harvard could subpoena the VPN provider and try to determine which of the VPN users were from Harvard and which of them connected through Tor but I&rsquo;m trying to make a point. :) )</p>
-
-<h2>When to VPN > Tor</h2>
-
-<p><img class="center" src="/images/vpntor.png" title="VPN > Tor" ></p>
-
-<p>Here&rsquo;s when you <em>might</em> want to use a VPN to connect into Tor:</p>
+<p>For some of these sketchy carriers, a member of the plan can:</p>
 
 <ul>
-<li><strong>Geographic fingerprinting</strong>: You are from a small village with not very many Tor users. If there was a suggestion that sketchy activity has happened, they would knock on your door first. Especially if your operation was geographically specific (like a bomb threat).</li>
-<li><strong>Untrusted ISP</strong>: You know that your ISP is monitoring, logging, and sharing your connection information (hint: they are). You could make a choice to hide your connection details from your ISP and instead give that responsibility to your VPN service which you have more trust for.</li>
-<li><strong>Plausible Deniability</strong>: You could rely on the fact that thousands of other people are using the VPN service at that same time so it&rsquo;s difficult to correlate activities to an individual.</li>
-<li><strong>Jurisdiction Diversity</strong>: It&rsquo;s easy for most organizations to issue a subpoena to a company in their same company. It&rsquo;s also easy for any of the <a href="https://en.wikipedia.org/wiki/Five_Eyes">5, 9, or 14 Eyes</a> to target services in their shared jurisdictions. If you have a VPN provider that is not in one of these jurisdictions, you can use them to make it harder to issue subpoenas to.</li>
+<li>Get access to a backup of the phone&rsquo;s contact lists</li>
+<li>Read text messages</li>
+<li>Get the call records for the account</li>
+<li>Track the location of a phone using a &ldquo;Find My Phone&rdquo; app</li>
 </ul>
 
 
-<h2>When to Tor > VPN</h2>
+<p>This is their threat. On a day-to-day basis they aren&rsquo;t worried about the FBI
+cracking down on them, they&rsquo;re worried about their ex-boyfriend stalking them.</p>
 
-<p><img class="center" src="/images/torvpn.png" title="Tor > VPN" ></p>
+<h2>Social Lions</h2>
 
-<p>This is a bit more difficult to accomplish but possible. The issues here are you have to make sure you&rsquo;ve purchased a VPN service anonymously, make sure that it allows connections via tor, and make sure it supports TCP as tor is a TCP-only protocol. The only scenario I can think of that you would need this is:</p>
+<p>We know that LEO&rsquo;s will keep track of social networking in their jurisdiction.
+NYPD has invested millions to keep track of this effort. This is done in one
+of a few ways. Most common of which, NYPD will make a request to Facebook for
+access to a specific facebook account. I&rsquo;m told that 80%-90% of the time,
+Facebook does not contest these requests and as long as it&rsquo;s coming from an
+attributable law enforcement office, they&rsquo;re provided without any oversight.</p>
+
+<p>The other more nefarious <a href="http://www.theverge.com/2014/12/10/7341077/nypd-harlem-crews-social-media-rikers-prison">tactic that NYPD specifically uses</a> is to generate
+fake accounts and target individuals in the neighbor hood. Keep track of their
+friends, watch what parties they go to, see what people are talking about.</p>
+
+<p>The people in these neighborhoods know this is happening in the same way that
+they know the street cameras in the streets are keeping track of them.</p>
+
+<h2>Harlem OPSEC</h2>
+
+<p>For the non-tech savvy, their tactics are brilliant. They include:</p>
 
 <ul>
-<li><strong>Tor Blocked</strong>: Less of a security issue and more about usability, if a service blocks all tor exit nodes, you can try to use tor to hide you connection into a VPN service which is unlikely blocked.</li>
+<li><strong>Emoji-contacts</strong>: Never saving their friends names in their phone. Use emoticons instead. Smiley
+face is a new boyfriend. Cake is your friend from the club. Happy penguin is
+your pot dealer.</li>
+<li><strong>Never using iPhones</strong>: They don&rsquo;t trust these devices and their tracking
+capabilities. Instead use a cheap Android device they feel can&rsquo;t track them
+as accurately.</li>
+<li><strong>Don&rsquo;t use SMS</strong>: Use messaging apps like snapchat for messages with new boyfriends. They know
+that these are protected and don&rsquo;t show up on the records for the account.</li>
+<li><strong>Watch Out Who Friends You</strong>: They believe that the NYPD is &ldquo;Cat Fishing&rdquo;
+them to learn about their social circles and keep track of things they post
+that might be illegal.</li>
 </ul>
 
 
-<p>That being said, this is a really bad idea because when you have a consistent endpoint you connect to, it could have unknown consequences to your anonymity. This is the main reason that Tor switches circuits regularly instead of using the same circuit every time.</p>
-
-<h2>When to VPN > Tor > VPN or Tor > Tor</h2>
-
-<p><img class="center" src="/images/vpntorvpn.png" title="VPN > Tor > VPN" ></p>
-
-<p>Now we&rsquo;re getting nutty but we can think it through. You&rsquo;ve made the choice to connect to tor via VPN, why not make another hop and just connect to another VPN service via Tor. Or, if you think 1x tor is pretty good, so 2x tor must be even better! Use cases:</p>
-
-<ul>
-<li><strong>You&rsquo;re nutty:</strong> Generally if you think there is an undisclosed vulnerability in tor, that is actively being used, but you still think that tor is the best option, you want to protect yourself by layering methods on top of tor.</li>
-</ul>
-
-
-<p>Whatever your rationality, know that this method has not been tested to see if it maintains your anonymity. There are so many edge cases of mis-configuration, fingerprinting attacks on the service, and plausible statistical attacks on your connection, you shouldn&rsquo;t assume this makes any sense.</p>
-
-<h2>Further Reading</h2>
-
-<p>VPN&rsquo;s are just one example of laying protections on top of tor. You could us private VPN hosted on a VPS, or SSH service, or if don&rsquo;t understand any of this, a proxy. This debate comes up so regularly that lots of groups have posts and wiki pages about it. Check out the links below for additional information:</p>
-
-<ul>
-<li><a href="https://trac.torproject.org/projects/tor/wiki/doc/TorPlusVPN">https://trac.torproject.org/projects/tor/wiki/doc/TorPlusVPN</a></li>
-<li><a href="https://lists.torproject.org/pipermail/tor-talk/2012-January/022916.html">https://lists.torproject.org/pipermail/tor-talk/2012-January/022916.html</a></li>
-</ul>
-
+<p>Look, these aren&rsquo;t tactics that a tech-savvy person would use, but they show
+real-world examples of different kinds of threats and ways to compensate for them.</p>
 </div>
   
   
@@ -191,6 +209,10 @@ The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to To
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/12/31/tor-support/">Burning Tor Support</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/11/17/opsec-mobile/">Mobile Security and OPSEC</a>
@@ -226,10 +248,6 @@ The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to To
     
       <li class="post">
         <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a>
       </li>
     
   </ul>

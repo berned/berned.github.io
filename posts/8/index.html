@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="The FBiOS stories have reminded me about how many concessions we make to our OPSEC when we buy consumer products. I&rsquo;ll not turn this into a &hellip;">
+  <meta name="description" content="PGP is a 90&rsquo;s protocol that should have died along with SMTP. I&rsquo;m tired of it and how we&rsquo;re still trying very hard to use it. I& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a></h1>
     
     
       <p class="meta">
@@ -86,43 +86,67 @@
   
 
 
-<time datetime="2016-04-08T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-04-11T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The FBiOS stories have reminded me about how many concessions we make to our OPSEC when we buy consumer products. I&rsquo;ll not turn this into a diatribe about Consumerism but I thought it might be a good reminder to us all (myself included) that we should be weary of the products we purchase and their implications. We know about the threats of a mobile phone being able to track your location, read your text messages, and all kinds of scary &ldquo;features&rdquo; but the new consumer devices with network access may be the next scary beast.</p>
+  <div class="entry-content"><p>PGP is a 90&rsquo;s protocol that should have died along with SMTP. I&rsquo;m tired of it and how we&rsquo;re still trying very hard to use it. I&rsquo;m going to start reminding us about the various reasons PGP should die.</p>
 
-<h2>Fear Your Toys</h2>
+<h2>Metadata</h2>
 
-<p>All of those products that are installing IP&rsquo;s into your otherwise benign devices are a super high risk. Yes you&rsquo;ve heard this before, yes you know about it, but how many have you purchased and what do they do? If you are someone that is at least privacy conscious, think about making privacy conscious decisions.</p>
+<p>Lets cover metadata first. Things that are leaked outside of your normal message. We already know that metadata is easy to extract from a plaintext SMTP message, but its actually even easier from a PGP encrypted message.</p>
 
-<p><img class="right" src="/images/hackerbarbie.jpg" title="Hacker Barbie" ></p>
+<h2>Example</h2>
 
-<p>In the security industry people like to call any security research related to them &ldquo;RubbishSEC&rdquo; referring to the idea that whenever someone talks about hacking one of these devices, they&rsquo;re hacking a pile of trash that has no real security protections. And this is my point. It&rsquo;s true that your Nest doesn&rsquo;t have a lot of security protections but we accept this because &ldquo;it&rsquo;s a consumer device.&rdquo;</p>
+<p>Here&rsquo;s a interesting experiment. First run</p>
 
-<p>Manufacturers see consumers as people that do not care about security. They don&rsquo;t care about privacy or OPSEC or what types of threats their product introduces into the consumers' environment.</p>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#99;&#105;&#110;&#x63;&#105;&#110;&#x6e;&#x61;&#x74;&#117;&#x73;&#x40;&#x6c;&#97;&#118;&#97;&#98;&#x69;&#x74;&#x2e;&#99;&#x6f;&#109;">&#99;&#x69;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#116;&#x75;&#x73;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#x69;&#x74;&#x2e;&#x63;&#111;&#x6d;</a></p></blockquote>
 
-<p><span class='pullquote-right' data-pullquote='owning a Barbie Doll is analogous to running telnet'>
-Our flashy new consumer devices that have access to the Internet are not just toys, they are risk factors. Use for example the <a href="http://www.theguardian.com/technology/2015/nov/26/hackers-can-hijack-wi-fi-hello-barbie-to-spy-on-your-children">childrens doll security issue</a>. You might now think that owning a Barbie Doll is analogous to running telnet. In the same way that we wouldn&rsquo;t run unnecessary services on our computers, we shouldn&rsquo;t use hackable consumer devices in our homes. Think of your home or apartment right now. What do you have that has network access and what does it provide you?
-</span></p>
+<p>You will get something like this:</p>
 
-<h2>Defending Against Your Barbie</h2>
+<pre><code>-----BEGIN PGP MESSAGE-----
 
-<p>You have options to defend against the Toy Robot Uprising. You can take the activist stance and say &ldquo;I am not buying these products!&rdquo; and good for you if you can. Some of us that are weaker cannot do this and have become addicted to some of these consumer products. What then?</p>
+hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
+...
+</code></pre>
 
-<p>Just like QubesOS and Subgraph OS have created compartments for high risk processes, do the same for for you toys. There&rsquo;s a new technology called a &ldquo;toy box&rdquo; that is designed to be a container for all of your IoT devices. :) That&rsquo;s only half a joke. As I&rsquo;ve said over and over, if you want to live two lives in the dark and in the light, you have to compartmentalize.</p>
+<p>Then on that file, do a</p>
 
-<ul>
-<li>Put your Barbie on her own wireless network.</li>
-<li>Make sure that your refrigerator cannot connect to your laptop.</li>
-<li>Lock your toys away when you&rsquo;re not playing with them</li>
-<li>Unplug and disable devices when they&rsquo;re not in use</li>
-<li>Learn as much as you can about how they work.</li>
-</ul>
+<blockquote><p>gpg &ndash;list-only</p></blockquote>
 
+<p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
+    gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
+      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#99;&#x69;&#x6e;&#x63;&#x69;&#x6e;&#110;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#97;&#98;&#105;&#x74;&#x2e;&#99;&#111;&#x6d;">&#x63;&#105;&#x6e;&#99;&#x69;&#x6e;&#110;&#x61;&#x74;&#x75;&#115;&#64;&#108;&#97;&#118;&#97;&#x62;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a>&rdquo;</p>
+
+<p>But look at this:</p>
+
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#99;&#x69;&#x6e;&#99;&#105;&#110;&#x6e;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#x61;&#98;&#x69;&#116;&#46;&#99;&#x6f;&#x6d;">&#99;&#x69;&#x6e;&#99;&#105;&#110;&#110;&#x61;&#116;&#x75;&#x73;&#64;&#x6c;&#x61;&#x76;&#x61;&#x62;&#x69;&#x74;&#x2e;&#99;&#x6f;&#x6d;</a></p></blockquote>
+
+<pre><code>-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+hQQMAwAAAAAAAAAAAR/+O7sldU8CMp7xZE9aPaOoIgb3i7GumO0mGlkhCZ3JDLhB
+...
+</code></pre>
+
+<p>Notice the A&rsquo;s in the beginning. What you&rsquo;ve done is 0&rsquo;d out the key ID of the intended recipient.</p>
+
+<h2>What does this mean</h2>
+
+<p>If you are a normal PGP user, the first block in your message is a list of the keyids that it is encrypted to. If you were someone with the ability to intercept communications, you had better believe that PGP encrypted messages are going to be a high value find.</p>
+
+<p>Those people that are using PGP to protect their communications and not using something like HTTPS or SMTPS will be subject to very simple graphing of who and when you are talking to other recipients.</p>
+
+<h2>Can it be fixed</h2>
+
+<p>You can use <code>--hidden-recipient</code> as a drop in replacement for the <code>-r</code> flag. Even better, Enigmail, the PGP plugin for Thunderbird, will automaticaly do this for you when you send messages to people via BCC.</p>
+
+<p>You should note that when you use this switch, gpg has no idea how to decrypt incoming messages so it just tries every single one of your private keys.</p>
+
+<p>Lets let PGP die.</p>
 </div>
   
   
@@ -145,6 +169,10 @@ Our flashy new consumer devices that have access to the Internet are not just to
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/12/31/tor-support/">Burning Tor Support</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/11/17/opsec-mobile/">Mobile Security and OPSEC</a>
@@ -180,10 +208,6 @@ Our flashy new consumer devices that have access to the Internet are not just to
     
       <li class="post">
         <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/03/05/pratical-opsec/">Mass Surveillance for the Masses</a>
       </li>
     
   </ul>

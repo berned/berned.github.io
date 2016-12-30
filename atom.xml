@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-11-22T01:15:26+00:00</updated>
+  <updated>2016-12-30T20:14:14+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Burning Tor Support]]></title>
+    <link href="http://www.b3rn3d.com/blog/2016/12/31/tor-support/"/>
+    <updated>2016-12-31T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2016/12/31/tor-support</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/angry.jpeg" width="300"></p>
+
+<p>You may be someone that is interested in supporting the Tor Network and planned to do so by running an exit node or bridge or whatever. The logical plan in many countries is to host the server on a VPS and bonus points for if that VPS is in a region that improves the geographic diversity of the Tor Network. So you set your sites on finding a good VPS provider that other nodes are not currently using but also supports exit nodes.</p>
+
+<p>The next step, and the crucial one, is to try a <a href="http://www.cheapvpslist.com/">few VPS providers</a> and see if they&rsquo;re going to allow you to run an exit. They may not have a policy about it or the policy is ambiguous so you give it a shot. Maybe you do this with multiple providers with a plan to figure out which one you like the best.Up to now, you&rsquo;re doing a great job, it&rsquo;s the next step that is causing a lot of problems.</p>
+
+<h2>The Problem</h2>
+
+<p>What&rsquo;s been happening for years is that people do this and they want to learn how to run an exit and all the fun involved, but they end up pissing off the VPS provider. There&rsquo;s a lot of ways these ISP&rsquo;s could get pissed off:</p>
+
+<ul>
+<li>You&rsquo;re running an unrestricted exit policy and you are at the top of the abuse complaint list for that provider</li>
+<li>You don&rsquo;t respond to abuse complaints in a timely manner</li>
+<li>You don&rsquo;t pay your bills on time because you don&rsquo;t care</li>
+<li>You issue lots of support requests that are time consuming (e.g. SWIP transfer)</li>
+</ul>
+
+
+<p>The big problem is that when this realtionship is burned, the Tor Project &ldquo;Supporter&rdquo; can simply walk away without consequence but what they don&rsquo;t see is these providers now have a bad taste in their mouth about tor in general. The next time someone comes to them and says they&rsquo;d like to run a tor exit, they&rsquo;re going to roll their eyes and think twice. This is happening at a large-enough scale that multiple ISP&rsquo;s to have given me the same exact story.</p>
+
+<p>If you want to run an exit, bridge, relay, whatever, don&rsquo;t forget that you are also being an advocate and representative of the rest of the tor network.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mobile Security and OPSEC]]></title>
@@ -391,7 +420,7 @@ out of the original news feed.</p>
 
 <p>Here&rsquo;s a interesting experiment. First run</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x63;&#x69;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#116;&#117;&#x73;&#64;&#108;&#97;&#118;&#97;&#98;&#105;&#116;&#46;&#99;&#x6f;&#x6d;">&#99;&#105;&#x6e;&#x63;&#105;&#110;&#x6e;&#97;&#x74;&#117;&#115;&#x40;&#108;&#97;&#118;&#x61;&#98;&#105;&#116;&#46;&#99;&#x6f;&#109;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#99;&#105;&#110;&#x63;&#105;&#110;&#x6e;&#x61;&#x74;&#117;&#x73;&#x40;&#x6c;&#97;&#118;&#97;&#98;&#x69;&#x74;&#x2e;&#99;&#x6f;&#109;">&#99;&#x69;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#116;&#x75;&#x73;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#x69;&#x74;&#x2e;&#x63;&#111;&#x6d;</a></p></blockquote>
 
 <p>You will get something like this:</p>
 
@@ -407,11 +436,11 @@ hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
 
 <p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
     gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
-      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#99;&#105;&#x6e;&#x63;&#105;&#x6e;&#110;&#x61;&#116;&#x75;&#x73;&#64;&#108;&#x61;&#118;&#97;&#x62;&#105;&#x74;&#x2e;&#99;&#x6f;&#109;">&#99;&#105;&#x6e;&#99;&#x69;&#110;&#110;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#x61;&#98;&#105;&#116;&#46;&#99;&#111;&#109;</a>&rdquo;</p>
+      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#99;&#x69;&#x6e;&#x63;&#x69;&#x6e;&#110;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#97;&#98;&#105;&#x74;&#x2e;&#99;&#111;&#x6d;">&#x63;&#105;&#x6e;&#99;&#x69;&#x6e;&#110;&#x61;&#x74;&#x75;&#115;&#64;&#108;&#97;&#118;&#97;&#x62;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a>&rdquo;</p>
 
 <p>But look at this:</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#x63;&#105;&#110;&#99;&#105;&#x6e;&#x6e;&#97;&#x74;&#117;&#x73;&#64;&#108;&#x61;&#x76;&#x61;&#x62;&#x69;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#99;&#105;&#110;&#x63;&#105;&#x6e;&#x6e;&#97;&#116;&#117;&#115;&#64;&#108;&#x61;&#x76;&#x61;&#x62;&#x69;&#116;&#x2e;&#99;&#x6f;&#109;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#99;&#x69;&#x6e;&#99;&#105;&#110;&#x6e;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#x61;&#98;&#x69;&#116;&#46;&#99;&#x6f;&#x6d;">&#99;&#x69;&#x6e;&#99;&#105;&#110;&#110;&#x61;&#116;&#x75;&#x73;&#64;&#x6c;&#x61;&#x76;&#x61;&#x62;&#x69;&#x74;&#x2e;&#99;&#x6f;&#x6d;</a></p></blockquote>
 
 <pre><code>-----BEGIN PGP MESSAGE-----
 Version: GnuPG v1
@@ -1284,61 +1313,6 @@ Technical details aside for a moment, it works similar to how I write about OSPE
 </li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Camgirl OPSEC]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec/"/>
-    <updated>2015-10-22T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/10/22/bad-camgirl-opsec</id>
-    <content type="html"><![CDATA[<p>If you read this <a href="http://motherboard.vice.com/read/camgirl-opsec-how-the-worlds-newest-porn-stars-protect-their-privacy-online">interesting post</a> from the nice people over at Vice, it covers a few items about good OPSEC when you have the threat of stalkers as part of your threat model.</p>
-
-<h2>Low Tech But High Investment</h2>
-
-<p><img class="right" src="http://www.b3rn3d.com/images/badgirl.jpg" width="300"></p>
-
-<p>You don&rsquo;t expect that an overzealous camgirl fan to be able to do facial recognition, but we know that services like Google and Facebook can offer <a href="http://www.facesearch.com/">this service</a> for free! Doing a reverse image lookup or trying to look at a photo&rsquo;s metadata are really simple things that just about any low life can figure out.</p>
-
-<p>The more serious weapon that they have is not technology, but commitment and drive. They will do anything in their power to try and find out information about you.</p>
-
-<h2>Recommendations</h2>
-
-<p><strong>Buy Burner Everything</strong>: We&rsquo;ve heard about burner phones but don&rsquo;t forget about a dedicated cam girl laptop, and more importantly camgirl camera used only for your online business.</p>
-
-<p>Your camera can tell a lot about you. The optics, resolution, capabilities are all fingerprintable metrics. If a perv is able to find another photo series using the same expensive equipment, it may be be possible for them to find that you&rsquo;re cross-posting dirty pictures on other sites like Facebook.</p>
-
-<p><strong>Do Your Homework On The Service:</strong> The article mentions using a VPN of course. This is important as a fall back but it&rsquo;s important that the camgirl service being used does everything it can to protect your IP from being leaked. Ask questions to the service about whether IPs are logged and who has access to that information. How do you create accounts and how do you recover your password if it&rsquo;s lost? Which brings us to a reminder about account security.</p>
-
-<p><strong>Secure Your Accounts:</strong> Does the cam service let you reset your password by answering a few personal questions? Are these questions that someone that is a super-fan would know by chatting with you? Find a cam service that provides two-factor security so that you enter in a user name, a password, and then you have to enter in a One-Time-Password. This will help ensure that no one is able to get in even if they guess what your password is. In my &ldquo;research&rdquo; I have found only once service that provides this type of security. And of course, choose a strong password.</p>
-
-<p><strong>Build a List Of Lies:</strong> There is no good defense against someone that is going to do everything they can to try and get you to leak information about yourself. As I&rsquo;ve discussed before, don&rsquo;t tell them what you don&rsquo;t want them to know. Lie to them.</p>
-
-<p>If someone asks you about your coffee table and you realize it was made two streets down from your current location, don&rsquo;t say &ldquo;Sorry I can&rsquo;t tell you.&rdquo; You&rsquo;ve confirmed to the adversary a piece of sensitive information that they will likely target at another time. Lie to them. Tell them it&rsquo;s a popular brand purchased from a popular store that is popular in your entire country.</p>
-
-<p>Come up with a list of lies so that you can remember to maintain them. This could include:</p>
-
-<ul>
-<li>Name</li>
-<li>Country of origin</li>
-<li>Age of your house</li>
-<li>Brothers, sisters, family members and their names</li>
-<li>Previous relationships</li>
-<li>Favorite band, music, politician, TV show, movie, book, etc.</li>
-<li>University and expertise</li>
-<li>Professional employment</li>
-</ul>
-
-
-<p><strong>Hide In The Darkness:</strong> If you live cam at 17:00 every day, and you do it by a window, they not only will be able to deduce what timezone you&rsquo;re in, but also how far North you live. Those camgirls that live in the Scottish Highlands will have a lot less daylight towards Winter, something that an attacker would notice.</p>
-
-<p><strong>Tell Your Friends About Your Policy:</strong> You might be embarrassed about being a cam'er and telling your friends about it is the worst idea. But consider this, if someone finds out that you are a cam girl, are you sure that friend won&rsquo;t leak your information.</p>
-
-<p>When someone finds out that you are friends with someone else, their gears will automatically shift to finding out about them. Do they have the same OPSEC policy as you? Do they have an open Facebook account? Do they have any other pictures of you that they&rsquo;re willing to sell?</p>
-
-<p><span class='pullquote-right' data-pullquote='It’s always better to confide in someone a secret, than risk they find out on their own.'>
-It seems bad opsec to disclose a secret but it is counterintuitive. It&rsquo;s always better to confide in someone a secret, than risk they find out on their own. By letting them in on the secret, and showing them how serious the secret is to you, you are asking them to join in to protect that secret. Without doing so ahead of time, there is no social contract that would imply this.
-</span></p>
 ]]></content>
   </entry>
   
