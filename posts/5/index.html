@@ -9,8 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="There&rsquo;s a news report recently about how a company named ComSonics
-plans to release a tool called Sniffer Sleuth that will be able to detect &hellip;">
+  <meta name="description" content="In recent time, Tor has made the decision to use semi-persistent entry nodes which they call this feature &ldquo;Entry Guards.&rdquo; &ldquo;Entry &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,7 +70,7 @@ plans to release a tool called Sniffer Sleuth that will be able to detect &helli
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/17/opsec-for-new-police/">OPSEC for New Police Tools</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/06/17/tor-entry-guards/">Threats of Tor Entry Guards</a></h1>
     
     
       <p class="meta">
@@ -87,101 +86,98 @@ plans to release a tool called Sniffer Sleuth that will be able to detect &helli
   
 
 
-<time datetime="2016-04-17T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-06-17T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>There&rsquo;s a <a href="http://www.independent.co.uk/life-style/gadgets-and-tech/texting-gun-could-help-law-enforcement-spot-drivers-using-their-phones-behind-the-wheel-9748065.html">news report</a> recently about how a company named ComSonics
-plans to release a tool called Sniffer Sleuth that will be able to detect when
-a driver is sending a text message by sniffing the RF of the cell phone. The secondary
-use of this type of technology could completely irradicate the use of burner phones.</p>
+  <div class="entry-content"><p>In recent time, Tor has made the decision to use semi-persistent entry nodes which they call this feature &ldquo;Entry Guards.&rdquo; &ldquo;Entry Nodes&rdquo; are simply the first node you connect with to join the Tor Network, but an <a href="https://www.torproject.org/docs/faq#EntryGuards">Entry Guard</a> refers to the feature of pinning the entry nodes across sessions. The Tor Project asked the question &ldquo;Is it safer to constantly change the first node you connect to or should that remain the same.&rdquo; The conclusion was by choosing a static entry node, you statistically have a much lower risk of one your circuits being compromised in the case of resourceful state actors.</p>
 
-<p>First of all, let me begin by saying this is all vaporware. This doesn&rsquo;t exist
-and what they&rsquo;re calling &ldquo;<a href="http://www.comsonics.com/assets/product-assets/SleuthDataSheet.pdf">Sniffer Sleuth II</a>&rdquo; is just a way for cable TV providers
-to detect leakage. If I had to guess, I would say that ComSonics truly is working
-on such a solution, but they need government funding which is why they did a
-press release.</p>
+<p>I&rsquo;ll skip over the whole debate about why they did this. If you&rsquo;d like to read more information about why they did this, you can <a href="https://blog.torproject.org/blog/improving-tors-anonymity-changing-guard-parameters">read the article here</a>. For the sake of discussion, lets just accept this as truth and use this to highlight a situation that it creates:</p>
 
-<p>Lets look ahead at this stupid device and the implications.</p>
+<h2>1. Instance Leakage</h2>
 
-<h2>The Advertised Purpose</h2>
+<p>In the case that you are running multiple instances of Tor, because each instance uses a static guard, that means that passive adversaries are able to identify exactly the number of tor nodes you&rsquo;re running in your network.</p>
 
-<p><span class='pullquote-right' data-pullquote='it would make it reasonable enough to issue a
-search warrant to access that phone'>
-What such a device is advertised to do, is say that police can point a device at a car
-and determine whether or not the RF usage it collects is related to texting. This would correlate to whether the
-driver is texting while driving. It is possible to determine if data is
-being sent or received by sniffing various radio bands. It is questionably possible to
-determine if someone is sending a text message let alone that it originated from
-the driver, or a passenger, or a car next to that person.
-In practice, such a technology could not be easily used to definitively determine if
-someone was texting while driving, but it would make it reasonable enough to issue a
-search warrant to access that phone.
+<p>For example, you have a laptop, a relay, and some arm device that are all running Tor. In every instance, the tor binary is making a choice about its guard nodes to use. In every instance it will (probably) make a different decision. This means that passive adversaries (ISP or the like) can take known guards, and watch your connections to them, and deduce how many tor instances are on your network.</p>
+
+<p><img class="center" src="/images/guard_static.jpg" title="Entry Guards" ></p>
+
+<p>One of the risks I&rsquo;ve talked about in the past was the issues with the Harvard Bomb Threat where the campus network simply attributed the user because they built a list of all the people on campus using Tor. I think we should be sensitive to this attack because it&rsquo;s very low resource even for local law enforcement. In the case that your ISP is logging your actions, and a event happened in your area, the first people they are going to start tracking are the people using tor. If they can see that you&rsquo;re not only running Tor at a given point in time but 7 instances all the time, they might be knocking on your door first.</p>
+
+<p>This issue alone is not as big as the bigger threat when you talk about traffic correlation attacks.</p>
+
+<h2>2. Traffic Correlation Weaknesses</h2>
+
+<p><span class='pullquote-right' data-pullquote='This recommendation is now wrong.'>
+In the past, <a href="https://www.torproject.org/docs/faq.html.en#BetterAnonymity">Tor Project has recommended that you run relay alongside of a client to increase your protection against traffic analysis</a>. This recommendation is now wrong. The idea at the time was it would be hard to differentiate your traffic from relay traffic because you would be jumping around across circuits.
 </span></p>
 
-<p>If we take that for what it is, it&rsquo;s very easy to protect ourselves. Don&rsquo;t text and drive.</p>
+<p>Because of the static guard nodes, it is much easier to differentiate between the traffic of each different instance. The relay that you&rsquo;re running will connect to Guard A and the tor client that you&rsquo;re running will connect to Guard B. From a traffic correlation perspective, it&rsquo;s very easy to associate traffic of an individual tor instance to its traffic.</p>
 
-<p>And if you&rsquo;ve met Police officers, you may have met one that will slant the truth a bit
-in order to drive home a point. They may tell you blatant lies with altruistic intentions.
-This I believe is what this news article is. They&rsquo;re planting FUD about Police
-capabilities to help stop people from texting while driving.</p>
+<p>Here&rsquo;s an attack example: You run a tor relay that uses Guard A. You have a tor client that uses  guard B. Your adversary is able to watch traffic at your ISP and at the website you visit, www.nsa.gov, that you frequently visit with your client. If we did not use entry guards, the passive adversary would see lots of traffic going out over the tor network all the time including the traffic sent out by the client. It&rsquo;s nearly impossible to differentiate between your client traffic and your relay.</p>
 
-<p>Let&rsquo;s get on to the scary part.</p>
+<p><img class="center" src="/images/guard_dynamic.jpg" title="No Entry Guards" ></p>
 
-<h2>The Real Purpose</h2>
+<p>But now that we have entry guards, a passive adversary watches the traffic of relay connecting to Guard A and sees that it&rsquo;s a lot of consistent traffic. It then watches the traffic connecting to Guard B which is infrequent, burst of traffic. It&rsquo;s easy to tell that this is in fact a tor client. When you visit www.nsa.gov with your client, the passive adversary can easily correlate the time and size of the request with the one on the website.</p>
 
-<p>Let&rsquo;s say, for the sake of discussion, that this device does exist, or some attempt at it exists.
-We should not be overly concerned about Police somehow finding us texting and driving.
-What you should be concerned about is that this technology will be used just like the
-license plate scanners.</p>
+<p><img class="center" src="/images/guard_correlation.jpg" title="Size Correlation" ></p>
 
-<p>In the US, all police cars from the State Police down to the local Sheriffs are outfitted
-with a license plate scanner. These scanners are never turned off and will constantly be
-on the hunt for license plates.</p>
+<h2>What can we do?</h2>
 
-<p>The worse part is that these scanners are hooked into the federal network of scanners
-so the FBI at any given point in time, purportedly can do a search for various license
-plates across the whole country.</p>
+<p>My point is, for every network you use, you should be using the same guard nodes. If you are at a home network with 10 instances of tor, they should all be configured to use the same one.</p>
 
-<p><span class='pullquote-right' data-pullquote='This would effectively kill the idea of burner
-phones'>
-Now imagine taking a license plate scanner and attaching it to a device that can determine the
-phone number (or IMEI/IMSI) of the device. This would effectively kill the idea of burner
-phones. Police would be able to correlate a mobile device, to a car and because cars
-are much more difficult/expensive to hide your personal information from it would mean
-that a burner phone, no matter how often you switch them, would be easily attributed to
-a name and an address.
-</span></p>
+<h2>Option 1: EntryNode in Torrc</h2>
 
-<p>Notice that these capabilities theoretically exist and things like Sting Rays are already
-designed to capture and track cell phone data. The system that I&rsquo;m talking about
-would correlate the two data points which AFAIK does not exist at the local level.</p>
+<p>If you want to specifically set what your guard nodes are, you can use the <code>EntryNodes</code> configuration option in your torrc file. Simple edit /etc/torrc with something like this:</p>
 
-<h2>OPSEC</h2>
-
-<p>So how would one defend against this? And this is the reason for this post:
-There isn&rsquo;t much you can do.</p>
-
-<ul>
-<li><strong>Ditch the phone</strong>: You of course could not use a phone completely
-and we know there are already existing attacks on the baseband that might suggest
-this s the best move.</li>
-<li><strong>Faraday Cage</strong>: You could start thinking about how to hide the RF that is leaking
-from your phone by putting it in a Faraday cage.</li>
-<li><strong>License Plate Obfuscation</strong>: You can take your burner phone, and try to turn your
-automobile into a burner car by hiding your license plate or changing the number. This is
-a whole separate subject but if effective, would mean that LEO&rsquo;s would not be able to
-correlate your car to your phone.</li>
-</ul>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>EntryNodes FFFFINGERPRINTOFNODE1, FFFFFFFFINGERPRINTOFNODE2, FFFFFFFFFFFFINGERPRINTNODE3</span></code></pre></td></tr></table></div></figure>
 
 
-<p>I&rsquo;ll keep watching this company but like I said this is all just in discussion. You can see
-how little details exist if you do a news search for &ldquo;Sniffer Sleuth.&rdquo; Not only will you
-find similar articles, you&rsquo;ll find articles with the exact same text copied and pasted
-out of the original news feed.</p>
+<p>This unfortunately has some costs. When you do it this way, you stop using tor&rsquo;s intelligent guard selection algorithm that will choose guards for you based on a lot of properties of the Tor Network as a whole. You might want to change this on a regular basis or just have a long list of entry nodes that you use.</p>
+
+<h2>Option 2: Whonix</h2>
+
+<p><a href="https://www.whonix.org/">Whonix</a> is a distro designed to be a tor gateway. It will manage a single instance of tor at the edge of your network and rather than have multiple instances of tor. Simply running a Whonix Gateway and routing your other clients connect into (ideally with the Whonix Client) will alleviate this issue. (You&rsquo;ll have to choose if you trust the Whonix disto as a whole though.)</p>
+
+<h2>Option 3: Tor Proxy Server</h2>
+
+<p>Don&rsquo;t forget that tor runs as a SOCKS5 proxy. Although you&rsquo;ve probably configured it to only listen on localhost, you can also configure it to be accessible on your internal network. When you setup all of the other instances of tor on your network, configure them to use the proxy server instead of 127.0.0.1:9050.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SOCKSPort 0.0.0.0:9050</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I wouldn&rsquo;t really do this for a variety of reasons. If you want to actually do this and put some protection on this service, see the <a href="https://www.torproject.org/docs/tor-manual.html.en#SOCKSPort">TORRC details about SOSKPort flags</a> so you don&rsquo;t get yourself in trouble. Don&rsquo;t forget, SOCKS is a cleartext protocol.</p>
+
+<h2>Option 4: Bridges</h2>
+
+<p>If you aren&rsquo;t running a Relay, and you&rsquo;re simply concerned about your standard traffic analysis attacks or counting tor instances you have on your network, you can configure your tor clients to use a <a href="https://www.torproject.org/docs/bridges">bridge service</a>. This will make it more difficult to detect that you&rsquo;re using tor in the first place and skip around the issue completely.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>185.100.84.187:57092 158A7DD6EDCA9041D7FA6ED7593E7BB43F82BD84
+</span><span class='line'>88.198.74.99:9001 3D6269A43BB28423D1127008A182EB07DBB39C00
+</span><span class='line'>199.231.94.203:443 0872E07DE33BEE2EB5D6A9941EBF30885A5D80D7</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Option 5: Disable Entry Guards</h2>
+
+<p>The tor configuration file allows you to not use entry guards at all. If for some reason you&rsquo;ve come to the conclusion that using a guard makes you less secure in your environment, dump them completely. This means that whenever a circuit is built, it will likely have a completely different entry node.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UseEntryGuard 0</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Warnings</h2>
+
+<p>All of this being said, let me add the warning that making these configuration changes may cause more damage than when you started. It&rsquo;s important to understand what the threats are and you can determine if this is important to your operation. If you are a standalone tor client user, there&rsquo;s probably no reason for you to make customizations.</p>
+
+<p>You should also note that if you somehow make your entry nodes static and you are on a mobile device, this could be a way of tracking you across sessions. If you take your laptop from your apartment to a coffee shop and there is somehow a way of collecting the traffic of both of them, they could correlate your entry guard usage across connections.</p>
 </div>
   
   
@@ -204,6 +200,10 @@ out of the original news feed.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/02/10/future-proofing-your-opsec-in-2017/">Future Proofing Your OPSEC in 2017</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/12/31/tor-support/">Burning Tor Support</a>
@@ -241,10 +241,6 @@ out of the original news feed.</p>
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -258,7 +254,7 @@ out of the original news feed.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - b3rn3d -
+  Copyright &copy; 2017 - b3rn3d -
 </p>
 <iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
 

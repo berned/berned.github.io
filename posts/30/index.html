@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="In Greenwald&rsquo;s book on Edward Snowden, No Place To Hide, he brings to light some of the details about how Snowden originally contacted him. The &hellip;">
+  <meta name="description" content="Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/16/greenwald/">Journalist OPSEC Gap: Lessons From the Snowden Stories</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/05/29/fingerprinting-resolution/">Fingerprinting Attacks on Screen Resolution</a></h1>
     
     
       <p class="meta">
@@ -86,47 +86,81 @@
   
 
 
-<time datetime="2014-05-16T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2014-05-29T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In Greenwald&rsquo;s book on Edward Snowden, <a href="http://us.macmillan.com/noplacetohide/GlennGreenwald">No Place To Hide</a>, he brings to light some of the details about how Snowden originally contacted him. The truth is, Glenn Greenwald slowed down the process of disclosing Snowden&rsquo;s secrets and it was only thanks to Laura Poitras that Snowden was considered as a legitimate source. This is an example of how old style journalism is falling behind the Wikileaks-generation of journalism. Alternatively, the two generations should be merging and learning from each other.</p>
+  <div class="entry-content"><p><img class="right" src="/images/fingerprint.png" width="200">Fingerprinting attacks are ways of identifying individuals by some kind of attribute of their online activity. In some ways, fingerprinting attacks are the most dangerous and difficult type of de-anonymizing threats to defend against. I want to highlight one facet of fingerprinting that is used by many web services and organizations: screen resolution tracking.</p>
 
-<h2>Greenwald&rsquo;s Reluctant OPSEC</h2>
+<p>In many cases, you have a laptop with a native screen resolution. This could be 1024x768, or 1900x1024, or some other combination. These resolutions point to the make and model of your laptop itself. The <a href="https://www.apple.com/macbook-pro/specs/">Macbook Pro</a> for instance has a native resolution of 1280x800. While there are many other laptops that run a similar resolution, you have shrunk down all of the possible systems that could be connecting to that of a system with that resolution. Imagine what a forensic investigator could do with this information.</p>
 
-<p>The first chapter is written in a self-deprecating way &ndash; the same way that an old man would talk about computers to a young person; &ldquo;You kids and your computers.&rdquo; In this case, it was more &ldquo;You political dissidents and your cryptography.&rdquo; Even after repeated attempts by Snowden to have Greenwald merely install GPG, he could not be convinced.</p>
+<p>This is even more dangerous on mobile devices such as Android. Each manufacturer releases new phones and tablets with different resolution, these are often very odd screen resolutions, making them very unique to that phone time. There are dozens of sites that provide this information for you:</p>
 
-<blockquote><p>"Here am I," he thought, "ready to risk my liberty, perhaps even my life, to hand this guy thousands of Top Secret documents from the nation's most secretive agency -- a leak that will produce dozens if not hundreds of huge journalistic scoops. And he can't even be bothered to install an encryption program."</p></blockquote>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density">http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density</a></li>
+<li><a href="https://deviceatlas.com/">https://deviceatlas.com/</a></li>
+<li><a href="http://wurfl.sourceforge.net/">http://wurfl.sourceforge.net/</a></li>
+</ul>
 
 
-<p>Greenwald admits that Snowden contacted him and repeatedly implored him to setup PGP for future communications and in response, Greenwald repeatedly procrastinated. Greenwald provided excuses that he was too busy and didn&rsquo;t believe this was a legitimate source due to the fact that Snowden wouldn&rsquo;t give him any more information. While the situation is understandable, it&rsquo;s infuriating to think about how the source was deemed not viable due to the fact that he was unwilling to transmit sensitive information securely.</p>
+<h2>Background</h2>
 
-<p><img class="center" src="/images/greenwald.png" title="" ></p>
+<p>There are two types of fingerprinting; passive and active. Active fingerprinting attacks are usually reserved to those that are collecting information about your network traffic, and do a secondary correlation. For example, if an adversary were running multiple exit nodes, they collect the list of sites each circuit connects to, and tries correlates that to a specific user.</p>
 
-<p>The book goes on to highlight other times when Greenwald is having insecure communications over the phone and storing clear text versions of printed material in his bag. It was more than ten weeks between the time that Snowden tries to get Greenwald to install PGP, and the time he meets up with Poitras in New York.</p>
+<p>Active attacks will manipulate or inject an identifier into your traffic &ndash; an identifying cookie or malicious JavaScript that when executed tries to collect identifying information about your browsing environment.</p>
 
-<h2>Laura</h2>
+<p>This is not a new revelation, the EFF has highlighted this problem by making the <a href="https://panopticlick.eff.org/">Panopticlick</a> project. This simulates attacks that aim at fingerprinting your browser, its plugins, fonts installed, etc. This is similar to the <a href="http://browserspy.dk/">BrowserSpy</a> project.</p>
 
-<p>Laura Poitras understood the implications of Snowden&rsquo;s information right away. In the first meeting with Greenwald about this subject, she told him to take the battery out of his phone (which he couldn&rsquo;t - iPhone). They switched tables two times at the restaurant to make sure no one heard them. She had not yet learned anything about the Snowden documents besides the implications that they were related to spying in some way. Because of this, she protected herself. Cheers to you Laura.</p>
+<h2>Screen Resolution</h2>
 
-<p><img class="center" src="/images/laurapoitras.jpg" title="" ></p>
+<p>While we&rsquo;ve found ways to defend ourself against a variety of attacks (e.g. detecting the plugins we have installed by disabling JavaScript), defending yourself against tracking your screen resolution becomes more difficult. You should note here that screen resolution is the actual resolution of your computer screen, not just your browser window.</p>
 
-<p>Laura Poitras is a film maker that is used to being targeted by government intelligence groups. Throughout her career, she has been stopped in airports, had her laptop confiscated, papers and documents stolen &ndash; all because of the places she&rsquo;s made films and people she has talked to. One example from Greenwald&rsquo;s book was an interview she did with Osama Bin Laden&rsquo;s driver.</p>
+<p>Here&rsquo;s a simple Javascript example that does that</p>
 
-<p>Why does a filmmaker have better OPSEC than a journalist? It&rsquo;s not baffling, but it reflects the sad state of journalist awareness to operational security.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="javascript:alert
+</span><span class='line'>('Your resolution is '+screen.width+'x'+screen.height);">
+</span><span class='line'>Screen Resolution Example&lt;/A></span></code></pre></td></tr></table></div></figure>
 
-<h2>Journalist OPSEC</h2>
 
-<p>While frustrating, Greenwald is not an one-off situation. In fact, most journalists have no clue how to use encryption programs, or think about any kind of operational security logistics. This is the reason that sites like Wikileaks have become popular &ndash; they are on the cutting edge of technology, understand the value of providing an anonymous communication medium, and while they can&rsquo;t be regarded as having the same journalistic integrity as an institution like The Guardian, they are trusted (by some) to not accidentally or on purpose disclose their sources.</p>
+<p>Demo: <a href="javascript:alert
+('Your resolution is '+screen.width+'x'+screen.height);">
+Screen Resolution Detection Example</A></p>
 
-<p><span class='pullquote-right' data-pullquote='a cultural conflict between journalists that consider this type of software designed for “hackers” and tech savvy young people that are frustrated with the previous generation’s unwillingness to use technology.'>
-At this point we have some tools designed to protect ourselves. <a href="https://tools.ietf.org/html/rfc1991">PGP</a> has been around for a millennium in Internet years. <a href="http://www.newyorker.com/strongbox/">Strongbox</a> is an attempt at securing communications between two people that don&rsquo;t know what they&rsquo;re doing. What have is a cultural conflict between journalists that consider this type of software designed for &ldquo;hackers&rdquo; and tech savvy young people that are frustrated with the previous generation&rsquo;s unwillingness to use technology. These &ldquo;hackers&rdquo; have spent collective years building tools and documents designed for these situations, and journalists aren&rsquo;t willing to use them.
-</span></p>
+<p>EDIT: <a href="www.reddit.com/user/lugh">lugh</a> points out that this example is inconsistent and depends on your OS and browser.</p>
 
-<p>This technical knowledge gap will have to change and I believe that most journalists understand this fact. I don&rsquo;t know if there are American Journalist schools that teach them how be the next Glenn Greenwald, but they need to add a curriculum that covers technical OPSEC; PGP, proper communications, protecting your sources. They should be trained in the same way that the CIA runs a source. They should have dead drops, code words for whether everything is going as planned, designated meeting places, and unattributable communications.</p>
+<h2>Defense Measures</h2>
+
+<p>There are a couple of ways of defending, let me go over some possibilities:</p>
+
+<ul>
+<li><strong>disabling Javascript</strong>: CSS (AFAIK) does not have a way of detecting your screen resolution</li>
+<li><strong>resizing your browser window</strong>: Sometimes attacks do not read screen resolution, but just window size.</li>
+<li><strong>changing your screen resolution</strong>: This is often difficult but by choosing a screen resolution that many other users may have, would help defend against fingerprinting. The <a href="http://dee.su/liberte-security">Liberte Linux</a> distribution is the only system I&rsquo;ve seen that automatically does this by forcing the screen resolution of 800x600.</li>
+<li><strong>external monitors</strong>: If you are on a laptop, and have an external monitor around, it might be possible to have its resolution provide instead of your laptop screen. Note here that different operating systems handle this value in different ways. Some append the width and height of both screens to eachother.</li>
+<li><strong>modifying the JavaScript engine</strong>: This solution has not been done very often and is considered a security risk, but there is a possibility that a new custom JavaScript engine could return a different value than your actual resolution.</li>
+<li><strong>virtualization</strong>: If you are running your anonymous environment inside of a virtual machine, you can dynamically change the resolution very easily by resizing the window of the VM.</li>
+</ul>
+
+
+<p>There are different situations that heed different defense. If you run into a site you need access to that requires JavaScript, you&rsquo;re not going to be able to disable it. Same applies for the browser window trick if the service is detecting Screen.height as opposed to Window.height. Going into your screen settings and changing your screen resolution might work, but it&rsquo;s pretty cumbersome. The virtualization option is very plausible but requires that you are running virtualization software like Virtual Box.</p>
+
+<h2>Real-World Attacks</h2>
+
+<p>One example of software designed for fingerprinting is <a href="http://www.juniper.net/us/en/products-services/security/webapp-secure/">Juniper&rsquo;s Webapp Secure</a>. It is a tool that will fingerprint a web site&rsquo;s users based on a variety of metrics; one of which is your computer&rsquo;s resolution. By doing so, they are able to track their browsing experience across multiple sessions without any cookies.</p>
+
+<h2>Applying to Registration</h2>
+
+<p>Screen resolution is just a single attribute that can be keyed on but I find that it is relied upon the most often during web provider registration processes. This may be because the providers don&rsquo;t believe that anyone would go through the steps of changing their screen resolution &ndash; I&rsquo;m not sure. In any event, by merely changing your screen resolution, you are able to easily register without the stigma of anything you have done in a previous sessions possibly fingerprinting you. This along with clearing your cookies, connecting with a different IP address, and possibly manipulating the fonts that are installed on your computer will let you bypass the registration process&hellip;. sometimes.</p>
+
+<h2>Conclusions</h2>
+
+<p>If nothing else, I provide this as a reminder that your screen resolution is often a hard-coded, highly identifiable value you should actively defend against leaking to unknown parties. While not as identifying as say something like your MAC address, it remains a highly attributable value. Imagine a scenario where an adversary is correlating the online activity of someone visiting a site with a resolution of 1870x1300. Even if you&rsquo;ve securely erased your system before a forensic investigator has arrived, they will be able to easily notice that your laptop&rsquo;s screen resolution is 1870x1300. And because this resolution is highly unusual, it&rsquo;s a simple step to make the correlation between your laptop and its traffic.</p>
 </div>
   
   
@@ -149,6 +183,10 @@ At this point we have some tools designed to protect ourselves. <a href="https:/
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/02/10/future-proofing-your-opsec-in-2017/">Future Proofing Your OPSEC in 2017</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/12/31/tor-support/">Burning Tor Support</a>
@@ -186,10 +224,6 @@ At this point we have some tools designed to protect ourselves. <a href="https:/
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -203,7 +237,7 @@ At this point we have some tools designed to protect ourselves. <a href="https:/
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - b3rn3d -
+  Copyright &copy; 2017 - b3rn3d -
 </p>
 <iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
 

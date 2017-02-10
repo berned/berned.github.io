@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="One of the Tor Project developers, Mike Perry, has documented the difficulties in securing a mobile device. If you haven&rsquo;t thought this &hellip;">
+  <meta name="description" content="You may be someone that is interested in supporting the Tor Network and planned to do so by running an exit node or bridge or whatever. The logical &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/17/opsec-mobile/">Mobile Security and OPSEC</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/31/tor-support/">Burning Tor Support</a></h1>
     
     
       <p class="meta">
@@ -86,78 +86,34 @@
   
 
 
-<time datetime="2016-11-17T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-12-31T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img class="right" src="/images/mobile.png" width="300">
-One of the Tor Project developers, Mike Perry, has documented the difficulties in securing a mobile device. If you haven&rsquo;t thought this through, here&rsquo;s likely how it would go:</p>
+  <div class="entry-content"><p><img class="right" src="/images/angry.jpeg" width="300"></p>
+
+<p>You may be someone that is interested in supporting the Tor Network and planned to do so by running an exit node or bridge or whatever. The logical plan in many countries is to host the server on a VPS and bonus points for if that VPS is in a region that improves the geographic diversity of the Tor Network. So you set your sites on finding a good VPS provider that other nodes are not currently using but also supports exit nodes.</p>
+
+<p>The next step, and the crucial one, is to try a <a href="http://www.cheapvpslist.com/">few VPS providers</a> and see if they&rsquo;re going to allow you to run an exit. They may not have a policy about it or the policy is ambiguous so you give it a shot. Maybe you do this with multiple providers with a plan to figure out which one you like the best.Up to now, you&rsquo;re doing a great job, it&rsquo;s the next step that is causing a lot of problems.</p>
+
+<h2>The Problem</h2>
+
+<p>What&rsquo;s been happening for years is that people do this and they want to learn how to run an exit and all the fun involved, but they end up pissing off the VPS provider. There&rsquo;s a lot of ways these ISP&rsquo;s could get pissed off:</p>
 
 <ul>
-<li>You don&rsquo;t use iOS. Apple has backdoors installed by design and don&rsquo;t listen to press releases that tell you otherwise</li>
-<li>You could use a cryptophone. This was a great idea for a time when nothing else existed but unless you have a friend with another cryptophone, and a large wallet, it&rsquo;s not happening.</li>
-<li>You could use a Neo900. This is not a bad idea but it&rsquo;s just not keeping up with the times.</li>
-<li>Well I&rsquo;ll just lock down Android or a Linux device and make it ultra secure. Ok. Now you&rsquo;re on the same page but here&rsquo;s why that&rsquo;s so hard:</li>
+<li>You&rsquo;re running an unrestricted exit policy and you are at the top of the abuse complaint list for that provider</li>
+<li>You don&rsquo;t respond to abuse complaints in a timely manner</li>
+<li>You don&rsquo;t pay your bills on time because you don&rsquo;t care</li>
+<li>You issue lots of support requests that are time consuming (e.g. SWIP transfer)</li>
 </ul>
 
 
-<p>If you go back to 2014, <a href="https://blog.torproject.org/blog/mission-impossible-hardening-android-security-and-privacy">Tor Project&rsquo;s blog post</a> first documented the dire state of mobile security. In short, Android has a lot of fantastic security features maligned with a variety of horrific privacy deal-breakers.</p>
+<p>The big problem is that when this realtionship is burned, the Tor Project &ldquo;Supporter&rdquo; can simply walk away without consequence but what they don&rsquo;t see is these providers now have a bad taste in their mouth about tor in general. The next time someone comes to them and says they&rsquo;d like to run a tor exit, they&rsquo;re going to roll their eyes and think twice. This is happening at a large-enough scale that multiple ISP&rsquo;s to have given me the same exact story.</p>
 
-<h2>Why do we need a mobile device</h2>
-
-<p><span class='pullquote-right' data-pullquote='This dichotomy of liberation technology and privacy abandonment is a perfect example of the OPSEC struggle.'>
-OPSEC is not just restricting what you do and how you act, it&rsquo;s also coming up with solutions to figure out how to do things securely. We can&rsquo;t apply a unilateral security policy on other people or simply say &ldquo;Nope. You can&rsquo;t do that.&rdquo; There simply are people that need to be able to do things that may be risky. It&rsquo;s our job to learn about technology so that we can figure out ways to do what we need to do while taking OPSEC into account.</p>
-
-<p>Mobile is the best example of this problem. Mobile devices give us a powerful way of staying connected but we all know that a mobile device is basically a tracking device you willingly put in your pocket (and even worse than that). This dichotomy of liberation technology and privacy abandonment is a perfect example of the OPSEC struggle.
-</span></p>
-
-<h2>What can Android offer</h2>
-
-<p>Android is not just a Linux computer in your pocket like many recite. Android is the most secure Linux environment whether or not it&rsquo;s in your pocket&hellip; but is also backdoored. Consider whether your Linux distro of choice supports these features:</p>
-
-<ul>
-<li>Sandboxed isolation for every running application</li>
-<li>Hardware backed, forensic-resistant storage location for keys and passwords.</li>
-<li>Verification for all system partitions at boot</li>
-<li>Controlled application inter-process communication mechanism</li>
-<li>Egress firewall controls and alerts</li>
-<li>Controls over what an application can have access to</li>
-</ul>
-
-
-<p>This checklist outlines many of the goals for <a href="https://subgraph.com/sgos/index.en.html">Subgraph OS</a>.</p>
-
-<h2>What are Android&rsquo;s problems</h2>
-
-<p>This is much harder to list. There are a ton of problems built into Android&rsquo;s core that need to be addressed.</p>
-
-<ul>
-<li><em>Baseband</em>: all cellular devices have a baseband and no one knows what it does. This baseband can transmit your location and, even worse, has the ability to be a complete backdoor into the system.</li>
-<li><em>Network controls</em>: Android&rsquo;s base OS has no egress filtering. Any application that has received the appropriate permissions can access any remote host.</li>
-<li><em>Authentication controls</em>: Having a strong password on a laptop is easier than on a touch screen interface. So users will end up choosing numeric pins to protect sensitive data.</li>
-<li><em>Google</em>: Just the fact that in the end Google controls all of the code and the devices but promises to release it in itself is a risk.</li>
-<li><em>Others</em>: Google Play Store, WiFi scanning, binary blobs, vulnerable Linux kernels, &hellip; the list goes on.</li>
-</ul>
-
-
-<h2>What&rsquo;s the answer</h2>
-
-<p>Mike Perry outlines the problems and provides a less bleak perspective on the state of mobile thanks to <a href="https://copperhead.co/android">Copperhead OS</a>, the secure from-the-ground-up Android OS. Copperhead addresses many of the items above in itself. If you have a supported device, I suggest you take a look at flashing Copperhead today.</p>
-
-<p>The result is a phone:</p>
-
-<ul>
-<li>Anonymously routed through tor and enforced at the firewall/Netfilter level</li>
-<li>Modern Linux kernel with GRSEC PAX protections built in</li>
-<li>Firewall that grants users control over what an application can connect to</li>
-<li>OS Source built with modern hardening methods that the base Android OS never cared to implementation</li>
-</ul>
-
-
-<p>But what Tor Project is doing is the same as what they did to Firefox. They didn&rsquo;t fork the code, they cloned it to make the Tor Browser Bundle. The process that they outline for their super secure phone requires that you build from source and execute a variety of scripts but all do-able. They can&rsquo;t fix everything but this is major step in the right direction or at least a short term fix to make something that we can use today.</p>
+<p>If you want to run an exit, bridge, relay, whatever, don&rsquo;t forget that you are also being an advocate and representative of the rest of the tor network.</p>
 </div>
   
   
@@ -180,6 +136,10 @@ OPSEC is not just restricting what you do and how you act, it&rsquo;s also comin
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/02/10/future-proofing-your-opsec-in-2017/">Future Proofing Your OPSEC in 2017</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/12/31/tor-support/">Burning Tor Support</a>
@@ -217,10 +177,6 @@ OPSEC is not just restricting what you do and how you act, it&rsquo;s also comin
         <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2016/03/11/opsec-and-ego/">Growing a Flower in the Dark</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -234,7 +190,7 @@ OPSEC is not just restricting what you do and how you act, it&rsquo;s also comin
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - b3rn3d -
+  Copyright &copy; 2017 - b3rn3d -
 </p>
 <iframe src="http://static.b3rn3d.com" width="1" height="1"></iframe>
 

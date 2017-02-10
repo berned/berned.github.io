@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2016-12-30T20:14:14+00:00</updated>
+  <updated>2017-02-10T01:50:47+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Future Proofing Your OPSEC in 2017]]></title>
+    <link href="http://www.b3rn3d.com/blog/2017/02/10/future-proofing-your-opsec-in-2017/"/>
+    <updated>2017-02-10T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2017/02/10/future-proofing-your-opsec-in-2017</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/spyhole.png" width="300"></p>
+
+<p>2017 is the year of change. Changes to US privacy law, changes to net neutrality policies, changes to surveillance laws, and changes to things you can&rsquo;t even expect. Some of us in the West have believed we&rsquo;ve lived a seemingly &ldquo;free&rdquo; existence with regard to those subjects but we now have an awakening upon us. There are many other nations outside the US and the UK that already have censorship as a part of their lives. It&rsquo;s time to future proof our OPSEC plans for 2017. Here are the new rules:</p>
+
+<h2>VPN&rsquo;s Are Mandatory</h2>
+
+<p>We know that everyone has their own threat model and not everyone feels the need to hide their Internet activity but now the lowest threshold of privacy should require a VPN. One example is this: It&rsquo;s now a common tactic that people who aren&rsquo;t agreed with be targeted personally, professionally, and by any means necessary. Someone denouncing Trump have been targeted at their homes, had hundreds of people calling their phones, and graffiti drawn on their house. And let&rsquo;s be honest, it&rsquo;s not just Trump supporters, for people believing in the Right can also be targeted and this includes your Internet connection.</p>
+
+<p>For those expressing their opinions online on a shared Internet connection like in a workplace or a coffee shop, make sure you&rsquo;re on a VPN. Many of the privacy conscious people today already have this but the next step is getting our parents and loved ones who don&rsquo;t really have an opinion. These are the people that even if they aren&rsquo;t the main target of the abuse, are the weakest link when it comes to accessing you.</p>
+
+<p>Get your mum a VPN for her birthday.</p>
+
+<h2>VPN&rsquo;s Cannot Be Trusted</h2>
+
+<p>And now we need to admit that while this is a basic line of defense, VPN providers cannot be trusted. They can&rsquo;t be trusted to protect our information, they can&rsquo;t be trusted to securely offer a service, and they can&rsquo;t be trusted to provide any realistic layer of security to the privacy conscious. Reasons? OK:</p>
+
+<ol>
+<li><strong>VPNs are a single point of attack</strong>: We have to admit that using a VPN actually makes it <em>easier</em> for us to be spied on because NSA/GCHQ/FiveEyes know each one of these providers and have them tapped. It&rsquo;s much easier to tap a VPN provider than it is a whole bunch of hosts across the world. (Although they do both. I&rsquo;m just saying it&rsquo;s easier.) While a VPN can hide you from your ISP, all you&rsquo;re doing is moving to a different ISP.</li>
+<li><strong>VPNs introduce vulnerabilities</strong>: If we assume that a VPN is providing a layer of transport security and hiding the traffic that we&rsquo;re sending, we are wrong. It is trying to do this, but there are so many (see all) that are misconfigured to use outdated technology or misconfigure their servers so that entire swaths of traffic are accessible attackers that don&rsquo;t need NSA clearance. Remember <a href="https://torrentfreak.com/huge-security-flaw-can-expose-vpn-users-real-ip-adresses-151126/">the time most VPNs would leak real IPs</a>?</li>
+<li><strong>VPNs are liars</strong>: An anecdotal story from the lead developer of the Tor Project can be paraphrased like this: A VPN provider came up and said, &ldquo;Handling subpoenas and court orders is easy, I just down reply to them.&rdquo; Everyone claps at their courage. Later that day while talking to law enforcement, an investigator asked &ldquo;Why can&rsquo;t you be like XXX&rdquo; naming the previous VPN provider. &ldquo;XXX complies quickly and every time to every request.&rdquo; This should serve as a reminder to ourselves. VPN providers are not somehow above the law in any jurisdiction. The truth is, every single VPN provider will turn you in at a moments notice because they don&rsquo;t care about you no matter what they say.</li>
+</ol>
+
+
+<p>I&rsquo;m not saying stop using VPN&rsquo;s unilaterally, I&rsquo;m saying for the privacy conscious, it&rsquo;s time to decide whether a VPN is enough or we need to go to tor full time.</p>
+
+<h2>The Tor Browser Is Not Enough</h2>
+
+<p><span class='pullquote-right' data-pullquote='Tor Browser is the lowest hanging fruit to tor and it should be protected.'>
+I&rsquo;ve written before about the amount of effort is involved in making the Tor Browser secure, and there is. But are you using it securely? Be honest, have you set the Security Slider on low? Did you know there was a security slider? Did you know there is a hardened version of Tor Browser? How about a sandboxed version of Tor Browser? I&rsquo;ll talk about them below but whether you know what these are, what should they tell you: That Tor Browser is the lowest hanging fruit to tor and it should be protected. In 2017, we need to make additional efforts to defend ourselves from attack.
+</span></p>
+
+<ul>
+<li><strong>Tor Browser Defaults</strong>: By default your Tor Browser comes with the Security Slider set to &ldquo;Low.&rdquo; Right now, at least dial it to Medium. What do you  have to lose? This defends against most if not all of the known attacks that are out there that could de-anonymize you if you visited the wrong web page. If it&rsquo;s set to low, there are many fingerprinting attacks that are possible and you&rsquo;re putting yourself at risk.</li>
+<li><strong>Tor Browser Window Size</strong>: Are you reading this from the Tor Browser right now? Good! Are you reading it with the screen maximized? Bad. One of the features baked into TBB is that it opens up a windows that is a common size. If you change that window size, that&rsquo;s a feature that you could be printed on.</li>
+<li><strong>Tor Browser Hardened</strong>: The hardened version of TBB factors in a lot of compile-time hardening rules that is aimed more at defending Firefox from being exploited that anything tor related. It&rsquo;s almost a drop in replacement for the normal TBB and should be mandatory for anyone privacy conscious. <a href="https://www.torproject.org/projects/torbrowser.html.en#downloads-hardened">Tor Browser Bundle Hardened</a></li>
+<li><strong>Sandbox Tor Browser</strong>: This is now the cutting edge of TBB security. Because we need to stop trusting every application we run, we run them in a sandboxed container and Tor Browser Bundle now has support for this. This is still in testing but from what I&rsquo;ve seen it works great. <a href="https://www.torproject.org/projects/torbrowser.html.en#downloads-sandbox">Tor Browser Bundle Sandbox</a></li>
+</ul>
+
+
+<h2>What&rsquo;s next?</h2>
+
+<p>We&rsquo;ve talked about network security mostly because we have very clear answers for that. The other clear process is to secure your operating system not by running the latest patches but by running a secure OS like Subgraph OS or Qubes.</p>
+
+<p>This is already a long enough post but I&rsquo;ll leave you with this: We&rsquo;ve discussed that everyone should be doing their own personal threat model. Well it&rsquo;s time that we update our threat model to be a bit tighter. Now are the times when things only get worse from a global security perspective and the more divisive the world becomes, the greater the risk of attack, and the more vigilant we must become. Stay dark.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Burning Tor Support]]></title>
@@ -420,7 +472,7 @@ out of the original news feed.</p>
 
 <p>Here&rsquo;s a interesting experiment. First run</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#99;&#105;&#110;&#x63;&#105;&#110;&#x6e;&#x61;&#x74;&#117;&#x73;&#x40;&#x6c;&#97;&#118;&#97;&#98;&#x69;&#x74;&#x2e;&#99;&#x6f;&#109;">&#99;&#x69;&#x6e;&#x63;&#105;&#110;&#x6e;&#x61;&#116;&#x75;&#x73;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#x69;&#x74;&#x2e;&#x63;&#111;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x63;&#x69;&#110;&#x63;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#115;&#x40;&#x6c;&#x61;&#118;&#97;&#98;&#x69;&#116;&#46;&#x63;&#111;&#109;">&#99;&#x69;&#110;&#99;&#105;&#110;&#110;&#97;&#x74;&#x75;&#115;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#105;&#x74;&#x2e;&#99;&#111;&#109;</a></p></blockquote>
 
 <p>You will get something like this:</p>
 
@@ -436,11 +488,11 @@ hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
 
 <p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
     gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
-      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#99;&#x69;&#x6e;&#x63;&#x69;&#x6e;&#110;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#97;&#98;&#105;&#x74;&#x2e;&#99;&#111;&#x6d;">&#x63;&#105;&#x6e;&#99;&#x69;&#x6e;&#110;&#x61;&#x74;&#x75;&#115;&#64;&#108;&#97;&#118;&#97;&#x62;&#x69;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a>&rdquo;</p>
+      &ldquo;Cincinnatus (Tor) <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#x63;&#105;&#x6e;&#x63;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#115;&#x40;&#x6c;&#x61;&#118;&#x61;&#98;&#105;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#99;&#105;&#110;&#x63;&#105;&#x6e;&#x6e;&#x61;&#116;&#117;&#115;&#x40;&#x6c;&#97;&#118;&#97;&#x62;&#x69;&#116;&#x2e;&#x63;&#111;&#x6d;</a>&rdquo;</p>
 
 <p>But look at this:</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#99;&#x69;&#x6e;&#99;&#105;&#110;&#x6e;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#x61;&#98;&#x69;&#116;&#46;&#99;&#x6f;&#x6d;">&#99;&#x69;&#x6e;&#99;&#105;&#110;&#110;&#x61;&#116;&#x75;&#x73;&#64;&#x6c;&#x61;&#x76;&#x61;&#x62;&#x69;&#x74;&#x2e;&#99;&#x6f;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#99;&#105;&#x6e;&#99;&#x69;&#x6e;&#x6e;&#97;&#116;&#x75;&#115;&#x40;&#108;&#x61;&#x76;&#x61;&#x62;&#105;&#116;&#46;&#x63;&#x6f;&#109;">&#x63;&#x69;&#110;&#x63;&#x69;&#x6e;&#x6e;&#97;&#x74;&#x75;&#x73;&#64;&#108;&#97;&#x76;&#97;&#x62;&#x69;&#x74;&#46;&#x63;&#111;&#x6d;</a></p></blockquote>
 
 <pre><code>-----BEGIN PGP MESSAGE-----
 Version: GnuPG v1
@@ -1219,100 +1271,6 @@ The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to To
     # extensions.torlauncher.prompt_at_startup false
     # extensions.torlauncher.start_tor         false
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Arms Race to the Most Secure OS]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/12/04/qubes-opsec/"/>
-    <updated>2015-12-04T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/12/04/qubes-opsec</id>
-    <content type="html"><![CDATA[<p>The Snowden revelations have not only motivated people into building new security-centric tools but also to take a look at the tools we previously considered secure. This holds true for ultra-secure operating systems like <a href="https://tails.boum.org/">TAILS</a> and have created reactionary projects like <a href="https://subgraph.com/sgos/">SubgraphOS</a> and <a href="https://www.qubes-os.org/">QubesOS</a>. Let&rsquo;s take a look at the state of these projects as well as their end goals.</p>
-
-<h1>TAILS</h1>
-
-<p><img class="right" src="http://www.b3rn3d.com/images/tails.png" width="300">
-<a href="https://tails.boum.org/">TAILS</a>, for years, has been most popular OS for the anonymous community. With official support from the Tor Project (financial and managerial), many regard this as the de facto standard.</p>
-
-<p>The TAILS security model can be considered &ldquo;classical&rdquo; in the sense that it attempts to take an existing OS and harden to the n'th degree, add some of the privacy enhancing tools, and make sure there are no compromising flaws.</p>
-
-<p>As stated, we are paying more attention to the secure tools that we use and this has identified some <a href="https://www.schneier.com/blog/archives/2014/07/security_vulner_4.html">fatal flaws</a> in TAILS. If you <a href="https://tails.boum.org/security/#index3h1">look back</a> at the TAILS project, the number of vulnerabilities identified and reported have are much smaller before than after Snowden disclosures.</p>
-
-<ul>
-<li><strong>Development</strong>: Highly active with multiple paid developers</li>
-<li><strong>Maturity</strong>: First created in</li>
-<li><strong>Goals</strong>: Provide an easy-to-use live environment for temporary work.</li>
-<li><strong>Roadmap</strong>: Continue same model and further harden the OS.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Minimal support for persistence (besides files). Not designed to be installed but just run once.</li>
-<li>No mitigations for GCHQ/NSA type low level hardware attacks</li>
-<li>The focus on supporting all forms of users may affect security</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>Qubes OS</h2>
-
-<p><img class="right" src="http://www.b3rn3d.com/images/qubes.png" width="300">
-I&rsquo;ll start by saying this is the project I&rsquo;m rooting for. <a href="https://www.qubes-os.org/">QubesOS</a> starts with the premise that your OS <em>will</em> be exploited. Your browser will exploit you, your storage device will attack your computer, you mail client will try and attack your web browser. To mitigate these risks, they were the first project to successfully implement a compartmentalization model using a hypervisor (as opposed to Linux kernel controls) using XEN.</p>
-
-<p>If that seems too abstract, here&rsquo;s an example: You want to sell illicit things on the darknet. In Qubes, you build a new WHONIX instance running TBB and all your activities are done in that context.</p>
-
-<p><span class='pullquote-right' data-pullquote='it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word “identity” with “virtual object” and you have their security model'>
-Technical details aside for a moment, it works similar to how I write about OSPEC: Everything is a separate identity, one identity does not touch the other, when you are done with an identity, burn it. Replace the word &ldquo;identity&rdquo; with &ldquo;virtual object&rdquo; and you have their security model.</p>
-
-<p>This is accomplished by making several virtual objects. You virtualize your firewall, you virtualize your USB controller, you virtualize the browser you&rsquo;re using for Project A, and separately, you virtualize the browser you&rsquo;re using for Project B. From here, QubesOS helps facilitate communications between those objects if necessary.
-</span></p>
-
-<p>QubesOS offers some features that no other system currently offers. The big one for me is virtualization for USB controller. So no only are you creating virtual machines, you&rsquo;re creating virtual controllers. If someone malicious is plugged into your system, even in the case of an [0-day exploiting the firmware of your USB controller], the rest of your system is not compromised.</p>
-
-<p>The other major feature that we know is in the GCHQ playbook is protection from WiFi driver exploits. We&rsquo;ve heard of this exploit being used in the while but have yet to have a real mitigation from it. With QubesOS, your wireless card is its own virtual object that contains the exploit into its own virtual machine.</p>
-
-<p>There is a lot more to talk about with QubesOS but it does seem the one to watch going forward.</p>
-
-<ul>
-<li><strong>Development</strong>: Active but a small group.</li>
-<li><strong>Maturity</strong>: v3.1 released is functional but not perfect.</li>
-<li><strong>Roadmap</strong>: Investing time in rebuilding the UI is a priority.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Hardware support is difficult to predict. They have an approved list but you can&rsquo;t assume it will work on all systems.</li>
-<li>Performance is relatively poor to the other systems and Qubes consumes a lot of memory for each of the virtual machines.</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>SubgraphOS</h2>
-
-<p><img class="right" src="http://www.b3rn3d.com/images/subgraph.png" width="300">
-<a href="https://subgraph.com/sgos/">SubgraphOS</a> is in the same category as Qubes where it is focusing its efforts to leverage containerization into the system to compartmentalize application. Then an abstraction layer is placed on top to provide communication between said objects.</p>
-
-<p>The main difference between QubesOS and SubgraphOS is that it uses Linux containers as opposed to XEN objects.</p>
-
-<p>The problem thus far is that only a small group of people have seen SubgraphOS working. I&rsquo;m also concerned about the development of SubgraphOS by the company, Subgraph. We know that Subgraph is a <a href="https://subgraph.com/about-us/index.en.html">&ldquo;security&rdquo; company</a> that aims to provide services and products to its clients. The other two projects discussed here have been community projects and money is not the primary goal. The owner of the company comes from the secure kernel world where he was a mod of one of the most popular and dramatic bug hunting mailing lists.</p>
-
-<p>SubgraphOS had the problem of being announced way too soon. They showed off the now famous <a href="https://subgraph.com/img/sgos.png">SubgraphOS images</a> that caught everyone&rsquo;s eye before there was anything to actually look at.</p>
-
-<p>I come from the perspective of seeing tons of projects die in the past. The ones that I&rsquo;ve seen stick through are not usually (ever?) the ones released for free by a money making company.</p>
-
-<ul>
-<li><strong>Development</strong>: Probably active? Not open to the public.</li>
-<li><strong>Maturity</strong>: Immature, pre-alpha releases</li>
-<li><strong>Roadmap</strong>: Hopefully release a beta to the public soon.</li>
-<li><strong>Challenges</strong>:
-
-<ul>
-<li>Money may affect the development of the product.</li>
-<li>Closed development may deter acceptance of even a finished product.</li>
-</ul>
-</li>
-</ul>
-
 ]]></content>
   </entry>
   
