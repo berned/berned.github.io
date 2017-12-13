@@ -9,7 +9,8 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="There are some crypto problems with PGP. And at first you might go &ldquo;Yeah right, I use 4096bit RSA keys&rdquo; but let me explain. No Perfect &hellip;">
+  <meta name="description" content="There&rsquo;s a news report recently about how a company named ComSonics
+plans to release a tool called Sniffer Sleuth that will be able to detect &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +71,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/17/let-openpgp-die3/">Reasons to Let PGP Die #3: Outdated Crypto</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/04/17/opsec-for-new-police/">OPSEC for New Police Tools</a></h1>
     
     
       <p class="meta">
@@ -93,31 +94,94 @@
   </header>
 
 
-  <div class="entry-content"><p>There are some crypto problems with PGP. And at first you might go &ldquo;Yeah right, I use 4096bit RSA keys&rdquo; but let me explain.</p>
+  <div class="entry-content"><p>There&rsquo;s a <a href="http://www.independent.co.uk/life-style/gadgets-and-tech/texting-gun-could-help-law-enforcement-spot-drivers-using-their-phones-behind-the-wheel-9748065.html">news report</a> recently about how a company named ComSonics
+plans to release a tool called Sniffer Sleuth that will be able to detect when
+a driver is sending a text message by sniffing the RF of the cell phone. The secondary
+use of this type of technology could completely irradicate the use of burner phones.</p>
 
-<h2>No Perfect Forward Secrecy</h2>
+<p>First of all, let me begin by saying this is all vaporware. This doesn&rsquo;t exist
+and what they&rsquo;re calling &ldquo;<a href="http://www.comsonics.com/assets/product-assets/SleuthDataSheet.pdf">Sniffer Sleuth II</a>&rdquo; is just a way for cable TV providers
+to detect leakage. If I had to guess, I would say that ComSonics truly is working
+on such a solution, but they need government funding which is why they did a
+press release.</p>
 
-<p>Forward secrecy is the idea even if you lose your encryption keys and the attacker is able to intercept the communications between you and another party, they still would be unable to see what you sent them. This is normally accomplished by using a long term key, to negotiate two short term, session keys. This is the basis of what Diffie-Hellman provides.</p>
+<p>Lets look ahead at this stupid device and the implications.</p>
 
-<p>Sounds cool right? You want that right? If you use PGP, it&rsquo;s not possible. The risk here is that when you generate your key, and your key is compromised, this is an ultimate loss. There&rsquo;s nothing you can do to prevent an attacker from being able to decrypt something that was previously encrypted.</p>
+<h2>The Advertised Purpose</h2>
 
-<p>Let me give you an example of how bad this is. Let&rsquo;s say that you realized you were undersurveillance and that you decided that you were going to encrypt your communications with PGP. You knew full well that the surveillance continued but without your private PGP key, there was nothing they could do. The people surveilling you would record every email you sent and just keep them. Flash forward 2 years when there is an Adobe Flash 0'day and someone uses it to compromise your GPG key. Upon compromise, they can use your keys to decrypt all of the old emails. Everything. There&rsquo;s nothing you can do.</p>
+<p><span class='pullquote-right' data-pullquote='it would make it reasonable enough to issue a
+search warrant to access that phone'>
+What such a device is advertised to do, is say that police can point a device at a car
+and determine whether or not the RF usage it collects is related to texting. This would correlate to whether the
+driver is texting while driving. It is possible to determine if data is
+being sent or received by sniffing various radio bands. It is questionably possible to
+determine if someone is sending a text message let alone that it originated from
+the driver, or a passenger, or a car next to that person.
+In practice, such a technology could not be easily used to definitively determine if
+someone was texting while driving, but it would make it reasonable enough to issue a
+search warrant to access that phone.
+</span></p>
 
-<h2>Crypto Weakness</h2>
+<p>If we take that for what it is, it&rsquo;s very easy to protect ourselves. Don&rsquo;t text and drive.</p>
 
-<p>When PGP first came out, they recommended using a 1024 RSA certificate to protect the messages. You should now know that 1024 is not considered strong by any means and should not be used. Look into the future and imagine what the cryptographic standards might be in 5 years, 10 years, or 20 years. You must assume there will be cryptographic advances to make it easier to crack RSA or even ECC certificates.</p>
+<p>And if you&rsquo;ve met Police officers, you may have met one that will slant the truth a bit
+in order to drive home a point. They may tell you blatant lies with altruistic intentions.
+This I believe is what this news article is. They&rsquo;re planting FUD about Police
+capabilities to help stop people from texting while driving.</p>
 
-<p>The problem is that if someone was watching your communications, storing them, and hoping to decrypt them later, this will eventually become easier. If they took your PGP encrypted messages you used in the 90&rsquo;s, it&rsquo;s likely they can easily crack them with enough power.</p>
+<p>Let&rsquo;s get on to the scary part.</p>
 
-<p>Even if you might say, &ldquo;No big deal, I&rsquo;ve revoked those certificates and I use a new one&rdquo; the issue is all of your previous communications are done and you can&rsquo;t re-encrypt them.</p>
+<h2>The Real Purpose</h2>
 
-<p>They just started adding support for ECC in the 2.1 branch of GPG but they are still far away from Quantum resistent algithm support. You should expect that your ultra secure software should invest time to at least be up-to-date in which cryptographic primitives it uses.</p>
+<p>Let&rsquo;s say, for the sake of discussion, that this device does exist, or some attempt at it exists.
+We should not be overly concerned about Police somehow finding us texting and driving.
+What you should be concerned about is that this technology will be used just like the
+license plate scanners.</p>
 
-<h2>Fixes?</h2>
+<p>In the US, all police cars from the State Police down to the local Sheriffs are outfitted
+with a license plate scanner. These scanners are never turned off and will constantly be
+on the hunt for license plates.</p>
 
-<p>This is one of those ultimate killers. There&rsquo;s no fix to flaws in cryptography in this case. You could somehow bolt-on a system that builds short-term session keys for encrypting messages which would help in both issues above. Maybe come up with a way of layering encryption to reduce the liklihood of it being cracked. But that&rsquo;s now how PGP works and we&rsquo;re talking about a completely different, two-way negotiation based system that isn&rsquo;t possible over PGP or SMTP.</p>
+<p>The worse part is that these scanners are hooked into the federal network of scanners
+so the FBI at any given point in time, purportedly can do a search for various license
+plates across the whole country.</p>
 
-<p>If you must use PGP, you should ask yourself, in 5 years, will I be in trouble if anyone reads this? What about in 10? What if your kids and grandkids are able to read this message. That may help you decide when and how to use PGP.</p>
+<p><span class='pullquote-right' data-pullquote='This would effectively kill the idea of burner
+phones'>
+Now imagine taking a license plate scanner and attaching it to a device that can determine the
+phone number (or IMEI/IMSI) of the device. This would effectively kill the idea of burner
+phones. Police would be able to correlate a mobile device, to a car and because cars
+are much more difficult/expensive to hide your personal information from it would mean
+that a burner phone, no matter how often you switch them, would be easily attributed to
+a name and an address.
+</span></p>
+
+<p>Notice that these capabilities theoretically exist and things like Sting Rays are already
+designed to capture and track cell phone data. The system that I&rsquo;m talking about
+would correlate the two data points which AFAIK does not exist at the local level.</p>
+
+<h2>OPSEC</h2>
+
+<p>So how would one defend against this? And this is the reason for this post:
+There isn&rsquo;t much you can do.</p>
+
+<ul>
+<li><strong>Ditch the phone</strong>: You of course could not use a phone completely
+and we know there are already existing attacks on the baseband that might suggest
+this s the best move.</li>
+<li><strong>Faraday Cage</strong>: You could start thinking about how to hide the RF that is leaking
+from your phone by putting it in a Faraday cage.</li>
+<li><strong>License Plate Obfuscation</strong>: You can take your burner phone, and try to turn your
+automobile into a burner car by hiding your license plate or changing the number. This is
+a whole separate subject but if effective, would mean that LEO&rsquo;s would not be able to
+correlate your car to your phone.</li>
+</ul>
+
+
+<p>I&rsquo;ll keep watching this company but like I said this is all just in discussion. You can see
+how little details exist if you do a news search for &ldquo;Sniffer Sleuth.&rdquo; Not only will you
+find similar articles, you&rsquo;ll find articles with the exact same text copied and pasted
+out of the original news feed.</p>
 </div>
   
   
@@ -140,6 +204,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/12/10/man-vs-machine-learning/">Man vs Machine Learning</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/02/10/future-proofing-your-opsec-in-2017/">Future Proofing Your OPSEC in 2017</a>
@@ -175,10 +243,6 @@
     
       <li class="post">
         <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[B3RN3D]]></title>
   <link href="http://www.b3rn3d.com/atom.xml" rel="self"/>
   <link href="http://www.b3rn3d.com/"/>
-  <updated>2017-02-10T01:50:47+00:00</updated>
+  <updated>2017-12-13T20:52:32+00:00</updated>
   <id>http://www.b3rn3d.com/</id>
   <author>
     <name><![CDATA[b3rn3d]]></name>
@@ -12,6 +12,137 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Man vs Machine Learning]]></title>
+    <link href="http://www.b3rn3d.com/blog/2017/12/10/man-vs-machine-learning/"/>
+    <updated>2017-12-10T00:00:00+00:00</updated>
+    <id>http://www.b3rn3d.com/blog/2017/12/10/man-vs-machine-learning</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.b3rn3d.com/images/machine.jpg" width="300"></p>
+
+<p>It&rsquo;s too late to say that we need to prevent the surveillance machine from
+being created. The machine is alive  and deployed and
+we should instead work on throwing a wrenches into its gears. It&rsquo;s not the
+machines the novels warned us about, it&rsquo;s machine learning. Many of the indefensible exploits that plague us are thanks to
+ machine learning and classification models.</p>
+
+<h2>Example: Tor Website Traffic Fingerprinting</h2>
+
+<p> Tor&rsquo;s anonymity promises fall over when when
+an attacker is able to intercept the traffic between a client and
+a guard and run the traffic features through a machine learning algorithm.
+This lets an attacker predict the <a href="https://blog.torproject.org/critique-website-traffic-fingerprinting-attacks">websites you&rsquo;re visiting with a 95% accuracy</a>.
+Machine learning is the only way to do this. Many of the pluggable transports
+including Meek have succumb to fingerprinting via deep packet inspection
+facilitated by machine learning.</p>
+
+<h2>Example: Computer Vision with Surveillance Cameras</h2>
+
+<p>A recent article talked about how <a href="https://medium.com/shanghaiist/watch-bbc-reporter-tracked-down-in-7-minutes-by-high-tech-chinese-surveillance-cams-5446c0a689ac">China&rsquo;s video surveillance system
+was able to take a picture of a journalist</a>, and find them within 7 minutes flat.
+That&rsquo;s not out of sheer human effort they can invest,
+it&rsquo;s their computer vision systems and how they&rsquo;ve become advanced thanks to
+machine learning algorithms.</p>
+
+<h2>Example: Stylometry</h2>
+
+<p>We know that stylometry is a real threat to anonymity. If you&rsquo;re writing blog
+posts or writing code, the way you type and write leaks information about you.
+Tools like <a href="https://github.com/psal/anonymouth">Anonymouth</a> aim to evade them but it&rsquo;s an arms race.</p>
+
+<p>We need to understand the threats of machine learning so that we can figure
+out how to break them.</p>
+
+<h2>The Wrench: Adversarial Examples</h2>
+
+<p>Machine learning algorithms are built on models that are created by training
+the system. In the case of classification models, input is supplied into
+the system and the result is a prediction of how to classify the input.
+You provide a picture of a panda and the classifier should show that there&rsquo;s a
+95% chance that it&rsquo;s a picture of a panda. What does it do when you show
+it a picture of a panda wearing a hat?</p>
+
+<p>This is where the idea of <strong>adversarial examples</strong> come in to play. The idea
+is simple, modify the input into the machine learning system that causes
+it to come to a different conclusion. A good example would be to make slight
+modifications to an existing image so that when a machine learning algorithm
+goes up against it, they don&rsquo;t know what it is or even better, think that
+it&rsquo;s something else.</p>
+
+<p>There are two goals for adversarial examples in the real world:</p>
+
+<ol>
+<li>Modify the input to trick the machines</li>
+<li>Modify the input to trick humans</li>
+</ol>
+
+
+<p>Doing one and not the other makes it a useless in real world examples.
+And this is where I&rsquo;m going.</p>
+
+<h2>Finding Vulnerabilities</h2>
+
+<p>To exploit the system, we must first know where it&rsquo;s vulnerable.</p>
+
+<p><strong>Classification Model Exploits</strong>: Have you ever noticed how video surveillance companies aren&rsquo;t big proponents
+of open-source software or open access programs? They all know that machine
+learning has a major vulnerability which is this: if you know the models
+you can bypasses them. In other words, if you were able to get
+access to the machine&rsquo;s models, you could use machine learning to reverse
+engineer and identify flaws in these models.</p>
+
+<p><strong>Training Poisoning</strong>: What if you could get upstream on the system and affect the training data?
+There&rsquo;s the idea of training poisoning attacks where we could influence
+the data that the system used to train against. Maybe I could poison the system in such a way
+that it is never able to classify my face or the face of my friends.</p>
+
+<h2>Missing Research for Real World Applications</h2>
+
+<p>We can&rsquo;t fight what we don&rsquo;t know about and there are open research questions that
+need answering.</p>
+
+<h3>How can we fingerprint surveillance systems?</h3>
+
+<p>You can nmap a host to see what software it&rsquo;s running but how do you know what
+surveillance system a business or government is using? At this point, I don&rsquo;t know
+if there is any direct way. Do you? Cameras are dumb machines and processing is done on
+the backend.</p>
+
+<h3>How can we inject into video cameras?</h3>
+
+<p>Lots of research is coming out about doing input manipulation on images
+but none that&rsquo;s doing it while you&rsquo;re being recorded. There are things
+that can block a camera but that isn&rsquo;t spoofing anything.</p>
+
+<h3>What attacks are possible in the real world?</h3>
+
+<p>Can you really come up with something that&rsquo;s better than simply wearing a
+mask? Can your defense be a new way of performing targeted surveillance?
+If a computer can figure out tiny differences in a human face, imagine how
+easy it would be to find someone wearing a Guy Fawkes mask.</p>
+
+<h2>Defensive Tactics</h2>
+
+<p>You
+can read books like <a href="https://en.wikipedia.org/wiki/Homeland_%28Cory_Doctorow_novel%29">Homeland</a> that talks about ways of bypassing
+gate-tracking systems by putting a tack in your shoes.
+Or read about the <a href="http://www.urmesurveillance.com/">artist that is building masks that make it difficult to determine who you are</a>.</p>
+
+<p>But the point is this: Stop finding ways to hack into websites like the other million script kiddies.
+Start developing skills to learn about machine learning from an adversarial perspective.
+We are still in the early phases of machine learning affecting our lives and now
+is a good time to teach the world about the weaknesses. Get started today.</p>
+
+<h2>Further Reading</h2>
+
+<ul>
+<li><a href="https://arxiv.org/abs/1602.02697:">https://arxiv.org/abs/1602.02697:</a> Practical Black-Box Attacks against Machine Learning</li>
+<li><a href="https://psal.cs.drexel.edu/index.php/Main_Page:">https://psal.cs.drexel.edu/index.php/Main_Page:</a> Group working on jstylo and anonymouth</li>
+<li><a href="https://www.evolvingai.org/fooling">https://www.evolvingai.org/fooling</a> Talks in more detail about how to fool CV systems</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Future Proofing Your OPSEC in 2017]]></title>
@@ -472,7 +603,7 @@ out of the original news feed.</p>
 
 <p>Here&rsquo;s a interesting experiment. First run</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x63;&#x69;&#110;&#x63;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#115;&#x40;&#x6c;&#x61;&#118;&#97;&#98;&#x69;&#116;&#46;&#x63;&#111;&#109;">&#99;&#x69;&#110;&#99;&#105;&#110;&#110;&#97;&#x74;&#x75;&#115;&#64;&#x6c;&#x61;&#x76;&#97;&#98;&#105;&#x74;&#x2e;&#99;&#111;&#109;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea -r <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x63;&#x69;&#x6e;&#x63;&#105;&#x6e;&#x6e;&#x61;&#116;&#117;&#x73;&#64;&#x6c;&#97;&#x76;&#x61;&#x62;&#105;&#x74;&#x2e;&#x63;&#x6f;&#109;">&#99;&#x69;&#x6e;&#99;&#105;&#x6e;&#x6e;&#97;&#x74;&#117;&#x73;&#64;&#108;&#97;&#118;&#97;&#98;&#105;&#x74;&#46;&#99;&#x6f;&#x6d;</a></p></blockquote>
 
 <p>You will get something like this:</p>
 
@@ -488,11 +619,11 @@ hQQMA0x0OAr3LYCzASAAqBaeXxmDctWPmgFCDWEVjxeiG6bCf8/Co5Y8ZOUt7vtb
 
 <p>If you have the public key, you&rsquo;ll see something like this which shows the message was encrypted to Edward Snowden&rsquo;s old PGP key.
     gpg: encrypted with 8192-bit RSA key, ID F72D80B3, created 2012-09-02
-      &ldquo;Cincinnatus (Tor) <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#x63;&#105;&#x6e;&#x63;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#115;&#x40;&#x6c;&#x61;&#118;&#x61;&#98;&#105;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#99;&#105;&#110;&#x63;&#105;&#x6e;&#x6e;&#x61;&#116;&#117;&#115;&#x40;&#x6c;&#97;&#118;&#97;&#x62;&#x69;&#116;&#x2e;&#x63;&#111;&#x6d;</a>&rdquo;</p>
+      &ldquo;Cincinnatus (Tor) <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#x63;&#x69;&#x6e;&#x63;&#x69;&#x6e;&#110;&#97;&#x74;&#x75;&#x73;&#x40;&#108;&#x61;&#x76;&#97;&#x62;&#105;&#116;&#46;&#99;&#111;&#x6d;">&#99;&#105;&#110;&#99;&#x69;&#x6e;&#x6e;&#x61;&#x74;&#x75;&#115;&#64;&#108;&#x61;&#118;&#x61;&#x62;&#105;&#116;&#46;&#99;&#x6f;&#x6d;</a>&rdquo;</p>
 
 <p>But look at this:</p>
 
-<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#99;&#105;&#x6e;&#99;&#x69;&#x6e;&#x6e;&#97;&#116;&#x75;&#115;&#x40;&#108;&#x61;&#x76;&#x61;&#x62;&#105;&#116;&#46;&#x63;&#x6f;&#109;">&#x63;&#x69;&#110;&#x63;&#x69;&#x6e;&#x6e;&#97;&#x74;&#x75;&#x73;&#64;&#108;&#97;&#x76;&#97;&#x62;&#x69;&#x74;&#46;&#x63;&#111;&#x6d;</a></p></blockquote>
+<blockquote><p>echo &ldquo;security&rdquo; | gpg -ea &ndash;hidden-recipient <a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x63;&#105;&#x6e;&#x63;&#105;&#110;&#110;&#x61;&#x74;&#x75;&#115;&#x40;&#x6c;&#x61;&#118;&#97;&#98;&#x69;&#116;&#46;&#x63;&#111;&#x6d;">&#x63;&#105;&#110;&#99;&#105;&#110;&#110;&#x61;&#x74;&#117;&#115;&#64;&#108;&#97;&#118;&#97;&#x62;&#105;&#116;&#46;&#x63;&#x6f;&#x6d;</a></p></blockquote>
 
 <pre><code>-----BEGIN PGP MESSAGE-----
 Version: GnuPG v1
@@ -1213,64 +1344,6 @@ The question comes up semi-regularly: &ldquo;Should I use a VPN to connect to To
 <h1>More information</h1>
 
 <p>There&rsquo;s <a href="https://www.torproject.org/projects/torbrowser/design/">dozens of other</a> reasons that may or may not be applicable to your plans. The point here again is, the level of effort that the Tor Browser has employed makes you question how secure your current browser configuration is.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Running Tor Browser Without the Bundle]]></title>
-    <link href="http://www.b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle/"/>
-    <updated>2015-12-15T00:00:00+00:00</updated>
-    <id>http://www.b3rn3d.com/blog/2015/12/15/tor-browser-bundle-without-bundle</id>
-    <content type="html"><![CDATA[<p>In the case that you already have Tor installed and you don&rsquo;t need the Tor Browser Bundle (TBB) to manage your tor connection, you can run it without the additinal launcher plugin.</p>
-
-<h2>How</h2>
-
-<ul>
-<li>Download <a href="https://www.torproject.org/download/download-easy.html.en">TBB</a></li>
-<li>Extract</li>
-<li><p>Cd to the following directory:</p>
-
-<pre><code>  tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default$
-</code></pre></li>
-<li>Modify <code>extensions.ini</code></li>
-<li><p>Comment out the following line:</p>
-
-<pre><code>  #Extension2=/home/death/Downloads/tor-browser_en-US/Browser/TorBrowser/Data/Browser/profile.default/extensions/tor-launcher@torproject.org.xpi
-</code></pre></li>
-</ul>
-
-
-<h2>Setup</h2>
-
-<p>This assumes that you&rsquo;re running tor on port 9050 and ideally that you have your control port enabled with a password of &ldquo;secret&rdquo; to access it. That&rsquo;s only if you want to be able to control Tor via the browser extension. Maybe you don&rsquo;t.</p>
-
-<p>If you want to set your password to &ldquo;sercret&rdquo; you can use tor to generate the hash for you:</p>
-
-<pre><code>    tor --hash-password secret
-</code></pre>
-
-<p>Copy that into your /etc/torrc file under the HashedPassword section.</p>
-
-<p>You can take a look at the other comments found in <code>start-tor-browser</code>:</p>
-
-<pre><code>    # SETTING NAME                            VALUE
-    # extensions.torbutton.banned_ports       [...],&lt;SocksPort&gt;,&lt;ControlPort&gt;
-    # extensions.torbutton.block_disk         false
-    # extensions.torbutton.custom.socks_host  127.0.0.1
-    # extensions.torbutton.custom.socks_port  &lt;SocksPort&gt;
-    # extensions.torbutton.inserted_button    true
-    # extensions.torbutton.launch_warning     false
-    # extensions.torbutton.loglevel           2
-    # extensions.torbutton.logmethod          0
-    # extensions.torbutton.settings_method    custom
-    # extensions.torbutton.socks_port         &lt;SocksPort&gt;
-    # extensions.torbutton.use_privoxy        false
-    # extensions.torlauncher.control_port      &lt;ControlPort&gt;
-    # extensions.torlauncher.loglevel          2
-    # extensions.torlauncher.logmethod         0
-    # extensions.torlauncher.prompt_at_startup false
-    # extensions.torlauncher.start_tor         false
-</code></pre>
 ]]></content>
   </entry>
   

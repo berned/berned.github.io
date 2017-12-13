@@ -9,7 +9,7 @@
   <meta name="author" content="b3rn3d">
 
   
-  <meta name="description" content="Another set of death blows for OpenPGP came out this week. The first being a vulnerability in GPG which caused a weakening of 4096 bit keys. The &hellip;">
+  <meta name="description" content="One of the Tor Project developers, Mike Perry, has documented the difficulties in securing a mobile device. If you haven&rsquo;t thought this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/08/17/death-to-pgp/">Death to OpenPGP and GPG</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/17/opsec-mobile/">Mobile Security and OPSEC</a></h1>
     
     
       <p class="meta">
@@ -86,42 +86,78 @@
   
 
 
-<time datetime="2016-08-17T00:00:00+00:00" pubdate data-updated="true"></time>
+<time datetime="2016-11-17T00:00:00+00:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Another set of death blows for OpenPGP came out this week. The first being a vulnerability in GPG which caused a weakening of 4096 bit keys. The second being researchers that have been able to attribute the source of RSA keys used by OpenPGP and others. I&rsquo;ve talked about my opinion (shared by many others) that <a href="http://www.b3rn3d.com/blog/2016/04/17/let-openpgp-die3/">we should let PGP die</a>. This additional cannon fodder.</p>
+  <div class="entry-content"><p><img class="right" src="/images/mobile.png" width="300">
+One of the Tor Project developers, Mike Perry, has documented the difficulties in securing a mobile device. If you haven&rsquo;t thought this through, here&rsquo;s likely how it would go:</p>
 
-<p>The take away is that in the first case, I&rsquo;m going to make the case that we should all move away from using GPG and in the second case I describe how doing so becomes an attack vector. Damned on both sides.</p>
+<ul>
+<li>You don&rsquo;t use iOS. Apple has backdoors installed by design and don&rsquo;t listen to press releases that tell you otherwise</li>
+<li>You could use a cryptophone. This was a great idea for a time when nothing else existed but unless you have a friend with another cryptophone, and a large wallet, it&rsquo;s not happening.</li>
+<li>You could use a Neo900. This is not a bad idea but it&rsquo;s just not keeping up with the times.</li>
+<li>Well I&rsquo;ll just lock down Android or a Linux device and make it ultra secure. Ok. Now you&rsquo;re on the same page but here&rsquo;s why that&rsquo;s so hard:</li>
+</ul>
 
-<h2>Weak in the keys</h2>
 
-<p>A <a href="https://lists.gnupg.org/pipermail/gnupg-users/2016-August/056472.html">recent vulnerability in GPG</a> showed that if you chose the non-standard 4096 bit key size when generating your GPG keys, you are actually less secure than if you used 2048. This is caused by a vulnerability in the RNG that libgcrypt uses so that in some cases, 160bytes are predictable if the first 4640 bytes are known. In practice, the attack would mean that an attacker has access to your RNG, you generate a 4096bit key, and the attack is lucky enough to snag a portion of the 512 random bytes that are used to help generate the 4096 bit keys &ndash; a task that is not performed for the default 2048 key size.</p>
+<p>If you go back to 2014, <a href="https://blog.torproject.org/blog/mission-impossible-hardening-android-security-and-privacy">Tor Project&rsquo;s blog post</a> first documented the dire state of mobile security. In short, Android has a lot of fantastic security features maligned with a variety of horrific privacy deal-breakers.</p>
 
-<p>You should read the original <a href="/files/libgcrypt-cve-2016-6313.pdf">white paper</a> and make your own conclusions. The researchers specifically state that they are not making any conclusions about weaknesses of RSA keys in GPG, but then on the other hand, people are talking about the <a href="https://archive.is/lYEB5#selection-245.35-245.68">comments in the patch</a> that discuss the impact on 4096 bit keys.</p>
+<h2>Why do we need a mobile device</h2>
 
-<p>This may seem theoretical and something easy to patch but when you lump this information and the <a href="https://www.schneier.com/blog/archives/2015/02/gpg_financial_d.html">dire future that GPG has in front of it</a>, one may conclude that it&rsquo;s time to give up on GPG software completely. Ask yourself, what is an alternative OpenPGP implementation that you could use that isn&rsquo;t GPG? The answer should scare you when you consider the impact of a nation state targetting this software.</p>
+<p><span class='pullquote-right' data-pullquote='This dichotomy of liberation technology and privacy abandonment is a perfect example of the OPSEC struggle.'>
+OPSEC is not just restricting what you do and how you act, it&rsquo;s also coming up with solutions to figure out how to do things securely. We can&rsquo;t apply a unilateral security policy on other people or simply say &ldquo;Nope. You can&rsquo;t do that.&rdquo; There simply are people that need to be able to do things that may be risky. It&rsquo;s our job to learn about technology so that we can figure out ways to do what we need to do while taking OPSEC into account.</p>
 
-<h2>Key Attribution</h2>
+<p>Mobile is the best example of this problem. Mobile devices give us a powerful way of staying connected but we all know that a mobile device is basically a tracking device you willingly put in your pocket (and even worse than that). This dichotomy of liberation technology and privacy abandonment is a perfect example of the OPSEC struggle.
+</span></p>
 
-<p>Besides my normal gripes with OpenPGP, we have a new attack that is able to hurt those people that are trying to remain anonymous while using OpenPGP. Imagine if you will that you are off the grid, generating your GPG keys from a secure location, and completely compartmentalizing your OPSEC efforts. But you publish your keys so that others can communicate with you. And then you wake up and find an attack that is able to deduce the source of your keys.</p>
+<h2>What can Android offer</h2>
 
-<p>The reasearch from Petr Svenda called <a href="/files/sec16_paper_svenda.pdf">The Million Key Question … Origins of RSA Public Keys</a> the premise was that there are dozens of libraries that let you generate RSA keys and each of these libraries have subtle differences in how they generate these keys. These differences can be identified based on the properties of your public key.</p>
+<p>Android is not just a Linux computer in your pocket like many recite. Android is the most secure Linux environment whether or not it&rsquo;s in your pocket&hellip; but is also backdoored. Consider whether your Linux distro of choice supports these features:</p>
 
-<p>This results in being able to take anyone&rsquo;s public OpenPGP key, analyze it, and potentially determining the operating system and software used to generate that key pair. With this information attackers may be able to launch targeted attacks on your system or at least know what kind of software you&rsquo;re running. In the past, when there are fingerprinting attacks like this (e.g. Tor Browser), the best you can do is to try and get everyone to use the same software. There is obscurity in numbers. So should we recommend everyone just use GPG for all of their keys? This is in contrast to my suggestion above and may put you at an even greater risk because the alternatives will be relatively untested compared to GnuPG.</p>
+<ul>
+<li>Sandboxed isolation for every running application</li>
+<li>Hardware backed, forensic-resistant storage location for keys and passwords.</li>
+<li>Verification for all system partitions at boot</li>
+<li>Controlled application inter-process communication mechanism</li>
+<li>Egress firewall controls and alerts</li>
+<li>Controls over what an application can have access to</li>
+</ul>
 
-<p>If you want to try the analysis tool out yourself, you can use the online tool to classify someone&rsquo;s keys here:</p>
 
-<p><a href="https://www.fi.muni.cz/~xsekan/">https://www.fi.muni.cz/~xsekan/</a></p>
+<p>This checklist outlines many of the goals for <a href="https://subgraph.com/sgos/index.en.html">Subgraph OS</a>.</p>
 
-<p>For example, watch what happens what you use <a href="https://pgp.mit.edu/pks/lookup?op=get&amp;search=0xFA7F0E44D487F03F">Jacob Applebaum&rsquo;s</a> key in the above tool.</p>
+<h2>What are Android&rsquo;s problems</h2>
 
-<h2>What&rsquo;s Left</h2>
+<p>This is much harder to list. There are a ton of problems built into Android&rsquo;s core that need to be addressed.</p>
 
-<p>So should we get rid of GPG and make yourself fingerprintable? Keep using GPG but let attackers know which version you&rsquo;re running? Give up on OpenPGP completely? It&rsquo;s your accepted risk in the end. I will admit that these are difficult attacks to pull of that isn&rsquo;t going to happen from any skiddy, but it depends on your threat model. I&rsquo;m less concerned about these specific issues than I am with using crappy software for security purposes. If you&rsquo;re interested in drama, there are many people that believe that GPG&rsquo;s developer is a shill for NSA interests. Do your own research and check out a <a href="http://trilema.com/2016/werner-koch-confirmed-usg-stooge/">few of the examples</a>.</p>
+<ul>
+<li><em>Baseband</em>: all cellular devices have a baseband and no one knows what it does. This baseband can transmit your location and, even worse, has the ability to be a complete backdoor into the system.</li>
+<li><em>Network controls</em>: Android&rsquo;s base OS has no egress filtering. Any application that has received the appropriate permissions can access any remote host.</li>
+<li><em>Authentication controls</em>: Having a strong password on a laptop is easier than on a touch screen interface. So users will end up choosing numeric pins to protect sensitive data.</li>
+<li><em>Google</em>: Just the fact that in the end Google controls all of the code and the devices but promises to release it in itself is a risk.</li>
+<li><em>Others</em>: Google Play Store, WiFi scanning, binary blobs, vulnerable Linux kernels, &hellip; the list goes on.</li>
+</ul>
+
+
+<h2>What&rsquo;s the answer</h2>
+
+<p>Mike Perry outlines the problems and provides a less bleak perspective on the state of mobile thanks to <a href="https://copperhead.co/android">Copperhead OS</a>, the secure from-the-ground-up Android OS. Copperhead addresses many of the items above in itself. If you have a supported device, I suggest you take a look at flashing Copperhead today.</p>
+
+<p>The result is a phone:</p>
+
+<ul>
+<li>Anonymously routed through tor and enforced at the firewall/Netfilter level</li>
+<li>Modern Linux kernel with GRSEC PAX protections built in</li>
+<li>Firewall that grants users control over what an application can connect to</li>
+<li>OS Source built with modern hardening methods that the base Android OS never cared to implementation</li>
+</ul>
+
+
+<p>But what Tor Project is doing is the same as what they did to Firefox. They didn&rsquo;t fork the code, they cloned it to make the Tor Browser Bundle. The process that they outline for their super secure phone requires that you build from source and execute a variety of scripts but all do-able. They can&rsquo;t fix everything but this is major step in the right direction or at least a short term fix to make something that we can use today.</p>
 </div>
   
   
@@ -144,6 +180,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/12/10/man-vs-machine-learning/">Man vs Machine Learning</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/02/10/future-proofing-your-opsec-in-2017/">Future Proofing Your OPSEC in 2017</a>
@@ -179,10 +219,6 @@
     
       <li class="post">
         <a href="/blog/2016/04/11/let-openpgp-die/">Reasons to Let PGP Die #1: Metadata</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/04/08/internet-of-threats/">The Internet of Threats</a>
       </li>
     
   </ul>
